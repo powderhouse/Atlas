@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WelcomeController.swift
 //  atlas
 //
 //  Created by Alec Resnick on 11/15/17.
@@ -8,12 +8,16 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class WelcomeController: NSViewController, NSTextFieldDelegate {
 
+    @IBOutlet weak var emailField: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+
+        emailField.delegate = self
+        emailField.becomeFirstResponder()
     }
 
     override var representedObject: Any? {
@@ -21,7 +25,9 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    @IBAction func start(_ sender: NSButton) {
+        print(emailField.stringValue)
+    }
 }
 

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -703,10 +704,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Welcome Controller" id="XfG-lQ-9wD" customClass="WelcomeController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="314"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -720,21 +721,47 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efR-9O-mW1" userLabel="Email Form">
-                                <rect key="frame" x="0.0" y="221" width="400" height="17"/>
+                                <rect key="frame" x="20" y="165" width="360" height="73"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ddw-Vf-0OU">
-                                        <rect key="frame" x="-2" y="0.0" width="149" height="17"/>
+                                        <rect key="frame" x="-2" y="56" width="149" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please enter your email:" id="ahH-6k-iVa">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XIW-eE-g3v" userLabel="Email">
+                                        <rect key="frame" x="0.0" y="26" width="360" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Email" drawsBackground="YES" id="tdv-dm-O11">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NUf-yU-gZe">
+                                        <rect key="frame" x="0.0" y="-1" width="42" height="19"/>
+                                        <buttonCell key="cell" type="roundRect" title="Start" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4oT-MZ-XJY">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="cellTitle"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="start:" target="XfG-lQ-9wD" id="E1W-wR-a24"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="XIW-eE-g3v" firstAttribute="width" secondItem="efR-9O-mW1" secondAttribute="width" id="UVR-u1-zns"/>
+                                    <constraint firstItem="XIW-eE-g3v" firstAttribute="centerX" secondItem="efR-9O-mW1" secondAttribute="centerX" id="dmq-fG-fLv"/>
+                                </constraints>
                                 <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
@@ -743,10 +770,13 @@
                             <constraint firstItem="ptI-0m-CvQ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="2AM-Ye-h8u"/>
                             <constraint firstItem="ptI-0m-CvQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="K1D-kq-tFt"/>
                             <constraint firstItem="efR-9O-mW1" firstAttribute="top" secondItem="ptI-0m-CvQ" secondAttribute="bottom" constant="20" id="K6p-3m-h2h"/>
-                            <constraint firstItem="efR-9O-mW1" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" id="qQm-XQ-dEU"/>
+                            <constraint firstItem="efR-9O-mW1" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" multiplier="0.9" id="qQm-XQ-dEU"/>
                             <constraint firstItem="efR-9O-mW1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="zMg-0c-c8T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="XIW-eE-g3v" id="6Ga-lY-jQ7"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

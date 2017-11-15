@@ -29,8 +29,20 @@ class atlasUITests: XCTestCase {
     }
     
     func testInstallation() {
-        let app = XCUIApplication()
-        XCTAssert(app.staticTexts["Welcome!"].exists)
-        XCTAssert(app.staticTexts["Please enter your email:"].exists)
+        let window = XCUIApplication().windows["Window"]
+        XCTAssert(window.staticTexts["Welcome!"].exists)
+        XCTAssert(window.staticTexts["Please enter your email:"].exists)
+        
+        window.textFields["Email"].typeText("test@example.com")
+        window.buttons["Start"].click()
+
+        XCTAssert(window.staticTexts["Account: test@example.com"].exists)
+    }
+    
+    func testTest() {
+        let window = XCUIApplication().windows["Window"]
+        window.textFields["Email"].typeText("test@example.com")
+        window.buttons["Start"].click()
+        
     }
 }
