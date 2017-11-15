@@ -418,7 +418,7 @@
 				CODE_SIGN_ENTITLEMENTS = atlas/atlas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UGHPWNEYPH;
+				DEVELOPMENT_TEAM = WASH6HKS85;
 				INFOPLIST_FILE = atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlas;
@@ -434,7 +434,7 @@
 				CODE_SIGN_ENTITLEMENTS = atlas/atlas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UGHPWNEYPH;
+				DEVELOPMENT_TEAM = WASH6HKS85;
 				INFOPLIST_FILE = atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlas;
@@ -483,7 +483,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UGHPWNEYPH;
+				DEVELOPMENT_TEAM = YR46RFDS4W;
 				INFOPLIST_FILE = atlasUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlasUITests;
@@ -499,7 +499,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UGHPWNEYPH;
+				DEVELOPMENT_TEAM = YR46RFDS4W;
 				INFOPLIST_FILE = atlasUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlasUITests;

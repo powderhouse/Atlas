@@ -28,9 +28,9 @@ class atlasUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInstallation() {
+        let app = XCUIApplication()
+        XCTAssert(app.staticTexts["Welcome!"].exists)
+        XCTAssert(app.staticTexts["Please enter your email:"].exists)
     }
-    
 }
