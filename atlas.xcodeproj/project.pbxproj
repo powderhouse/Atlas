@@ -13,6 +13,7 @@
 		2BCB0DC81FBC15320044C117 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB0DC61FBC15320044C117 /* Main.storyboard */; };
 		2BCB0DD41FBC15320044C117 /* atlasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB0DD31FBC15320044C117 /* atlasTests.swift */; };
 		2BCB0DDF1FBC15320044C117 /* atlasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB0DDE1FBC15320044C117 /* atlasUITests.swift */; };
+		3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		2BCB0DDA1FBC15320044C117 /* atlasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atlasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCB0DDE1FBC15320044C117 /* atlasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atlasUITests.swift; sourceTree = "<group>"; };
 		2BCB0DE01FBC15320044C117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				2BCB0DC61FBC15320044C117 /* Main.storyboard */,
 				2BCB0DC91FBC15320044C117 /* Info.plist */,
 				2BCB0DCA1FBC15320044C117 /* atlas.entitlements */,
+				3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */,
 			);
 			path = atlas;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BCB0DC31FBC15320044C117 /* WelcomeController.swift in Sources */,
+				3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */,
 				2BCB0DC11FBC15320044C117 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +422,7 @@
 				CODE_SIGN_ENTITLEMENTS = atlas/atlas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = WASH6HKS85;
+				DEVELOPMENT_TEAM = YR46RFDS4W;
 				INFOPLIST_FILE = atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlas;
@@ -434,7 +438,7 @@
 				CODE_SIGN_ENTITLEMENTS = atlas/atlas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = WASH6HKS85;
+				DEVELOPMENT_TEAM = YR46RFDS4W;
 				INFOPLIST_FILE = atlas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlas;
@@ -450,7 +454,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UGHPWNEYPH;
+				DEVELOPMENT_TEAM = YR46RFDS4W;
 				INFOPLIST_FILE = atlasTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlasTests;
@@ -467,7 +471,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UGHPWNEYPH;
+				DEVELOPMENT_TEAM = YR46RFDS4W;
 				INFOPLIST_FILE = atlasTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.powderhs.atlasTests;

@@ -746,7 +746,7 @@
                                             <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="start:" target="XfG-lQ-9wD" id="E1W-wR-a24"/>
+                                            <segue destination="Xad-Yi-ihp" kind="show" identifier="main-segue" id="YFu-Cd-MTO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -781,6 +781,37 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="794"/>
+        </scene>
+        <!--Main Controller-->
+        <scene sceneID="avG-US-uhw">
+            <objects>
+                <viewController title="Main Controller" id="Xad-Yi-ihp" customClass="MainController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="WZC-VZ-LFR">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-7h-H2I">
+                                <rect key="frame" x="-2" y="263" width="454" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Email" id="ch6-dH-mhW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="F5P-7h-H2I" firstAttribute="top" secondItem="WZC-VZ-LFR" secondAttribute="top" constant="20" id="5bd-Jh-6gB"/>
+                            <constraint firstItem="F5P-7h-H2I" firstAttribute="centerX" secondItem="WZC-VZ-LFR" secondAttribute="centerX" id="dNz-c2-thG"/>
+                            <constraint firstItem="F5P-7h-H2I" firstAttribute="width" secondItem="WZC-VZ-LFR" secondAttribute="width" id="zFr-RR-aG1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="F5P-7h-H2I" id="i0s-Q2-YRu"/>
+                    </connections>
+                </viewController>
+                <customObject id="nUe-xI-SjP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="1200"/>
         </scene>
     </scenes>
 </document>

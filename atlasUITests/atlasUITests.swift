@@ -36,13 +36,7 @@ class atlasUITests: XCTestCase {
         window.textFields["Email"].typeText("test@example.com")
         window.buttons["Start"].click()
 
-        XCTAssert(window.staticTexts["Account: test@example.com"].exists)
-    }
-    
-    func testTest() {
-        let window = XCUIApplication().windows["Window"]
-        window.textFields["Email"].typeText("test@example.com")
-        window.buttons["Start"].click()
-        
-    }
+        let main = XCUIApplication().windows["Main"]
+        XCTAssert(main.staticTexts["Account: test@example.com"].exists)
+    }    
 }

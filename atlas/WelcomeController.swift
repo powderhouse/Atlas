@@ -26,8 +26,11 @@ class WelcomeController: NSViewController, NSTextFieldDelegate {
         }
     }
     
-    @IBAction func start(_ sender: NSButton) {
-        print(emailField.stringValue)
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier?.rawValue == "main-segue" {
+            let dvc = segue.destinationController as! MainController
+            dvc.email = emailField.stringValue
+        }
     }
 }
 
