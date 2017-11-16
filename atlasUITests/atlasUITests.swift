@@ -29,14 +29,17 @@ class atlasUITests: XCTestCase {
     }
     
     func testInstallation() {
-        let window = XCUIApplication().windows["Window"]
-        XCTAssert(window.staticTexts["Welcome!"].exists)
-        XCTAssert(window.staticTexts["Please enter your email:"].exists)
-        
-        window.textFields["Email"].typeText("test@example.com")
-        window.buttons["Start"].click()
+        let app = XCUIApplication()
 
-        let main = XCUIApplication().windows["Main"]
-        XCTAssert(main.staticTexts["Account: test@example.com"].exists)
-    }    
+        let accountModal = app.dialogs["Account Controller"]
+        XCTAssert(accountModal.staticTexts["Welcome!"].exists)
+        XCTAssert(accountModal.staticTexts["Please enter your email:"].exists)
+        
+        accountModal.textFields["Email"].typeText("test@example.com")
+        accountModal.buttons["Save"].click()
+
+        let window = XCUIApplication().windows["Window"]
+        XCTAssert(window.staticTexts["Account: test@example.com"].exists)
+    }
+    
 }

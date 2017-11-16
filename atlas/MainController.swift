@@ -21,7 +21,7 @@ class MainController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         if email == nil {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
