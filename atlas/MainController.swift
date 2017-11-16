@@ -10,7 +10,11 @@ import Cocoa
 
 class MainController: NSViewController {
     
-    var email: String!
+    var email: String? {
+        didSet {
+            updateHeader()
+        }
+    }
     
     @IBOutlet weak var emailLabel: NSTextField!
     
@@ -18,7 +22,14 @@ class MainController: NSViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        emailLabel.stringValue = "Account: \(email!)"
+        if email == nil {
+            performSegue(
+                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
+                sender: self
+            )
+        } else {
+            updateHeader()
+        }
     }
     
     override var representedObject: Any? {
@@ -27,6 +38,23 @@ class MainController: NSViewController {
         }
     }
     
+    func updateHeader() {
+        if let definedEmail = email {
+            emailLabel.stringValue = "Account: \(definedEmail)"
+        } else {
+            emailLabel.stringValue = "Account"
+        }
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier?.rawValue == "account-modal" {
+            let dvc = segue.destinationController as! AccountController
+            if email != nil {
+                dvc.emailField.stringValue = email!
+            }
+            dvc.mainController = self
+        }
+    }
 }
 
 

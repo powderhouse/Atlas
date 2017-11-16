@@ -1,5 +1,5 @@
 //
-//  WelcomeController.swift
+//  AccountController.swift
 //  atlas
 //
 //  Created by Alec Resnick on 11/15/17.
@@ -8,9 +8,11 @@
 
 import Cocoa
 
-class WelcomeController: NSViewController, NSTextFieldDelegate {
+class AccountController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet weak var emailField: NSTextField!
+    
+    weak var mainController: MainController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +28,10 @@ class WelcomeController: NSViewController, NSTextFieldDelegate {
         }
     }
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier?.rawValue == "main-segue" {
-            let dvc = segue.destinationController as! MainController
-            dvc.email = emailField.stringValue
-        }
+    @IBAction func save(_ sender: NSButtonCell) {
+        mainController.email = emailField.stringValue
+        self.dismiss(nil)
     }
+    
 }
 

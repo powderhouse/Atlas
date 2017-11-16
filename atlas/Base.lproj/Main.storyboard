@@ -689,25 +689,24 @@
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="159" y="449" width="480" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="Xad-Yi-ihp" kind="relationship" relationship="window.shadowedContentViewController" id="6nf-7c-MVl"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Welcome Controller-->
+        <!--Account Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Welcome Controller" id="XfG-lQ-9wD" customClass="WelcomeController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Account Controller" id="XfG-lQ-9wD" customClass="AccountController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="314"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -741,13 +740,13 @@
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NUf-yU-gZe">
                                         <rect key="frame" x="0.0" y="-1" width="42" height="19"/>
-                                        <buttonCell key="cell" type="roundRect" title="Start" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4oT-MZ-XJY">
+                                        <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4oT-MZ-XJY">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
+                                            <connections>
+                                                <action selector="save:" target="XfG-lQ-9wD" id="0jV-nW-EXB"/>
+                                            </connections>
                                         </buttonCell>
-                                        <connections>
-                                            <segue destination="Xad-Yi-ihp" kind="show" identifier="main-segue" id="YFu-Cd-MTO"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -775,12 +774,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="XIW-eE-g3v" id="6Ga-lY-jQ7"/>
+                        <outlet property="emailField" destination="XIW-eE-g3v" id="3ES-ZQ-JZt"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="794"/>
+            <point key="canvasLocation" x="-465" y="836"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="avG-US-uhw">
@@ -807,11 +806,12 @@
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="F5P-7h-H2I" id="i0s-Q2-YRu"/>
+                        <segue destination="XfG-lQ-9wD" kind="modal" identifier="account-modal" id="eHd-PJ-AXv"/>
                     </connections>
                 </viewController>
                 <customObject id="nUe-xI-SjP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="1200"/>
+            <point key="canvasLocation" x="75" y="836"/>
         </scene>
     </scenes>
 </document>
