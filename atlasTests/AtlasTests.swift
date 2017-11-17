@@ -9,7 +9,7 @@
 import XCTest
 @testable import atlas
 
-class atlasTests: XCTestCase {
+class AtlasTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

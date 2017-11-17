@@ -8,7 +8,7 @@
 
 import XCTest
 
-class atlasUITests: XCTestCase {
+class AtlasUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -40,6 +40,10 @@ class atlasUITests: XCTestCase {
 
         let window = XCUIApplication().windows["Window"]
         XCTAssert(window.staticTexts["Account: test@example.com"].exists)
+    }
+    
+    func testInitialFolderIsCreated() {
+        
     }
     
 }

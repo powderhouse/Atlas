@@ -30,6 +30,8 @@ class MainController: NSViewController {
         } else {
             updateHeader()
         }
+        
+        print(FileSystem.userDesktopDirectory())
     }
     
     override var representedObject: Any? {
