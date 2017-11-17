@@ -30,9 +30,34 @@ class FileSystem {
         return appDirectory!
     }
 
-    class func userDesktopDirectory() -> URL {
-        let paths = NSSearchPathForDirectoriesInDomains(.desktopDirectory, .userDomainMask, true)
+    class func baseDirectory() -> URL {
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         return URL(fileURLWithPath: paths[0])
+    }
+    
+    class func createDirectory(_ name: String) -> Bool {
+        let url = baseDirectory().appendingPathComponent(name)
+        let fileManager = FileManager.default
+        
+//        if fileManager.fileExists(
+//                atPath: url.path,
+//                isDirectory: &isDir
+//            ) {
+//            return true
+//        }
+        
+        do {
+            try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+
+            var isDir : ObjCBool = false
+            return fileManager.fileExists(
+                atPath: url.path,
+                isDirectory: &isDir
+            )
+        } catch {
+            print("Caught: \(error)")
+            return false
+        }
     }
 }
 

@@ -31,7 +31,8 @@ class MainController: NSViewController {
             updateHeader()
         }
         
-        print(FileSystem.userDesktopDirectory())
+        print(FileSystem.baseDirectory())
+        _ = FileSystem.createDirectory("Atlas")
     }
     
     override var representedObject: Any? {
