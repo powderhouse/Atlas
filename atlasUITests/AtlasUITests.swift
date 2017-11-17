@@ -40,10 +40,7 @@ class AtlasUITests: XCTestCase {
 
         let window = XCUIApplication().windows["Window"]
         XCTAssert(window.staticTexts["Account: test@example.com"].exists)
+        XCTAssert(window.buttons["+"].exists)
     }
-    
-    func testInitialFolderIsCreated() {
         
-    }
-    
 }

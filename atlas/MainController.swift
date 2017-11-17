@@ -16,6 +16,7 @@ class MainController: NSViewController {
         }
     }
     
+    @IBOutlet weak var addProjectButton: NSButton!
     @IBOutlet weak var emailLabel: NSTextField!
     
     override func viewDidLoad() {
@@ -31,7 +32,6 @@ class MainController: NSViewController {
             updateHeader()
         }
         
-        print(FileSystem.baseDirectory())
         _ = FileSystem.createDirectory("Atlas")
     }
     
