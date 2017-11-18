@@ -21,6 +21,15 @@ class AtlasUITests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        
+        let app = XCUIApplication()
+        
+        let accountModal = app.dialogs["Account Controller"]
+        XCTAssert(accountModal.staticTexts["Welcome!"].exists)
+        XCTAssert(accountModal.staticTexts["Please enter your email:"].exists)
+        
+        accountModal.textFields["Email"].typeText("test@example.com")
+        accountModal.buttons["Save"].click()
     }
     
     override func tearDown() {
@@ -29,18 +38,15 @@ class AtlasUITests: XCTestCase {
     }
     
     func testInstallation() {
-        let app = XCUIApplication()
-
-        let accountModal = app.dialogs["Account Controller"]
-        XCTAssert(accountModal.staticTexts["Welcome!"].exists)
-        XCTAssert(accountModal.staticTexts["Please enter your email:"].exists)
-        
-        accountModal.textFields["Email"].typeText("test@example.com")
-        accountModal.buttons["Save"].click()
-
         let window = XCUIApplication().windows["Window"]
         XCTAssert(window.staticTexts["Account: test@example.com"].exists)
         XCTAssert(window.buttons["+"].exists)
+    }
+    
+    func testNewProject() {
+        let window = XCUIApplication().windows["Window"]
+        window.buttons["+"].click()
+        XCTAssert(window.staticTexts["New Project"].exists)
     }
         
 }

@@ -16,6 +16,7 @@
 		3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */; };
 		3AC03DA11FBE00B1007077AE /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA01FBE00B1007077AE /* FileSystem.swift */; };
 		3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */; };
+		3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		3AC03DA01FBE00B1007077AE /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
 		3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemTests.swift; sourceTree = "<group>"; };
+		3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				2BCB0DC21FBC15320044C117 /* AccountController.swift */,
 				2BCB0DC41FBC15320044C117 /* Assets.xcassets */,
 				2BCB0DC61FBC15320044C117 /* Main.storyboard */,
+				3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */,
 				2BCB0DC91FBC15320044C117 /* Info.plist */,
 				2BCB0DCA1FBC15320044C117 /* atlas.entitlements */,
 				3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AC03DA11FBE00B1007077AE /* FileSystem.swift in Sources */,
+				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,
 				3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */,
 				2BCB0DC11FBC15320044C117 /* AppDelegate.swift in Sources */,

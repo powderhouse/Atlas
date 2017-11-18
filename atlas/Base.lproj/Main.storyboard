@@ -804,6 +804,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="60"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="Ddk-ax-eSa" kind="popover" identifier="new-project-modal" popoverAnchorView="0og-BS-53u" popoverBehavior="t" preferredEdge="maxY" id="9dc-TR-BCa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -821,6 +824,34 @@
                 <customObject id="nUe-xI-SjP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="836"/>
+        </scene>
+        <!--New Project Controller-->
+        <scene sceneID="g3H-M6-u7Y">
+            <objects>
+                <viewController title="New Project Controller" id="Ddk-ax-eSa" customClass="NewProjectController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="LVU-FI-5Vx">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aF3-SM-5vE">
+                                <rect key="frame" x="-2" y="263" width="454" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="New Project" id="rs7-Nv-IdJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aF3-SM-5vE" firstAttribute="top" secondItem="LVU-FI-5Vx" secondAttribute="top" constant="20" id="3dv-Fy-BIE"/>
+                            <constraint firstItem="aF3-SM-5vE" firstAttribute="centerX" secondItem="LVU-FI-5Vx" secondAttribute="centerX" id="FcD-yj-3iU"/>
+                            <constraint firstItem="aF3-SM-5vE" firstAttribute="width" secondItem="LVU-FI-5Vx" secondAttribute="width" id="vXP-Ij-NZi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="8Ph-iV-6fn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="836"/>
         </scene>
     </scenes>
 </document>
