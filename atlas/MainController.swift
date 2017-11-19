@@ -28,7 +28,7 @@ class MainController: NSViewController {
         Glue.installS3()
         
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
-            FileSystem.removeBaseDirectory()
+            Testing.setup()
         }
 
         // Do any additional setup after loading the view.

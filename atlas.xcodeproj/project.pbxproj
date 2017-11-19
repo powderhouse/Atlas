@@ -19,6 +19,7 @@
 		3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */; };
 		3AC03DA91FC1C4CB007077AE /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA81FC1C4CB007077AE /* Glue.swift */; };
 		3AC03DAB1FC1C868007077AE /* GlueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DAA1FC1C868007077AE /* GlueTests.swift */; };
+		3AC03DAD1FC1E6A8007077AE /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DAC1FC1E6A8007077AE /* Testing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
 		3AC03DA81FC1C4CB007077AE /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
 		3AC03DAA1FC1C868007077AE /* GlueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlueTests.swift; sourceTree = "<group>"; };
+		3AC03DAC1FC1E6A8007077AE /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */,
 				3AC03DA01FBE00B1007077AE /* FileSystem.swift */,
 				3AC03DA81FC1C4CB007077AE /* Glue.swift */,
+				3AC03DAC1FC1E6A8007077AE /* Testing.swift */,
 			);
 			path = atlas;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AC03DA91FC1C4CB007077AE /* Glue.swift in Sources */,
+				3AC03DAD1FC1E6A8007077AE /* Testing.swift in Sources */,
 				3AC03DA11FBE00B1007077AE /* FileSystem.swift in Sources */,
 				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,

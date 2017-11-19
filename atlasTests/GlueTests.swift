@@ -9,6 +9,38 @@
 import XCTest
 @testable import atlas
 
+class TestProcess: Process {
+    let process = Process()
+    
+    override var standardOutput: Any? {
+        get { return "" }
+        set {}
+    }
+
+//    override var launchPath: String? {
+//        get { return "" }
+//        set(lp) { super.launchPath = lp }
+//    }
+
+    override var arguments: [String]? {
+        get { return [""] }
+        set {}
+    }
+    
+    override func launch() {
+//        let p = Process()
+//        p.wait
+        print("LAUNCH: \(launchPath ?? "N/A")")
+        super.launchPath = "/bin/ls"
+        super.launch()
+    }
+
+    override func waitUntilExit() {
+        super.waitUntilExit()
+    }
+
+}
+
 class GlueTests: XCTestCase {
 
     override func setUp() {
@@ -24,6 +56,14 @@ class GlueTests: XCTestCase {
     func testRunProcess() {
         let output = Glue.runProcess("/bin/bash", arguments: ["-c", "ls"])
         XCTAssert(output.range(of: "Desktop") != nil)
+    }
+    
+    func testInstallHomebrew() {
+        let config = GlueConfiguration(providedProcess: TestProcess(), providedPipe: Pipe())
+        Glue.runProcess("command", arguments: [], config: config)
+    }
+    
+    func testInstallS3Cmd() {
     }
 
     func testPerformanceExample() {

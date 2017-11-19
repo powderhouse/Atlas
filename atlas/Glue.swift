@@ -8,11 +8,23 @@
 
 import Foundation
 
+struct GlueConfiguration {
+    let process: Process!
+    let pipe: Pipe!
+
+//    let installed = [String: Bool]
+
+    init(providedProcess: Process=Process(), providedPipe: Pipe=Pipe()) {
+        process = providedProcess
+        pipe = providedPipe
+    }
+}
+
 class Glue {
     
-    class func runProcess(_ command: String, arguments: [String]) -> String {
-        let process = Process()
-        let pipe = Pipe()
+    class func runProcess(_ command: String, arguments: [String], config: GlueConfiguration=GlueConfiguration()) -> String {
+        let process = config.process!
+        let pipe = config.pipe!
         process.standardOutput = pipe
         
         process.launchPath = command
@@ -27,8 +39,13 @@ class Glue {
         return String(data: data, encoding: String.Encoding.utf8) as String!
     }
     
+    class func installHomebrew() {
+        ///usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    }
+    
     class func installS3() {
 //        print(Glue.run("/bin/bash", arguments: ["-c", "ls"]))
+        installHomebrew()
     }
     
     
