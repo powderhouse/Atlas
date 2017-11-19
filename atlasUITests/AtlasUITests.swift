@@ -43,7 +43,7 @@ class AtlasUITests: XCTestCase {
     }
     
     func testInstallation() {
-        let window = XCUIApplication().windows["Window"]
+        let window = app.windows["Window"]
         XCTAssert(window.staticTexts["Account: test@example.com"].exists)
         XCTAssert(window.buttons["+"].exists)
     }
@@ -53,12 +53,12 @@ class AtlasUITests: XCTestCase {
         app.launchEnvironment["TESTING"] = nil
         app.launch()
         
-        let window = XCUIApplication().windows["Window"]
+        let window = app.windows["Window"]
         XCTAssert(window.staticTexts["Account: test@example.com"].exists)
     }
     
     func testNewProject() {
-        let window = XCUIApplication().windows["Window"]
+        let window = app.windows["Window"]
         window.buttons["+"].click()
         XCTAssert(window.staticTexts["New Project"].exists)
     }

@@ -9,15 +9,13 @@
 import XCTest
 @testable import atlas
 
-struct Configuration {
-    static let atlasDirectory = "AtlasTest"
-}
-
 class FileSystemTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+        Configuration.atlasDirectory = "AtlasTest"
     }
     
     override func tearDown() {
