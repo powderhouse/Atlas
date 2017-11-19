@@ -25,6 +25,8 @@ class MainController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Glue.installS3()
+        
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             FileSystem.removeBaseDirectory()
         }
