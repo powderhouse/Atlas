@@ -57,7 +57,8 @@ class FileSystem {
     
     class func account() -> String? {
         let fileManager = FileManager.default
-        let contents = try? fileManager.contentsOfDirectory(atPath: baseDirectory().path)
+        let baseDirectoryPath = baseDirectory().path
+        let contents = try? fileManager.contentsOfDirectory(atPath: baseDirectoryPath)
        
         if contents == nil || contents!.count == 0 {
             return nil

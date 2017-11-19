@@ -49,10 +49,10 @@ class AtlasUITests: XCTestCase {
     }
     
     func testPersistence() {
+        app.terminate()
         app.launchEnvironment["TESTING"] = nil
-
-        XCUIApplication().terminate()
-        XCUIApplication().launch()
+        app.launch()
+        
         let window = XCUIApplication().windows["Window"]
         XCTAssert(window.staticTexts["Account: test@example.com"].exists)
     }

@@ -12,10 +12,10 @@ class MainController: NSViewController {
     
     var email: String? {
         didSet {
-            updateHeader()
             if email != nil {
                 _ = FileSystem.createAccount(email!)
             }
+            updateHeader()
         }
     }
     
