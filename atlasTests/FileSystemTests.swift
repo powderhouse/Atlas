@@ -14,10 +14,19 @@ class FileSystemTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+        Configuration.atlasDirectory = "AtlasTest"
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        let fileManager = FileManager.default
+        let mainFolder = FileSystem.baseDirectory()
+        do {
+            try fileManager.removeItem(at: mainFolder)
+        } catch {}
+        
         super.tearDown()
     }
 
@@ -30,31 +39,33 @@ class FileSystemTests: XCTestCase {
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
 
-        let mainFolderPath = FileSystem.baseDirectory().appendingPathComponent("Atlas")
-
-        do {
-            try fileManager.removeItem(at: mainFolderPath)
-        } catch {}
+        let mainFolder = FileSystem.baseDirectory()
+        let newFolder = mainFolder.appendingPathComponent("folder")
 
         let prefolder = fileManager.fileExists(
-            atPath: mainFolderPath.path,
+            atPath: newFolder.path,
             isDirectory: &isDir
         )
         
         XCTAssertFalse(prefolder, "Folder already exists")
         
-        _ = FileSystem.createDirectory("Atlas")
+        _ = FileSystem.createDirectory("folder")
         
         let folder = fileManager.fileExists(
-            atPath: mainFolderPath.path,
+            atPath: newFolder.path,
             isDirectory: &isDir
         )
         XCTAssertTrue(folder, "Folder was not successfully created")
     }
 
     func testCreateFolder_withExistingFolder() {
-        _ = FileSystem.createDirectory("Atlas")
-        XCTAssertTrue(FileSystem.createDirectory("Atlas"))
+        _ = FileSystem.createDirectory("directory")
+        XCTAssertTrue(FileSystem.createDirectory("directory"))
+    }
+    
+    func testAccount() {
+        _ = FileSystem.createDirectory("test.example@example.com")
+        XCTAssertEqual(FileSystem.account(), "test.example@example.com", "emails do not match") 
     }
 
 }

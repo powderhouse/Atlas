@@ -12,6 +12,9 @@ class MainController: NSViewController {
     
     var email: String? {
         didSet {
+            if email != nil {
+                _ = FileSystem.createAccount(email!)
+            }
             updateHeader()
         }
     }
@@ -21,8 +24,14 @@ class MainController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            FileSystem.removeBaseDirectory()
+        }
 
+        // Do any additional setup after loading the view.
+        email = FileSystem.account()
+        
         if email == nil {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
@@ -31,8 +40,6 @@ class MainController: NSViewController {
         } else {
             updateHeader()
         }
-        
-        _ = FileSystem.createDirectory("Atlas")
     }
     
     override var representedObject: Any? {
