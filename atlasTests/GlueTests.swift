@@ -9,6 +9,7 @@
 import XCTest
 @testable import atlas
 
+
 class TestProcess: Process {
     let process = Process()
     
@@ -17,10 +18,10 @@ class TestProcess: Process {
         set {}
     }
 
-//    override var launchPath: String? {
-//        get { return "" }
-//        set(lp) { super.launchPath = lp }
-//    }
+    override var launchPath: String? {
+        get { return "" }
+        set(lp) { super.launchPath = lp }
+    }
 
     override var arguments: [String]? {
         get { return [""] }
