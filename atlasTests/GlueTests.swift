@@ -10,8 +10,23 @@ import XCTest
 @testable import atlas
 
 
-//class MockProcess: AtlasProcess {
-//}
+class MockProcess: AtlasProcess {
+    var currentDirectoryURL: URL?
+
+    var executableURL: URL?
+    
+    var arguments: [String]?
+    
+    var commandResults: [String: String] = [:]
+    
+    var output: String?
+    
+    func runAndWait() -> String {
+//        executableURL    URL?    "locate%20Homebrew -- ile:///Users/jcosulich/Library/Containers/com.powderhs.atlas/Data/"    some
+        output = commandResults["executableURL"]!
+        return commandResults["executableURL"]!
+    }
+}
 
 class GlueTests: XCTestCase {
 
@@ -29,13 +44,24 @@ class GlueTests: XCTestCase {
         let output = Glue.runProcess("/bin/bash", arguments: ["-c", "ls"])
         XCTAssert(output.range(of: "Desktop") != nil)
     }
-    
+
     func testInstallHomebrew() {
-//        let config = GlueConfiguration(atlasProcess: MockProcess(), providedPipe: Pipe())
-//        Glue.runProcess("command", arguments: [], config: config, completion: {
-//            result in
-//            print(result)
-//        })
+        let findProcess = MockProcess()
+        findProcess.commandResults["locate Homebrew"] = ""
+        
+        let installProcess = MockProcess()
+        let installCommand = Glue.installCommands["homebrew"]!
+        installProcess.commandResults[installCommand] = "success"
+
+        Glue.installHomebrew(find: findProcess, install: installProcess)
+        XCTAssertEqual(installProcess.output, "success")
+    }
+
+    func testInstallHomebrew__alreadyInstalled() {
+        let findProcess = MockProcess()
+        let installProcess = MockProcess()
+        Glue.installHomebrew(find: findProcess, install: installProcess)
+        XCTAssertNil(installProcess.executableURL)
     }
     
     func testInstallS3Cmd() {

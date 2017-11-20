@@ -25,7 +25,7 @@ class MainController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Glue.installS3()
+//        Glue.installHomebrew()
         
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             Testing.setup()
