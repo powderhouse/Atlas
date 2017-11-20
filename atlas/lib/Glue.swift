@@ -9,13 +9,13 @@
 import Foundation
 
 struct GlueConfiguration {
-    let process: Process!
+    let process: AtlasProcess!
     let pipe: Pipe!
 
 //    let installed = [String: Bool]
 
-    init(providedProcess: Process=Process(), providedPipe: Pipe=Pipe()) {
-        process = providedProcess
+    init(atlasProcess: AtlasProcess=Process(), providedPipe: Pipe=Pipe()) {
+        process = atlasProcess
         pipe = providedPipe
     }
 }
@@ -23,18 +23,22 @@ struct GlueConfiguration {
 class Glue {
     
     class func runProcess(_ command: String, arguments: [String], config: GlueConfiguration=GlueConfiguration()) -> String {
-        let process = config.process!
+        var process = config.process!
         let pipe = config.pipe!
-        process.standardOutput = pipe
-        
-        process.launchPath = command
+
+        process.executableURL = NSURL(fileURLWithPath: command).absoluteURL
         process.arguments = arguments
+        process.standardOutput = pipe
+
+        do {
+            try process.run()
+        } catch {
+            return "Error: \(error)"
+        }
         
-        let file:FileHandle = pipe.fileHandleForReading
-        
-        process.launch()
         process.waitUntilExit()
-        
+
+        let file:FileHandle = pipe.fileHandleForReading
         let data =  file.readDataToEndOfFile()
         return String(data: data, encoding: String.Encoding.utf8) as String!
     }
