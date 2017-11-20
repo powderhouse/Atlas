@@ -25,13 +25,12 @@ class MainController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        Glue.installHomebrew()
-        
+        // Do any additional setup after loading the view.
+
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             Testing.setup()
         }
-
-        // Do any additional setup after loading the view.
+        
         email = FileSystem.account()
         
         if email == nil {
