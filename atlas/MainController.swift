@@ -25,13 +25,12 @@ class MainController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Glue.installS3()
-        
-        if ProcessInfo.processInfo.environment["TESTING"] != nil {
-            FileSystem.removeBaseDirectory()
-        }
-
         // Do any additional setup after loading the view.
+
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            Testing.setup()
+        }
+        
         email = FileSystem.account()
         
         if email == nil {
