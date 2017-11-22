@@ -67,6 +67,13 @@ class FileSystem {
         }
     }
     
+    class func accountDirectory() -> URL? {
+        if let accountFolder = account() {
+            return baseDirectory().appendingPathComponent(accountFolder)
+        }
+        return nil
+    }
+    
 }
 
 
