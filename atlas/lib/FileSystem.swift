@@ -26,8 +26,8 @@ class FileSystem {
         } catch {}
     }
     
-    class func createDirectory(_ name: String) -> Bool {
-        let url = baseDirectory().appendingPathComponent(name)
+    class func createDirectory(_ name: String, inDirectory: URL=baseDirectory()) -> Bool {
+        let url = inDirectory.appendingPathComponent(name)
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
 

@@ -42,7 +42,7 @@ class MainController: NSViewController {
             updateHeader()
         }
         
-        Glue.installHomebrew()
+//        Glue.installHomebrew()
     }
     
     override var representedObject: Any? {

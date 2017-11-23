@@ -28,11 +28,10 @@ class AtlasUITests: XCTestCase {
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
         let accountModal = app.dialogs["Account Controller"]
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         XCTAssert(accountModal.staticTexts["Please enter your email:"].exists)
-        
+
         accountModal.textFields["Email"].typeText("test@example.com")
         accountModal.buttons["Save"].click()
     }

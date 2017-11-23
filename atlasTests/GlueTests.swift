@@ -13,25 +13,6 @@
 import XCTest
 @testable import atlas
 
-
-class MockProcess: AtlasProcess {
-    var currentDirectoryURL: URL?
-
-    var executableURL: URL?
-    
-    var arguments: [String]?
-    
-    var commandResults: [String: String] = [:]
-    
-    var output: String?
-    
-    func runAndWait() -> String {
-//        executableURL    URL?    "locate%20Homebrew -- ile:///Users/jcosulich/Library/Containers/com.powderhs.atlas/Data/"    some
-        output = commandResults["executableURL"]!
-        return commandResults["executableURL"]!
-    }
-}
-
 class GlueTests: XCTestCase {
 
     override func setUp() {
@@ -45,8 +26,8 @@ class GlueTests: XCTestCase {
     }
 
     func testRunProcess() {
-        let output = Glue.runProcess("/bin/bash", arguments: ["-c", "ls"])
-        XCTAssert(output.range(of: "Desktop") != nil)
+        let output = Glue.runProcess("/usr/bin/git", arguments: ["-c", "ls"])
+        XCTAssert(output.range(of: "usage: git") != nil, "\(output) should contain 'usage: git'")
     }
 
 //    func testInstallHomebrew() {

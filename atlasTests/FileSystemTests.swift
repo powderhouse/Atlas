@@ -32,7 +32,7 @@ class FileSystemTests: XCTestCase {
 
     func testBaseDirectory() {
         let baseDirectory = FileSystem.baseDirectory().relativeString
-        XCTAssert(baseDirectory.range(of: "com.powderhs.atlas") != nil)
+        XCTAssert(baseDirectory.range(of: "Support/Atlas") != nil, "\(baseDirectory) does not contain 'com.powderhs.atlas'")
     }
     
     func testCreateFolder() {
