@@ -26,3 +26,16 @@ class MockProcess: AtlasProcess {
         return commandResults["executableURL"]!
     }
 }
+
+class MockProcessFactory: AtlasProcessFactory {
+    var processes: [MockProcess] = []
+    
+    init() {
+    }
+    
+    func build() -> AtlasProcess {
+        let process = MockProcess()
+        processes.append(process)
+        return process
+    }
+}

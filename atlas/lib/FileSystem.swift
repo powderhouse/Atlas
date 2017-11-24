@@ -26,33 +26,30 @@ class FileSystem {
         } catch {}
     }
     
-    class func createDirectory(_ name: String, inDirectory: URL=baseDirectory()) -> Bool {
+    class func createDirectory(_ name: String, inDirectory: URL=baseDirectory()) -> URL? {
         let url = inDirectory.appendingPathComponent(name)
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
 
-        if fileManager.fileExists(
-                atPath: url.path,
-                isDirectory: &isDir
-            ) {
-            return true
+        if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+            return url
         }
         
         do {
             try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
 
-            return fileManager.fileExists(
-                atPath: url.path,
-                isDirectory: &isDir
-            )
+            if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+                return url
+            }
         } catch {
             print("Caught: \(error)")
-            return false
         }
+        
+        return nil
     }
     
     class func createAccount(_ email: String) -> Bool {
-        return FileSystem.createDirectory(email)
+        return FileSystem.createDirectory(email) != nil
     }
     
     class func account() -> String? {

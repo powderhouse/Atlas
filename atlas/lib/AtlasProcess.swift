@@ -6,6 +6,10 @@ protocol AtlasProcess {
     func runAndWait() -> String
 }
 
+protocol AtlasProcessFactory {
+    func build() -> AtlasProcess
+}
+
 extension Process: AtlasProcess {
     func runAndWait() -> String {
         let pipe = Pipe()
@@ -22,6 +26,13 @@ extension Process: AtlasProcess {
         let data =  file.readDataToEndOfFile()
         return String(data: data, encoding: String.Encoding.utf8) as String!
     }
-    
 }
 
+class ProcessFactory: AtlasProcessFactory {
+    init() {
+    }
+    
+    func build() -> AtlasProcess {
+        return Process()
+    }
+}

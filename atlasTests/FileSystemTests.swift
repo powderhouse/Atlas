@@ -60,7 +60,7 @@ class FileSystemTests: XCTestCase {
 
     func testCreateFolder_withExistingFolder() {
         _ = FileSystem.createDirectory("directory")
-        XCTAssertTrue(FileSystem.createDirectory("directory"))
+        XCTAssertNotNil(FileSystem.createDirectory("directory"))
     }
     
     func testAccount() {
