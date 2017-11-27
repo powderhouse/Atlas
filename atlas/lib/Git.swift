@@ -47,9 +47,13 @@ class Git {
     }
     
     func add(_ filter: String=".") -> Bool {
-        let result = run("add", arguments: ["."])
+        _ = run("add", arguments: ["."])
         
         return true
+    }
+    
+    func commit() -> String {
+        return run("commit", arguments: ["-am", "Atlas commit"])
     }
     
 }

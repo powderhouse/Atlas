@@ -90,4 +90,18 @@ class GitTests: XCTestCase {
         XCTAssert(postStatus?.range(of: "new file:   index.html") != nil)
     }
     
+    func testCommit__actual() {
+        _ = actualGit.runInit()
+        let filePath = "\(directory.path)/index.html"
+        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
+
+        XCTAssert(actualGit.add())
+        
+        let commit = actualGit.commit()
+        XCTAssert(commit.range(of: "1 file changed, 0 insertions(+), 0 deletions(-)") != nil)
+    }
+    
 }
