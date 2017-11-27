@@ -43,17 +43,11 @@ class GitTests: XCTestCase {
     }
 
     func testInit__actual() {
-        XCTAssertNil(actualGit.status())
-        _ = actualGit.runInit()
-        
-        let status = actualGit.status()
-        XCTAssert(status?.range(of: "On branch master") != nil)
-        XCTAssert(status?.range(of: "Initial commit") != nil)
-        XCTAssert(status?.range(of: "nothing to commit") != nil)
+        initialize(clean: true)
     }
 
     func testAddNothing__actual() {
-        _ = actualGit.runInit()
+        initialize(clean: true)
 
         let preStatus = actualGit.status()
         XCTAssert(preStatus?.range(of: "nothing to commit") != nil)
@@ -67,15 +61,8 @@ class GitTests: XCTestCase {
 }
 
     func testAdd__actual() {
-        _ = actualGit.runInit()
+        initialize()
         
-        let filePath = "\(directory.path)/index.html"
-        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
-       
-        let fileManager = FileManager.default
-        var isFile : ObjCBool = false
-        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
-
         let preStatus = actualGit.status()
         XCTAssert(preStatus?.range(of: "index.html") != nil)
         XCTAssert(preStatus?.range(of: "nothing added to commit") != nil)
@@ -91,17 +78,37 @@ class GitTests: XCTestCase {
     }
     
     func testCommit__actual() {
-        _ = actualGit.runInit()
-        let filePath = "\(directory.path)/index.html"
-        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
-        let fileManager = FileManager.default
-        var isFile : ObjCBool = false
-        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
-
+        initialize()
+        
         XCTAssert(actualGit.add())
         
         let commit = actualGit.commit()
         XCTAssert(commit.range(of: "1 file changed, 0 insertions(+), 0 deletions(-)") != nil)
+    }
+    
+    func testAddRemote() {
+        
+    }
+    
+    func initialize(clean: Bool=false) {
+        XCTAssertNil(actualGit.status())
+        _ = actualGit.runInit()
+        
+        let status = actualGit.status()
+        XCTAssert(status?.range(of: "On branch master") != nil)
+        XCTAssert(status?.range(of: "Initial commit") != nil)
+        XCTAssert(status?.range(of: "nothing to commit") != nil)
+        
+        if (clean) {
+            return
+        }
+        
+        let filePath = "\(directory.path)/index.html"
+        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
+        
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
     }
     
 }
