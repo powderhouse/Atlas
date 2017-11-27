@@ -87,6 +87,7 @@ class GitTests: XCTestCase {
     }
     
     func testAddRemote() {
+        initialize()
         
     }
     
