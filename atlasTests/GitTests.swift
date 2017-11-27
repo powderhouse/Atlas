@@ -12,13 +12,19 @@ import XCTest
 class GitTests: XCTestCase {
     
     var directory: URL!
-    var git: Git!
+    var testGit: Git!
+    var actualGit: Git!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         directory = FileSystem.createDirectory("testGit")
-        git = Git(directory!, atlasProcessFactory: MockProcessFactory())
+        let fileManager = FileManager.default
+        var isDir : ObjCBool = true
+        XCTAssert(fileManager.fileExists(atPath: directory.path, isDirectory: &isDir), "\(directory) not created")
+        
+        testGit = Git(directory!, atlasProcessFactory: MockProcessFactory())
+        actualGit = Git(directory!)
     }
     
     override func tearDown() {
@@ -33,15 +39,55 @@ class GitTests: XCTestCase {
     }
 
     func testStatus__notYetInitialized__actual() {
-        
+        XCTAssertNil(actualGit.status())
     }
 
     func testInit__actual() {
-        let actualGit = Git(directory!)
         XCTAssertNil(actualGit.status())
         _ = actualGit.runInit()
-        XCTAssert(actualGit.status()!.range(of: "On branch master") != nil)
+        
+        let status = actualGit.status()
+        XCTAssert(status?.range(of: "On branch master") != nil)
+        XCTAssert(status?.range(of: "Initial commit") != nil)
+        XCTAssert(status?.range(of: "nothing to commit") != nil)
     }
 
+    func testAddNothing__actual() {
+        _ = actualGit.runInit()
+
+        let preStatus = actualGit.status()
+        XCTAssert(preStatus?.range(of: "nothing to commit") != nil)
+        XCTAssert(preStatus?.range(of: "Changes to be committed") == nil)
+
+        XCTAssert(actualGit.add())
+
+        let postStatus = actualGit.status()
+        XCTAssert(postStatus?.range(of: "nothing to commit") != nil)
+        XCTAssert(postStatus?.range(of: "Changes to be committed") == nil)
+}
+
+    func testAdd__actual() {
+        _ = actualGit.runInit()
+        
+        let filePath = "\(directory.path)/index.html"
+        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
+       
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
+
+        let preStatus = actualGit.status()
+        XCTAssert(preStatus?.range(of: "index.html") != nil)
+        XCTAssert(preStatus?.range(of: "nothing added to commit") != nil)
+
+        XCTAssert(preStatus?.range(of: "Changes to be committed") == nil)
+        XCTAssert(preStatus?.range(of: "new file:") == nil)
+
+        XCTAssert(actualGit.add())
+        
+        let postStatus = actualGit.status()
+        XCTAssert(postStatus?.range(of: "Changes to be committed") != nil)
+        XCTAssert(postStatus?.range(of: "new file:   index.html") != nil)
+    }
     
 }

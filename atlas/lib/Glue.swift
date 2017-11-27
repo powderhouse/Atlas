@@ -25,10 +25,15 @@ class Glue {
         "homebrew": "/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
     ]
     
-    class func runProcess(_ command: String, arguments: [String]?=[], atlasProcess: AtlasProcess=Process()) -> String {
+    class func runProcess(_ command: String, arguments: [String]?=[], currentDirectory: URL?=nil, atlasProcess: AtlasProcess=Process()) -> String {
         var process = atlasProcess
+        
         process.executableURL = URL(fileURLWithPath: command)
         process.arguments = arguments
+        if currentDirectory != nil {
+            process.currentDirectoryURL = currentDirectory
+        }
+
         return process.runAndWait()
     }
     

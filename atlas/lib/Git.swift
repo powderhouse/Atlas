@@ -19,13 +19,18 @@ class Git {
         self.atlasProcessFactory = atlasProcessFactory
     }
 
-    func buildArguments(_ command: String, directoryPath: String) -> [String] {
-        return ["--git-dir=\(directoryPath)/.git", command]
+    func buildArguments(_ command: String, directoryPath: String, additionalArguments:[String]=[]) -> [String] {
+        return ["--git-dir=\(directoryPath)/.git", command] + additionalArguments
     }
     
-    func run(_ command: String) -> String {
-        let arguments = buildArguments(command, directoryPath: directoryPath)
-        return Glue.runProcess(path, arguments: arguments, atlasProcess: atlasProcessFactory.build())
+    func run(_ command: String, arguments: [String]=[]) -> String {
+        let fullArguments = buildArguments(
+            command,
+            directoryPath: directoryPath,
+            additionalArguments: arguments
+        )
+        let directory = URL(fileURLWithPath: directoryPath)
+        return Glue.runProcess(path, arguments: fullArguments, currentDirectory: directory, atlasProcess: atlasProcessFactory.build())
     }
     
     func runInit() -> String {
@@ -39,6 +44,12 @@ class Git {
             return nil
         }
         return result
+    }
+    
+    func add(_ filter: String=".") -> Bool {
+        let result = run("add", arguments: ["."])
+        
+        return true
     }
     
 }

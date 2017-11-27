@@ -1,6 +1,7 @@
 import Foundation
 
 protocol AtlasProcess {
+    var currentDirectoryURL: URL? { get set }
     var executableURL: URL? { get set }
     var arguments: [String]? { get set }    
     func runAndWait() -> String
@@ -18,7 +19,7 @@ extension Process: AtlasProcess {
         do {
             try run()
         } catch {
-            return "Error: \(error)"
+            return "AtlasProcess Error: \(error)"
         }
         waitUntilExit()
         
