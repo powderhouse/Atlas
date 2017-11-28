@@ -57,13 +57,25 @@ class Git {
         return true
     }
     
-    func initGitHub() {
-//        curl
-//        Glue.run("curl", arguments: [
-//            "-u '\(remoteUser)'",
-//            "https://api.github.com/user/repos",
-//            "-d "{\"name\":\"$\()\"}"
-//        ])
+    func initGitHub() -> [String: Any]? {
+        let arguments = [
+            "-u", "\(remoteUser):\(remotePassword)",
+            "https://api.github.com/user/repos",
+            "-d", "{\"name\":\"\(repositoryName!)\"}",
+            "-v"
+        ]
+        
+        let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
+        let data = response.data(using: .utf8)!
+        
+        do {
+            if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                return json
+            }
+        } catch {
+            print("Error deserializing JSON: \(error)")
+        }
+        return nil
     }
     
     func commit() -> String {
