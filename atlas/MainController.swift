@@ -21,6 +21,7 @@ class MainController: NSViewController {
     
     @IBOutlet weak var addProjectButton: NSButton!
     @IBOutlet weak var emailLabel: NSTextField!
+    @IBOutlet weak var currentProjectLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +42,21 @@ class MainController: NSViewController {
         } else {
             updateHeader()
         }
-        
-//        Glue.installHomebrew()
     }
     
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
         }
+    }
+    
+//    func updateProjects() {
+//        projects = FileSystem.projects
+//    }
+    
+    func selectProject(_ projectName: String) {
+        currentProjectLabel.stringValue = "Current Project: \(projectName)"
+        currentProjectLabel.isHidden = false
     }
     
     func updateHeader() {

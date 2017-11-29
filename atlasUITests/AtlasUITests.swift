@@ -58,8 +58,17 @@ class AtlasUITests: XCTestCase {
     
     func testNewProject() {
         let window = app.windows["Window"]
+        XCTAssertFalse(window.staticTexts["New Project"].exists)
+        
         window.buttons["+"].click()
         XCTAssert(window.staticTexts["New Project"].exists)
+        
+        window.textFields["Project Name"].typeText("First Project")
+        window.buttons["Save"].click()
+
+        XCTAssertFalse(window.staticTexts["New Project"].exists)
+
+        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
     }
         
 }
