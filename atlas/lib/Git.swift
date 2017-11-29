@@ -65,7 +65,16 @@ class Git {
             "-d", "{\"name\":\"\(repositoryName!)\"}"
         ]
         
-        return callGitHubAPI(arguments)
+        let result = callGitHubAPI(arguments)
+        
+        let repoPath = result!["clone_url"] as! String
+        let authenticatedPath = repoPath.replacingOccurrences(
+            of: "https://",
+            with: "https://\(remoteUser):\(remotePassword)@"
+        )
+        _ = run("remote", arguments: ["add", "origin", authenticatedPath])
+        
+        return result
     }
 
     func removeGitHub() {
@@ -94,6 +103,10 @@ class Git {
         ]
 
         _ = callGitHubAPI(deleteArguments)
+    }
+    
+    func pushToGitHub() {
+        run("push", arguments: ["--set-upstream", "origin", "master"])
     }
     
     func callGitHubAPI(_ arguments: [String]) -> [String: Any]? {

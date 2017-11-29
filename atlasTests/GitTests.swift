@@ -95,6 +95,23 @@ class GitTests: XCTestCase {
         actualGit.removeGitHub()
     }
     
+    func testPushToGitHub() {
+        initialize()
+        _ = actualGit.initGitHub()
+        
+        XCTAssert(actualGit.add())
+        
+        let commit = actualGit.commit()
+        XCTAssert(commit.range(of: "1 file changed, 0 insertions(+), 0 deletions(-)") != nil)
+
+        actualGit.pushToGitHub()
+        
+        let status = actualGit.status()
+        XCTAssert(status?.range(of: "Your branch is up-to-date") != nil)
+
+        actualGit.removeGitHub()
+    }
+
     func initialize(clean: Bool=false) {
         XCTAssertNil(actualGit.status())
         _ = actualGit.runInit()
