@@ -12,6 +12,7 @@ class Git {
     
     let remoteUser = "atlastest"
     let remotePassword = "1a2b3c4d"
+    let deleteRepoToken = "5dd419d671aa4862ecd91159cfa839be64d0ab03"
     
     let path = "/usr/bin/git"
     var baseDirectory: URL
@@ -61,10 +62,41 @@ class Git {
         let arguments = [
             "-u", "\(remoteUser):\(remotePassword)",
             "https://api.github.com/user/repos",
-            "-d", "{\"name\":\"\(repositoryName!)\"}",
-            "-v"
+            "-d", "{\"name\":\"\(repositoryName!)\"}"
         ]
         
+        return callGitHubAPI(arguments)
+    }
+
+    func removeGitHub() {
+//        let authArguments = [
+//            "-u", "\(remoteUser):\(remotePassword)",
+//            "-X", "POST",
+//            "https://api.github.com/authorizations",
+//            "-d", "{\"scopes\":[\"delete_repo\"], \"note\":\"Test Token\"}"
+//        ]
+//
+//        let authArguments = [
+//            "-u", "\(remoteUser):\(remotePassword)",
+//            "https://api.github.com/authorizations/147415484"
+//        ]
+//
+//        let authentication = callGitHubAPI(authArguments)
+//
+//        print(authentication)
+        
+        let deleteArguments = [
+            "-u", "\(remoteUser):\(remotePassword)",
+            "-X", "DELETE",
+            "-H", "Authorization: token \(deleteRepoToken)",
+//            "-H", "Authorization: token \(authentication!["token"]!)",
+            "https://api.github.com/repos/\(remoteUser)/\(repositoryName!)"
+        ]
+
+        _ = callGitHubAPI(deleteArguments)
+    }
+    
+    func callGitHubAPI(_ arguments: [String]) -> [String: Any]? {
         let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
         let data = response.data(using: .utf8)!
         
@@ -77,7 +109,7 @@ class Git {
         }
         return nil
     }
-    
+
     func commit() -> String {
         return run("commit", arguments: ["-am", "Atlas commit"])
     }

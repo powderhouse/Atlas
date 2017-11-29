@@ -86,12 +86,13 @@ class GitTests: XCTestCase {
         XCTAssert(commit.range(of: "1 file changed, 0 insertions(+), 0 deletions(-)") != nil)
     }
     
-    func testGithubInteraction() {
+    func testInitGitHub() {
         initialize()
         let results = actualGit.initGitHub()!
-        print(results)
         let gitUrl = results["clone_url"] as! String
         XCTAssertEqual(gitUrl, "https://github.com/atlastest/testGit.git")
+        
+        actualGit.removeGitHub()
     }
     
     func initialize(clean: Bool=false) {
