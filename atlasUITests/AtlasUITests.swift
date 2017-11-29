@@ -33,6 +33,7 @@ class AtlasUITests: XCTestCase {
         XCTAssert(accountModal.staticTexts["Please enter your email:"].exists)
 
         accountModal.textFields["Email"].typeText("test@example.com")
+        print("BUTTONS: \(accountModal.buttons)")
         accountModal.buttons["Save"].click()
     }
     
@@ -70,5 +71,18 @@ class AtlasUITests: XCTestCase {
 
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)
     }
+    
+    func testProjectPersistence() {
+        let window = app.windows["Window"]
+        window.buttons["+"].click()
+        window.textFields["Project Name"].typeText("First Project")
+        window.buttons["Save"].click()
+        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
         
+        app.terminate()
+        app.launchEnvironment["TESTING"] = nil
+        app.launch()
+        
+        XCTAssert(window.staticTexts["First Project"].exists)
+    }
 }

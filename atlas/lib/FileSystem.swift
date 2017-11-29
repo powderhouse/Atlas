@@ -64,6 +64,22 @@ class FileSystem {
         }
     }
     
+    class func projects() -> [String] {
+        if let account = account() {
+            let fileManager = FileManager.default
+            let accountDirectory = baseDirectory().appendingPathComponent(account)
+            print("ACCOUNT: \(accountDirectory.path)")
+            let contents = try? fileManager.contentsOfDirectory(atPath: accountDirectory.path)
+            if contents == nil {
+                return []
+            } else {
+                return contents!
+            }
+        }
+
+        return []
+    }
+    
     class func accountDirectory() -> URL? {
         if let accountFolder = account() {
             return baseDirectory().appendingPathComponent(accountFolder)

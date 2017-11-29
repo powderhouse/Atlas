@@ -20,9 +20,15 @@ class MainController: NSViewController {
     }
     
     @IBOutlet weak var addProjectButton: NSButton!
+    
     @IBOutlet weak var emailLabel: NSTextField!
+    
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
+    @IBOutlet weak var projectsList: NSTextField!
+    
+    var projects: [String] = []
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +37,7 @@ class MainController: NSViewController {
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             Testing.setup()
         }
-        
+
         email = FileSystem.account()
         
         if email == nil {
@@ -42,6 +48,10 @@ class MainController: NSViewController {
         } else {
             updateHeader()
         }
+
+        print("START")
+        
+        updateProjects()
     }
     
     override var representedObject: Any? {
@@ -50,9 +60,24 @@ class MainController: NSViewController {
         }
     }
     
-//    func updateProjects() {
-//        projects = FileSystem.projects
-//    }
+    func updateProjects() {
+        projects = FileSystem.projects()
+        print("PROJECTS: \(projects)")
+        if projects.count == 0 {
+            projectsList.isHidden = true
+            return
+        }
+        
+        projectsList.isHidden = false
+        var projectsListText = "Projects:"
+        
+        for projectName in projects {
+            projectsListText.append("\n\n")
+            projectsListText.append(projectName)
+        }
+        
+        projectsList.stringValue = projectsListText
+    }
     
     func selectProject(_ projectName: String) {
         currentProjectLabel.stringValue = "Current Project: \(projectName)"
