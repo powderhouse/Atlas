@@ -83,6 +83,6 @@ class AtlasUITests: XCTestCase {
         app.launchEnvironment["TESTING"] = nil
         app.launch()
         
-        XCTAssert(window.staticTexts["First Project"].exists)
+        XCTAssert(window.staticTexts["Projects:\n\nFirst Project"].exists)
     }
 }
