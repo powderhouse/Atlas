@@ -67,5 +67,14 @@ class FileSystemTests: XCTestCase {
         _ = FileSystem.createDirectory("test.example@example.com")
         XCTAssertEqual(FileSystem.account(), "test.example@example.com", "emails do not match") 
     }
+    
+    func testProjects() {
+        let account = "test.example@example.com"
+        _ = FileSystem.createDirectory(account)
+        _ = FileSystem.createDirectory("\(account)/Project One")
+        _ = FileSystem.createDirectory("\(account)/Project Two")
+        _ = FileSystem.createDirectory("\(account)/Project Three")
+        XCTAssertEqual(FileSystem.projects(), ["Project One", "Project Three", "Project Two"])
+    }
 
 }

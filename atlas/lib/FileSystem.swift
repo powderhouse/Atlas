@@ -72,7 +72,7 @@ class FileSystem {
             if contents == nil {
                 return []
             } else {
-                return contents!
+                return contents!.sorted()
             }
         }
 
