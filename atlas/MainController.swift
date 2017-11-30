@@ -48,8 +48,6 @@ class MainController: NSViewController {
         } else {
             updateHeader()
         }
-
-        print("START")
         
         updateProjects()
     }
@@ -62,7 +60,6 @@ class MainController: NSViewController {
     
     func updateProjects() {
         projects = FileSystem.projects()
-        print("PROJECTS: \(projects)")
         if projects.count == 0 {
             projectsList.isHidden = true
             return

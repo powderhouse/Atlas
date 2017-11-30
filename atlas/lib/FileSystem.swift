@@ -68,7 +68,6 @@ class FileSystem {
         if let account = account() {
             let fileManager = FileManager.default
             let accountDirectory = baseDirectory().appendingPathComponent(account)
-            print("ACCOUNT: \(accountDirectory.path)")
             let contents = try? fileManager.contentsOfDirectory(atPath: accountDirectory.path)
             if contents == nil {
                 return []
