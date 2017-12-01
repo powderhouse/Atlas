@@ -16,6 +16,7 @@
 		3A59E0441FC60C0800DF753E /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0431FC60C0800DF753E /* Git.swift */; };
 		3A59E0461FC60C2B00DF753E /* GitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0451FC60C2B00DF753E /* GitTests.swift */; };
 		3A59E0491FC60CC900DF753E /* MockProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0481FC60CC900DF753E /* MockProcess.swift */; };
+		3A59E04B1FD1AFF600DF753E /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E04A1FD1AFF600DF753E /* PlistManager.swift */; };
 		3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */; };
 		3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */; };
 		3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */; };
@@ -60,6 +61,7 @@
 		3A59E0431FC60C0800DF753E /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
 		3A59E0451FC60C2B00DF753E /* GitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTests.swift; sourceTree = "<group>"; };
 		3A59E0481FC60CC900DF753E /* MockProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcess.swift; sourceTree = "<group>"; };
+		3A59E04A1FD1AFF600DF753E /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemTests.swift; sourceTree = "<group>"; };
 		3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				3AE4AE271FC277B700430BC2 /* FileSystem.swift */,
 				3AE4AE211FC277B200430BC2 /* AtlasProcess.swift */,
 				3A59E0431FC60C0800DF753E /* Git.swift */,
+				3A59E04A1FD1AFF600DF753E /* PlistManager.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A59E04B1FD1AFF600DF753E /* PlistManager.swift in Sources */,
 				3AE4AE281FC277B800430BC2 /* FileSystem.swift in Sources */,
 				3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */,
 				3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */,

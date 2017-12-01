@@ -10,25 +10,30 @@ import Foundation
 
 class Git {
     
-    let remoteUser = "atlastest"
-    let remotePassword = "1a2b3c4d"
     let deleteRepoToken = "5dd419d671aa4862ecd91159cfa839be64d0ab03"
-    
-    let path = "/usr/bin/git"
+
+    let path = "/usr/bin/env"
     var baseDirectory: URL
     var fullDirectory: URL
     var repositoryName: String!
     var atlasProcessFactory: AtlasProcessFactory!
+    var remoteUser: String!
+    var remotePassword: String!
 
-    init(_ directory: URL, atlasProcessFactory: AtlasProcessFactory=ProcessFactory()) {
+    init?(_ directory: URL, username: String?=nil, password: String?=nil, atlasProcessFactory: AtlasProcessFactory=ProcessFactory()) {
+        if (username == nil || password == nil) {
+            return nil
+        }
         self.repositoryName = directory.lastPathComponent
         self.baseDirectory = directory.deletingLastPathComponent()
         self.fullDirectory = directory
         self.atlasProcessFactory = atlasProcessFactory
+        self.remoteUser = username
+        self.remotePassword = password
     }
 
     func buildArguments(_ command: String, additionalArguments:[String]=[]) -> [String] {
-        return ["--git-dir=\(fullDirectory.path)/.git", command] + additionalArguments
+        return ["git", "--git-dir=\(fullDirectory.path)/.git", command] + additionalArguments
     }
     
     func run(_ command: String, arguments: [String]=[]) -> String {
@@ -60,7 +65,7 @@ class Git {
     
     func initGitHub() -> [String: Any]? {
         let arguments = [
-            "-u", "\(remoteUser):\(remotePassword)",
+            "-u", "\(remoteUser!):\(remotePassword!)",
             "https://api.github.com/user/repos",
             "-d", "{\"name\":\"\(repositoryName!)\"}"
         ]
@@ -70,7 +75,7 @@ class Git {
         let repoPath = result!["clone_url"] as! String
         let authenticatedPath = repoPath.replacingOccurrences(
             of: "https://",
-            with: "https://\(remoteUser):\(remotePassword)@"
+            with: "https://\(remoteUser!):\(remotePassword!)@"
         )
         _ = run("remote", arguments: ["add", "origin", authenticatedPath])
         
@@ -95,11 +100,11 @@ class Git {
 //        print(authentication)
         
         let deleteArguments = [
-            "-u", "\(remoteUser):\(remotePassword)",
+            "-u", "\(remoteUser!):\(remotePassword!)",
             "-X", "DELETE",
             "-H", "Authorization: token \(deleteRepoToken)",
 //            "-H", "Authorization: token \(authentication!["token"]!)",
-            "https://api.github.com/repos/\(remoteUser)/\(repositoryName!)"
+            "https://api.github.com/repos/\(remoteUser!)/\(repositoryName!)"
         ]
 
         _ = callGitHubAPI(deleteArguments)

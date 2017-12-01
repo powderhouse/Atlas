@@ -15,6 +15,9 @@ class GitTests: XCTestCase {
     var testGit: Git!
     var actualGit: Git!
     
+    let remoteUser = "atlastest"
+    let remotePassword = "1a2b3c4d"
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,8 +26,10 @@ class GitTests: XCTestCase {
         var isDir : ObjCBool = true
         XCTAssert(fileManager.fileExists(atPath: directory.path, isDirectory: &isDir), "\(directory) not created")
         
-        testGit = Git(directory!, atlasProcessFactory: MockProcessFactory())
-        actualGit = Git(directory!)
+        testGit = Git(directory!,
+                      username: "test", password: "1234",
+                      atlasProcessFactory: MockProcessFactory())
+        actualGit = Git(directory!, username: remoteUser, password: remotePassword)
     }
     
     override func tearDown() {
@@ -36,6 +41,31 @@ class GitTests: XCTestCase {
         } catch {
             print("FAILED TO DELETE: \(error)")
         }
+    }
+    
+    func testInit_noCredentialsProvidedAndNoPlistPresent() {
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(at: directory!)
+        } catch {
+            print("FAILED TO DELETE: \(error)")
+        }
+        
+        let newGit = Git(directory!)
+        XCTAssertNil(newGit)
+    }
+    
+    func testInit_noCredentialsProvidedAndPlistPresent() {
+        
+    }
+    
+    func testInit_credentialsProvided() {
+        XCTAssertNotNil(actualGit)
+        
+        let filePath = "\(directory.path)/github.plist"
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No plist found")        
     }
 
     func testStatus__notYetInitialized__actual() {
