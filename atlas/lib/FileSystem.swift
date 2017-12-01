@@ -15,7 +15,7 @@ class FileSystem {
     }
     
     class func baseDirectory() -> URL {
-        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationDirectory, .userDomainMask, true)
         return URL(fileURLWithPath: paths[0]).appendingPathComponent(atlasDirectory())
     }
     
@@ -26,33 +26,30 @@ class FileSystem {
         } catch {}
     }
     
-    class func createDirectory(_ name: String) -> Bool {
-        let url = baseDirectory().appendingPathComponent(name)
+    class func createDirectory(_ name: String, inDirectory: URL=baseDirectory()) -> URL? {
+        let url = inDirectory.appendingPathComponent(name)
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
 
-        if fileManager.fileExists(
-                atPath: url.path,
-                isDirectory: &isDir
-            ) {
-            return true
+        if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+            return url
         }
         
         do {
             try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
 
-            return fileManager.fileExists(
-                atPath: url.path,
-                isDirectory: &isDir
-            )
+            if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+                return url
+            }
         } catch {
             print("Caught: \(error)")
-            return false
         }
+        
+        return nil
     }
     
     class func createAccount(_ email: String) -> Bool {
-        return FileSystem.createDirectory(email)
+        return FileSystem.createDirectory(email) != nil
     }
     
     class func account() -> String? {
@@ -65,6 +62,28 @@ class FileSystem {
         } else {
             return contents![0]
         }
+    }
+    
+    class func projects() -> [String] {
+        if let account = account() {
+            let fileManager = FileManager.default
+            let accountDirectory = baseDirectory().appendingPathComponent(account)
+            let contents = try? fileManager.contentsOfDirectory(atPath: accountDirectory.path)
+            if contents == nil {
+                return []
+            } else {
+                return contents!.sorted()
+            }
+        }
+
+        return []
+    }
+    
+    class func accountDirectory() -> URL? {
+        if let accountFolder = account() {
+            return baseDirectory().appendingPathComponent(accountFolder)
+        }
+        return nil
     }
     
 }

@@ -32,7 +32,7 @@ class FileSystemTests: XCTestCase {
 
     func testBaseDirectory() {
         let baseDirectory = FileSystem.baseDirectory().relativeString
-        XCTAssert(baseDirectory.range(of: "com.powderhs.atlas") != nil)
+        XCTAssert(baseDirectory.range(of: "Atlas") != nil, "\(baseDirectory) does not contain 'Atlas'")
     }
     
     func testCreateFolder() {
@@ -60,12 +60,21 @@ class FileSystemTests: XCTestCase {
 
     func testCreateFolder_withExistingFolder() {
         _ = FileSystem.createDirectory("directory")
-        XCTAssertTrue(FileSystem.createDirectory("directory"))
+        XCTAssertNotNil(FileSystem.createDirectory("directory"))
     }
     
     func testAccount() {
         _ = FileSystem.createDirectory("test.example@example.com")
         XCTAssertEqual(FileSystem.account(), "test.example@example.com", "emails do not match") 
+    }
+    
+    func testProjects() {
+        let account = "test.example@example.com"
+        _ = FileSystem.createDirectory(account)
+        _ = FileSystem.createDirectory("\(account)/Project One")
+        _ = FileSystem.createDirectory("\(account)/Project Two")
+        _ = FileSystem.createDirectory("\(account)/Project Three")
+        XCTAssertEqual(FileSystem.projects(), ["Project One", "Project Three", "Project Two"])
     }
 
 }

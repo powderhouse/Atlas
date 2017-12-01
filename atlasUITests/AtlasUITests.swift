@@ -28,12 +28,12 @@ class AtlasUITests: XCTestCase {
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
         let accountModal = app.dialogs["Account Controller"]
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         XCTAssert(accountModal.staticTexts["Please enter your email:"].exists)
-        
+
         accountModal.textFields["Email"].typeText("test@example.com")
+        print("BUTTONS: \(accountModal.buttons)")
         accountModal.buttons["Save"].click()
     }
     
@@ -59,8 +59,46 @@ class AtlasUITests: XCTestCase {
     
     func testNewProject() {
         let window = app.windows["Window"]
+        XCTAssertFalse(window.staticTexts["New Project"].exists)
+        
         window.buttons["+"].click()
         XCTAssert(window.staticTexts["New Project"].exists)
-    }
         
+        window.textFields["Project Name"].typeText("First Project")
+        window.buttons["Save"].click()
+
+        XCTAssertFalse(window.staticTexts["New Project"].exists)
+
+        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+    }
+    
+    func testProjectPersistence() {
+        let window = app.windows["Window"]
+        window.buttons["+"].click()
+        window.textFields["Project Name"].typeText("First Project")
+        window.buttons["Save"].click()
+        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+        
+        app.terminate()
+        app.launchEnvironment["TESTING"] = nil
+        app.launch()
+        
+        XCTAssert(window/*@START_MENU_TOKEN@*/.outlines.outlineRows.cells.staticTexts["First Project"]/*[[".scrollViews.outlines",".outlineRows",".cells.staticTexts[\"First Project\"]",".staticTexts[\"First Project\"]",".outlines"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0,2,1]]@END_MENU_TOKEN@*/.exists)
+    }
+    
+    func testSelectingProjects() {
+        let window = app.windows["Window"]
+        window.buttons["+"].click()
+        window.textFields["Project Name"].typeText("First Project")
+        window.buttons["Save"].click()
+        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+
+        window.buttons["+"].click()
+        window.textFields["Project Name"].typeText("Second Project")
+        window.buttons["Save"].click()
+        XCTAssert(window.staticTexts["Current Project: Second Project"].exists)
+
+        window/*@START_MENU_TOKEN@*/.outlines.outlineRows.cells.staticTexts["First Project"]/*[[".scrollViews.outlines",".outlineRows",".cells.staticTexts[\"First Project\"]",".staticTexts[\"First Project\"]",".outlines"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0,2,1]]@END_MENU_TOKEN@*/.click()
+        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+    }
 }

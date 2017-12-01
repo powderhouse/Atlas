@@ -8,7 +8,11 @@
 
 import Cocoa
 
-class MainController: NSViewController {
+class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
+    
+    @IBOutlet weak var projectListScrollView: NSScrollView!
+    
+    @IBOutlet weak var projectListView: NSOutlineView!
     
     var email: String? {
         didSet {
@@ -20,8 +24,15 @@ class MainController: NSViewController {
     }
     
     @IBOutlet weak var addProjectButton: NSButton!
+    
     @IBOutlet weak var emailLabel: NSTextField!
     
+    @IBOutlet weak var currentProjectLabel: NSTextField!
+    
+    @IBOutlet weak var projectsList: NSTextField!
+    
+    var projects: [String] = []
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,12 +52,70 @@ class MainController: NSViewController {
         } else {
             updateHeader()
         }
+        
+        updateProjects()
+        
+        currentProjectLabel.isHidden = true
     }
     
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
         }
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView,
+                     shouldExpandItem item: Any) -> Bool {
+        return false
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        return projects[index]
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        return projects.count
+    }
+    
+    func tableView(_ tableView: NSTableView,
+                   objectValueFor tableColumn: NSTableColumn?,
+                   row: Int) -> Any? {
+        return "XXX"
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        return true
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, viewFor viewForTableColumn: NSTableColumn?, item: Any) -> NSView? {
+        let projectName = item as! String
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: "ProjectCell")
+        let view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView
+        if let textField = view?.textField {
+            textField.stringValue = projectName
+            textField.sizeToFit()
+        }
+        
+        return view
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        return true
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification){
+        selectProject(projects[projectListView.selectedRow])
+    }
+    
+    
+    func updateProjects() {
+        projects = FileSystem.projects()
+        projectListView.reloadData()
+    }
+    
+    func selectProject(_ projectName: String) {
+        currentProjectLabel.stringValue = "Current Project: \(projectName)"
+        currentProjectLabel.isHidden = false
     }
     
     func updateHeader() {
