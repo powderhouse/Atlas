@@ -8,7 +8,9 @@
 
 import Cocoa
 
-class MainController: NSViewController {
+class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
+    
+    @IBOutlet weak var projectListView: NSScrollView!
     
     var email: String? {
         didSet {
@@ -50,6 +52,8 @@ class MainController: NSViewController {
         }
         
         updateProjects()
+        
+        currentProjectLabel.isHidden = true
     }
     
     override var representedObject: Any? {
@@ -58,22 +62,62 @@ class MainController: NSViewController {
         }
     }
     
+    func outlineView(_ outlineView: NSOutlineView,
+                     shouldExpandItem item: Any) -> Bool {
+        print(-1)
+        return false
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        print(0)
+        return "ANY OBJECT" as AnyObject
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        print(1)
+        return 2
+    }
+    
+    
+    func outlineView(_ outlineView: NSOutlineView, viewFor viewForTableColumn: NSTableColumn?, item: Any) -> NSView? {
+        print(2)
+
+        let view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self) as! NSTableCellView
+        if let textField = view.textField {
+            textField.stringValue = "test"
+        }
+        return view
+        
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        print(3)
+        return true
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification){
+        print(4)
+        print(notification)
+    }
+    
+    
     func updateProjects() {
-        projects = FileSystem.projects()
-        if projects.count == 0 {
-            projectsList.isHidden = true
-            return
-        }
-        
-        projectsList.isHidden = false
-        var projectsListText = "Projects:"
-        
-        for projectName in projects {
-            projectsListText.append("\n\n")
-            projectsListText.append(projectName)
-        }
-        
-        projectsList.stringValue = projectsListText
+        return
+//        projects = FileSystem.projects()
+//        if projects.count == 0 {
+//            projectsList.isHidden = true
+//            return
+//        }
+//        
+//        projectsList.isHidden = false
+//        var projectsListText = "Projects:"
+//        
+//        for projectName in projects {
+//            projectsListText.append("\n\n")
+//            projectsListText.append(projectName)
+//        }
+//        
+//        projectsList.stringValue = projectsListText
     }
     
     func selectProject(_ projectName: String) {

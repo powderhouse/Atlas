@@ -106,7 +106,7 @@ class Git {
     }
     
     func pushToGitHub() {
-        run("push", arguments: ["--set-upstream", "origin", "master"])
+        _ = run("push", arguments: ["--set-upstream", "origin", "master"])
     }
     
     func callGitHubAPI(_ arguments: [String]) -> [String: Any]? {
