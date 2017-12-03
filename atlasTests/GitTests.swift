@@ -62,10 +62,26 @@ class GitTests: XCTestCase {
     func testInit_credentialsProvided() {
         XCTAssertNotNil(actualGit)
         
-        let filePath = "\(directory.path)/github.plist"
+        let filePath = "\(directory.path)/github.json"
         let fileManager = FileManager.default
         var isFile : ObjCBool = false
-        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No plist found")        
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No github json found")        
+    }
+    
+    func testSetCredentials() {
+        actualGit.setCredentials(username: remoteUser, password: remotePassword)
+        
+        let filePath = "\(directory.path)/github.json"
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No github json found")
+    }
+
+    func testGetCredentials() {
+        actualGit.setCredentials(username: remoteUser, password: remotePassword)
+        let credentials = actualGit.getCredentials(username: remoteUser, password: remotePassword)
+        XCTAssertEqual(credentials["username"], remoteUser)
+        XCTAssertNotNil(credentials["token"])
     }
 
     func testStatus__notYetInitialized__actual() {
