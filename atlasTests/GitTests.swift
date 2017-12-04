@@ -65,7 +65,7 @@ class GitTests: XCTestCase {
     func testInit_credentialsProvided() {
         XCTAssertNotNil(actualGit)
         
-        let filePath = "\(directory.path)/github.json"
+        let filePath = "\(directory.deletingLastPathComponent().path)/github.json"
         let fileManager = FileManager.default
         var isFile : ObjCBool = false
         XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No github json found")        
@@ -74,7 +74,7 @@ class GitTests: XCTestCase {
     func testSaveCredentials() {
         actualGit.saveCredentials(Credentials(username: "test", password: nil, token: nil))
         
-        let filePath = "\(directory.path)/github.json"
+        let filePath = "\(directory.deletingLastPathComponent().path)/github.json"
         let fileManager = FileManager.default
         var isFile : ObjCBool = false
         XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No github json found")
