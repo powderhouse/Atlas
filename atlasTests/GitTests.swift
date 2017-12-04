@@ -57,11 +57,7 @@ class GitTests: XCTestCase {
         let newGit = Git(directory!, credentials: Credentials(username: "test", password: nil, token: nil))
         XCTAssertNil(newGit)
     }
-    
-    func testInit_noCredentialsProvidedAndPlistPresent() {
         
-    }
-    
     func testInit_credentialsProvided() {
         XCTAssertNotNil(actualGit)
         
