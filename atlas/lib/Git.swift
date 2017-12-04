@@ -177,6 +177,7 @@ class Git {
         ]
         
         let result = callGitHubAPI(arguments)
+        print("RESULT \(result)")
         
         guard let repoPath = result!["clone_url"] as? String else {
             return nil
@@ -210,11 +211,9 @@ class Git {
         
         let deleteArguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
-            "-H", "Authorization: token \(credentials.token!)",
             "-X", "DELETE",
             "-H", "Authorization: token \(credentials.token!)",
-//            "-H", "Authorization: token \(authentication!["token"]!)",
-            "https://api.github.com/repos/\(credentials.username)/\(credentials.token!)"
+            "https://api.github.com/repos/\(credentials.username)/\(repositoryName!)"
         ]
 
         _ = callGitHubAPI(deleteArguments)
