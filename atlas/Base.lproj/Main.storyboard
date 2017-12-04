@@ -788,6 +788,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="XIW-eE-g3v" id="3ES-ZQ-JZt"/>
+                        <outlet property="passwordField" destination="7Lf-oO-PYc" id="oI1-3f-lry"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

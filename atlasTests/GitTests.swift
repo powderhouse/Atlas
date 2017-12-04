@@ -77,7 +77,7 @@ class GitTests: XCTestCase {
     }
 
     func testGetCredentials() {
-        if let credentials = actualGit.getCredentials() {
+        if let credentials = Git.getCredentials(actualGit.baseDirectory) {
             XCTAssertEqual(credentials.username, credentials.username)
             XCTAssertEqual(credentials.token, credentials.token)
             XCTAssertNil(credentials.password)

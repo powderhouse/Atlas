@@ -12,6 +12,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet weak var emailField: NSTextField!
     
+    @IBOutlet weak var passwordField: NSSecureTextField!
+    
     weak var mainController: MainController!
     
     override func viewDidLoad() {
@@ -19,6 +21,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         // Do any additional setup after loading the view.
 
         emailField.delegate = self
+        passwordField.delegate = self
+
         emailField.becomeFirstResponder()
     }
 
@@ -29,7 +33,13 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func save(_ sender: NSButtonCell) {
-        mainController.email = emailField.stringValue
+        mainController.initGit(
+            Credentials(
+                username: emailField.stringValue,
+                password: passwordField.stringValue,
+                token: nil
+            )
+        )
         self.dismiss(nil)
     }
     

@@ -16,10 +16,8 @@ struct Credentials {
 
 class Git {
     
-    let deleteRepoToken = "5dd419d671aa4862ecd91159cfa839be64d0ab03"
-
-    let path = "/usr/bin/env"
-    let credentialsFilename = "github.json"
+    static let path = "/usr/bin/env"
+    static let credentialsFilename = "github.json"
     
     var baseDirectory: URL
     var fullDirectory: URL
@@ -36,17 +34,16 @@ class Git {
 
         syncCredentials(credentials)
         saveCredentials(credentials)
-        
+
         if credentials.token == nil {
             return nil
         }
     }
     
-    func getCredentials() -> Credentials? {
+    class func getCredentials(_ baseDirectory: URL) -> Credentials? {
         let path = baseDirectory.appendingPathComponent(credentialsFilename)
         var json: String
         do {
-            print("PATH: \(path)")
             json = try String(contentsOf: path, encoding: .utf8)
         }
         catch {
@@ -77,12 +74,13 @@ class Git {
 
     
     func syncCredentials(_ newCredentials: Credentials) {
-        var credentials = newCredentials
-        let existingCredentials = getCredentials()
-        
-        guard credentials.token != nil else {
+        guard newCredentials.token == nil else {
             return
         }
+
+        var credentials = newCredentials
+        let existingCredentials = Git.getCredentials(baseDirectory)
+        
         
         if credentials.username == existingCredentials?.username {
             credentials.token = existingCredentials?.token
@@ -95,6 +93,25 @@ class Git {
     }
         
     func getAuthenticationToken(_ credentials: Credentials) -> String? {
+        let listArguments = [
+            "-u", "\(credentials.username):\(credentials.password!)",
+            "https://api.github.com/authorizations"
+        ]
+        
+        if let list = callGitHubAPI(listArguments) {
+            for item in list {
+                if (item["note"] as? String) == "Atlas Token" {
+                    print ("ITEM FOUND: \(item)")
+                    let deleteAuthArguments = [
+                        "-u", "\(credentials.username):\(credentials.password!)",
+                        "-X", "DELETE",
+                        "https://api.github.com/authorizations/\(item["id"]!)"
+                    ]
+                    _ = callGitHubAPI(deleteAuthArguments)
+                }
+            }
+        }
+        
         let authArguments = [
             "-u", "\(credentials.username):\(credentials.password!)",
             "-X", "POST",
@@ -103,19 +120,19 @@ class Git {
         ]
         
         if let authentication = callGitHubAPI(authArguments) {
-            guard authentication["token"] != nil else {
+            guard authentication[0]["token"] != nil else {
                 print("Failed GitHub Authentication: \(authentication)")
                 return nil
             }
             
-            return authentication["token"] as? String
+            return authentication[0]["token"] as? String
         }
         return nil
     }
         
     func saveCredentials(_ credentials: Credentials) {
         guard credentials.token != nil else {
-            print("No token provided")
+            print("No token provided: \(credentials)")
             return
         }
         
@@ -129,7 +146,7 @@ class Git {
             )
             
             do {
-                let filename = baseDirectory.appendingPathComponent(credentialsFilename)
+                let filename = baseDirectory.appendingPathComponent(Git.credentialsFilename)
                 try jsonCredentials.write(to: filename)
             } catch {}
         } catch {
@@ -146,7 +163,7 @@ class Git {
             command,
             additionalArguments: arguments
         )
-        return Glue.runProcess(path, arguments: fullArguments, currentDirectory: fullDirectory, atlasProcess: atlasProcessFactory.build())
+        return Glue.runProcess(Git.path, arguments: fullArguments, currentDirectory: fullDirectory, atlasProcess: atlasProcessFactory.build())
     }
     
     func runInit() -> String {
@@ -177,9 +194,8 @@ class Git {
         ]
         
         let result = callGitHubAPI(arguments)
-        print("RESULT \(result)")
         
-        guard let repoPath = result!["clone_url"] as? String else {
+        guard let repoPath = result![0]["clone_url"] as? String else {
             return nil
         }
         
@@ -189,7 +205,7 @@ class Git {
         )
         _ = run("remote", arguments: ["add", "origin", authenticatedPath])
         
-        return result
+        return result![0]
     }
 
     func removeGitHub() {
@@ -223,14 +239,21 @@ class Git {
         _ = run("push", arguments: ["--set-upstream", "origin", "master"])
     }
     
-    func callGitHubAPI(_ arguments: [String]) -> [String: Any]? {
+    func callGitHubAPI(_ arguments: [String]) -> [[String: Any]]? {
         let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
+        print("GITHUB RESPONSE: \(response)")
+
         let data = response.data(using: .utf8)!
         
         do {
-            if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                return json
+            let json = try JSONSerialization.jsonObject(with: data)
+            
+            if let singleItem = json as? [String: Any] {
+                return [singleItem]
+            } else if let multipleItems = json as? [[String: Any]] {
+                return multipleItems
             }
+            print("JSON response from GITHUB evaluates to nil: \(response)")
         } catch {
             print("Error deserializing JSON: \(error)")
         }
