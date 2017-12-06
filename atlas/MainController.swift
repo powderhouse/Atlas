@@ -138,7 +138,13 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         
         let generalProjectName = "General"
         
-        _ = projects!.create(generalProjectName)
+        let generalFolder = projects!.create(generalProjectName)
+        
+        let readme = generalFolder!.appendingPathComponent("readme.md", isDirectory: false)
+        do {
+            try "This is your General Folder".write(to: readme, atomically: true, encoding: .utf8)
+        } catch {}
+        
         _ = git!.add()
         _ = git!.commit()
         _ = git!.pushToGitHub()
