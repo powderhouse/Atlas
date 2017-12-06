@@ -60,6 +60,8 @@ class AtlasUITests: XCTestCase {
         
         XCTAssert(window.staticTexts["Current Project: General"].exists)
         XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
+        
+        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
     }
     
     func testPersistence() {

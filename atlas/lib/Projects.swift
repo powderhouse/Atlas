@@ -12,6 +12,10 @@ class Projects {
     
     let atlasRepository: URL!
     
+    let ignore = [
+        ".git"
+    ]
+    
     init(_ atlasRepository: URL) {
         self.atlasRepository = atlasRepository
     }
@@ -50,7 +54,9 @@ class Projects {
             return []
         }
         
-        let subdirectories = contents!.filter { $0.hasDirectoryPath }
+        let subdirectories = contents!.filter {
+            $0.hasDirectoryPath && !ignore.contains($0.lastPathComponent)            
+        }
         
         return subdirectories.map { $0.lastPathComponent }.sorted()
     }

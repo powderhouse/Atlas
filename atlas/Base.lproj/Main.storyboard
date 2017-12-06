@@ -927,22 +927,34 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cL1-dS-zoo" userLabel="GitHub Repository Label">
+                                <rect key="frame" x="148" y="20" width="454" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="GitHub Repository" id="xlt-sW-lfF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rhU-UC-IqE" secondAttribute="trailing" id="0mm-1V-Coh"/>
                             <constraint firstItem="0og-BS-53u" firstAttribute="centerY" secondItem="WZC-VZ-LFR" secondAttribute="centerY" id="75P-ks-6Wy"/>
+                            <constraint firstItem="cL1-dS-zoo" firstAttribute="width" secondItem="rhU-UC-IqE" secondAttribute="width" id="8UT-En-ki1"/>
                             <constraint firstItem="0og-BS-53u" firstAttribute="centerX" secondItem="rhU-UC-IqE" secondAttribute="centerX" id="D5a-cq-xDU"/>
+                            <constraint firstItem="cL1-dS-zoo" firstAttribute="centerX" secondItem="rhU-UC-IqE" secondAttribute="centerX" id="I1E-el-ROh"/>
                             <constraint firstItem="5Ae-1I-z2z" firstAttribute="top" secondItem="WZC-VZ-LFR" secondAttribute="top" id="JDg-Xq-vtG"/>
                             <constraint firstItem="5Ae-1I-z2z" firstAttribute="width" secondItem="WZC-VZ-LFR" secondAttribute="width" multiplier="0.25" id="PtI-Ti-Inq"/>
                             <constraint firstItem="5Ae-1I-z2z" firstAttribute="height" secondItem="WZC-VZ-LFR" secondAttribute="height" id="Zy0-n3-9HE"/>
                             <constraint firstItem="rhU-UC-IqE" firstAttribute="top" secondItem="WZC-VZ-LFR" secondAttribute="top" constant="20" id="dzl-9J-aBL"/>
                             <constraint firstItem="rhU-UC-IqE" firstAttribute="leading" secondItem="5Ae-1I-z2z" secondAttribute="trailing" id="eh5-kc-7j0"/>
+                            <constraint firstAttribute="bottom" secondItem="cL1-dS-zoo" secondAttribute="bottom" constant="20" id="mvS-2c-rBx"/>
                             <constraint firstItem="5Ae-1I-z2z" firstAttribute="leading" secondItem="WZC-VZ-LFR" secondAttribute="leading" id="zfc-Ns-uod"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addProjectButton" destination="0og-BS-53u" id="Pd5-N6-8kF"/>
                         <outlet property="currentProjectLabel" destination="RhI-a6-7gn" id="BMT-7V-k60"/>
+                        <outlet property="githubRepositoryLabel" destination="cL1-dS-zoo" id="ii6-Ui-rZY"/>
                         <outlet property="projectListScrollView" destination="5Ae-1I-z2z" id="x8h-oE-7JU"/>
                         <outlet property="projectListView" destination="dVG-7C-hoa" id="AQX-mW-500"/>
                         <outlet property="usernameLabel" destination="F5P-7h-H2I" id="KIx-KP-N4v"/>

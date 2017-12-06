@@ -22,6 +22,9 @@ class Git {
     var repositoryDirectory: URL
     var baseDirectory: URL
     var repositoryName: String
+    
+    var githubRepositoryLink: String?
+    
     var atlasProcessFactory: AtlasProcessFactory!
     var credentials: Credentials!
 
@@ -215,6 +218,8 @@ class Git {
         guard let repoPath = result?[0]["clone_url"] as? String else {
             return nil
         }
+        
+        githubRepositoryLink = result?[0]["html_url"] as? String
         
         let authenticatedPath = repoPath.replacingOccurrences(
             of: "https://",

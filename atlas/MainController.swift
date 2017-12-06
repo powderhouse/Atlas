@@ -20,6 +20,8 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
+    @IBOutlet weak var githubRepositoryLabel: NSTextField!
+    
     @IBOutlet weak var projectsList: NSTextField!
     
     var git: Git?
@@ -46,6 +48,12 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
                 sender: self
             )
+        }
+    }
+    
+    override func viewDidDisappear() {
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            Testing.setup()
         }
     }
     
@@ -100,12 +108,19 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     func initGit(_ credentials: Credentials) {
         let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
+        FileSystem.createDirectory(atlasRepository)
         git = Git(atlasRepository, credentials: credentials)
         
         guard git != nil else {
             return
         }
-       
+        
+        _ = git!.runInit()
+        _ = git!.initGitHub()
+
+        githubRepositoryLabel.stringValue = "GitHub Repository: \(git!.githubRepositoryLink ?? "GIT INIT ERROR")"
+        githubRepositoryLabel.isHidden = false
+        
         projects = Projects(git!.repositoryDirectory)
         updateHeader()
     }

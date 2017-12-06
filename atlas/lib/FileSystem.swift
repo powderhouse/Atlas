@@ -27,15 +27,21 @@ class FileSystem {
         removeDirectory(baseDirectory())
     }
     
-    class func createDirectory(_ url: URL) {
+    class func fileExists(_ url: URL, isDirectory: Bool=true) -> Bool {
         let fileManager = FileManager.default
         
-        var isDir : ObjCBool = true
+        var isDir : ObjCBool = (isDirectory ? true : false)
         
-        if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+        return fileManager.fileExists(atPath: url.path, isDirectory: &isDir)
+    }
+    
+    class func createDirectory(_ url: URL) {
+        if fileExists(url) {
             return
         }
         
+        let fileManager = FileManager.default
+
         do {
             try fileManager.createDirectory(
                 at: url,

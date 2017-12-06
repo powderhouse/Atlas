@@ -145,7 +145,8 @@ class GitTests: XCTestCase {
         let results = actualGit.initGitHub()
         let gitUrl = results?["clone_url"] as? String
         XCTAssertEqual(gitUrl, "https://github.com/atlastest/testGit.git")
-        
+        XCTAssertEqual(actualGit.githubRepositoryLink, "https://github.com/atlastest/testGit")
+
         actualGit.removeGitHub()
     }
     
