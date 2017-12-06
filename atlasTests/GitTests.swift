@@ -26,7 +26,11 @@ class GitTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         Configuration.atlasDirectory = "AtlasTest"
         
-        directory = FileSystem.createDirectory("testGit")
+        directory = FileSystem.baseDirectory().appendingPathComponent(
+            "testGit",
+            isDirectory: true
+        )
+        FileSystem.createDirectory(directory)
         let fileManager = FileManager.default
         var isDir : ObjCBool = true
         XCTAssert(fileManager.fileExists(atPath: directory.path, isDirectory: &isDir), "\(directory) not created")

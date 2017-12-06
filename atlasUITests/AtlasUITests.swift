@@ -57,6 +57,9 @@ class AtlasUITests: XCTestCase {
     func testInstallation() {
         let window = app.windows["Window"]
         XCTAssert(window.buttons["+"].exists)
+        
+        XCTAssert(window.staticTexts["Current Project: General"].exists)
+        XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
     }
     
     func testPersistence() {
@@ -66,6 +69,8 @@ class AtlasUITests: XCTestCase {
         
         let window = app.windows["Window"]
         XCTAssert(window.staticTexts["Account: atlastest"].exists)
+        XCTAssert(window.staticTexts["Current Project: General"].exists)
+        XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
     }
     
     func testNewProject() {

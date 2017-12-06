@@ -12,6 +12,8 @@ class NewProjectController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet weak var projectNameField: NSTextField!
     
+    var projects: Projects!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -22,7 +24,7 @@ class NewProjectController: NSViewController, NSTextFieldDelegate {
     
     @IBAction func createProject(_ sender: NSButton) {
         let projectName = projectNameField.stringValue
-        _ = FileSystem.createDirectory(projectName)
+        _ = projects.create(projectName)
         if let mc = self.presenting as? MainController {
             mc.updateProjects()
             mc.selectProject(projectName)
