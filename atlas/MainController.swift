@@ -109,6 +109,12 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     func initGit(_ credentials: Credentials) {
         let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
         FileSystem.createDirectory(atlasRepository)
+        
+        let readme = atlasRepository.appendingPathComponent("readme.md", isDirectory: false)
+        do {
+            try "Welcome to Atlas".write(to: readme, atomically: true, encoding: .utf8)
+        } catch {}
+        
         git = Git(atlasRepository, credentials: credentials)
         
         guard git != nil else {
