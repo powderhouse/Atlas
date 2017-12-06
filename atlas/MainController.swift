@@ -24,11 +24,7 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     var projects: [String] = []
     
-    var git: Git?  {
-        didSet {
-            updateHeader()
-        }
-    }
+    var git: Git?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +35,10 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
             Testing.setup()
         }
         
+        FileSystem.createBaseDirectory()
+        
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
-            updateHeader()
         } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
@@ -104,8 +101,9 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     }
     
     func initGit(_ credentials: Credentials) {
-        let atlasFolder = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
-        git = Git(atlasFolder, credentials: credentials)
+        let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
+        git = Git(atlasRepository, credentials: credentials)
+        updateHeader()
     }
     
     
@@ -120,10 +118,10 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     }
     
     func updateHeader() {
-        print("UPDATE: \(git) -> \(git?.credentials)")
         if let username = git?.credentials.username {
             emailLabel.stringValue = "Account: \(username)"
         } else {
+            print("HI THERE2")
             emailLabel.stringValue = "Account"
         }
     }

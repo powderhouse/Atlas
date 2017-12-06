@@ -21,13 +21,11 @@ class NewProjectController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func createProject(_ sender: NSButton) {
-        if let accountName = FileSystem.account() {
-            let projectName = projectNameField.stringValue
-            _ = FileSystem.createDirectory("\(accountName)/\(projectName)")
-            if let mc = self.presenting as? MainController {
-                mc.updateProjects()
-                mc.selectProject(projectName)
-            }
+        let projectName = projectNameField.stringValue
+        _ = FileSystem.createDirectory(projectName)
+        if let mc = self.presenting as? MainController {
+            mc.updateProjects()
+            mc.selectProject(projectName)
         }
         
         self.dismiss(nil)

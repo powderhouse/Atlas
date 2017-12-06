@@ -18,12 +18,14 @@ class GitTests: XCTestCase {
     let credentials = Credentials(
         username: "atlastest",
         password: "1a2b3c4d",
-        token: "52b750d593eff89abfd101263d71c0673ad050a5"
+        token: nil
     )
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        Configuration.atlasDirectory = "AtlasTest"
+        
         directory = FileSystem.createDirectory("testGit")
         let fileManager = FileManager.default
         var isDir : ObjCBool = true
@@ -136,8 +138,8 @@ class GitTests: XCTestCase {
     
     func testInitGitHub() {
         initialize()
-        let results = actualGit.initGitHub()!
-        let gitUrl = results["clone_url"] as! String
+        let results = actualGit.initGitHub()
+        let gitUrl = results?["clone_url"] as? String
         XCTAssertEqual(gitUrl, "https://github.com/atlastest/testGit.git")
         
         actualGit.removeGitHub()

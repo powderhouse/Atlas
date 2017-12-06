@@ -32,11 +32,21 @@ class AtlasUITests: XCTestCase {
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         XCTAssert(accountModal.staticTexts["Please enter your GitHub credentials:"].exists)
 
-        accountModal.textFields["Email"].typeText("atlastest@puzzleschool.com")
+        let emailField = accountModal.textFields["Email"]
+        emailField.click()
+        emailField.typeText("atlastest")
+
         let passwordSecureTextField = accountModal.secureTextFields["Password"]
         passwordSecureTextField.click()
         passwordSecureTextField.typeText("1a2b3c4d")
+        
         accountModal.buttons["Save"].click()
+        
+        let label = app.staticTexts["Account: atlastest"]
+        let exists = NSPredicate(format: "exists == 1")
+        
+        expectation(for: exists, evaluatedWith: label, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
     override func tearDown() {
@@ -46,7 +56,6 @@ class AtlasUITests: XCTestCase {
     
     func testInstallation() {
         let window = app.windows["Window"]
-        XCTAssert(window.staticTexts["Account: atlastest@puzzleschool.com"].exists)
         XCTAssert(window.buttons["+"].exists)
     }
     
@@ -56,7 +65,7 @@ class AtlasUITests: XCTestCase {
         app.launch()
         
         let window = app.windows["Window"]
-        XCTAssert(window.staticTexts["Account: atlastest@puzzleschool.com"].exists)
+        XCTAssert(window.staticTexts["Account: atlastest"].exists)
     }
     
     func testNewProject() {

@@ -63,17 +63,20 @@ class FileSystemTests: XCTestCase {
         XCTAssertNotNil(FileSystem.createDirectory("directory"))
     }
     
-    func testAccount() {
-        _ = FileSystem.createDirectory("test.example@example.com")
-        XCTAssertEqual(FileSystem.account(), "test.example@example.com", "emails do not match") 
-    }
-    
     func testProjects() {
-        let account = "test.example@example.com"
-        _ = FileSystem.createDirectory(account)
-        _ = FileSystem.createDirectory("\(account)/Project One")
-        _ = FileSystem.createDirectory("\(account)/Project Two")
-        _ = FileSystem.createDirectory("\(account)/Project Three")
+        let directory = FileSystem.baseDirectory().deletingLastPathComponent()
+        _ = FileSystem.createDirectory(FileSystem.atlasDirectory(), inDirectory: directory)
+        
+        let filePath = "\(FileSystem.baseDirectory().path)/index.html"
+        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
+        
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
+
+        _ = FileSystem.createDirectory("Project One")
+        _ = FileSystem.createDirectory("Project Two")
+        _ = FileSystem.createDirectory("Project Three")
         XCTAssertEqual(FileSystem.projects(), ["Project One", "Project Three", "Project Two"])
     }
 
