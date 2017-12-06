@@ -14,24 +14,17 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     @IBOutlet weak var projectListView: NSOutlineView!
     
-    var email: String? {
-        didSet {
-            if email != nil {
-                _ = FileSystem.createAccount(email!)
-            }
-            updateHeader()
-        }
-    }
-    
     @IBOutlet weak var addProjectButton: NSButton!
     
-    @IBOutlet weak var emailLabel: NSTextField!
+    @IBOutlet weak var usernameLabel: NSTextField!
     
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
     @IBOutlet weak var projectsList: NSTextField!
     
     var projects: [String] = []
+    
+    var git: Git?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,15 +35,15 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
             Testing.setup()
         }
         
-        email = FileSystem.account()
+        FileSystem.createBaseDirectory()
         
-        if email == nil {
+        if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
+            initGit(credentials)
+        } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
                 sender: self
             )
-        } else {
-            updateHeader()
         }
         
         updateProjects()
@@ -107,6 +100,12 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         selectProject(projects[projectListView.selectedRow])
     }
     
+    func initGit(_ credentials: Credentials) {
+        let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
+        git = Git(atlasRepository, credentials: credentials)
+        updateHeader()
+    }
+    
     
     func updateProjects() {
         projects = FileSystem.projects()
@@ -119,18 +118,18 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     }
     
     func updateHeader() {
-        if let definedEmail = email {
-            emailLabel.stringValue = "Account: \(definedEmail)"
+        if let username = git?.credentials.username {
+            usernameLabel.stringValue = "Account: \(username)"
         } else {
-            emailLabel.stringValue = "Account"
+            usernameLabel.stringValue = "Account"
         }
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier?.rawValue == "account-modal" {
             let dvc = segue.destinationController as! AccountController
-            if email != nil {
-                dvc.emailField.stringValue = email!
+            if let currentGit = git {
+                dvc.usernameField.stringValue = currentGit.credentials.username
             }
             dvc.mainController = self
         }

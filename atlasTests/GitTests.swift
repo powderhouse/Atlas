@@ -12,19 +12,29 @@ import XCTest
 class GitTests: XCTestCase {
     
     var directory: URL!
-    var testGit: Git!
+//    var testGit: Git!
     var actualGit: Git!
     
+    let credentials = Credentials(
+        username: "atlastest",
+        password: "1a2b3c4d",
+        token: nil
+    )
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        Configuration.atlasDirectory = "AtlasTest"
+        
         directory = FileSystem.createDirectory("testGit")
         let fileManager = FileManager.default
         var isDir : ObjCBool = true
         XCTAssert(fileManager.fileExists(atPath: directory.path, isDirectory: &isDir), "\(directory) not created")
         
-        testGit = Git(directory!, atlasProcessFactory: MockProcessFactory())
-        actualGit = Git(directory!)
+//        testGit = Git(directory!,
+//                      credentials: credentials,
+//                      atlasProcessFactory: MockProcessFactory())
+        actualGit = Git(directory!, credentials: credentials)
     }
     
     override func tearDown() {
@@ -35,6 +45,46 @@ class GitTests: XCTestCase {
             try fileManager.removeItem(at: directory!)
         } catch {
             print("FAILED TO DELETE: \(error)")
+        }
+    }
+    
+    func testInit_noPasswordOrTokenProvided() {
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(at: directory!)
+        } catch {
+            print("FAILED TO DELETE: \(error)")
+        }
+        
+        let newGit = Git(directory!, credentials: Credentials(username: "test", password: nil, token: nil))
+        XCTAssertNil(newGit)
+    }
+        
+    func testInit_credentialsProvided() {
+        XCTAssertNotNil(actualGit)
+        
+        let filePath = "\(directory.deletingLastPathComponent().path)/github.json"
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No github json found")        
+    }
+    
+    func testSaveCredentials() {
+        actualGit.saveCredentials(Credentials(username: "test", password: nil, token: nil))
+        
+        let filePath = "\(directory.deletingLastPathComponent().path)/github.json"
+        let fileManager = FileManager.default
+        var isFile : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No github json found")
+    }
+
+    func testGetCredentials() {
+        if let credentials = Git.getCredentials(actualGit.baseDirectory) {
+            XCTAssertEqual(credentials.username, credentials.username)
+            XCTAssertEqual(credentials.token, credentials.token)
+            XCTAssertNil(credentials.password)
+        } else {
+            XCTFail("Credentials not found")
         }
     }
 
@@ -88,8 +138,8 @@ class GitTests: XCTestCase {
     
     func testInitGitHub() {
         initialize()
-        let results = actualGit.initGitHub()!
-        let gitUrl = results["clone_url"] as! String
+        let results = actualGit.initGitHub()
+        let gitUrl = results?["clone_url"] as? String
         XCTAssertEqual(gitUrl, "https://github.com/atlastest/testGit.git")
         
         actualGit.removeGitHub()
