@@ -32,11 +32,11 @@ class AtlasUITests: XCTestCase {
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         XCTAssert(accountModal.staticTexts["Please enter your GitHub credentials:"].exists)
 
-        let emailField = accountModal.textFields["Email"]
-        emailField.click()
-        emailField.typeText("atlastest")
+        let usernameField = accountModal.textFields["GitHub Username"]
+        usernameField.click()
+        usernameField.typeText("atlastest")
 
-        let passwordSecureTextField = accountModal.secureTextFields["Password"]
+        let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
         passwordSecureTextField.click()
         passwordSecureTextField.typeText("1a2b3c4d")
         

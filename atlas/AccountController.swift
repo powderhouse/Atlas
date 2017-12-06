@@ -10,7 +10,7 @@ import Cocoa
 
 class AccountController: NSViewController, NSTextFieldDelegate {
 
-    @IBOutlet weak var emailField: NSTextField!
+    @IBOutlet weak var usernameField: NSTextField!
     
     @IBOutlet weak var passwordField: NSSecureTextField!
     
@@ -20,10 +20,10 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        emailField.delegate = self
+        usernameField.delegate = self
         passwordField.delegate = self
 
-        emailField.becomeFirstResponder()
+        usernameField.becomeFirstResponder()
     }
 
     override var representedObject: Any? {
@@ -35,7 +35,7 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     @IBAction func save(_ sender: NSButtonCell) {
         mainController.initGit(
             Credentials(
-                username: emailField.stringValue,
+                username: usernameField.stringValue,
                 password: passwordField.stringValue,
                 token: nil
             )

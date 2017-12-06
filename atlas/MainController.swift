@@ -16,7 +16,7 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     @IBOutlet weak var addProjectButton: NSButton!
     
-    @IBOutlet weak var emailLabel: NSTextField!
+    @IBOutlet weak var usernameLabel: NSTextField!
     
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
@@ -119,10 +119,9 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     func updateHeader() {
         if let username = git?.credentials.username {
-            emailLabel.stringValue = "Account: \(username)"
+            usernameLabel.stringValue = "Account: \(username)"
         } else {
-            print("HI THERE2")
-            emailLabel.stringValue = "Account"
+            usernameLabel.stringValue = "Account"
         }
     }
     
@@ -130,7 +129,7 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         if segue.identifier?.rawValue == "account-modal" {
             let dvc = segue.destinationController as! AccountController
             if let currentGit = git {
-                dvc.emailField.stringValue = currentGit.credentials.username
+                dvc.usernameField.stringValue = currentGit.credentials.username
             }
             dvc.mainController = self
         }

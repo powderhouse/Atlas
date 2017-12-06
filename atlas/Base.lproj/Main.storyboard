@@ -729,9 +729,9 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XIW-eE-g3v" userLabel="Email">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XIW-eE-g3v" userLabel="Username">
                                         <rect key="frame" x="0.0" y="56" width="360" height="22"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Email" drawsBackground="YES" id="tdv-dm-O11">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Username" drawsBackground="YES" id="tdv-dm-O11">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -739,7 +739,7 @@
                                     </textField>
                                     <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Lf-oO-PYc" userLabel="Password">
                                         <rect key="frame" x="0.0" y="26" width="360" height="22"/>
-                                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" usesSingleLineMode="YES" id="twP-7O-fpI">
+                                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="GitHub Password" drawsBackground="YES" usesSingleLineMode="YES" id="twP-7O-fpI">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -787,8 +787,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="XIW-eE-g3v" id="3ES-ZQ-JZt"/>
                         <outlet property="passwordField" destination="7Lf-oO-PYc" id="oI1-3f-lry"/>
+                        <outlet property="usernameField" destination="XIW-eE-g3v" id="mdp-T6-yZh"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -806,12 +806,12 @@
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhU-UC-IqE" userLabel="Main View">
                                 <rect key="frame" x="150" y="350" width="450" height="30"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-7h-H2I">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-7h-H2I" userLabel="Username Label">
                                         <rect key="frame" x="-2" y="0.0" width="454" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="nKA-LO-a0g"/>
                                         </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Email" id="ch6-dH-mhW">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Username" id="ch6-dH-mhW">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -943,9 +943,9 @@
                     <connections>
                         <outlet property="addProjectButton" destination="0og-BS-53u" id="Pd5-N6-8kF"/>
                         <outlet property="currentProjectLabel" destination="RhI-a6-7gn" id="BMT-7V-k60"/>
-                        <outlet property="emailLabel" destination="F5P-7h-H2I" id="i0s-Q2-YRu"/>
                         <outlet property="projectListScrollView" destination="5Ae-1I-z2z" id="x8h-oE-7JU"/>
                         <outlet property="projectListView" destination="dVG-7C-hoa" id="AQX-mW-500"/>
+                        <outlet property="usernameLabel" destination="F5P-7h-H2I" id="KIx-KP-N4v"/>
                         <segue destination="XfG-lQ-9wD" kind="modal" identifier="account-modal" id="eHd-PJ-AXv"/>
                     </connections>
                 </viewController>
