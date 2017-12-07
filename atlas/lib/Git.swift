@@ -264,6 +264,9 @@ class Git {
     
     func callGitHubAPI(_ arguments: [String]) -> [[String: Any]]? {
         let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
+        
+        print("GIT HUB API: /anaconda/bin/curl \(arguments) -> \(response)")
+        
         let data = response.data(using: .utf8)!
         
         do {
