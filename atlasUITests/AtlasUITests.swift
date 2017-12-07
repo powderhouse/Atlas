@@ -46,9 +46,9 @@ class AtlasUITests: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: label, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
         
-        waitForElementToAppear(app.staticTexts["Current Project: General"])
+        XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: General"]))
     }
     
     override func tearDown() {
@@ -75,6 +75,7 @@ class AtlasUITests: XCTestCase {
         XCTAssert(window.staticTexts["Account: atlastest"].exists)
         XCTAssert(window.staticTexts["Current Project: General"].exists)
         XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
+        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
     }
     
     func testNewProject() {

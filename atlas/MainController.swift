@@ -108,27 +108,42 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     func initGit(_ credentials: Credentials) {
         let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
-        FileSystem.createDirectory(atlasRepository)
         
-        let readme = atlasRepository.appendingPathComponent("readme.md", isDirectory: false)
-        do {
-            try "Welcome to Atlas".write(to: readme, atomically: true, encoding: .utf8)
-        } catch {}
-        
+        if !FileSystem.fileExists(atlasRepository) {
+            FileSystem.createDirectory(atlasRepository)
+        }
+
         git = Git(atlasRepository, credentials: credentials)
-        
+
         guard git != nil else {
             return
         }
-        
-        _ = git!.runInit()
-        _ = git!.initGitHub()
 
-        githubRepositoryLabel.stringValue = "GitHub Repository: \(git!.githubRepositoryLink ?? "GIT INIT ERROR")"
-        githubRepositoryLabel.isHidden = false
+        let readme = atlasRepository.appendingPathComponent("readme.md", isDirectory: false)
+        if !FileSystem.fileExists(readme, isDirectory: false) {
+            do {
+                try "Welcome to Atlas".write(to: readme, atomically: true, encoding: .utf8)
+            } catch {}
+
+            _ = git!.runInit()
+            _ = git!.initGitHub()
+        }
+        
+        displayRepositoryLink()
         
         projects = Projects(git!.repositoryDirectory)
         updateHeader()
+    }
+    
+    func displayRepositoryLink() {
+        if let repositoryLink = git!.githubRepositoryLink {
+            if repositoryLink.count > 0 {
+                githubRepositoryLabel.stringValue = "GitHub Repository: \(repositoryLink)"
+                githubRepositoryLabel.isHidden = false
+                return
+            }
+        }
+        githubRepositoryLabel.isHidden = true
     }
     
     func initGeneralRepository() {
@@ -141,13 +156,15 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         let generalFolder = projects!.create(generalProjectName)
         
         let readme = generalFolder!.appendingPathComponent("readme.md", isDirectory: false)
-        do {
-            try "This is your General Folder".write(to: readme, atomically: true, encoding: .utf8)
-        } catch {}
-        
-        _ = git!.add()
-        _ = git!.commit()
-        _ = git!.pushToGitHub()
+        if !FileSystem.fileExists(readme) {
+            do {
+                try "This is your General Folder".write(to: readme, atomically: true, encoding: .utf8)
+            } catch {}
+            
+            _ = git!.add()
+            _ = git!.commit()
+            _ = git!.pushToGitHub()
+        }
         
         selectProject(generalProjectName)
     }
