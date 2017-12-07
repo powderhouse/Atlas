@@ -20,11 +20,13 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
+    @IBOutlet weak var githubRepositoryLabel: NSTextField!
+    
     @IBOutlet weak var projectsList: NSTextField!
     
-    var projects: [String] = []
-    
     var git: Git?
+    
+    var projects: Projects?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +41,20 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
+            initGeneralRepository()
+            updateProjects()
         } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
                 sender: self
             )
         }
-        
-        updateProjects()
-        
-        currentProjectLabel.isHidden = true
+    }
+    
+    override func viewDidDisappear() {
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            Testing.setup()
+        }
     }
     
     override var representedObject: Any? {
@@ -63,11 +69,11 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return projects[index]
+        return projects?.list()[index] ?? ""
     }
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        return projects.count
+        return projects?.list().count ?? 0
     }
     
     func tableView(_ tableView: NSTableView,
@@ -97,18 +103,73 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
     }
     
     func outlineViewSelectionDidChange(_ notification: Notification){
-        selectProject(projects[projectListView.selectedRow])
+        selectProject(projects?.list()[projectListView.selectedRow] ?? "")
     }
     
     func initGit(_ credentials: Credentials) {
         let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
+        
+        if !FileSystem.fileExists(atlasRepository) {
+            FileSystem.createDirectory(atlasRepository)
+        }
+
         git = Git(atlasRepository, credentials: credentials)
+
+        guard git != nil else {
+            return
+        }
+
+        let readme = atlasRepository.appendingPathComponent("readme.md", isDirectory: false)
+        if !FileSystem.fileExists(readme, isDirectory: false) {
+            do {
+                try "Welcome to Atlas".write(to: readme, atomically: true, encoding: .utf8)
+            } catch {}
+
+            _ = git!.runInit()
+            _ = git!.initGitHub()
+        }
+        
+        displayRepositoryLink()
+        
+        projects = Projects(git!.repositoryDirectory)
         updateHeader()
     }
     
+    func displayRepositoryLink() {
+        if let repositoryLink = git!.githubRepositoryLink {
+            if repositoryLink.count > 0 {
+                githubRepositoryLabel.stringValue = "GitHub Repository: \(repositoryLink)"
+                githubRepositoryLabel.isHidden = false
+                return
+            }
+        }
+        githubRepositoryLabel.isHidden = true
+    }
+    
+    func initGeneralRepository() {
+        guard git != nil && projects != nil else {
+            return
+        }
+        
+        let generalProjectName = "General"
+        
+        let generalFolder = projects!.create(generalProjectName)
+        
+        let readme = generalFolder!.appendingPathComponent("readme.md", isDirectory: false)
+        if !FileSystem.fileExists(readme) {
+            do {
+                try "This is your General Folder".write(to: readme, atomically: true, encoding: .utf8)
+            } catch {}
+            
+            _ = git!.add()
+            _ = git!.commit()
+            _ = git!.pushToGitHub()
+        }
+        
+        selectProject(generalProjectName)
+    }
     
     func updateProjects() {
-        projects = FileSystem.projects()
         projectListView.reloadData()
     }
     
@@ -132,6 +193,9 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
                 dvc.usernameField.stringValue = currentGit.credentials.username
             }
             dvc.mainController = self
+        } else if segue.identifier?.rawValue == "new-project-modal" {
+            let dvc = segue.destinationController as! NewProjectController
+            dvc.projects = projects
         }
     }
 }

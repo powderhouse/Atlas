@@ -40,6 +40,9 @@ class AccountController: NSViewController, NSTextFieldDelegate {
                 token: nil
             )
         )
+        mainController.initGeneralRepository()
+        mainController.updateProjects()
+
         self.dismiss(nil)
     }
     

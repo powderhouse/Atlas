@@ -20,68 +20,44 @@ class FileSystem {
     }
     
     class func createBaseDirectory() {
+        createDirectory(baseDirectory())
+    }
+    
+    class func removeBaseDirectory() {
+        removeDirectory(baseDirectory())
+    }
+    
+    class func fileExists(_ url: URL, isDirectory: Bool=true) -> Bool {
         let fileManager = FileManager.default
         
-        var isDir : ObjCBool = true
+        var isDir : ObjCBool = (isDirectory ? true : false)
         
-        if fileManager.fileExists(atPath: baseDirectory().path, isDirectory: &isDir) {
+        return fileManager.fileExists(atPath: url.path, isDirectory: &isDir)
+    }
+    
+    class func createDirectory(_ url: URL) {
+        if fileExists(url) {
             return
         }
         
+        let fileManager = FileManager.default
+
         do {
             try fileManager.createDirectory(
-                at: baseDirectory(),
+                at: url,
                 withIntermediateDirectories: true,
                 attributes: nil
             )
         } catch {
-            print("Unable to create baseDirectory: \(baseDirectory())")
+            print("Unable to create directory: \(url)")
         }
     }
     
-    class func removeBaseDirectory() {
+    class func removeDirectory(_ url: URL) {
         let fileManager = FileManager.default
         do {
-            try fileManager.removeItem(at: baseDirectory())
+            try fileManager.removeItem(at: url)
         } catch {}
-    }
-    
-    class func createDirectory(_ name: String, inDirectory: URL=baseDirectory()) -> URL? {
-        let url = inDirectory.appendingPathComponent(name)
-        let fileManager = FileManager.default
-        var isDir : ObjCBool = false
-
-        if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
-            return url
-        }
-        
-        do {
-            try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
-
-            if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
-                return url
-            }
-        } catch {
-            print("Caught: \(error)")
-        }
-        
-        return nil
-    }
-    
-    class func projects() -> [String] {
-        let fileManager = FileManager.default
-        let contents = try? fileManager.contentsOfDirectory(
-            at: baseDirectory(),
-            includingPropertiesForKeys: [URLResourceKey.isDirectoryKey]
-        )
-        
-        guard contents != nil else {
-            return []
-        }
-        
-        let subdirectories = contents!.filter { $0.hasDirectoryPath }
-        
-        return subdirectories.map { $0.lastPathComponent }.sorted()
     }
     
 }

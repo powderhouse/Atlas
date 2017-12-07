@@ -35,7 +35,7 @@ class FileSystemTests: XCTestCase {
         XCTAssert(baseDirectory.range(of: "Atlas") != nil, "\(baseDirectory) does not contain 'Atlas'")
     }
     
-    func testCreateFolder() {
+    func testCreateDirectory() {
         let fileManager = FileManager.default
         var isDir : ObjCBool = false
 
@@ -49,7 +49,7 @@ class FileSystemTests: XCTestCase {
         
         XCTAssertFalse(prefolder, "Folder already exists")
         
-        _ = FileSystem.createDirectory("folder")
+        _ = FileSystem.createDirectory(newFolder)
         
         let folder = fileManager.fileExists(
             atPath: newFolder.path,
@@ -59,25 +59,8 @@ class FileSystemTests: XCTestCase {
     }
 
     func testCreateFolder_withExistingFolder() {
-        _ = FileSystem.createDirectory("directory")
-        XCTAssertNotNil(FileSystem.createDirectory("directory"))
+        let url = FileSystem.baseDirectory().appendingPathComponent("NewFoloder", isDirectory: true)
+        _ = FileSystem.createDirectory(url)
+        XCTAssertNotNil(FileSystem.createDirectory(url))
     }
-    
-    func testProjects() {
-        let directory = FileSystem.baseDirectory().deletingLastPathComponent()
-        _ = FileSystem.createDirectory(FileSystem.atlasDirectory(), inDirectory: directory)
-        
-        let filePath = "\(FileSystem.baseDirectory().path)/index.html"
-        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
-        
-        let fileManager = FileManager.default
-        var isFile : ObjCBool = false
-        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isFile), "No file at \(filePath)")
-
-        _ = FileSystem.createDirectory("Project One")
-        _ = FileSystem.createDirectory("Project Two")
-        _ = FileSystem.createDirectory("Project Three")
-        XCTAssertEqual(FileSystem.projects(), ["Project One", "Project Three", "Project Two"])
-    }
-
 }

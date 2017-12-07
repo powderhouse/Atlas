@@ -26,7 +26,11 @@ class GitTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         Configuration.atlasDirectory = "AtlasTest"
         
-        directory = FileSystem.createDirectory("testGit")
+        directory = FileSystem.baseDirectory().appendingPathComponent(
+            "testGit",
+            isDirectory: true
+        )
+        FileSystem.createDirectory(directory)
         let fileManager = FileManager.default
         var isDir : ObjCBool = true
         XCTAssert(fileManager.fileExists(atPath: directory.path, isDirectory: &isDir), "\(directory) not created")
@@ -141,7 +145,8 @@ class GitTests: XCTestCase {
         let results = actualGit.initGitHub()
         let gitUrl = results?["clone_url"] as? String
         XCTAssertEqual(gitUrl, "https://github.com/atlastest/testGit.git")
-        
+        XCTAssertEqual(actualGit.githubRepositoryLink, "https://github.com/atlastest/testGit")
+
         actualGit.removeGitHub()
     }
     

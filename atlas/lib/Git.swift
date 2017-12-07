@@ -22,6 +22,9 @@ class Git {
     var repositoryDirectory: URL
     var baseDirectory: URL
     var repositoryName: String
+    
+    var githubRepositoryLink: String?
+    
     var atlasProcessFactory: AtlasProcessFactory!
     var credentials: Credentials!
 
@@ -38,6 +41,8 @@ class Git {
         if self.credentials.token == nil {
             return nil
         }
+        
+        setGitHubRepositoryLink()
     }
     
     class func getCredentials(_ baseDirectory: URL) -> Credentials? {
@@ -47,7 +52,7 @@ class Git {
             json = try String(contentsOf: path, encoding: .utf8)
         }
         catch {
-            print("GitHub Credentials Not Found")
+            printGit("GitHub Credentials Not Found")
             return nil
         }
         
@@ -65,8 +70,8 @@ class Git {
                     }
                 }
             } catch {
-                print("GitHub Credentials Loading Error")
-                print(error.localizedDescription)
+                printGit("GitHub Credentials Loading Error")
+                printGit(error.localizedDescription)
             }
         }
         return nil
@@ -121,7 +126,7 @@ class Git {
         
         if let authentication = callGitHubAPI(authArguments) {
             guard authentication[0]["token"] != nil else {
-                print("Failed GitHub Authentication: \(authentication)")
+                printGit("Failed GitHub Authentication: \(authentication)")
                 return nil
             }
 
@@ -132,7 +137,7 @@ class Git {
         
     func saveCredentials(_ credentials: Credentials) {
         guard credentials.token != nil else {
-            print("No token provided: \(credentials)")
+            printGit("No token provided: \(credentials)")
             return
         }
         
@@ -153,16 +158,16 @@ class Git {
                     do {
                         try fileManager.removeItem(at: filename)
                     } catch {
-                        print("Failed to delete github.json: \(error)")
+                        printGit("Failed to delete github.json: \(error)")
                     }
                 }
                 
                 try jsonCredentials.write(to: filename)
             } catch {
-                print("Failed to save github.json: \(error)")
+                printGit("Failed to save github.json: \(error)")
             }
         } catch {
-            print("Failed to convert credentials to json")
+            printGit("Failed to convert credentials to json")
         }
     }
     
@@ -171,7 +176,7 @@ class Git {
         return ["git", "--git-dir=\(path)/.git", command] + additionalArguments
     }
     
-    func run(_ command: String,arguments: [String]=[]) -> String {
+    func run(_ command: String, arguments: [String]=[]) -> String {
         let fullArguments = buildArguments(
             command,
             additionalArguments: arguments
@@ -202,6 +207,19 @@ class Git {
         return true
     }
     
+    func url() -> String {
+        let authenticatedUrl = run("ls-remote", arguments: ["--get-url"])
+        
+        guard authenticatedUrl.contains("https") else {
+            return ""
+        }
+        
+        return authenticatedUrl.replacingOccurrences(
+            of: "https://\(credentials.username):\(credentials.token!)@",
+            with: "https://"
+        )
+    }
+    
     func initGitHub() -> [String: Any]? {
         let arguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
@@ -220,29 +238,19 @@ class Git {
             of: "https://",
             with: "https://\(credentials.username):\(credentials.token!)@"
         )
-        _ = run("remote", arguments: ["add", "origin", authenticatedPath]
-        )
+        _ = run("remote", arguments: ["add", "origin", authenticatedPath])
+        
+        setGitHubRepositoryLink()
         
         return result![0]
     }
+    
+    func setGitHubRepositoryLink() {
+        printGit("URL: \(url())")
+        githubRepositoryLink = url().replacingOccurrences(of: ".git\n", with: "")
+    }
 
     func removeGitHub() {
-//        let authArguments = [
-//            "-u", "\(remoteUser):\(remotePassword)",
-//            "-X", "POST",
-//            "https://api.github.com/authorizations",
-//            "-d", "{\"scopes\":[\"delete_repo\"], \"note\":\"Test Token\"}"
-//        ]
-//
-//        let authArguments = [
-//            "-u", "\(remoteUser):\(remotePassword)",
-//            "https://api.github.com/authorizations/147415484"
-//        ]
-//
-//        let authentication = callGitHubAPI(authArguments)
-//
-//        print(authentication)
-        
         let deleteArguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
             "-X", "DELETE",
@@ -259,6 +267,13 @@ class Git {
     
     func callGitHubAPI(_ arguments: [String]) -> [[String: Any]]? {
         let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
+        
+        printGit("API: /anaconda/bin/curl \(arguments.joined(separator: " ")) -> \(response)")
+        
+        guard response.count > 0 else {
+            return nil
+        }
+        
         let data = response.data(using: .utf8)!
         
         do {
@@ -269,15 +284,23 @@ class Git {
             } else if let multipleItems = json as? [[String: Any]] {
                 return multipleItems
             }
-            print("JSON response from GITHUB evaluates to nil for \(arguments): \(response)")
+            printGit("JSON response from GITHUB evaluates to nil for \(arguments): \(response)")
         } catch {
-            print("Error deserializing JSON for \(arguments): \(error)")
+            printGit("Error deserializing JSON for \(arguments): \(error)")
         }
         return nil
     }
 
     func commit() -> String {
         return run("commit", arguments: ["-am", "Atlas commit"])
+    }
+    
+    func printGit(_ output: String) {
+        Git.printGit(output)
+    }
+    
+    class func printGit(_ output: String) {
+        print("GIT: \(output)")
     }
     
 }

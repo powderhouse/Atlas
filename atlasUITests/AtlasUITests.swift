@@ -46,7 +46,9 @@ class AtlasUITests: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: label, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: General"]))
     }
     
     override func tearDown() {
@@ -57,6 +59,11 @@ class AtlasUITests: XCTestCase {
     func testInstallation() {
         let window = app.windows["Window"]
         XCTAssert(window.buttons["+"].exists)
+        
+        XCTAssert(window.staticTexts["Current Project: General"].exists)
+        XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
+        
+        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
     }
     
     func testPersistence() {
@@ -66,6 +73,9 @@ class AtlasUITests: XCTestCase {
         
         let window = app.windows["Window"]
         XCTAssert(window.staticTexts["Account: atlastest"].exists)
+        XCTAssert(window.staticTexts["Current Project: General"].exists)
+        XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
+        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
     }
     
     func testNewProject() {
@@ -111,5 +121,14 @@ class AtlasUITests: XCTestCase {
 
         window/*@START_MENU_TOKEN@*/.outlines.outlineRows.cells.staticTexts["First Project"]/*[[".scrollViews.outlines",".outlineRows",".cells.staticTexts[\"First Project\"]",".staticTexts[\"First Project\"]",".outlines"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0,2,1]]@END_MENU_TOKEN@*/.click()
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+    }
+    
+    func waitForElementToAppear(_ element: XCUIElement) -> Bool {
+        let predicate = NSPredicate(format: "exists == true")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate,
+                                                    object: element)
+        
+        let result = XCTWaiter().wait(for: [expectation], timeout: 5)
+        return result == .completed
     }
 }
