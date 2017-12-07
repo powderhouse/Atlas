@@ -15,7 +15,7 @@ class FileSystem {
     }
     
     class func baseDirectory() -> URL {
-        let paths = NSSearchPathForDirectoriesInDomains(.applicationDirectory, .userDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         return URL(fileURLWithPath: paths[0]).appendingPathComponent("Atlas/\(atlasDirectory())")
     }
     
