@@ -221,20 +221,35 @@ class Git {
     }
     
     func initGitHub() -> [String: Any]? {
-        let arguments = [
+        let repoArguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
-            "-H", "Authorization: token \(credentials.token!)",
-            "https://api.github.com/user/repos",
-            "-d", "{\"name\":\"\(repositoryName)\"}"
+            "-X", "GET",
+//            "-H", "Authorization: token \(credentials.token!)",
+            "https://api.github.com/repos/\(credentials.username)/\(repositoryName)"
         ]
         
-        let result = callGitHubAPI(arguments)
+        var repoResult = callGitHubAPI(repoArguments)
         
-        guard let repoPath = result?[0]["clone_url"] as? String else {
+        var repoPath = repoResult?[0]["clone_url"] as? String
+        
+        if repoPath == nil {
+            let createRepoArguments = [
+                "-u", "\(credentials.username):\(credentials.token!)",
+                //            "-H", "Authorization: token \(credentials.token!)",
+                "https://api.github.com/user/repos",
+                "-d", "{\"name\":\"\(repositoryName)\"}"
+            ]
+            
+            repoResult = callGitHubAPI(createRepoArguments)
+            
+            repoPath = repoResult?[0]["clone_url"] as? String
+        }
+        
+        guard repoPath != nil else {
             return nil
         }
         
-        let authenticatedPath = repoPath.replacingOccurrences(
+        let authenticatedPath = repoPath!.replacingOccurrences(
             of: "https://",
             with: "https://\(credentials.username):\(credentials.token!)@"
         )
@@ -242,7 +257,7 @@ class Git {
         
         setGitHubRepositoryLink()
         
-        return result![0]
+        return repoResult![0]
     }
     
     func setGitHubRepositoryLink() {
@@ -254,7 +269,7 @@ class Git {
         let deleteArguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
             "-X", "DELETE",
-            "-H", "Authorization: token \(credentials.token!)",
+//            "-H", "Authorization: token \(credentials.token!)",
             "https://api.github.com/repos/\(credentials.username)/\(repositoryName)"
         ]
 
@@ -266,6 +281,8 @@ class Git {
     }
     
     func callGitHubAPI(_ arguments: [String]) -> [[String: Any]]? {
+        printGit("API: /anaconda/bin/curl \(arguments.joined(separator: " "))")
+
         let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
         
         printGit("API: /anaconda/bin/curl \(arguments.joined(separator: " ")) -> \(response)")

@@ -41,6 +41,8 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
+            git?.initGitHub()
+
             initGeneralRepository()
             updateProjects()
         } else {
