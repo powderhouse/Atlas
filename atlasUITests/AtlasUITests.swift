@@ -88,9 +88,9 @@ class AtlasUITests: XCTestCase {
         window.textFields["Project Name"].typeText("First Project")
         window.buttons["Save"].click()
 
-        XCTAssertFalse(window.staticTexts["New Project"].exists)
+        XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: First Project"]))
 
-        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+        XCTAssertFalse(window.staticTexts["New Project"].exists)
     }
     
     func testProjectPersistence() {
@@ -98,8 +98,9 @@ class AtlasUITests: XCTestCase {
         window.buttons["+"].click()
         window.textFields["Project Name"].typeText("First Project")
         window.buttons["Save"].click()
-        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
-        
+
+        XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: First Project"]))
+
         app.terminate()
         app.launchEnvironment["TESTING"] = nil
         app.launch()
@@ -112,12 +113,14 @@ class AtlasUITests: XCTestCase {
         window.buttons["+"].click()
         window.textFields["Project Name"].typeText("First Project")
         window.buttons["Save"].click()
-        XCTAssert(window.staticTexts["Current Project: First Project"].exists)
+        
+        XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: First Project"]))
 
         window.buttons["+"].click()
         window.textFields["Project Name"].typeText("Second Project")
         window.buttons["Save"].click()
-        XCTAssert(window.staticTexts["Current Project: Second Project"].exists)
+        
+        XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: Second Project"]))
 
         window/*@START_MENU_TOKEN@*/.outlines.outlineRows.cells.staticTexts["First Project"]/*[[".scrollViews.outlines",".outlineRows",".cells.staticTexts[\"First Project\"]",".staticTexts[\"First Project\"]",".outlines"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0,2,1]]@END_MENU_TOKEN@*/.click()
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)

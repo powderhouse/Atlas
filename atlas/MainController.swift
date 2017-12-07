@@ -133,7 +133,7 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         
         displayRepositoryLink()
         
-        projects = Projects(git!.repositoryDirectory)
+        projects = Projects(git!.repositoryDirectory, git: git!)
         updateHeader()
     }
     
@@ -155,18 +155,7 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         
         let generalProjectName = "General"
         
-        let generalFolder = projects!.create(generalProjectName)
-        
-        let readme = generalFolder!.appendingPathComponent("readme.md", isDirectory: false)
-        if !FileSystem.fileExists(readme) {
-            do {
-                try "This is your General Folder".write(to: readme, atomically: true, encoding: .utf8)
-            } catch {}
-            
-            _ = git!.add()
-            _ = git!.commit()
-            _ = git!.pushToGitHub()
-        }
+        _ = projects!.create(generalProjectName)
         
         selectProject(generalProjectName)
     }

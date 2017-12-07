@@ -11,36 +11,47 @@ import Foundation
 class Projects {
     
     let atlasRepository: URL!
+    let git: Git?
     
     let ignore = [
         ".git"
     ]
     
-    init(_ atlasRepository: URL) {
+    init(_ atlasRepository: URL, git: Git?=nil) {
         self.atlasRepository = atlasRepository
+        self.git = git
     }
     
     func create(_ name: String, inDirectory: URL?=nil) -> URL? {
         let directory = (inDirectory ?? atlasRepository)!
         let url = directory.appendingPathComponent(name)
         let fileManager = FileManager.default
-        var isDir : ObjCBool = false
+        var isDir : ObjCBool = true
         
-        if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
-            return url
-        }
-        
-        do {
-            try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
-            
-            if fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
-                return url
+        if !fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+            do {
+                try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Caught: \(error)")
+                return nil
             }
-        } catch {
-            print("Caught: \(error)")
         }
         
-        return nil
+        let readme = url.appendingPathComponent("readme.md")
+        if !FileSystem.fileExists(readme, isDirectory: false) {
+            do {
+                try "This is your \(name) project".write(to: readme, atomically: true, encoding: .utf8)
+            } catch {
+                print("Caught: \(error)")
+                return nil
+            }
+            
+            _ = git?.add()
+            _ = git?.commit()
+            _ = git?.pushToGitHub()
+        }
+        
+        return url
     }
     
     func list() -> [String] {
