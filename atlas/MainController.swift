@@ -8,8 +8,8 @@
 
 import Cocoa
 
-class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
-    
+class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
+
     @IBOutlet weak var projectListScrollView: NSScrollView!
     
     @IBOutlet weak var projectListView: NSOutlineView!
@@ -41,8 +41,6 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
-            git?.initGitHub()
-
             initGeneralRepository()
             updateProjects()
         } else {
@@ -65,47 +63,12 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         }
     }
     
-    func outlineView(_ outlineView: NSOutlineView,
-                     shouldExpandItem item: Any) -> Bool {
-        return false
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return projects?.list()[index] ?? ""
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return projects?.list().count ?? 0
     }
     
-    func tableView(_ tableView: NSTableView,
-                   objectValueFor tableColumn: NSTableColumn?,
-                   row: Int) -> Any? {
-        return "XXX"
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return true
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, viewFor viewForTableColumn: NSTableColumn?, item: Any) -> NSView? {
-        let projectName = item as! String
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: "ProjectCell")
-        let view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView
-        if let textField = view?.textField {
-            textField.stringValue = projectName
-            textField.sizeToFit()
-        }
-        
-        return view
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
-        return true
-    }
-    
-    func outlineViewSelectionDidChange(_ notification: Notification){
-        selectProject(projects?.list()[projectListView.selectedRow] ?? "")
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        NSCollectionViewItem(
     }
     
     func initGit(_ credentials: Credentials) {
