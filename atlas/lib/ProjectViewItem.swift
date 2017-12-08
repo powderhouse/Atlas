@@ -10,15 +10,15 @@ import Cocoa
 
 class ProjectViewItem: NSCollectionViewItem {
     
-    @IBOutlet weak var projectNameLabel: NSTextField!
+    @IBOutlet weak var label: NSTextField!
     
-    var projectName: String?
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
-        projectNameLabel.stringValue = projectName ?? "Project"
     }
     
+    @IBAction func handeClick(_ sender: NSClickGestureRecognizer) {
+        print("CLICKED \(label.stringValue)")
+    }
 }

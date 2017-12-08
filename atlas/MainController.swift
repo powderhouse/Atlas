@@ -65,28 +65,42 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
     }
     
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return projects?.list().count ?? 0
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let projectViewItem = ProjectViewItem()
+        let item = collectionView.makeItem(
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem"),
+            for: indexPath
+        )
+        guard let projectViewItem = item as? ProjectViewItem else {
+            return item
+        }
         
-        projectViewItem.projectName = (projects?.list()[indexPath.item])!
+        projectViewItem.label.stringValue = (projects?.list()[indexPath.item])!
         return projectViewItem
     }
     
     fileprivate func configureCollectionView() {
-        // 1
+//        projectListView.register(
+//            ProjectViewItem.self,
+//            forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem")
+//        )
+        
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120.0, height: 120.0)
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 10.0
         projectListView.collectionViewLayout = flowLayout
-        // 2
+
         view.wantsLayer = true
-        // 3
+        
         projectListView.layer?.backgroundColor = NSColor.black.cgColor
     }
     
