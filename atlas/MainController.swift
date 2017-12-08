@@ -8,11 +8,11 @@
 
 import Cocoa
 
-class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewDataSource {
-    
+class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
+
     @IBOutlet weak var projectListScrollView: NSScrollView!
     
-    @IBOutlet weak var projectListView: NSOutlineView!
+    @IBOutlet weak var projectListView: NSCollectionView!
     
     @IBOutlet weak var addProjectButton: NSButton!
     
@@ -37,12 +37,12 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
             Testing.setup()
         }
         
+        configureCollectionView()
+        
         FileSystem.createBaseDirectory()
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
-            git?.initGitHub()
-
             initGeneralRepository()
             updateProjects()
         } else {
@@ -65,47 +65,49 @@ class MainController: NSViewController, NSOutlineViewDelegate, NSOutlineViewData
         }
     }
     
-    func outlineView(_ outlineView: NSOutlineView,
-                     shouldExpandItem item: Any) -> Bool {
-        return false
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
     }
     
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return projects?.list()[index] ?? ""
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return projects?.list().count ?? 0
     }
     
-    func tableView(_ tableView: NSTableView,
-                   objectValueFor tableColumn: NSTableColumn?,
-                   row: Int) -> Any? {
-        return "XXX"
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return true
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, viewFor viewForTableColumn: NSTableColumn?, item: Any) -> NSView? {
-        let projectName = item as! String
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: "ProjectCell")
-        let view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView
-        if let textField = view?.textField {
-            textField.stringValue = projectName
-            textField.sizeToFit()
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = collectionView.makeItem(
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem"),
+            for: indexPath
+        )
+        guard let projectViewItem = item as? ProjectViewItem else {
+            return item
         }
         
-        return view
+        print("VIEW: \(projectViewItem.collectionView)")
+        projectViewItem.label.stringValue = (projects?.list()[indexPath.item])!
+        
+        return projectViewItem
     }
     
-    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
-        return true
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        if let selectedIndex = indexPaths.first?.item {
+            if let projectName = projects?.list()[selectedIndex] {
+                selectProject(projectName)
+            }
+        }
     }
     
-    func outlineViewSelectionDidChange(_ notification: Notification){
-        selectProject(projects?.list()[projectListView.selectedRow] ?? "")
+    fileprivate func configureCollectionView() {
+        projectListView.isSelectable = true
+        let flowLayout = NSCollectionViewFlowLayout()
+        flowLayout.itemSize = NSSize(width: 120.0, height: 120.0)
+        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+        flowLayout.minimumInteritemSpacing = 20.0
+        flowLayout.minimumLineSpacing = 10.0
+        projectListView.collectionViewLayout = flowLayout
+
+        view.wantsLayer = true
+        
+        projectListView.layer?.backgroundColor = NSColor.black.cgColor
     }
     
     func initGit(_ credentials: Credentials) {
