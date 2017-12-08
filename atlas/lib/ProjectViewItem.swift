@@ -16,9 +16,7 @@ class ProjectViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        print("VIEW1: \(self.collectionView)")
     }
     
-    @IBAction func handeClick(_ sender: NSClickGestureRecognizer) {
-        print("CLICKED \(label.stringValue)")
-    }
 }

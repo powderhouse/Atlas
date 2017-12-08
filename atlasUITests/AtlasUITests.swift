@@ -61,7 +61,7 @@ class AtlasUITests: XCTestCase {
         XCTAssert(window.buttons["+"].exists)
         
         XCTAssert(window.staticTexts["Current Project: General"].exists)
-        XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
+        XCTAssert(window.collectionViews.staticTexts["General"].exists)
                 
         XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
     }
@@ -74,7 +74,7 @@ class AtlasUITests: XCTestCase {
         let window = app.windows["Window"]
         XCTAssert(window.staticTexts["Account: atlastest"].exists)
         XCTAssert(window.staticTexts["Current Project: General"].exists)
-        XCTAssert(window.outlines.outlineRows.cells.staticTexts["General"].exists)
+        XCTAssert(window.collectionViews.staticTexts["General"].exists)
         XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
     }
     
@@ -105,7 +105,7 @@ class AtlasUITests: XCTestCase {
         app.launchEnvironment["TESTING"] = nil
         app.launch()
         
-        XCTAssert(window/*@START_MENU_TOKEN@*/.outlines.outlineRows.cells.staticTexts["First Project"]/*[[".scrollViews.outlines",".outlineRows",".cells.staticTexts[\"First Project\"]",".staticTexts[\"First Project\"]",".outlines"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0,2,1]]@END_MENU_TOKEN@*/.exists)
+        XCTAssert(window.collectionViews.staticTexts["First Project"].exists)
     }
     
     func testSelectingProjects() {
@@ -122,7 +122,7 @@ class AtlasUITests: XCTestCase {
         
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: Second Project"]))
 
-        window/*@START_MENU_TOKEN@*/.outlines.outlineRows.cells.staticTexts["First Project"]/*[[".scrollViews.outlines",".outlineRows",".cells.staticTexts[\"First Project\"]",".staticTexts[\"First Project\"]",".outlines"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0,2,1]]@END_MENU_TOKEN@*/.click()
+        window.collectionViews.staticTexts["First Project"].click()
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)
     }
     

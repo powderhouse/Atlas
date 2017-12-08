@@ -82,16 +82,22 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             return item
         }
         
+        print("VIEW: \(projectViewItem.collectionView)")
         projectViewItem.label.stringValue = (projects?.list()[indexPath.item])!
+        
         return projectViewItem
     }
     
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        if let selectedIndex = indexPaths.first?.item {
+            if let projectName = projects?.list()[selectedIndex] {
+                selectProject(projectName)
+            }
+        }
+    }
+    
     fileprivate func configureCollectionView() {
-//        projectListView.register(
-//            ProjectViewItem.self,
-//            forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem")
-//        )
-        
+        projectListView.isSelectable = true
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120.0, height: 120.0)
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)

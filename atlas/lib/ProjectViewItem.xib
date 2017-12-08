@@ -31,13 +31,6 @@
                 <constraint firstItem="APv-lO-Rut" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="NqV-LL-m7x"/>
                 <constraint firstItem="APv-lO-Rut" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="eSn-A4-CaO"/>
             </constraints>
-            <gestureRecognizers>
-                <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="F7C-0z-DHT" userLabel="Click Recognizer">
-                    <connections>
-                        <action selector="handeClick:" target="-2" id="JlW-x9-lT5"/>
-                    </connections>
-                </clickGestureRecognizer>
-            </gestureRecognizers>
             <point key="canvasLocation" x="123" y="209"/>
         </customView>
         <collectionViewItem id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="atlas" customModuleProvider="target">
