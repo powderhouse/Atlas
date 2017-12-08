@@ -12,7 +12,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
 
     @IBOutlet weak var projectListScrollView: NSScrollView!
     
-    @IBOutlet weak var projectListView: NSOutlineView!
+    @IBOutlet weak var projectListView: NSCollectionView!
     
     @IBOutlet weak var addProjectButton: NSButton!
     
@@ -36,6 +36,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             Testing.setup()
         }
+        
+        configureCollectionView()
         
         FileSystem.createBaseDirectory()
         
@@ -68,7 +70,24 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        NSCollectionViewItem(
+        let projectViewItem = ProjectViewItem()
+        
+        projectViewItem.projectName = (projects?.list()[indexPath.item])!
+        return projectViewItem
+    }
+    
+    fileprivate func configureCollectionView() {
+        // 1
+        let flowLayout = NSCollectionViewFlowLayout()
+        flowLayout.itemSize = NSSize(width: 120.0, height: 120.0)
+        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+        flowLayout.minimumInteritemSpacing = 20.0
+        flowLayout.minimumLineSpacing = 10.0
+        projectListView.collectionViewLayout = flowLayout
+        // 2
+        view.wantsLayer = true
+        // 3
+        projectListView.layer?.backgroundColor = NSColor.black.cgColor
     }
     
     func initGit(_ credentials: Credentials) {

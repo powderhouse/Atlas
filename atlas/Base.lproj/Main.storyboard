@@ -846,8 +846,46 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cL1-dS-zoo" userLabel="GitHub Repository Label">
+                                <rect key="frame" x="241" y="162" width="119" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="GitHub Repository" id="xlt-sW-lfF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XU-Xe-KNR" userLabel="Project List View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="152"/>
+                                <clipView key="contentView" drawsBackground="NO" id="tpg-eJ-YJS">
+                                    <rect key="frame" x="1" y="1" width="598" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="Mrf-Zo-uJL">
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" scrollDirection="horizontal" id="pcT-0D-97T">
+                                                <size key="itemSize" width="120" height="120"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="Xad-Yi-ihp" id="vXB-il-Xe6"/>
+                                                <outlet property="delegate" destination="Xad-Yi-ihp" id="cqC-LB-91f"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="7A0-2j-Mdv">
+                                    <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ZzX-Of-H1M">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                             <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0og-BS-53u">
-                                <rect key="frame" x="275" y="220" width="50" height="53"/>
+                                <rect key="frame" x="275" y="230" width="50" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="H5G-XA-XTd"/>
                                     <constraint firstAttribute="width" constant="50" id="tfT-dj-THq"/>
@@ -860,48 +898,23 @@
                                     <segue destination="Ddk-ax-eSa" kind="popover" identifier="new-project-modal" popoverAnchorView="0og-BS-53u" popoverBehavior="t" preferredEdge="maxY" id="9dc-TR-BCa"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cL1-dS-zoo" userLabel="GitHub Repository Label">
-                                <rect key="frame" x="241" y="135" width="119" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="GitHub Repository" id="xlt-sW-lfF">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XU-Xe-KNR" userLabel="Project List View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="tpg-eJ-YJS">
-                                    <rect key="frame" x="1" y="1" width="598" height="125"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <collectionView ambiguous="YES" id="Mrf-Zo-uJL">
-                                            <rect key="frame" x="0.0" y="0.0" width="598" height="158"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="pcT-0D-97T">
-                                                <size key="itemSize" width="50" height="50"/>
-                                            </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </collectionView>
-                                    </subviews>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="7A0-2j-Mdv">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="ZzX-Of-H1M">
-                                    <rect key="frame" x="583" y="1" width="16" height="125"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="9XU-Xe-KNR" firstAttribute="height" secondItem="WZC-VZ-LFR" secondAttribute="height" multiplier="0.38" id="2iD-GX-w86"/>
+                            <constraint firstItem="0og-BS-53u" firstAttribute="centerX" secondItem="WZC-VZ-LFR" secondAttribute="centerX" id="55e-Ec-B4y"/>
+                            <constraint firstItem="9XU-Xe-KNR" firstAttribute="top" secondItem="cL1-dS-zoo" secondAttribute="bottom" constant="10" id="FhO-0O-xHx"/>
+                            <constraint firstItem="cL1-dS-zoo" firstAttribute="centerX" secondItem="WZC-VZ-LFR" secondAttribute="centerX" id="G0j-K2-87h"/>
+                            <constraint firstItem="9XU-Xe-KNR" firstAttribute="width" secondItem="WZC-VZ-LFR" secondAttribute="width" id="Hwn-xC-H5o"/>
+                            <constraint firstItem="rhU-UC-IqE" firstAttribute="centerX" secondItem="WZC-VZ-LFR" secondAttribute="centerX" id="OQb-KP-QMC"/>
+                            <constraint firstItem="9XU-Xe-KNR" firstAttribute="centerX" secondItem="WZC-VZ-LFR" secondAttribute="centerX" id="iv7-ze-mjW"/>
+                            <constraint firstAttribute="bottom" secondItem="9XU-Xe-KNR" secondAttribute="bottom" id="m39-Pb-Ebh"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addProjectButton" destination="0og-BS-53u" id="Pd5-N6-8kF"/>
                         <outlet property="currentProjectLabel" destination="RhI-a6-7gn" id="BMT-7V-k60"/>
                         <outlet property="githubRepositoryLabel" destination="cL1-dS-zoo" id="ii6-Ui-rZY"/>
+                        <outlet property="projectListView" destination="Mrf-Zo-uJL" id="cbd-vP-Swk"/>
                         <outlet property="usernameLabel" destination="F5P-7h-H2I" id="KIx-KP-N4v"/>
                         <segue destination="XfG-lQ-9wD" kind="modal" identifier="account-modal" id="eHd-PJ-AXv"/>
                     </connections>
