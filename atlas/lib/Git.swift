@@ -222,8 +222,6 @@ class Git {
     func initGitHub() -> [String: Any]? {
         let repoArguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
-            "-X", "GET",
-//            "-H", "Authorization: token \(credentials.token!)",
             "https://api.github.com/repos/\(credentials.username)/\(repositoryName)"
         ]
         
@@ -234,7 +232,6 @@ class Git {
         if repoPath == nil {
             let createRepoArguments = [
                 "-u", "\(credentials.username):\(credentials.token!)",
-                //            "-H", "Authorization: token \(credentials.token!)",
                 "https://api.github.com/user/repos",
                 "-d", "{\"name\":\"\(repositoryName)\"}"
             ]
@@ -268,7 +265,6 @@ class Git {
         let deleteArguments = [
             "-u", "\(credentials.username):\(credentials.token!)",
             "-X", "DELETE",
-//            "-H", "Authorization: token \(credentials.token!)",
             "https://api.github.com/repos/\(credentials.username)/\(repositoryName)"
         ]
 
