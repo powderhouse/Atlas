@@ -80,7 +80,7 @@ class ProjectsTests: XCTestCase {
     
     func testProjects() {
         let filePath = "\(projectsDirectory.path)/index.html"
-        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
+        _ = Glue.runProcess("touch", arguments: [filePath])
         
         let fileManager = FileManager.default
         var isFile : ObjCBool = false

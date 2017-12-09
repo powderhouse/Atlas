@@ -26,7 +26,7 @@ class GlueTests: XCTestCase {
     }
 
     func testRunProcess() {
-        let output = Glue.runProcess("/usr/bin/git", arguments: ["-c", "ls"])
+        let output = Glue.runProcess("git", arguments: ["-c", "ls"])
         XCTAssert(output.range(of: "usage: git") != nil, "\(output) should contain 'usage: git'")
     }
 

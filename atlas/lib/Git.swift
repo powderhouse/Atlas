@@ -16,7 +16,6 @@ struct Credentials {
 
 class Git {
     
-    static let path = "/usr/bin/env"
     static let credentialsFilename = "github.json"
     
     var repositoryDirectory: URL
@@ -173,7 +172,7 @@ class Git {
     
     func buildArguments(_ command: String, additionalArguments:[String]=[]) -> [String] {
         let path = repositoryDirectory.path
-        return ["git", "--git-dir=\(path)/.git", command] + additionalArguments
+        return ["--git-dir=\(path)/.git", command] + additionalArguments
     }
     
     func run(_ command: String, arguments: [String]=[]) -> String {
@@ -182,7 +181,7 @@ class Git {
             additionalArguments: arguments
         )
         
-        return Glue.runProcess(Git.path,
+        return Glue.runProcess("git",
                                arguments: fullArguments,
                                currentDirectory: repositoryDirectory,
                                atlasProcess: atlasProcessFactory.build()
@@ -281,8 +280,7 @@ class Git {
     }
     
     func callGitHubAPI(_ arguments: [String]) -> [[String: Any]]? {
-        let commandArguments = ["curl"] + arguments
-        let response = Glue.runProcess(Git.path, arguments: commandArguments)
+        let response = Glue.runProcess("curl", arguments: arguments)
         
         guard response.count > 0 else {
             return nil
