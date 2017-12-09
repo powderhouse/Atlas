@@ -257,7 +257,6 @@ class Git {
     }
     
     func setGitHubRepositoryLink() {
-        printGit("URL: \(url())")
         githubRepositoryLink = url().replacingOccurrences(of: ".git\n", with: "")
     }
 
