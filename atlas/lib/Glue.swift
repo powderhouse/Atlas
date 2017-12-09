@@ -28,6 +28,7 @@ class Glue {
     class func runProcess(_ command: String, arguments: [String]?=[], currentDirectory: URL?=nil, atlasProcess: AtlasProcess=Process()) -> String {
         var process = atlasProcess
         
+        print("URL: \(command) \((arguments ?? []).joined(separator: " "))")
         process.executableURL = URL(fileURLWithPath: command)
         process.arguments = arguments
         if currentDirectory != nil {

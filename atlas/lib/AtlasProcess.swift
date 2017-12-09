@@ -25,6 +25,7 @@ extension Process: AtlasProcess {
         
         let file:FileHandle = pipe.fileHandleForReading
         let data =  file.readDataToEndOfFile()
+        print("RESULT: \(String(data: data, encoding: String.Encoding.utf8) as String!)")
         return String(data: data, encoding: String.Encoding.utf8) as String!
     }
 }

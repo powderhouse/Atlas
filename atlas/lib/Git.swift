@@ -281,11 +281,8 @@ class Git {
     }
     
     func callGitHubAPI(_ arguments: [String]) -> [[String: Any]]? {
-        printGit("API: /anaconda/bin/curl \(arguments.joined(separator: " "))")
-
-        let response = Glue.runProcess("/anaconda/bin/curl", arguments: arguments)
-        
-        printGit("API: /anaconda/bin/curl \(arguments.joined(separator: " ")) -> \(response)")
+        let commandArguments = ["curl"] + arguments
+        let response = Glue.runProcess(Git.path, arguments: commandArguments)
         
         guard response.count > 0 else {
             return nil
@@ -303,7 +300,7 @@ class Git {
             }
             printGit("JSON response from GITHUB evaluates to nil for \(arguments): \(response)")
         } catch {
-            printGit("Error deserializing JSON for \(arguments): \(error)")
+            printGit("Error deserializing JSON for \(arguments) -> \(response): \(error)")
         }
         return nil
     }

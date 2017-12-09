@@ -82,7 +82,6 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             return item
         }
         
-        print("VIEW: \(projectViewItem.collectionView)")
         projectViewItem.label.stringValue = (projects?.list()[indexPath.item])!
         
         return projectViewItem

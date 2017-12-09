@@ -38,7 +38,22 @@ class GitTests: XCTestCase {
 //        testGit = Git(directory!,
 //                      credentials: credentials,
 //                      atlasProcessFactory: MockProcessFactory())
+        
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("START")
+
         actualGit = Git(directory!, credentials: credentials)
+        
+        print("ACTUAL GIT: \(actualGit)")
+        print("")
+        print("")
+        print("")
+        print("")
+        print("")
     }
     
     override func tearDown() {
@@ -181,7 +196,7 @@ class GitTests: XCTestCase {
         }
         
         let filePath = "\(directory.path)/index.html"
-        _ = Glue.runProcess("/usr/bin/touch", arguments: [filePath])
+        _ = Glue.runProcess("touch", arguments: [filePath])
         
         let fileManager = FileManager.default
         var isFile : ObjCBool = false
