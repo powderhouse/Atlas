@@ -801,14 +801,14 @@
             <objects>
                 <viewController title="Main Controller" id="Xad-Yi-ihp" customClass="MainController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="WZC-VZ-LFR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="479"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="518"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhU-UC-IqE" userLabel="Staging View">
-                                <rect key="frame" x="0.0" y="182" width="360" height="297"/>
+                                <rect key="frame" x="0.0" y="197" width="360" height="321"/>
                                 <subviews>
                                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RhI-a6-7gn" userLabel="Current Project Label">
-                                        <rect key="frame" x="-2" y="280" width="364" height="17"/>
+                                        <rect key="frame" x="-2" y="304" width="364" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Current Project" id="A0Y-NG-Gas">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -816,13 +816,13 @@
                                         </textFieldCell>
                                     </textField>
                                     <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1L-NF-C0z" userLabel="Staged Files View">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="297"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="321"/>
                                         <clipView key="contentView" drawsBackground="NO" id="jyZ-S2-Cv0">
-                                            <rect key="frame" x="1" y="1" width="358" height="295"/>
+                                            <rect key="frame" x="1" y="1" width="358" height="319"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <collectionView id="A5c-HK-YDE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="295"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="1zg-MG-5Iu">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -846,8 +846,6 @@
                                     <constraint firstAttribute="trailing" secondItem="z1L-NF-C0z" secondAttribute="trailing" id="D2P-pA-yfN"/>
                                     <constraint firstItem="RhI-a6-7gn" firstAttribute="width" secondItem="rhU-UC-IqE" secondAttribute="width" id="GUf-9k-fml"/>
                                     <constraint firstItem="RhI-a6-7gn" firstAttribute="centerX" secondItem="rhU-UC-IqE" secondAttribute="centerX" id="MxS-T6-VWd"/>
-                                    <constraint firstAttribute="bottom" secondItem="z1L-NF-C0z" secondAttribute="bottom" id="bl0-rs-8zT"/>
-                                    <constraint firstItem="RhI-a6-7gn" firstAttribute="top" secondItem="rhU-UC-IqE" secondAttribute="top" id="dSW-1g-4iL"/>
                                     <constraint firstItem="z1L-NF-C0z" firstAttribute="leading" secondItem="rhU-UC-IqE" secondAttribute="leading" id="g3m-Ck-syp"/>
                                 </constraints>
                                 <visibilityPriorities>
@@ -860,13 +858,13 @@
                                 </customSpacing>
                             </stackView>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XU-Xe-KNR" userLabel="Project List View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="182"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="197"/>
                                 <clipView key="contentView" drawsBackground="NO" id="tpg-eJ-YJS">
-                                    <rect key="frame" x="1" y="1" width="598" height="180"/>
+                                    <rect key="frame" x="1" y="1" width="598" height="195"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="Mrf-Zo-uJL">
-                                            <rect key="frame" x="0.0" y="0.0" width="598" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="195"/>
                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" scrollDirection="horizontal" id="pcT-0D-97T">
                                                 <size key="itemSize" width="120" height="120"/>
@@ -890,7 +888,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0og-BS-53u">
-                                <rect key="frame" x="530" y="64" width="50" height="53"/>
+                                <rect key="frame" x="530" y="71" width="50" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="H5G-XA-XTd"/>
                                     <constraint firstAttribute="width" constant="50" id="tfT-dj-THq"/>
@@ -904,7 +902,7 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cL1-dS-zoo" userLabel="GitHub Repository Label">
-                                <rect key="frame" x="241" y="162" width="119" height="17"/>
+                                <rect key="frame" x="241" y="177" width="119" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="GitHub Repository" id="xlt-sW-lfF">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -912,10 +910,10 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igk-7v-RfI" userLabel="Commit View">
-                                <rect key="frame" x="360" y="192" width="240" height="287"/>
+                                <rect key="frame" x="360" y="205" width="240" height="313"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-7h-H2I" userLabel="Username Label">
-                                        <rect key="frame" x="-2" y="270" width="244" height="17"/>
+                                        <rect key="frame" x="-2" y="296" width="244" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Username" id="ch6-dH-mhW">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -923,7 +921,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nJV-4g-gkA" userLabel="Commit Label">
-                                        <rect key="frame" x="0.0" y="245" width="240" height="17"/>
+                                        <rect key="frame" x="0.0" y="271" width="240" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Why are you adding these files?" drawsBackground="YES" id="mvo-15-VGX">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -931,16 +929,16 @@
                                         </textFieldCell>
                                     </textField>
                                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgf-Fn-IcZ" userLabel="Commit Message">
-                                        <rect key="frame" x="0.0" y="29" width="240" height="208"/>
+                                        <rect key="frame" x="0.0" y="29" width="240" height="234"/>
                                         <clipView key="contentView" copiesOnScroll="NO" id="ZMr-G9-PQi">
-                                            <rect key="frame" x="1" y="1" width="238" height="206"/>
+                                            <rect key="frame" x="1" y="1" width="238" height="232"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Ks0-AI-i51">
-                                                    <rect key="frame" x="0.0" y="0.0" width="238" height="206"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="238" height="232"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="238" height="206"/>
+                                                    <size key="minSize" width="238" height="232"/>
                                                     <size key="maxSize" width="463" height="10000000"/>
                                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </textView>
@@ -952,7 +950,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="8M9-Fb-Ni7">
-                                            <rect key="frame" x="223" y="1" width="16" height="206"/>
+                                            <rect key="frame" x="223" y="1" width="16" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -987,7 +985,7 @@
                         <constraints>
                             <constraint firstItem="9XU-Xe-KNR" firstAttribute="height" secondItem="WZC-VZ-LFR" secondAttribute="height" multiplier="0.38" id="2iD-GX-w86"/>
                             <constraint firstItem="9XU-Xe-KNR" firstAttribute="top" secondItem="rhU-UC-IqE" secondAttribute="bottom" id="67F-Oq-1hw"/>
-                            <constraint firstItem="9XU-Xe-KNR" firstAttribute="top" secondItem="igk-7v-RfI" secondAttribute="bottom" constant="10" id="Ez8-ft-r0Y"/>
+                            <constraint firstItem="9XU-Xe-KNR" firstAttribute="top" secondItem="igk-7v-RfI" secondAttribute="bottom" constant="8" id="Ez8-ft-r0Y"/>
                             <constraint firstItem="9XU-Xe-KNR" firstAttribute="top" secondItem="cL1-dS-zoo" secondAttribute="bottom" constant="-20" id="FhO-0O-xHx"/>
                             <constraint firstItem="9XU-Xe-KNR" firstAttribute="width" secondItem="WZC-VZ-LFR" secondAttribute="width" id="Hwn-xC-H5o"/>
                             <constraint firstItem="igk-7v-RfI" firstAttribute="top" secondItem="WZC-VZ-LFR" secondAttribute="top" id="Jeb-2n-Kxa"/>
