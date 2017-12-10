@@ -15,6 +15,7 @@
 		2BCB0DDF1FBC15320044C117 /* AtlasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB0DDE1FBC15320044C117 /* AtlasUITests.swift */; };
 		3A26C8F21FDA260B00A3E18D /* ProjectViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26C8F01FDA260B00A3E18D /* ProjectViewItem.swift */; };
 		3A26C8F31FDA260B00A3E18D /* ProjectViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A26C8F11FDA260B00A3E18D /* ProjectViewItem.xib */; };
+		3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26C8F41FDDAF7300A3E18D /* DropView.swift */; };
 		3A59E0441FC60C0800DF753E /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0431FC60C0800DF753E /* Git.swift */; };
 		3A59E0461FC60C2B00DF753E /* GitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0451FC60C2B00DF753E /* GitTests.swift */; };
 		3A59E0491FC60CC900DF753E /* MockProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0481FC60CC900DF753E /* MockProcess.swift */; };
@@ -63,6 +64,7 @@
 		2BCB0DE01FBC15320044C117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A26C8F01FDA260B00A3E18D /* ProjectViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewItem.swift; sourceTree = "<group>"; };
 		3A26C8F11FDA260B00A3E18D /* ProjectViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectViewItem.xib; sourceTree = "<group>"; };
+		3A26C8F41FDDAF7300A3E18D /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 		3A59E0431FC60C0800DF753E /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
 		3A59E0451FC60C2B00DF753E /* GitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTests.swift; sourceTree = "<group>"; };
 		3A59E0481FC60CC900DF753E /* MockProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcess.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				3A6388E91FD844FE0023BF57 /* Projects.swift */,
 				3A26C8F01FDA260B00A3E18D /* ProjectViewItem.swift */,
 				3A26C8F11FDA260B00A3E18D /* ProjectViewItem.xib */,
+				3A26C8F41FDDAF7300A3E18D /* DropView.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */,
 				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,
+				3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */,
 				3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */,
 				3AE4AE221FC277B200430BC2 /* AtlasProcess.swift in Sources */,
 				3A6388EA1FD844FE0023BF57 /* Projects.swift in Sources */,

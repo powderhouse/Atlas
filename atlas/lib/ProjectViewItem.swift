@@ -12,6 +12,8 @@ class ProjectViewItem: NSCollectionViewItem {
     
     @IBOutlet weak var label: NSTextField!
     
+    @IBOutlet weak var dropView: DropView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
