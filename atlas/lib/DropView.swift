@@ -10,7 +10,10 @@ import Cocoa
 
 class DropView: NSView {
 
+    weak var delegate: ProjectViewItem?
+    
     var filePath: String?
+    var project: Project?
 //    let expectedExt = ["png"]  //file extensions allowed for Drag&Drop (example: "jpg","png","docx", etc..)
     
     required init?(coder: NSCoder) {
@@ -65,8 +68,8 @@ class DropView: NSView {
         
         //GET YOUR FILE PATH !!!
         self.filePath = path
-        Swift.print("FilePath: \(path)")
-        
+        Swift.print("COPY \(path) to \(project?.name)")
+
         return true
     }
 }

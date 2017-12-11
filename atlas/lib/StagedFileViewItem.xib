@@ -35,7 +35,7 @@
             </constraints>
             <point key="canvasLocation" x="139" y="60"/>
         </customView>
-        <collectionViewItem id="iVj-bK-5KT" customClass="StagedFileViewItem" customModule="atlas" customModuleProvider="target">
+        <collectionViewItem nibName="StagedFileViewItem" id="iVj-bK-5KT" customClass="StagedFileViewItem" customModule="atlas" customModuleProvider="target">
             <connections>
                 <outlet property="label" destination="CfD-HV-RWf" id="Lsj-J3-OSW"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="oYR-Rk-otH"/>

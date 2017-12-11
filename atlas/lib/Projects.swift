@@ -50,7 +50,12 @@ class Projects {
     let atlasRepository: URL!
     let git: Git?
     
-    var active: Project?
+    
+    var active: Project? {
+        didSet {
+            
+        }
+    }
     
     let ignore = [
         ".git"
@@ -59,6 +64,7 @@ class Projects {
     init(_ atlasRepository: URL, git: Git?=nil) {
         self.atlasRepository = atlasRepository
         self.git = git
+        
     }
     
     func commitChanges() {
@@ -140,8 +146,12 @@ class Projects {
         return subdirectories.map { $0.lastPathComponent }.sorted()
     }
     
+    func directory(_ name: String) -> URL {
+        return atlasRepository.appendingPathComponent(name)
+    }
+    
     func setActive(_ name: String) {
-        let projectDirectory = atlasRepository.appendingPathComponent(name)
+        let projectDirectory = directory(name)
         self.active = Project(projectDirectory)
     }
 }

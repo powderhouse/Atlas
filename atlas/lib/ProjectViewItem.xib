@@ -41,8 +41,9 @@
             </constraints>
             <point key="canvasLocation" x="123" y="209"/>
         </customView>
-        <collectionViewItem id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="atlas" customModuleProvider="target">
+        <collectionViewItem nibName="ProjectViewItem" id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="atlas" customModuleProvider="target">
             <connections>
+                <outlet property="dropView" destination="46y-ZN-GYi" id="x2T-h1-4Yl"/>
                 <outlet property="label" destination="APv-lO-Rut" id="og8-xR-Kgn"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="5GS-J4-trj"/>
             </connections>

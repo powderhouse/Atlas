@@ -73,7 +73,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         if collectionView == projectListView {
             return projects?.list().count ?? 0
         }
-        return projects?.active?.files.count ?? 0
+        return projects?.active?.stagedFiles.count ?? 0
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -86,8 +86,12 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             guard let projectViewItem = item as? ProjectViewItem else {
                 return item
             }
-            
-            projectViewItem.label.stringValue = (projects?.list()[indexPath.item])!
+
+            if let projectName = projects?.list()[indexPath.item] {
+                if let projectDirectory = projects?.directory(projectName) {
+                    projectViewItem.project = Project(projectDirectory)
+                }
+            }
             
             return projectViewItem
         }
@@ -99,7 +103,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             return item
         }
         
-        stagedFileViewItem.label.stringValue = projects?.active?.files[indexPath.item] ?? "Project"
+        let stagedFile = projects?.active?.stagedFiles[indexPath.item]
+        stagedFileViewItem.label.stringValue = stagedFile ?? "Project"
         
         return stagedFileViewItem
     }
