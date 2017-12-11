@@ -8,10 +8,32 @@
 
 import Foundation
 
+class Project {
+    let directory: URL!
+    var name: String!
+    var files: [String]!
+    
+    init(_ directory: URL) {
+        self.directory = directory
+        self.name = directory.lastPathComponent
+        
+        let fileManager = FileManager.default
+        do {
+            self.files = try fileManager.contentsOfDirectory(atPath: directory.path)
+        } catch {
+            print("Error reading project directory: \(directory)")
+            self.files = []
+        }
+    }
+    
+}
+
 class Projects {
     
     let atlasRepository: URL!
     let git: Git?
+    
+    var active: Project?
     
     let ignore = [
         ".git"
@@ -100,6 +122,9 @@ class Projects {
         
         return subdirectories.map { $0.lastPathComponent }.sorted()
     }
-
     
+    func setActive(_ name: String) {
+        let projectDirectory = atlasRepository.appendingPathComponent(name)
+        self.active = Project(projectDirectory)
+    }    
 }
