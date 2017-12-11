@@ -112,7 +112,7 @@ class ProjectsTests: XCTestCase {
         _ = projects.create("Project One")
         _ = projects.create("Project Two")
         _ = projects.create("Project Three")
-        XCTAssertEqual(projects.list(), ["Project One", "Project Three", "Project Two"])
+        XCTAssertEqual(["Project One", "Project Three", "Project Two"], projects.list())
     }
     
     func testSetActive() {
@@ -121,7 +121,28 @@ class ProjectsTests: XCTestCase {
         _ = projects.create("Project Three")
         
         projects.setActive("Project Two")
-        XCTAssertEqual(projects.active?.name, "Project Two")
+        XCTAssertEqual("Project Two", projects.active?.name)
+    }
+    
+    func testActiveProject() {
+        _ = projects.create("Project One")
+        let projectTwoDirectory = projects.create("Project Two")
+        _ = projects.create("Project Three")
+
+        let filePath = "\(projectTwoDirectory!.path)/staging/ProjectTwoFileA.txt"
+        _ = Glue.runProcess("touch", arguments: [filePath])
+
+        let secondFilePath = "\(projectTwoDirectory!.path)/staging/ProjectTwoFileB.txt"
+        _ = Glue.runProcess("touch", arguments: [secondFilePath])
+
+        let fileManager = FileManager.default
+        var isDir : ObjCBool = false
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isDir), "No file at \(filePath)")
+        XCTAssert(fileManager.fileExists(atPath: secondFilePath, isDirectory: &isDir), "No file at \(filePath)")
+
+        projects.setActive("Project Two")
+        XCTAssertEqual(2, projects.active?.stagedFiles.count)
+        XCTAssertEqual(["ProjectTwoFileA.txt", "ProjectTwoFileB.txt"], (projects.active?.stagedFiles.sorted())!)
     }
     
 }

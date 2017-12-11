@@ -12,20 +12,37 @@ class Project {
     let directory: URL!
     var name: String!
     var files: [String]!
+    var stagedFiles: [String]!
+    
+    let ignore = [
+        "readme.md",
+        "staging"
+    ]
     
     init(_ directory: URL) {
         self.directory = directory
         self.name = directory.lastPathComponent
-        
-        let fileManager = FileManager.default
-        do {
-            self.files = try fileManager.contentsOfDirectory(atPath: directory.path)
-        } catch {
-            print("Error reading project directory: \(directory)")
-            self.files = []
-        }
+
+        self.files = getFiles()
+        self.stagedFiles = getFiles(directory.appendingPathComponent("staging"))
     }
-    
+
+    func getFiles(_ url: URL?=nil) -> [String] {
+        let inDirectory = (url ?? directory)!
+        let fileManager = FileManager.default
+        
+        let contents = try? fileManager.contentsOfDirectory(
+            at: inDirectory,
+            includingPropertiesForKeys: [URLResourceKey.isDirectoryKey]
+        )
+        
+        guard contents != nil else {
+            return []
+        }
+        
+        let filteredContents = contents!.filter { !ignore.contains($0.lastPathComponent) }
+        return filteredContents.map { $0.lastPathComponent }.sorted()
+    }
 }
 
 class Projects {
@@ -126,5 +143,5 @@ class Projects {
     func setActive(_ name: String) {
         let projectDirectory = atlasRepository.appendingPathComponent(name)
         self.active = Project(projectDirectory)
-    }    
+    }
 }

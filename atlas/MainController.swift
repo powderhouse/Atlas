@@ -185,6 +185,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     func selectProject(_ projectName: String) {
         currentProjectLabel.stringValue = "Current Project: \(projectName)"
         currentProjectLabel.isHidden = false
+        
+        projects?.setActive(projectName)
     }
     
     func updateHeader() {
