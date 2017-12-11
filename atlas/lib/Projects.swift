@@ -22,6 +22,12 @@ class Projects {
         self.git = git
     }
     
+    func commitChanges() {
+        _ = git?.add()
+        _ = git?.commit()
+        _ = git?.pushToGitHub()
+    }
+    
     func create(_ name: String, inDirectory: URL?=nil) -> URL? {
         let directory = (inDirectory ?? atlasRepository)!
         let url = directory.appendingPathComponent(name)
@@ -45,13 +51,36 @@ class Projects {
                 print("Caught: \(error)")
                 return nil
             }
-            
-            _ = git?.add()
-            _ = git?.commit()
-            _ = git?.pushToGitHub()
         }
         
+        createStaging(url)
+        
+        commitChanges()
+        
         return url
+    }
+    
+    func createStaging(_ projectDirectory: URL) {
+        let url = projectDirectory.appendingPathComponent("staging")
+        let fileManager = FileManager.default
+        var isDir : ObjCBool = true
+        
+        if !fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+            do {
+                try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Caught: \(error)")
+            }
+        }
+        
+        let readme = url.appendingPathComponent("readme.md")
+        if !FileSystem.fileExists(readme, isDirectory: false) {
+            do {
+                try "This is the staging directory for this project".write(to: readme, atomically: true, encoding: .utf8)
+            } catch {
+                print("Caught: \(error)")
+            }            
+        }
     }
     
     func list() -> [String] {

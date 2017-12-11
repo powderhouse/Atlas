@@ -18,17 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="150" height="168"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="46y-ZN-GYi" userLabel="Drop View" customClass="DropView" customModule="atlas" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="168"/>
+                </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
-                    <rect key="frame" x="-2" y="70" width="154" height="29"/>
+                    <rect key="frame" x="-2" y="73" width="154" height="22"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="n4K-Nh-VvD">
-                        <font key="font" metaFont="system" size="24"/>
+                        <font key="font" metaFont="system" size="18"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="46y-ZN-GYi" userLabel="Drop View" customClass="DropView" customModule="atlas" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="150" height="168"/>
-                </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="APv-lO-Rut" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="AO1-LO-0ai"/>

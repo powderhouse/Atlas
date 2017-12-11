@@ -41,6 +41,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         FileSystem.createBaseDirectory()
         
+        print("ATLAS DIRECTORY: \(FileSystem.baseDirectory())")
+        
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
             initGeneralRepository()

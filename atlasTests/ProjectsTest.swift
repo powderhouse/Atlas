@@ -71,12 +71,35 @@ class ProjectsTests: XCTestCase {
             isDirectory: &isDir
         )
         XCTAssertTrue(folder, "Project was not successfully created")
+
+        let stagingFolderPath = newFolder.appendingPathComponent("staging").path
+        let stagingFolder = fileManager.fileExists(
+            atPath: stagingFolderPath,
+            isDirectory: &isDir
+        )
+        XCTAssertTrue(stagingFolder, "Staging folder was not successfully created at \(stagingFolderPath)")
     }
     
     func testCreateFolder_withExistingFolder() {
         _ = projects.create("project")
+
+        let stagedFilePath = "\(projectsDirectory.path)/project/staging/staged.txt"
+        _ = Glue.runProcess("touch", arguments: [stagedFilePath])
+
+        let filePath = "\(projectsDirectory.path)/project/file.txt"
+        _ = Glue.runProcess("touch", arguments: [filePath])
+        
+        let fileManager = FileManager.default
+        var isDir : ObjCBool = false
+
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isDir), "No file at \(stagedFilePath)")
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isDir), "No file at \(filePath)")
+
         XCTAssertNotNil(projects.create("project"))
-    }
+
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isDir), "No file at \(stagedFilePath)")
+        XCTAssert(fileManager.fileExists(atPath: filePath, isDirectory: &isDir), "No file at \(filePath)")
+}
     
     func testProjects() {
         let filePath = "\(projectsDirectory.path)/index.html"

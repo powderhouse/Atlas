@@ -46,7 +46,7 @@ class AtlasUITests: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: label, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
         
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: General"]))
     }
@@ -122,6 +122,7 @@ class AtlasUITests: XCTestCase {
         
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: Second Project"]))
 
+        XCTAssert(window.collectionViews.staticTexts["First Project"].exists)
         window.collectionViews.staticTexts["First Project"].click()
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)
     }
