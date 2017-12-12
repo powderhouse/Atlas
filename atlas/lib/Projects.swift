@@ -10,6 +10,7 @@ import Foundation
 
 class Project {
     let directory: URL!
+    let staging: URL!
     var name: String!
     var files: [String]!
     var stagedFiles: [String]!
@@ -22,9 +23,16 @@ class Project {
     init(_ directory: URL) {
         self.directory = directory
         self.name = directory.lastPathComponent
+        self.staging = directory.appendingPathComponent("staging")
 
         self.files = getFiles()
-        self.stagedFiles = getFiles(directory.appendingPathComponent("staging"))
+        self.stagedFiles = getFiles(staging)
+    }
+    
+    func stageFile(_ path: String) {
+        guard directory != nil else { return }
+        _ = Glue.runProcess("cp", arguments: [path, staging.path])
+        self.stagedFiles = getFiles(staging)
     }
 
     func getFiles(_ url: URL?=nil) -> [String] {

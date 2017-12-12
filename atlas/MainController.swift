@@ -73,6 +73,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         if collectionView == projectListView {
             return projects?.list().count ?? 0
         }
+        
+        print("STAGED ITEMS: \(projects?.active?.name) = \(projects?.active?.stagedFiles)")
         return projects?.active?.stagedFiles.count ?? 0
     }
     

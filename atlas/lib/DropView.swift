@@ -68,8 +68,8 @@ class DropView: NSView {
         
         //GET YOUR FILE PATH !!!
         self.filePath = path
-        Swift.print("COPY \(path) to \(project?.name)")
-
+        project?.stageFile(path)
+        
         return true
     }
 }
