@@ -60,7 +60,7 @@ class Projects {
     let atlasRepository: URL!
     let git: Git?
     
-    var list: [Project] = []
+    var cache: [Project] = []
     var active: Project?
     
     let ignore = [
@@ -72,7 +72,7 @@ class Projects {
         self.git = git
         
         for name in names() {
-            list.append(Project(directory(name)))
+            cache.append(Project(directory(name)))
         }
     }
     
@@ -155,11 +155,23 @@ class Projects {
         return subdirectories.map { $0.lastPathComponent }.sorted()
     }
     
+    func list() -> [Project] {
+        let projectNames = names()
+        for i in 0..<projectNames.count {
+            if cache.count <= i {
+                cache.append(Project(directory(projectNames[i])))
+            } else if cache[i].name != projectNames[i] {
+                cache[i] = Project(directory(projectNames[i]))
+            }
+        }
+        return cache
+    }
+    
     func directory(_ name: String) -> URL {
         return atlasRepository.appendingPathComponent(name)
     }
     
     func setActive(_ name: String) {
-        self.active = list.filter { $0.name == name }.first
+        self.active = list().filter { $0.name == name }.first
     }
 }

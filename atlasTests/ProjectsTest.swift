@@ -112,7 +112,9 @@ class ProjectsTests: XCTestCase {
         _ = projects.create("Project One")
         _ = projects.create("Project Two")
         _ = projects.create("Project Three")
-        XCTAssertEqual(["Project One", "Project Three", "Project Two"], projects.list())
+        let names = ["Project One", "Project Three", "Project Two"]
+        XCTAssertEqual(names, projects.names())
+        XCTAssertEqual(names, projects.list().map { $0.name })
     }
     
     func testSetActive() {
