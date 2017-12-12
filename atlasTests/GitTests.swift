@@ -39,21 +39,7 @@ class GitTests: XCTestCase {
 //                      credentials: credentials,
 //                      atlasProcessFactory: MockProcessFactory())
         
-        print("")
-        print("")
-        print("")
-        print("")
-        print("")
-        print("START")
-
         actualGit = Git(directory!, credentials: credentials)
-        
-        print("ACTUAL GIT: \(actualGit)")
-        print("")
-        print("")
-        print("")
-        print("")
-        print("")
     }
     
     override func tearDown() {
