@@ -18,7 +18,7 @@ class DropView: NSView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
         self.wantsLayer = true
         registerForDraggedTypes([NSPasteboard.PasteboardType.URL, NSPasteboard.PasteboardType.fileURL])
     }
