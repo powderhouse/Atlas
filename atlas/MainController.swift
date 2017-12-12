@@ -71,7 +71,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == projectListView {
-            return projects?.list().count ?? 0
+            return projects?.list.count ?? 0
         }
         
         print("STAGED ITEMS: \(projects?.active?.name) = \(projects?.active?.stagedFiles)")
@@ -89,10 +89,24 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                 return item
             }
 
-            if let projectName = projects?.list()[indexPath.item] {
-                if let projectDirectory = projects?.directory(projectName) {
-                    projectViewItem.project = Project(projectDirectory)
+            if let project = projects?.list[indexPath.item] {
+                NotificationCenter.default.addObserver(
+                    forName: NSNotification.Name(rawValue: "project-staged-files"),
+                    object: project,
+                    queue: nil
+                ) {
+                    (notification) in
+                    if let activeProject = self.projects?.active {
+                        if let notificationProject = notification.object as? Project {
+                            if activeProject.name == notificationProject.name {
+                                print(4)
+                                self.stagedFilesView.reloadData()
+                            }
+                        }
+                    }
                 }
+
+                projectViewItem.project = project
             }
             
             return projectViewItem
@@ -113,8 +127,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         if let selectedIndex = indexPaths.first?.item {
-            if let projectName = projects?.list()[selectedIndex] {
-                selectProject(projectName)
+            if let project = projects?.list[selectedIndex] {
+                selectProject(project.name)
             }
         }
     }

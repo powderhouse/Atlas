@@ -33,6 +33,8 @@ class Project {
         guard directory != nil else { return }
         _ = Glue.runProcess("cp", arguments: [path, staging.path])
         self.stagedFiles = getFiles(staging)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "project-staged-files"), object: self)
     }
 
     func getFiles(_ url: URL?=nil) -> [String] {
@@ -58,12 +60,8 @@ class Projects {
     let atlasRepository: URL!
     let git: Git?
     
-    
-    var active: Project? {
-        didSet {
-            
-        }
-    }
+    var list: [Project] = []
+    var active: Project?
     
     let ignore = [
         ".git"
@@ -73,6 +71,9 @@ class Projects {
         self.atlasRepository = atlasRepository
         self.git = git
         
+        for name in names() {
+            list.append(Project(directory(name)))
+        }
     }
     
     func commitChanges() {
@@ -136,7 +137,7 @@ class Projects {
         }
     }
     
-    func list() -> [String] {
+    func names() -> [String] {
         let fileManager = FileManager.default
         let contents = try? fileManager.contentsOfDirectory(
             at: atlasRepository,
@@ -159,7 +160,6 @@ class Projects {
     }
     
     func setActive(_ name: String) {
-        let projectDirectory = directory(name)
-        self.active = Project(projectDirectory)
+        self.active = list.filter { $0.name == name }.first
     }
 }
