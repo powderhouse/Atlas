@@ -10,7 +10,6 @@ import XCTest
 
 class AtlasUITests: XCTestCase {
     
-    let atlasDirectory = "AtlasTest"
     var app: XCUIApplication!
         
     override func setUp() {
@@ -19,7 +18,7 @@ class AtlasUITests: XCTestCase {
         
         app = XCUIApplication()
         
-        app.launchEnvironment["atlasDirectory"] = atlasDirectory
+        app.launchEnvironment["atlasDirectory"] = NSTemporaryDirectory()
         app.launchEnvironment["TESTING"] = "true"
 
         // In UI tests it is usually best to stop immediately when a failure occurs.

@@ -24,7 +24,7 @@ class GitTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        Configuration.atlasDirectory = "AtlasTest"
+        Configuration.atlasDirectory = NSTemporaryDirectory()
         
         directory = FileSystem.baseDirectory().appendingPathComponent(
             "testGit",

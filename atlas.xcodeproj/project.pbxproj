@@ -18,6 +18,7 @@
 		3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26C8F41FDDAF7300A3E18D /* DropView.swift */; };
 		3A26C8FA1FDEE98900A3E18D /* StagedFileViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26C8F81FDEE98900A3E18D /* StagedFileViewItem.swift */; };
 		3A26C8FB1FDEE98900A3E18D /* StagedFileViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A26C8F91FDEE98900A3E18D /* StagedFileViewItem.xib */; };
+		3A26C8FD1FE01A0A00A3E18D /* DropViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26C8FC1FE01A0900A3E18D /* DropViewTests.swift */; };
 		3A59E0441FC60C0800DF753E /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0431FC60C0800DF753E /* Git.swift */; };
 		3A59E0461FC60C2B00DF753E /* GitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0451FC60C2B00DF753E /* GitTests.swift */; };
 		3A59E0491FC60CC900DF753E /* MockProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A59E0481FC60CC900DF753E /* MockProcess.swift */; };
@@ -69,6 +70,7 @@
 		3A26C8F41FDDAF7300A3E18D /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 		3A26C8F81FDEE98900A3E18D /* StagedFileViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedFileViewItem.swift; sourceTree = "<group>"; };
 		3A26C8F91FDEE98900A3E18D /* StagedFileViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StagedFileViewItem.xib; sourceTree = "<group>"; };
+		3A26C8FC1FE01A0900A3E18D /* DropViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropViewTests.swift; sourceTree = "<group>"; };
 		3A59E0431FC60C0800DF753E /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
 		3A59E0451FC60C2B00DF753E /* GitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTests.swift; sourceTree = "<group>"; };
 		3A59E0481FC60CC900DF753E /* MockProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcess.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				3AC03DAA1FC1C868007077AE /* GlueTests.swift */,
 				3A59E0451FC60C2B00DF753E /* GitTests.swift */,
 				3A6388EB1FD84A210023BF57 /* ProjectsTest.swift */,
+				3A26C8FC1FE01A0900A3E18D /* DropViewTests.swift */,
 			);
 			path = atlasTests;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				3A6388EC1FD84A210023BF57 /* ProjectsTest.swift in Sources */,
 				3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */,
 				2BCB0DD41FBC15320044C117 /* AtlasTests.swift in Sources */,
+				3A26C8FD1FE01A0A00A3E18D /* DropViewTests.swift in Sources */,
 				3A59E0491FC60CC900DF753E /* MockProcess.swift in Sources */,
 				3AC03DAB1FC1C868007077AE /* GlueTests.swift in Sources */,
 			);

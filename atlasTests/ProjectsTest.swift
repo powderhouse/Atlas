@@ -18,7 +18,7 @@ class ProjectsTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        Configuration.atlasDirectory = "AtlasTest"
+        Configuration.atlasDirectory = NSTemporaryDirectory()
         projectsDirectory = FileSystem.baseDirectory().appendingPathComponent(
             "ProjectsTest",
             isDirectory: true
