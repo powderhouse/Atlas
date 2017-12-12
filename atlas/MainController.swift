@@ -96,13 +96,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                     queue: nil
                 ) {
                     (notification) in
-                    if let activeProject = self.projects?.active {
-                        if let notificationProject = notification.object as? Project {
-                            if activeProject.name == notificationProject.name {
-                                print(4)
-                                self.stagedFilesView.reloadData()
-                            }
-                        }
+                    if let notificationProject = notification.object as? Project {
+                        self.selectProject(notificationProject.name)
                     }
                 }
 
@@ -208,6 +203,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         currentProjectLabel.isHidden = false
         
         projects?.setActive(projectName)
+        stagedFilesView.reloadData()
     }
     
     func updateHeader() {
