@@ -25,8 +25,12 @@ class Projects {
         self.git = git
         
         for name in names() {
-            cache.append(Project(directory(name)))
+            cache.append(buildProject(name))
         }
+    }
+    
+    func buildProject(_ name: String) -> Project {
+        return Project(directory(name))        
     }
     
     func commitChanges() {
@@ -112,9 +116,9 @@ class Projects {
         let projectNames = names()
         for i in 0..<projectNames.count {
             if cache.count <= i {
-                cache.append(Project(directory(projectNames[i])))
+                cache.append(buildProject(projectNames[i]))
             } else if cache[i].name != projectNames[i] {
-                cache[i] = Project(directory(projectNames[i]))
+                cache[i] = buildProject(projectNames[i])
             }
         }
         return cache

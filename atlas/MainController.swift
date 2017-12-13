@@ -97,6 +97,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                     (notification) in
                     if let notificationProject = notification.object as? Project {
                         self.selectProject(notificationProject.name)
+                        self.projects?.commitChanges()
                     }
                 }
 
