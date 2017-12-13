@@ -825,9 +825,14 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="1zg-MG-5Iu">
-                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="itemSize" width="200" height="30"/>
+                                                        <edgeInsets key="sectionInset" left="10" right="0.0" top="10" bottom="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Xad-Yi-ihp" id="PeM-8c-8tt"/>
+                                                        <outlet property="delegate" destination="Xad-Yi-ihp" id="7Jt-d5-GMO"/>
+                                                    </connections>
                                                 </collectionView>
                                             </subviews>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1006,6 +1011,7 @@
                         <outlet property="currentProjectLabel" destination="RhI-a6-7gn" id="BMT-7V-k60"/>
                         <outlet property="githubRepositoryLabel" destination="cL1-dS-zoo" id="ii6-Ui-rZY"/>
                         <outlet property="projectListView" destination="Mrf-Zo-uJL" id="cbd-vP-Swk"/>
+                        <outlet property="stagedFilesView" destination="A5c-HK-YDE" id="Nhf-Hr-nRR"/>
                         <outlet property="usernameLabel" destination="F5P-7h-H2I" id="KIx-KP-N4v"/>
                         <segue destination="XfG-lQ-9wD" kind="modal" identifier="account-modal" id="eHd-PJ-AXv"/>
                     </connections>

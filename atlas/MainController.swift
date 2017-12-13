@@ -10,9 +10,9 @@ import Cocoa
 
 class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
 
-    @IBOutlet weak var projectListScrollView: NSScrollView!
-    
     @IBOutlet weak var projectListView: NSCollectionView!
+
+    @IBOutlet weak var stagedFilesView: NSCollectionView!
     
     @IBOutlet weak var addProjectButton: NSButton!
     
@@ -21,8 +21,6 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
     @IBOutlet weak var githubRepositoryLabel: NSTextField!
-    
-    @IBOutlet weak var projectsList: NSTextField!
     
     var git: Git?
     
@@ -40,6 +38,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         configureCollectionView()
         
         FileSystem.createBaseDirectory()
+        
+        print("ATLAS DIRECTORY: \(FileSystem.baseDirectory())")
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
@@ -70,27 +70,59 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return projects?.list().count ?? 0
+        if collectionView == projectListView {
+            return projects?.list().count ?? 0
+        }
+        
+        return projects?.active?.stagedFiles.count ?? 0
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+
+        if collectionView == projectListView {
+            let item = collectionView.makeItem(
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem"),
+                for: indexPath
+            )
+            guard let projectViewItem = item as? ProjectViewItem else {
+                return item
+            }
+
+            if let project = projects?.list()[indexPath.item] {
+                NotificationCenter.default.addObserver(
+                    forName: NSNotification.Name(rawValue: "project-staged-files"),
+                    object: project,
+                    queue: nil
+                ) {
+                    (notification) in
+                    if let notificationProject = notification.object as? Project {
+                        self.selectProject(notificationProject.name)
+                    }
+                }
+
+                projectViewItem.project = project
+            }
+            
+            return projectViewItem
+        }
         let item = collectionView.makeItem(
-            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem"),
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "StagedFileViewItem"),
             for: indexPath
         )
-        guard let projectViewItem = item as? ProjectViewItem else {
+        guard let stagedFileViewItem = item as? StagedFileViewItem else {
             return item
         }
         
-        projectViewItem.label.stringValue = (projects?.list()[indexPath.item])!
+        let stagedFile = projects?.active?.stagedFiles[indexPath.item]
+        stagedFileViewItem.label.stringValue = stagedFile ?? "Project"
         
-        return projectViewItem
+        return stagedFileViewItem
     }
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         if let selectedIndex = indexPaths.first?.item {
-            if let projectName = projects?.list()[selectedIndex] {
-                selectProject(projectName)
+            if let project = projects?.list()[selectedIndex] {
+                selectProject(project.name)
             }
         }
     }
@@ -168,6 +200,9 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     func selectProject(_ projectName: String) {
         currentProjectLabel.stringValue = "Current Project: \(projectName)"
         currentProjectLabel.isHidden = false
+        
+        projects?.setActive(projectName)
+        stagedFilesView.reloadData()
     }
     
     func updateHeader() {

@@ -10,7 +10,6 @@ import XCTest
 
 class AtlasUITests: XCTestCase {
     
-    let atlasDirectory = "AtlasTest"
     var app: XCUIApplication!
         
     override func setUp() {
@@ -19,7 +18,7 @@ class AtlasUITests: XCTestCase {
         
         app = XCUIApplication()
         
-        app.launchEnvironment["atlasDirectory"] = atlasDirectory
+        app.launchEnvironment["atlasDirectory"] = NSTemporaryDirectory()
         app.launchEnvironment["TESTING"] = "true"
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -46,7 +45,7 @@ class AtlasUITests: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: label, handler: nil)
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
         
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: General"]))
     }
@@ -122,6 +121,7 @@ class AtlasUITests: XCTestCase {
         
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: Second Project"]))
 
+        XCTAssert(window.collectionViews.staticTexts["First Project"].exists)
         window.collectionViews.staticTexts["First Project"].click()
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)
     }
