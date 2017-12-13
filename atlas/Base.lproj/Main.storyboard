@@ -946,6 +946,9 @@
                                                     <size key="minSize" width="238" height="232"/>
                                                     <size key="maxSize" width="463" height="10000000"/>
                                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Xad-Yi-ihp" id="ADo-K6-4zU"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1008,6 +1011,8 @@
                     </view>
                     <connections>
                         <outlet property="addProjectButton" destination="0og-BS-53u" id="Pd5-N6-8kF"/>
+                        <outlet property="commitButton" destination="PZF-1M-Yqi" id="OEV-I3-Tn6"/>
+                        <outlet property="commitMessageField" destination="Ks0-AI-i51" id="eLX-es-w3O"/>
                         <outlet property="currentProjectLabel" destination="RhI-a6-7gn" id="BMT-7V-k60"/>
                         <outlet property="githubRepositoryLabel" destination="cL1-dS-zoo" id="ii6-Ui-rZY"/>
                         <outlet property="projectListView" destination="Mrf-Zo-uJL" id="cbd-vP-Swk"/>

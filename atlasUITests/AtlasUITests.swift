@@ -125,7 +125,17 @@ class AtlasUITests: XCTestCase {
         window.collectionViews.staticTexts["First Project"].click()
         XCTAssert(window.staticTexts["Current Project: First Project"].exists)
     }
-    
+
+    func testCommitting() {
+        let window = app.windows["Window"]
+        XCTAssertFalse(window.buttons["Commit"].isEnabled)
+        
+        let textView = window.children(matching: .scrollView).element(boundBy: 2).children(matching: .textView).element
+        textView.typeText("A commit message")
+        
+        XCTAssert(window.buttons["Commit"].isEnabled)
+    }
+
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
         let predicate = NSPredicate(format: "exists == true")
         let expectation = XCTNSPredicateExpectation(predicate: predicate,

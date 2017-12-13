@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
+class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, NSTextDelegate {
 
     @IBOutlet weak var projectListView: NSCollectionView!
 
@@ -21,6 +21,10 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
     @IBOutlet weak var githubRepositoryLabel: NSTextField!
+    
+    @IBOutlet var commitMessageField: NSTextView!
+    
+    @IBOutlet weak var commitButton: NSButton!
     
     var git: Git?
     
@@ -140,6 +144,12 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         view.wantsLayer = true
         
         projectListView.layer?.backgroundColor = NSColor.black.cgColor
+    }
+    
+    func textDidChange(_ notification: Notification) {
+        if let commitMessage = commitMessageField.textStorage?.string {
+            commitButton.isEnabled = (commitMessage.count > 0)
+        }
     }
     
     func initGit(_ credentials: Credentials) {
