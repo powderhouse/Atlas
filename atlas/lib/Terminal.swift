@@ -74,12 +74,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                 guard text.count != 0 else {
                     return
                 }
-            
+
                 var range = self.view.selectedRange()
                 range.location = range.location - 2
+                range.length = 2
                 self.view.insertText("\(text)\n\n> ", replacementRange: range)
                 self.queueTimer = nil
-                print("QUEUE: \(self.queue)")
                 self.dequeueLog()
         }
     }

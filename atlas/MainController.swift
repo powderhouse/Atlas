@@ -54,6 +54,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             initGit(credentials)
             _ = projects?.create("General")
             updateProjects()
+            selectProject("General")
         } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
@@ -180,7 +181,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             _ = git!.initGitHub()
         }
         
-        Terminal.log("GitHub: \(FileSystem.baseDirectory().relativePath)")
+        Terminal.log("GitHub: \(git!.githubRepositoryLink!)")
         
         projects = Projects(git!.repositoryDirectory, git: git!)
         updateHeader()

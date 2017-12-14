@@ -34,7 +34,9 @@ class Project {
         _ = Glue.runProcess("cp", arguments: [url.path, staging.path])
         self.stagedFiles = getFiles(staging)
         
-        Terminal.log("File \(url.lastPathComponent) added to \"\(name)\"")
+        if let projectName = name {
+            Terminal.log("File \(url.lastPathComponent) added to \"\(projectName)\"")
+        }
         
         NotificationCenter.default.post(
             name: NSNotification.Name(rawValue: "project-staged-files"),
