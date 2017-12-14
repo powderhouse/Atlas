@@ -20,11 +20,12 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
-    @IBOutlet weak var githubRepositoryLabel: NSTextField!
-    
     @IBOutlet var commitMessageField: NSTextView!
     
     @IBOutlet weak var commitButton: NSButton!
+    
+    @IBOutlet var terminalView: NSTextView!
+    var terminal: Terminal!
     
     var git: Git?
     
@@ -39,15 +40,19 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             Testing.setup()
         }
         
+        terminal = Terminal(terminalView)
+        
+        Terminal.log("Welcome to Atlas!")
+        
         configureCollectionView()
         
         FileSystem.createBaseDirectory()
         
-        print("ATLAS DIRECTORY: \(FileSystem.baseDirectory())")
+        Terminal.log("Atlas Directory: \(FileSystem.baseDirectory().relativePath)")
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
-            initGeneralRepository()
+            _ = projects?.create("General")
             updateProjects()
         } else {
             performSegue(
@@ -175,21 +180,10 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             _ = git!.initGitHub()
         }
         
-        displayRepositoryLink()
+        Terminal.log("GitHub: \(FileSystem.baseDirectory().relativePath)")
         
         projects = Projects(git!.repositoryDirectory, git: git!)
         updateHeader()
-    }
-    
-    func displayRepositoryLink() {
-        if let repositoryLink = git!.githubRepositoryLink {
-            if repositoryLink.count > 0 {
-                githubRepositoryLabel.stringValue = "GitHub Repository: \(repositoryLink)"
-                githubRepositoryLabel.isHidden = false
-                return
-            }
-        }
-        githubRepositoryLabel.isHidden = true
     }
     
     func initGeneralRepository() {
@@ -214,6 +208,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         projects?.setActive(projectName)
         stagedFilesView.reloadData()
+        
+        Terminal.log("Active Project: \(projectName)")
     }
     
     func updateHeader() {

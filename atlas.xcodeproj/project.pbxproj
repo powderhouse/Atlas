@@ -25,6 +25,7 @@
 		3A6388EA1FD844FE0023BF57 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6388E91FD844FE0023BF57 /* Projects.swift */; };
 		3A6388EC1FD84A210023BF57 /* ProjectsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6388EB1FD84A210023BF57 /* ProjectsTest.swift */; };
 		3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */; };
+		3AB8F3111FE2D59A003E3EB8 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8F3101FE2D59A003E3EB8 /* Terminal.swift */; };
 		3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */; };
 		3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */; };
 		3AC03DAB1FC1C868007077AE /* GlueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DAA1FC1C868007077AE /* GlueTests.swift */; };
@@ -77,6 +78,7 @@
 		3A6388E91FD844FE0023BF57 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		3A6388EB1FD84A210023BF57 /* ProjectsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTest.swift; sourceTree = "<group>"; };
 		3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		3AB8F3101FE2D59A003E3EB8 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
 		3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemTests.swift; sourceTree = "<group>"; };
 		3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
 		3AC03DAA1FC1C868007077AE /* GlueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlueTests.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				3A26C8F11FDA260B00A3E18D /* ProjectViewItem.xib */,
 				3A26C8F41FDDAF7300A3E18D /* DropView.swift */,
 				3A26C8FE1FE0C1E700A3E18D /* Project.swift */,
+				3AB8F3101FE2D59A003E3EB8 /* Terminal.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,
 				3A26C8FF1FE0C1E700A3E18D /* Project.swift in Sources */,
+				3AB8F3111FE2D59A003E3EB8 /* Terminal.swift in Sources */,
 				3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */,
 				3A26C8FA1FDEE98900A3E18D /* StagedFileViewItem.swift in Sources */,
 				3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */,
