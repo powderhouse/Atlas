@@ -61,6 +61,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                 sender: self
             )
         }
+        
+        initCommands()
     }
     
     override func viewDidDisappear() {
@@ -155,6 +157,19 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     func textDidChange(_ notification: Notification) {
         if let commitMessage = commitMessageField.textStorage?.string {
             commitButton.isEnabled = (commitMessage.count > 0)
+        }
+    }
+    
+    func initCommands() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "git-status"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let status = self.git?.status() {
+                Terminal.log(status)
+            }
         }
     }
     

@@ -25,6 +25,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         clear()
         
         initObservers()
+        initCommands()
         
         Timer.scheduledTimer(
             withTimeInterval: 3,
@@ -32,6 +33,35 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         ) { (timer) in
             self.ready = true
         }
+    }
+    
+    func initCommands() {
+        
+    }
+    
+    func textDidChange(_ notification: Notification) {
+        if var text = view.textStorage?.string {
+            let lastCharacter = text.removeLast()
+            if lastCharacter == "\n" {
+                if let commandStart = text.range(of: "> ", options: .backwards)?.upperBound {
+                    let command = String(text.suffix(from: commandStart))
+                    runCommand(command)
+                }
+            }
+        }
+    }
+    
+    func runCommand(_ command: String) {
+        switch command {
+        case "status":
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "git-status"),
+                object: self
+            )
+        default:
+            Terminal.log("Command not recognized: \(command)")
+        }
+        
     }
     
     func initObservers() {
@@ -83,15 +113,20 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
             return
         }
         
-        let text = self.queue.removeFirst()
+        var text = self.queue.removeFirst()
         
         guard text.count != 0 else {
             return
         }
         
         var range = self.view.selectedRange()
-        range.location = range.location - 2
-        range.length = 2
+        if view.textStorage?.string.suffix(2) == "> " {
+            range.location = range.location - 2
+            range.length = 2
+        } else {
+            text = "\n\(text)"
+        }
+        
         self.view.insertText("\(text)\n\n> ", replacementRange: range)
         
         queueTimer = Timer.scheduledTimer(
