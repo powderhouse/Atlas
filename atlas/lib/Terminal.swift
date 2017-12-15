@@ -14,6 +14,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     let view: NSTextView!
     var queue: [String] = []
     var queueTimer: Timer?
+    var ready = false
     
     init(_ view: NSTextView) {
         self.view = view
@@ -24,6 +25,13 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         clear()
         
         initObservers()
+        
+        Timer.scheduledTimer(
+            withTimeInterval: 3,
+            repeats: false
+        ) { (timer) in
+            self.ready = true
+        }
     }
     
     func initObservers() {
@@ -64,23 +72,34 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         guard queueTimer == nil else {
             return
         }
+
+        guard ready else {
+            Timer.scheduledTimer(
+                withTimeInterval: 1,
+                repeats: false,
+                block: { (timer) in
+                    self.dequeueLog()
+            })
+            return
+        }
+        
+        let text = self.queue.removeFirst()
+        
+        guard text.count != 0 else {
+            return
+        }
+        
+        var range = self.view.selectedRange()
+        range.location = range.location - 2
+        range.length = 2
+        self.view.insertText("\(text)\n\n> ", replacementRange: range)
         
         queueTimer = Timer.scheduledTimer(
             withTimeInterval: 1,
             repeats: false
         ) { (timer) in
-                let text = self.queue.removeFirst()
-                
-                guard text.count != 0 else {
-                    return
-                }
-
-                var range = self.view.selectedRange()
-                range.location = range.location - 2
-                range.length = 2
-                self.view.insertText("\(text)\n\n> ", replacementRange: range)
-                self.queueTimer = nil
-                self.dequeueLog()
+            self.queueTimer = nil
+            self.dequeueLog()
         }
     }
 }

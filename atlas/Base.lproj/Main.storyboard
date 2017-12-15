@@ -801,14 +801,14 @@
             <objects>
                 <viewController title="Main Controller" id="Xad-Yi-ihp" customClass="MainController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="WZC-VZ-LFR">
-                        <rect key="frame" x="0.0" y="0.0" width="686" height="518"/>
+                        <rect key="frame" x="0.0" y="0.0" width="802" height="518"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhU-UC-IqE" userLabel="Staging View">
-                                <rect key="frame" x="0.0" y="197" width="274" height="321"/>
+                                <rect key="frame" x="0.0" y="197" width="320" height="321"/>
                                 <subviews>
                                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RhI-a6-7gn" userLabel="Current Project Label">
-                                        <rect key="frame" x="-2" y="304" width="278" height="17"/>
+                                        <rect key="frame" x="-2" y="304" width="324" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Current Project" id="A0Y-NG-Gas">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -816,13 +816,13 @@
                                         </textFieldCell>
                                     </textField>
                                     <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1L-NF-C0z" userLabel="Staged Files View">
-                                        <rect key="frame" x="0.0" y="0.0" width="274" height="321"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
                                         <clipView key="contentView" drawsBackground="NO" id="jyZ-S2-Cv0">
-                                            <rect key="frame" x="1" y="1" width="272" height="319"/>
+                                            <rect key="frame" x="1" y="1" width="318" height="319"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <collectionView id="A5c-HK-YDE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="272" height="319"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="1zg-MG-5Iu">
                                                         <size key="itemSize" width="200" height="30"/>
@@ -863,13 +863,13 @@
                                 </customSpacing>
                             </stackView>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XU-Xe-KNR" userLabel="Project List View">
-                                <rect key="frame" x="0.0" y="0.0" width="515" height="197"/>
+                                <rect key="frame" x="0.0" y="0.0" width="561" height="197"/>
                                 <clipView key="contentView" drawsBackground="NO" id="tpg-eJ-YJS">
-                                    <rect key="frame" x="1" y="1" width="513" height="195"/>
+                                    <rect key="frame" x="1" y="1" width="559" height="195"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="Mrf-Zo-uJL">
-                                            <rect key="frame" x="0.0" y="0.0" width="513" height="195"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="559" height="195"/>
                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" scrollDirection="horizontal" id="pcT-0D-97T">
                                                 <size key="itemSize" width="120" height="120"/>
@@ -893,7 +893,7 @@
                                 </scroller>
                             </scrollView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igk-7v-RfI" userLabel="Commit View">
-                                <rect key="frame" x="274" y="205" width="241" height="313"/>
+                                <rect key="frame" x="320" y="205" width="241" height="313"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-7h-H2I" userLabel="Username Label">
                                         <rect key="frame" x="-2" y="296" width="245" height="17"/>
@@ -914,14 +914,14 @@
                                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgf-Fn-IcZ" userLabel="Commit Message">
                                         <rect key="frame" x="0.0" y="29" width="241" height="234"/>
                                         <clipView key="contentView" copiesOnScroll="NO" id="ZMr-G9-PQi">
-                                            <rect key="frame" x="1" y="1" width="224" height="232"/>
+                                            <rect key="frame" x="1" y="1" width="239" height="232"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Ks0-AI-i51">
-                                                    <rect key="frame" x="0.0" y="0.0" width="224" height="232"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="239" height="232"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="224" height="232"/>
+                                                    <size key="minSize" width="239" height="232"/>
                                                     <size key="maxSize" width="463" height="10000000"/>
                                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <connections>
@@ -936,7 +936,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="8M9-Fb-Ni7">
-                                            <rect key="frame" x="225" y="1" width="15" height="232"/>
+                                            <rect key="frame" x="224" y="1" width="16" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -968,17 +968,17 @@
                                 </customSpacing>
                             </stackView>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8p-Yz-m1U" userLabel="Terminal View">
-                                <rect key="frame" x="515" y="0.0" width="171" height="518"/>
+                                <rect key="frame" x="561" y="0.0" width="241" height="518"/>
                                 <clipView key="contentView" id="qFN-34-YWB">
-                                    <rect key="frame" x="1" y="1" width="154" height="516"/>
+                                    <rect key="frame" x="1" y="1" width="239" height="516"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="4PL-mV-j01">
-                                            <rect key="frame" x="0.0" y="0.0" width="154" height="516"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="239" height="516"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="154" height="516"/>
+                                            <size key="minSize" width="239" height="516"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="------">
@@ -999,12 +999,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ON0-vF-hPg">
-                                    <rect key="frame" x="155" y="1" width="15" height="516"/>
+                                    <rect key="frame" x="224" y="1" width="16" height="516"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0og-BS-53u">
-                                <rect key="frame" x="465" y="72" width="50" height="53"/>
+                                <rect key="frame" x="511" y="72" width="50" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="H5G-XA-XTd"/>
                                     <constraint firstAttribute="width" constant="50" id="tfT-dj-THq"/>
@@ -1025,7 +1025,7 @@
                             <constraint firstItem="0og-BS-53u" firstAttribute="trailing" secondItem="9XU-Xe-KNR" secondAttribute="trailing" id="GwH-0v-46h"/>
                             <constraint firstItem="igk-7v-RfI" firstAttribute="top" secondItem="WZC-VZ-LFR" secondAttribute="top" id="Jeb-2n-Kxa"/>
                             <constraint firstItem="s8p-Yz-m1U" firstAttribute="top" secondItem="WZC-VZ-LFR" secondAttribute="top" id="L3g-gS-fYq"/>
-                            <constraint firstItem="s8p-Yz-m1U" firstAttribute="width" secondItem="WZC-VZ-LFR" secondAttribute="width" multiplier="0.25" id="OQ2-A5-O6P"/>
+                            <constraint firstItem="s8p-Yz-m1U" firstAttribute="width" secondItem="WZC-VZ-LFR" secondAttribute="width" multiplier="0.3" id="OQ2-A5-O6P"/>
                             <constraint firstItem="rhU-UC-IqE" firstAttribute="leading" secondItem="WZC-VZ-LFR" secondAttribute="leading" id="R3s-q7-NEb"/>
                             <constraint firstItem="igk-7v-RfI" firstAttribute="leading" secondItem="rhU-UC-IqE" secondAttribute="trailing" id="Tfp-Nt-1JS"/>
                             <constraint firstItem="9XU-Xe-KNR" firstAttribute="leading" secondItem="WZC-VZ-LFR" secondAttribute="leading" id="Tif-Hh-NVW"/>
