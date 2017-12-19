@@ -61,8 +61,8 @@ class AtlasUITests: XCTestCase {
         
         XCTAssert(window.staticTexts["Current Project: General"].exists)
         XCTAssert(window.collectionViews.staticTexts["General"].exists)
-                
-        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
+        
+        assertTerminalContains("GitHub: https://github.com/atlastest/Atlas")
     }
     
     func testPersistence() {
@@ -74,7 +74,8 @@ class AtlasUITests: XCTestCase {
         XCTAssert(window.staticTexts["Account: atlastest"].exists)
         XCTAssert(window.staticTexts["Current Project: General"].exists)
         XCTAssert(window.collectionViews.staticTexts["General"].exists)
-        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
+        
+        waitForTerminalToContain("GitHub: https://github.com/atlastest/Atlas")
     }
     
     func testNewProject() {
@@ -87,6 +88,7 @@ class AtlasUITests: XCTestCase {
         window.textFields["Project Name"].typeText("First Project")
         window.buttons["Save"].click()
 
+        waitForTerminalToContain("Create Project: First Project")
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: First Project"]))
 
         XCTAssertFalse(window.staticTexts["New Project"].exists)
@@ -130,10 +132,23 @@ class AtlasUITests: XCTestCase {
         let window = app.windows["Window"]
         XCTAssertFalse(window.buttons["Commit"].isEnabled)
         
-        let textView = window.children(matching: .scrollView).element(boundBy: 2).children(matching: .textView).element
-        textView.typeText("A commit message")
+        let commitArea = app.textViews["commit"]
+        commitArea.click()
+        commitArea.typeText("A commit message")
         
         XCTAssert(window.buttons["Commit"].isEnabled)
+    }
+    
+    func testStagingFile() {
+        let terminal = app.textViews["terminal"]
+        XCTAssertFalse(app.staticTexts["index.html"].exists)
+
+        terminal.click()
+        terminal.typeText("touch ../index.html\n")
+
+        terminal.typeText("stage ../index.html\n")
+        assertTerminalContains("“index.html” staged in “General”")
+        XCTAssert(app.staticTexts["index.html"].exists)
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
@@ -143,5 +158,22 @@ class AtlasUITests: XCTestCase {
         
         let result = XCTWaiter().wait(for: [expectation], timeout: 5)
         return result == .completed
+    }
+    
+    func assertTerminalContains(_ text: String) {
+        let terminal = app.textViews["terminal"]
+        let terminalText = terminal.value as? String ?? ""
+        XCTAssertNotNil(terminalText.range(of: text), "The terminal does not contain the text: \(text)")
+    }
+    
+    func waitForTerminalToContain(_ text: String) {
+        let terminal = app.textViews["terminal"]
+
+        let contains = NSPredicate(format: "value contains[c] %@", text)
+            
+        let subsitutedContains = contains.withSubstitutionVariables(["text": text])
+        
+        expectation(for: subsitutedContains, evaluatedWith: terminal, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
 }

@@ -29,12 +29,19 @@ class Project {
         self.stagedFiles = getFiles(staging)
     }
     
-    func stageFile(_ path: String) {
+    func stageFile(_ url: URL) {
         guard directory != nil else { return }
-        _ = Glue.runProcess("cp", arguments: [path, staging.path])
+        _ = Glue.runProcess("cp", arguments: [url.path, staging.path])
         self.stagedFiles = getFiles(staging)
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "project-staged-files"), object: self)
+        if let projectName = name {
+            Terminal.log("\"\(url.lastPathComponent)\" staged in \"\(projectName)\"")
+        }
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "project-staged-files"),
+            object: self
+        )
     }
     
     func getFiles(_ url: URL?=nil) -> [String] {

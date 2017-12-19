@@ -65,9 +65,8 @@ class DropView: NSView {
             let path = pasteboard[0] as? String
             else { return false }
         
-        //GET YOUR FILE PATH !!!
         self.filePath = path
-        project?.stageFile(path)
+        project?.stageFile(URL(fileURLWithPath: path))
         
         return true
     }

@@ -20,11 +20,12 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     
     @IBOutlet weak var currentProjectLabel: NSTextField!
     
-    @IBOutlet weak var githubRepositoryLabel: NSTextField!
-    
     @IBOutlet var commitMessageField: NSTextView!
     
     @IBOutlet weak var commitButton: NSButton!
+    
+    @IBOutlet var terminalView: NSTextView!
+    var terminal: Terminal!
     
     var git: Git?
     
@@ -39,22 +40,29 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             Testing.setup()
         }
         
+        terminal = Terminal(terminalView)
+        
+        Terminal.log("Welcome to Atlas!")
+        
         configureCollectionView()
         
         FileSystem.createBaseDirectory()
         
-        print("ATLAS DIRECTORY: \(FileSystem.baseDirectory())")
+        Terminal.log("Atlas Directory: \(FileSystem.baseDirectory().relativePath)")
         
         if let credentials = Git.getCredentials(FileSystem.baseDirectory()) {
             initGit(credentials)
-            initGeneralRepository()
+            _ = projects?.create("General")
             updateProjects()
+            selectProject("General")
         } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-modal"),
                 sender: self
             )
         }
+        
+        initCommands()
     }
     
     override func viewDidDisappear() {
@@ -152,6 +160,51 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
     }
     
+    func initCommands() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "git-status"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let status = self.git?.status() {
+                Terminal.log(status)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "git-stage"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let path = notification.userInfo?["path"] as? String {
+                let url = URL(fileURLWithPath: path, relativeTo: self.projects?.active?.directory)
+                self.projects?.active?.stageFile(url)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "raw-command"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let rawCommand = notification.userInfo?["command"] as? String {
+                var allArgs = rawCommand.split(separator: " ")
+                let command = String(allArgs.removeFirst())
+                let arguments = allArgs.map { String($0) }
+                var result = Glue.runProcess(command, arguments: arguments, currentDirectory: self.projects?.active?.directory)
+                if result.count == 0 {
+                    Terminal.log("\n")
+                } else {
+                    _ = result.removeLast()
+                    Terminal.log(result)
+                }
+            }
+        }
+    }
+    
     func initGit(_ credentials: Credentials) {
         let atlasRepository = FileSystem.baseDirectory().appendingPathComponent("Atlas", isDirectory: true)
         
@@ -175,21 +228,10 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             _ = git!.initGitHub()
         }
         
-        displayRepositoryLink()
+        Terminal.log("GitHub: \(git!.githubRepositoryLink!)")
         
         projects = Projects(git!.repositoryDirectory, git: git!)
         updateHeader()
-    }
-    
-    func displayRepositoryLink() {
-        if let repositoryLink = git!.githubRepositoryLink {
-            if repositoryLink.count > 0 {
-                githubRepositoryLabel.stringValue = "GitHub Repository: \(repositoryLink)"
-                githubRepositoryLabel.isHidden = false
-                return
-            }
-        }
-        githubRepositoryLabel.isHidden = true
     }
     
     func initGeneralRepository() {
@@ -214,6 +256,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         projects?.setActive(projectName)
         stagedFilesView.reloadData()
+        
+        Terminal.log("Active Project: \(projectName)")
     }
     
     func updateHeader() {

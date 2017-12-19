@@ -46,6 +46,8 @@ class Projects {
         var isDir : ObjCBool = true
         
         if !fileManager.fileExists(atPath: url.path, isDirectory: &isDir) {
+            Terminal.log("Create Project: \(name)")
+            
             do {
                 try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
             } catch {

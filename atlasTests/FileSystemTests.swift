@@ -59,7 +59,7 @@ class FileSystemTests: XCTestCase {
     }
 
     func testCreateFolder_withExistingFolder() {
-        let url = FileSystem.baseDirectory().appendingPathComponent("NewFoloder", isDirectory: true)
+        let url = FileSystem.baseDirectory().appendingPathComponent("NewFolder", isDirectory: true)
         _ = FileSystem.createDirectory(url)
         XCTAssertNotNil(FileSystem.createDirectory(url))
     }
