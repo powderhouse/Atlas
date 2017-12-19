@@ -173,6 +173,18 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
         
         NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "git-stage"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let path = notification.userInfo?["path"] as? String {
+                let url = URL(fileURLWithPath: path, relativeTo: self.projects?.active?.directory)
+                self.projects?.active?.stageFile(url)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "raw-command"),
             object: terminal,
             queue: nil

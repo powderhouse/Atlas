@@ -133,6 +133,7 @@ class AtlasUITests: XCTestCase {
         XCTAssertFalse(window.buttons["Commit"].isEnabled)
         
         let commitArea = app.textViews["commit"]
+        commitArea.click()
         commitArea.typeText("A commit message")
         
         XCTAssert(window.buttons["Commit"].isEnabled)
@@ -140,13 +141,13 @@ class AtlasUITests: XCTestCase {
     
     func testStagingFile() {
         let terminal = app.textViews["terminal"]
-
-        terminal.click()
-        terminal.typeText("touch /index.html\n")
         XCTAssertFalse(app.staticTexts["index.html"].exists)
 
-        terminal.typeText("stage /index.html\n")
-        assertTerminalContains("index.html staged in \"General\"")
+        terminal.click()
+        terminal.typeText("touch ../index.html\n")
+
+        terminal.typeText("stage ../index.html\n")
+        assertTerminalContains("“index.html” staged in “General”")
         XCTAssert(app.staticTexts["index.html"].exists)
     }
 

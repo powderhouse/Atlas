@@ -56,18 +56,28 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         }
     }
     
-    func runCommand(_ command: String) {
+    func runCommand(_ fullCommand: String) {
+        var allArgs = fullCommand.split(separator: " ")
+        let command = String(allArgs.removeFirst())
+        
         switch command {
         case "status":
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "git-status"),
                 object: self
             )
+        case "stage":
+            print("STAGE: \(allArgs.joined(separator: " "))")
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "git-stage"),
+                object: self,
+                userInfo: ["path": allArgs.joined(separator: " ")]
+            )
         default:
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "raw-command"),
                 object: self,
-                userInfo: ["command": command]
+                userInfo: ["command": fullCommand]
             )
         }
         
