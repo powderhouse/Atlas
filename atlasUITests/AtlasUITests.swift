@@ -88,6 +88,7 @@ class AtlasUITests: XCTestCase {
         window.textFields["Project Name"].typeText("First Project")
         window.buttons["Save"].click()
 
+        waitForTerminalToContain("Create Project: First Project")
         XCTAssert(waitForElementToAppear(app.staticTexts["Current Project: First Project"]))
 
         XCTAssertFalse(window.staticTexts["New Project"].exists)
