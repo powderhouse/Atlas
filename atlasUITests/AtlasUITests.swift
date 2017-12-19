@@ -132,10 +132,22 @@ class AtlasUITests: XCTestCase {
         let window = app.windows["Window"]
         XCTAssertFalse(window.buttons["Commit"].isEnabled)
         
-        let textView = window.children(matching: .scrollView).element(boundBy: 2).children(matching: .textView).element
-        textView.typeText("A commit message")
+        let commitArea = app.textViews["commit"]
+        commitArea.typeText("A commit message")
         
         XCTAssert(window.buttons["Commit"].isEnabled)
+    }
+    
+    func testStagingFile() {
+        let terminal = app.textViews["terminal"]
+
+        terminal.click()
+        terminal.typeText("touch /index.html\n")
+        XCTAssertFalse(app.staticTexts["index.html"].exists)
+
+        terminal.typeText("stage /index.html\n")
+        assertTerminalContains("index.html staged in \"General\"")
+        XCTAssert(app.staticTexts["index.html"].exists)
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {

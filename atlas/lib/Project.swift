@@ -35,7 +35,7 @@ class Project {
         self.stagedFiles = getFiles(staging)
         
         if let projectName = name {
-            Terminal.log("\"\(url.lastPathComponent)\" added to \"\(projectName)\"")
+            Terminal.log("\"\(url.lastPathComponent)\" staged in \"\(projectName)\"")
         }
         
         NotificationCenter.default.post(

@@ -15,6 +15,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     var queue: [String] = []
     var queueTimer: Timer?
     var ready = false
+    var logging = false
     
     init(_ view: NSTextView) {
         self.view = view
@@ -40,6 +41,10 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func textDidChange(_ notification: Notification) {
+        guard !logging else {
+            return
+        }
+        
         if var text = view.textStorage?.string {
             let lastCharacter = text.removeLast()
             if lastCharacter == "\n" {
@@ -59,7 +64,11 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                 object: self
             )
         default:
-            Terminal.log("Command not recognized: \(command)")
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "raw-command"),
+                object: self,
+                userInfo: ["command": command]
+            )
         }
         
     }
@@ -105,7 +114,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
 
         guard ready else {
             Timer.scheduledTimer(
-                withTimeInterval: 1,
+                withTimeInterval: 0.2,
                 repeats: false,
                 block: { (timer) in
                     self.dequeueLog()
@@ -119,6 +128,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
             return
         }
         
+        logging = true
+        
         var range = self.view.selectedRange()
         if view.textStorage?.string.suffix(2) == "> " {
             range.location = range.location - 2
@@ -128,6 +139,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         }
         
         self.view.insertText("\(text)\n\n> ", replacementRange: range)
+        
+        logging = false
         
         queueTimer = Timer.scheduledTimer(
             withTimeInterval: 1,

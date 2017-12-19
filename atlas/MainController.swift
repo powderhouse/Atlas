@@ -171,6 +171,26 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                 Terminal.log(status)
             }
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "raw-command"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let rawCommand = notification.userInfo?["command"] as? String {
+                var allArgs = rawCommand.split(separator: " ")
+                let command = String(allArgs.removeFirst())
+                let arguments = allArgs.map { String($0) }
+                var result = Glue.runProcess(command, arguments: arguments, currentDirectory: self.projects?.active?.directory)
+                if result.count == 0 {
+                    Terminal.log("\n")
+                } else {
+                    _ = result.removeLast()
+                    Terminal.log(result)
+                }
+            }
+        }
     }
     
     func initGit(_ credentials: Credentials) {
