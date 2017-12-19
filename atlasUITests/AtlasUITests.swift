@@ -61,8 +61,8 @@ class AtlasUITests: XCTestCase {
         
         XCTAssert(window.staticTexts["Current Project: General"].exists)
         XCTAssert(window.collectionViews.staticTexts["General"].exists)
-                
-        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
+        
+        assertTerminalContains("GitHub: https://github.com/atlastest/Atlas")
     }
     
     func testPersistence() {
@@ -74,7 +74,8 @@ class AtlasUITests: XCTestCase {
         XCTAssert(window.staticTexts["Account: atlastest"].exists)
         XCTAssert(window.staticTexts["Current Project: General"].exists)
         XCTAssert(window.collectionViews.staticTexts["General"].exists)
-        XCTAssert(window.staticTexts["GitHub Repository: https://github.com/atlastest/Atlas"].exists)
+        
+        waitForTerminalToContain("GitHub: https://github.com/atlastest/Atlas")
     }
     
     func testNewProject() {
@@ -143,5 +144,22 @@ class AtlasUITests: XCTestCase {
         
         let result = XCTWaiter().wait(for: [expectation], timeout: 5)
         return result == .completed
+    }
+    
+    func assertTerminalContains(_ text: String) {
+        let terminal = app.textViews["terminal"]
+        let terminalText = terminal.value as? String ?? ""
+        XCTAssertNotNil(terminalText.range(of: text), "The terminal does not contain the text: \(text)")
+    }
+    
+    func waitForTerminalToContain(_ text: String) {
+        let terminal = app.textViews["terminal"]
+
+        let contains = NSPredicate(format: "value contains[c] %@", text)
+            
+        let subsitutedContains = contains.withSubstitutionVariables(["text": text])
+        
+        expectation(for: subsitutedContains, evaluatedWith: terminal, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
 }
