@@ -148,7 +148,9 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
             text = "\n\(text)"
         }
         
-        self.view.insertText("\(text)\n\n> ", replacementRange: range)
+        text = "\(text)\n\n> ".replacingOccurrences(of: "\n\n\n", with: "\n", options: .literal, range: nil)
+        
+        self.view.insertText(text, replacementRange: range)
         
         logging = false
         
