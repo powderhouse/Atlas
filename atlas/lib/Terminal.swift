@@ -12,13 +12,15 @@ import Cocoa
 class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     
     let view: NSTextView!
+    let notificationCenter: AtlasNotificationCenter!
     var queue: [String] = []
     var queueTimer: Timer?
     var ready = false
     var logging = false
     
-    init(_ view: NSTextView) {
+    init(_ view: NSTextView, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
         self.view = view
+        self.notificationCenter = notificationCenter
 
         super.init()
         
@@ -26,7 +28,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         clear()
         
         initObservers()
-        initCommands()
         
         Timer.scheduledTimer(
             withTimeInterval: 3,
@@ -34,10 +35,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         ) { (timer) in
             self.ready = true
         }
-    }
-    
-    func initCommands() {
-        
     }
     
     func textDidChange(_ notification: Notification) {
@@ -62,13 +59,13 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         
         switch command {
         case "status":
-            NotificationCenter.default.post(
+            notificationCenter.post(
                 name: NSNotification.Name(rawValue: "git-status"),
                 object: self
             )
         case "stage":
             let path = allArgs.joined(separator: " ")
-            NotificationCenter.default.post(
+            notificationCenter.post(
                 name: NSNotification.Name(rawValue: "git-stage"),
                 object: self,
                 userInfo: ["path": removeQuotes(path)]
@@ -76,13 +73,13 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         case "commit":
             let message = allArgs.joined(separator: " ")
             
-            NotificationCenter.default.post(
+            notificationCenter.post(
                 name: NSNotification.Name(rawValue: "git-commit"),
                 object: self,
                 userInfo: ["message": removeQuotes(message)]
             )
         default:
-            NotificationCenter.default.post(
+            notificationCenter.post(
                 name: NSNotification.Name(rawValue: "raw-command"),
                 object: self,
                 userInfo: ["command": fullCommand]

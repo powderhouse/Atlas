@@ -33,6 +33,9 @@
 		3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE231FC277B400430BC2 /* Glue.swift */; };
 		3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE251FC277B600430BC2 /* Testing.swift */; };
 		3AE4AE281FC277B800430BC2 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE271FC277B700430BC2 /* FileSystem.swift */; };
+		3AEB93BB1FEC174B00AAB49D /* TerminalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93BA1FEC174B00AAB49D /* TerminalTests.swift */; };
+		3AEB93BD1FEC1EA400AAB49D /* AtlasNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */; };
+		3AEB93BF1FEC1F4700AAB49D /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93BE1FEC1F4700AAB49D /* MockNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		3AE4AE231FC277B400430BC2 /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
 		3AE4AE251FC277B600430BC2 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		3AE4AE271FC277B700430BC2 /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		3AEB93BA1FEC174B00AAB49D /* TerminalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTests.swift; sourceTree = "<group>"; };
+		3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasNotificationCenter.swift; sourceTree = "<group>"; };
+		3AEB93BE1FEC1F4700AAB49D /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,7 @@
 				3AC03DAA1FC1C868007077AE /* GlueTests.swift */,
 				3A59E0451FC60C2B00DF753E /* GitTests.swift */,
 				3A6388EB1FD84A210023BF57 /* ProjectsTest.swift */,
+				3AEB93BA1FEC174B00AAB49D /* TerminalTests.swift */,
 			);
 			path = atlasTests;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3A59E0481FC60CC900DF753E /* MockProcess.swift */,
+				3AEB93BE1FEC1F4700AAB49D /* MockNotificationCenter.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 				3A26C8F41FDDAF7300A3E18D /* DropView.swift */,
 				3A26C8FE1FE0C1E700A3E18D /* Project.swift */,
 				3AB8F3101FE2D59A003E3EB8 /* Terminal.swift */,
+				3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 				3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */,
 				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,
+				3AEB93BD1FEC1EA400AAB49D /* AtlasNotificationCenter.swift in Sources */,
 				3A26C8FF1FE0C1E700A3E18D /* Project.swift in Sources */,
 				3AB8F3111FE2D59A003E3EB8 /* Terminal.swift in Sources */,
 				3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */,
@@ -358,7 +368,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A59E0461FC60C2B00DF753E /* GitTests.swift in Sources */,
+				3AEB93BF1FEC1F4700AAB49D /* MockNotificationCenter.swift in Sources */,
 				3A6388EC1FD84A210023BF57 /* ProjectsTest.swift in Sources */,
+				3AEB93BB1FEC174B00AAB49D /* TerminalTests.swift in Sources */,
 				3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */,
 				2BCB0DD41FBC15320044C117 /* AtlasTests.swift in Sources */,
 				3A59E0491FC60CC900DF753E /* MockProcess.swift in Sources */,
