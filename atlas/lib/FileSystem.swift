@@ -35,6 +35,13 @@ class FileSystem {
         return fileManager.fileExists(atPath: url.path, isDirectory: &isDir)
     }
     
+    class func filesInDirectory(_ url: URL) -> [String] {
+        let fileManager = FileManager.default
+        let contents = try? fileManager.contentsOfDirectory(atPath: url.path)
+        
+        return contents ?? []
+    }
+    
     class func createDirectory(_ url: URL) {
         if fileExists(url) {
             return

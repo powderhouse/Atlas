@@ -150,6 +150,31 @@ class AtlasUITests: XCTestCase {
         assertTerminalContains("“index.html” staged in “General”")
         XCTAssert(app.staticTexts["index.html"].exists)
     }
+    
+    func testCommitingFiles() {
+        let window = app.windows["Window"]
+
+        let terminal = window.textViews["terminal"]
+
+        waitForTerminalToContain("Active Project: General")
+        
+        terminal.click()
+        terminal.typeText("touch ../index.html\n")
+        terminal.typeText("stage ../index.html\n")
+        XCTAssert(waitForElementToAppear(window.staticTexts["index.html"]))
+        
+        let commitArea = window.textViews["commit"]
+        commitArea.click()
+        commitArea.typeText("The reason why I am adding these files.")
+        window.buttons["Commit"].click()
+
+        waitForTerminalToContain("1 file committed to “General”")
+
+        let commitAreaValue = commitArea.value as? String
+        XCTAssertEqual(commitAreaValue, "")
+
+        XCTAssertFalse(window.staticTexts["index.html"].exists)
+    }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
         let predicate = NSPredicate(format: "exists == true")

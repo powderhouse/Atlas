@@ -39,8 +39,35 @@ class Project {
         }
         
         NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "project-staged-files"),
+            name: NSNotification.Name(rawValue: "project-stage-files"),
             object: self
+        )
+    }
+    
+    func commit(_ message: String) {
+        let stagedFileNames = FileSystem.filesInDirectory(staging)
+        var movedCount = 0
+        for file in stagedFileNames {
+            guard file != "readme.md" else {
+                continue
+            }
+            let filePath = staging.appendingPathComponent(file).path
+            _ = Glue.runProcess("mv", arguments: [filePath, directory.path])
+            movedCount += 1
+        }
+        
+        if let projectName = name {
+            var fileWord = "files"
+            if movedCount == 1 { fileWord.removeLast() }
+            Terminal.log("\(movedCount) \(fileWord) committed to \"\(projectName)\"")
+        }
+        
+        stagedFiles = getFiles(staging)
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "project-commit-files"),
+            object: self,
+            userInfo: ["message": message]
         )
     }
     

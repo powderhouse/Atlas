@@ -102,7 +102,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
 
             if let project = projects?.list()[indexPath.item] {
                 NotificationCenter.default.addObserver(
-                    forName: NSNotification.Name(rawValue: "project-staged-files"),
+                    forName: NSNotification.Name(rawValue: "project-stage-files"),
                     object: project,
                     queue: nil
                 ) {
@@ -111,6 +111,20 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                         self.selectProject(notificationProject.name)
                         self.projects?.commitChanges()
                     }
+                }
+                
+                NotificationCenter.default.addObserver(
+                    forName: NSNotification.Name(rawValue: "project-commit-files"),
+                    object: project,
+                    queue: nil
+                ) {
+                    (notification) in
+                    self.commitMessageField.selectAll(nil)
+                    let range = self.commitMessageField.selectedRange()
+                    self.commitMessageField.insertText("", replacementRange: range)
+                    self.stagedFilesView.reloadData()
+                    let commitMessage = notification.userInfo?["message"] as? String
+                    self.projects?.commitChanges(commitMessage)
                 }
 
                 projectViewItem.project = project
@@ -153,6 +167,15 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         projectListView.layer?.backgroundColor = NSColor.black.cgColor
     }
+    
+    @IBAction func commit(_ sender: NSButton) {
+        if let project = projects?.active {
+            if let commitMessage = commitMessageField.textStorage?.string {
+                project.commit(commitMessage)
+            }            
+        }
+    }
+    
     
     func textDidChange(_ notification: Notification) {
         if let commitMessage = commitMessageField.textStorage?.string {

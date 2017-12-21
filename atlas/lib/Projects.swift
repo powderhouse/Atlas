@@ -33,9 +33,9 @@ class Projects {
         return Project(directory(name))        
     }
     
-    func commitChanges() {
+    func commitChanges(_ commitMessage: String?=nil) {
         _ = git?.add()
-        _ = git?.commit()
+        _ = git?.commit(commitMessage)
         _ = git?.pushToGitHub()
     }
     

@@ -298,8 +298,8 @@ class Git {
         return nil
     }
 
-    func commit() -> String {
-        return run("commit", arguments: ["-am", "Atlas commit"])
+    func commit(_ message: String?=nil) -> String {
+        return run("commit", arguments: ["-am", message ?? "Atlas commit"])
     }
     
     func printGit(_ output: String) {
