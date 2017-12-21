@@ -36,6 +36,7 @@
 		3AEB93BB1FEC174B00AAB49D /* TerminalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93BA1FEC174B00AAB49D /* TerminalTests.swift */; };
 		3AEB93BD1FEC1EA400AAB49D /* AtlasNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */; };
 		3AEB93BF1FEC1F4700AAB49D /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93BE1FEC1F4700AAB49D /* MockNotificationCenter.swift */; };
+		3AEB93C11FEC2FC000AAB49D /* NewTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB93C01FEC2FBF00AAB49D /* NewTextController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		3AEB93BA1FEC174B00AAB49D /* TerminalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTests.swift; sourceTree = "<group>"; };
 		3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasNotificationCenter.swift; sourceTree = "<group>"; };
 		3AEB93BE1FEC1F4700AAB49D /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
+		3AEB93C01FEC2FBF00AAB49D /* NewTextController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				2BCB0DC91FBC15320044C117 /* Info.plist */,
 				2BCB0DCA1FBC15320044C117 /* atlas.entitlements */,
 				3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */,
+				3AEB93C01FEC2FBF00AAB49D /* NewTextController.swift */,
 			);
 			path = atlas;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				3AE4AE281FC277B800430BC2 /* FileSystem.swift in Sources */,
 				3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */,
 				3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */,
+				3AEB93C11FEC2FC000AAB49D /* NewTextController.swift in Sources */,
 				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,
 				3AEB93BD1FEC1EA400AAB49D /* AtlasNotificationCenter.swift in Sources */,
