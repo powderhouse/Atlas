@@ -176,7 +176,6 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
     }
     
-    
     func textDidChange(_ notification: Notification) {
         if let commitMessage = commitMessageField.textStorage?.string {
             commitButton.isEnabled = (commitMessage.count > 0)
@@ -206,7 +205,18 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                 self.projects?.active?.stageFile(url)
             }
         }
-        
+
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "git-commit"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let commitMessage = notification.userInfo?["message"] as? String {
+                self.projects?.active?.commit(commitMessage)
+            }
+        }
+
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "raw-command"),
             object: terminal,

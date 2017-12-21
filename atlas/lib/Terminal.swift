@@ -67,11 +67,27 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                 object: self
             )
         case "stage":
-            print("STAGE: \(allArgs.joined(separator: " "))")
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "git-stage"),
                 object: self,
                 userInfo: ["path": allArgs.joined(separator: " ")]
+            )
+        case "commit":
+            var message = allArgs.joined(separator: " ")
+            
+            let quotes = ["\"", "\u{201C}", "\u{201D}"]
+            if quotes.contains("\(message.first ?? "x")") {
+                _ = message.removeFirst()
+            }
+        
+            if quotes.contains("\(message.last ?? "x")") {
+                _ = message.removeLast()
+            }
+            
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "git-commit"),
+                object: self,
+                userInfo: ["message": message]
             )
         default:
             NotificationCenter.default.post(
