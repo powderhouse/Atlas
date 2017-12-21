@@ -108,6 +108,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                 ) {
                     (notification) in
                     if let notificationProject = notification.object as? Project {
+                        self.stagedFilesView.reloadData()
                         self.selectProject(notificationProject.name)
                         self.projects?.commitChanges()
                     }
@@ -284,6 +285,10 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     }
     
     func selectProject(_ projectName: String) {
+        guard projects?.active?.name != projectName else {
+            return
+        }
+        
         currentProjectLabel.stringValue = "Current Project: \(projectName)"
         currentProjectLabel.isHidden = false
         
