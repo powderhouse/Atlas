@@ -202,13 +202,43 @@ class Git {
     
     func logNameOnly(_ projects: [Project]) -> String {
         let arguments = [
+            "--pretty=format:\"%s\"",
+            "--reverse",
             "--name-only",
             "--",
             ".",
             ":^*/staging/*"
         ]
         
-        return run("log", arguments: arguments)
+        var log = run("log", arguments: arguments)
+        
+        let rawGitHub = githubRepositoryLink?.replacingOccurrences(
+            of: "github.com",
+            with: "raw.githubusercontent.com"
+        ) ?? "INVALID"
+        
+        for project in projects {
+            if let projectName = project.name {
+                do {
+                    let regex = try NSRegularExpression(
+                        pattern: "\(projectName)/([^\n]+)",
+                        options: .caseInsensitive
+                    )
+                    let range = NSMakeRange(0, log.count)
+                    let template = "\n\(projectName)/$1 -> \(rawGitHub)/master/\(projectName)/$1"
+                    log = regex.stringByReplacingMatches(
+                        in: log,
+                        options: .withoutAnchoringBounds,
+                        range: range,
+                        withTemplate: template
+                    )
+                } catch {
+                    print("ERROR!!! \(error)")
+                }
+            }
+        }
+        
+        return log
     }
     
     func add(_ filter: String=".") -> Bool {
