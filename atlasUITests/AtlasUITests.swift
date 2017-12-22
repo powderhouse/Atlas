@@ -175,6 +175,32 @@ class AtlasUITests: XCTestCase {
 
         XCTAssertFalse(window.staticTexts["index.html"].exists)
     }
+    
+    func testAddingTextFilesDirectly() {
+        let window = app.windows["Window"]
+        waitForTerminalToContain("Active Project: General")
+        
+        let addTextButton = window.buttons["Add Text"]
+        let popover = addTextButton.popovers.firstMatch
+        let textField = popover.children(matching: .textField).element
+
+        addTextButton.click()
+        textField.typeText("Short text.")
+        popover.buttons["Save"].click()
+        
+        waitForTerminalToContain("“Short text.” staged in “General”")
+        XCTAssert(window.staticTexts["Short text."].exists)
+
+        addTextButton.click()
+        textField.typeText("https://powderhouse.org/")
+        popover.buttons["Save"].click()
+        waitForTerminalToContain("“Powderhouse Studios —…” staged in “General”")
+
+        addTextButton.click()
+        textField.typeText("Some text that is longer than 20 characters so it will have to truncate.")
+        popover.buttons["Save"].click()
+        waitForTerminalToContain("“Some text that is lon…” staged in “General”")
+    }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
         let predicate = NSPredicate(format: "exists == true")
