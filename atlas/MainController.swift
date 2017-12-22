@@ -196,6 +196,19 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
         
         NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "git-log-name-only"),
+            object: terminal,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectList = self.projects?.list() {
+                if let log = self.git?.logNameOnly(projectList) {
+                    Terminal.log(log)
+                }
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "git-stage"),
             object: terminal,
             queue: nil

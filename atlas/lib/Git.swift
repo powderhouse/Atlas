@@ -200,6 +200,17 @@ class Git {
         return result
     }
     
+    func logNameOnly(_ projects: [Project]) -> String {
+        let arguments = [
+            "--name-only",
+            "--",
+            ".",
+            ":^*/staging/*"
+        ]
+        
+        return run("log", arguments: arguments)
+    }
+    
     func add(_ filter: String=".") -> Bool {
         _ = run("add", arguments: ["."])
         

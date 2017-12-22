@@ -78,6 +78,11 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                 object: self,
                 userInfo: ["message": removeQuotes(message)]
             )
+        case "log":
+            notificationCenter.post(
+                name: NSNotification.Name(rawValue: "git-log-name-only"),
+                object: self
+            )
         default:
             notificationCenter.post(
                 name: NSNotification.Name(rawValue: "raw-command"),
