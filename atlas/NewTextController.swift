@@ -12,6 +12,8 @@ class NewTextController: NSViewController, NSTextFieldDelegate {
     
     @IBOutlet weak var textField: NSTextField!
     
+    let maxTitleLength = 40
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -36,16 +38,16 @@ class NewTextController: NSViewController, NSTextFieldDelegate {
             let websiteJson = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
             
             if let websiteTitle = websiteJson??["title"] as? String {
-                if websiteTitle.count >= 20 {
-                    let endIndex = websiteTitle.index(websiteTitle.startIndex, offsetBy: 20)
+                if websiteTitle.count >= maxTitleLength {
+                    let endIndex = websiteTitle.index(websiteTitle.startIndex, offsetBy: maxTitleLength)
                     title = String(websiteTitle[...endIndex]) + "..."
                 } else {
                     title = websiteTitle
                 }
             }
         } else {
-            if text.count >= 20 {
-                let endIndex = text.index(text.startIndex, offsetBy: 20)
+            if text.count >= maxTitleLength {
+                let endIndex = text.index(text.startIndex, offsetBy: maxTitleLength)
                 title = String(text[...endIndex]) + "..."
             } else {
                 title = text

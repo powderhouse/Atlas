@@ -194,12 +194,12 @@ class AtlasUITests: XCTestCase {
         addTextButton.click()
         textField.typeText("https://powderhouse.org/")
         popover.buttons["Save"].click()
-        waitForTerminalToContain("“Powderhouse Studios —…” staged in “General”")
+        waitForTerminalToContain("“Powderhouse Studios — Come invent the fut…” staged in “General”")
 
         addTextButton.click()
         textField.typeText("Some text that is longer than 20 characters so it will have to truncate.")
         popover.buttons["Save"].click()
-        waitForTerminalToContain("“Some text that is lon…” staged in “General”")
+        waitForTerminalToContain("“Some text that is longer than 20 characte…” staged in “General”")
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
