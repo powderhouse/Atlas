@@ -29,7 +29,7 @@ class NewTextController: NSViewController, NSTextFieldDelegate {
         if text.starts(with: "http") {
             let mercuryArguments = [
                 "-H",
-                "x-api-key: boI6U8y0OOzHVs7lftXWiCPqYw3eeoJYCUd97i7I",
+                "x-api-key: 4jr2RAyEofqw5EBuAByHppbckmppMiivHHyU0tx4",
                 "https://mercury.postlight.com/parser?url=\(textField.stringValue)"
             ]
             
