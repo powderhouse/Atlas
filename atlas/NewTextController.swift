@@ -40,7 +40,7 @@ class NewTextController: NSViewController, NSTextFieldDelegate {
             if let websiteTitle = websiteJson??["title"] as? String {
                 if websiteTitle.count >= maxTitleLength {
                     let endIndex = websiteTitle.index(websiteTitle.startIndex, offsetBy: maxTitleLength)
-                    title = String(websiteTitle[...endIndex]) + "..."
+                    title = String(websiteTitle[...endIndex]) + "---"
                 } else {
                     title = websiteTitle
                 }
@@ -48,7 +48,7 @@ class NewTextController: NSViewController, NSTextFieldDelegate {
         } else {
             if text.count >= maxTitleLength {
                 let endIndex = text.index(text.startIndex, offsetBy: maxTitleLength)
-                title = String(text[...endIndex]) + "..."
+                title = String(text[...endIndex]) + "---"
             } else {
                 title = text
             }

@@ -202,7 +202,7 @@ class Git {
     
     func logNameOnly(_ projects: [Project]) -> String {
         let arguments = [
-            "--pretty=format:\"%s\"",
+            "--pretty=format:\n\n%s\n",
             "--reverse",
             "--name-only",
             "--",
@@ -210,8 +210,9 @@ class Git {
             ":^*/staging/*"
         ]
         
-        var log = run("log", arguments: arguments)
-        
+        let log = run("log", arguments: arguments)
+        var processedLog = log
+
         let rawGitHub = githubRepositoryLink?.replacingOccurrences(
             of: "github.com",
             with: "raw.githubusercontent.com"
@@ -224,21 +225,36 @@ class Git {
                         pattern: "\(projectName)/([^\n]+)",
                         options: .caseInsensitive
                     )
+
                     let range = NSMakeRange(0, log.count)
-                    let template = "\n\(projectName)/$1 -> \(rawGitHub)/master/\(projectName)/$1"
-                    log = regex.stringByReplacingMatches(
+
+                    regex.enumerateMatches(
                         in: log,
                         options: .withoutAnchoringBounds,
                         range: range,
-                        withTemplate: template
-                    )
+                        using: { (match, flags, stop) in
+                            if let matchRange = match?.range {
+                                let result = String(log.substring(with: matchRange)!)
+                                let noSpacesResult = result.replacingOccurrences(of: " ", with: "%20")
+                                let newResult = "\(result): \(rawGitHub)/master/\(noSpacesResult)\n"
+                                print("MATCH: \(result) -> \(newResult)")
+                                processedLog = processedLog.replacingOccurrences(of: result, with: newResult)
+                            }
+                    })
+                    
+//                    log = regex.stringByReplacingMatches(
+//                        in: log,
+//                        options: .withoutAnchoringBounds,
+//                        range: range,
+//                        withTemplate: template
+//                    )
                 } catch {
                     print("ERROR!!! \(error)")
                 }
             }
         }
         
-        return log
+        return processedLog
     }
     
     func add(_ filter: String=".") -> Bool {
