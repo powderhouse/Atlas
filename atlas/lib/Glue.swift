@@ -34,8 +34,6 @@ class Glue {
             process.currentDirectoryURL = currentDirectory
         }
         
-        print("ARGS: \(process.arguments)")
-
         return process.runAndWait()
     }
     
