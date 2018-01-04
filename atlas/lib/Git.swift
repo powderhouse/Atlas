@@ -237,17 +237,10 @@ class Git {
                                 let result = String(log.substring(with: matchRange)!)
                                 let noSpacesResult = result.replacingOccurrences(of: " ", with: "%20")
                                 let newResult = "\(result): \(rawGitHub)/master/\(noSpacesResult)\n"
-                                print("MATCH: \(result) -> \(newResult)")
                                 processedLog = processedLog.replacingOccurrences(of: result, with: newResult)
                             }
                     })
                     
-//                    log = regex.stringByReplacingMatches(
-//                        in: log,
-//                        options: .withoutAnchoringBounds,
-//                        range: range,
-//                        withTemplate: template
-//                    )
                 } catch {
                     print("ERROR!!! \(error)")
                 }

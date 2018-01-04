@@ -54,7 +54,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func runCommand(_ fullCommand: String) {
-        var allArgs = fullCommand.split(separator: " ")
+        let lowercaseCommand = fullCommand.lowercased()
+        var allArgs = lowercaseCommand.split(separator: " ")
         let command = String(allArgs.removeFirst())
         
         switch command {
@@ -78,11 +79,20 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                 object: self,
                 userInfo: ["message": removeQuotes(message)]
             )
-        case "log":
-            notificationCenter.post(
-                name: NSNotification.Name(rawValue: "git-log-name-only"),
-                object: self
-            )
+        case "clear":
+            self.clear()
+        case "atlas":
+            let atlasCommand = allArgs.removeFirst()
+            
+            switch atlasCommand {
+            case "log":
+                notificationCenter.post(
+                    name: NSNotification.Name(rawValue: "git-log-name-only"),
+                    object: self
+                )
+            default:
+                Terminal.log("Unknown Atlas Command")
+            }
         default:
             notificationCenter.post(
                 name: NSNotification.Name(rawValue: "raw-command"),
