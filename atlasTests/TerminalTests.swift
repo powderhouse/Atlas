@@ -46,6 +46,10 @@ class TerminalTests: XCTestCase {
         userInfo = notificationCenter.lastPost["userInfo"] as? [String: String]
         XCTAssertEqual("commit message", userInfo?["message"])
 
+        let logCommand = NSNotification.Name(rawValue: "git-log-name-only")
+        terminal.runCommand("atlas log")
+        XCTAssertEqual(1, notificationCenter.postsCalled[logCommand])
+
         let rawCommand = NSNotification.Name(rawValue: "raw-command")
         terminal.runCommand("some_random_command -u with_parameters")
         XCTAssertEqual(1, notificationCenter.postsCalled[rawCommand])
