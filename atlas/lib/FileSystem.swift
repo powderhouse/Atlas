@@ -24,7 +24,7 @@ class FileSystem {
     }
     
     class func removeBaseDirectory() {
-        removeDirectory(baseDirectory())
+        delete(baseDirectory())
     }
     
     class func fileExists(_ url: URL, isDirectory: Bool=true) -> Bool {
@@ -60,7 +60,7 @@ class FileSystem {
         }
     }
     
-    class func removeDirectory(_ url: URL) {
+    class func delete(_ url: URL) {
         let fileManager = FileManager.default
         do {
             try fileManager.removeItem(at: url)

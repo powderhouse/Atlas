@@ -44,7 +44,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         Terminal.log("Welcome to Atlas!")
         
-        configureCollectionView()
+        configureCollectionViews()
         
         FileSystem.createBaseDirectory()
         
@@ -102,7 +102,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
 
             if let project = projects?.list()[indexPath.item] {
                 NotificationCenter.default.addObserver(
-                    forName: NSNotification.Name(rawValue: "project-stage-files"),
+                    forName: NSNotification.Name(rawValue: "project-staging-changed"),
                     object: project,
                     queue: nil
                 ) {
@@ -133,6 +133,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             
             return projectViewItem
         }
+        
         let item = collectionView.makeItem(
             withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "StagedFileViewItem"),
             for: indexPath
@@ -141,8 +142,9 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             return item
         }
         
-        let stagedFile = projects?.active?.stagedFiles[indexPath.item]
-        stagedFileViewItem.label.stringValue = stagedFile ?? "Project"
+        if let activeProject = projects?.active {
+            stagedFileViewItem.label.stringValue = activeProject.stagedFiles[indexPath.item]
+        }
         
         return stagedFileViewItem
     }
@@ -155,7 +157,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
     }
     
-    fileprivate func configureCollectionView() {
+    fileprivate func configureCollectionViews() {
         projectListView.isSelectable = true
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 120.0, height: 120.0)
@@ -167,6 +169,19 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         view.wantsLayer = true
         
         projectListView.layer?.backgroundColor = NSColor.black.cgColor
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "remove-staged-file"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let activeProject = self.projects?.active {
+                if let stagedFileName = notification.userInfo?["name"] as? String {
+                    activeProject.removeStagedFile(stagedFileName)
+                }
+            }
+        }
     }
     
     @IBAction func commit(_ sender: NSButton) {

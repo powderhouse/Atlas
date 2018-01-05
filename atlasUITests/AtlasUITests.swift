@@ -139,7 +139,7 @@ class AtlasUITests: XCTestCase {
         XCTAssert(window.buttons["Commit"].isEnabled)
     }
     
-    func testStagingFile() {
+    func testStagingAndUnstagingFile() {
         let terminal = app.textViews["terminal"]
         XCTAssertFalse(app.staticTexts["index.html"].exists)
 
@@ -149,6 +149,11 @@ class AtlasUITests: XCTestCase {
         terminal.typeText("stage ../index.html\n")
         assertTerminalContains("“index.html” staged in “General”")
         XCTAssert(app.staticTexts["index.html"].exists)
+        
+        app/*@START_MENU_TOKEN@*/.collectionViews.groups["StagedFileViewItem"].buttons["-"]/*[[".scrollViews.collectionViews",".groups[\"StagedFileViewItem\"].buttons[\"-\"]",".buttons[\"-\"]",".collectionViews"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,1]]@END_MENU_TOKEN@*/.click()
+        
+        waitForTerminalToContain("“index.html” removed from staging in “General”")
+        XCTAssertFalse(app.staticTexts["index.html"].exists)
     }
     
     func testCommitingFiles() {

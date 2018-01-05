@@ -17,4 +17,12 @@ class StagedFileViewItem: NSCollectionViewItem {
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
+    
+    @IBAction func remove(_ sender: NSButton) {
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "remove-staged-file"),
+            object: nil,
+            userInfo: ["name": label.stringValue]
+        )
+    }
 }

@@ -39,7 +39,22 @@ class Project {
         }
         
         NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "project-stage-files"),
+            name: NSNotification.Name(rawValue: "project-staging-changed"),
+            object: self
+        )
+    }
+    
+    func removeStagedFile(_ fileName: String) {
+        let file = staging.appendingPathComponent(fileName)
+        FileSystem.delete(file)
+        self.stagedFiles = getFiles(staging)
+        
+        if let projectName = name {
+            Terminal.log("\"\(fileName)\" removed from staging in \"\(projectName)\"")
+        }
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "project-staging-changed"),
             object: self
         )
     }

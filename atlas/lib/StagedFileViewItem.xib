@@ -26,10 +26,22 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h1W-a4-1al">
+                    <rect key="frame" x="439" y="-11" width="47" height="32"/>
+                    <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D4H-ti-O08">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="remove:" target="-2" id="WK9-us-sDF"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="CfD-HV-RWf" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.95" id="bRR-fr-FZk"/>
                 <constraint firstItem="CfD-HV-RWf" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="e2t-IB-eao"/>
+                <constraint firstItem="h1W-a4-1al" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="jY8-gu-00h"/>
+                <constraint firstAttribute="trailing" secondItem="h1W-a4-1al" secondAttribute="trailing" id="kLA-UW-oPc"/>
                 <constraint firstItem="CfD-HV-RWf" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="w4j-Ko-yfo"/>
                 <constraint firstItem="CfD-HV-RWf" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="xCx-RO-McY"/>
             </constraints>
