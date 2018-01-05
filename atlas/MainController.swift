@@ -186,8 +186,19 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     
     @IBAction func commit(_ sender: NSButton) {
         if let project = projects?.active {
+            var selectedStagedFiles: [String] = []
+            if let stagedFileCount = projects?.active?.stagedFiles.count {
+                for i in 0..<stagedFileCount {
+                    if let stagedFile = stagedFilesView.item(at: i) as? StagedFileViewItem {
+                        if stagedFile.isSelected {
+                            selectedStagedFiles.append(stagedFile.label.stringValue)
+                        }
+                    }
+                }
+            }
+            
             if let commitMessage = commitMessageField.textStorage?.string {
-                project.commit(commitMessage)
+                project.commit(commitMessage, files: selectedStagedFiles)
             }            
         }
     }

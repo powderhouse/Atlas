@@ -167,10 +167,17 @@ class AtlasUITests: XCTestCase {
         terminal.typeText("touch ../index.html\n")
         terminal.typeText("stage ../index.html\n")
         XCTAssert(waitForElementToAppear(window.staticTexts["index.html"]))
+
+        terminal.click()
+        terminal.typeText("touch ../index2.html\n")
+        terminal.typeText("stage ../index2.html\n")
+        XCTAssert(waitForElementToAppear(window.staticTexts["index2.html"]))
+        
+        app/*@START_MENU_TOKEN@*/.collectionViews/*[[".scrollViews.collectionViews",".collectionViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
         
         let commitArea = window.textViews["commit"]
         commitArea.click()
-        commitArea.typeText("The reason why I am adding these files.")
+        commitArea.typeText("The reason why I am adding this file.")
         window.buttons["Commit"].click()
 
         waitForTerminalToContain("1 file committed to “General”")
@@ -178,7 +185,8 @@ class AtlasUITests: XCTestCase {
         let commitAreaValue = commitArea.value as? String
         XCTAssertEqual(commitAreaValue, "")
 
-        XCTAssertFalse(window.staticTexts["index.html"].exists)
+        XCTAssert(window.staticTexts["index.html"].exists)
+        XCTAssertFalse(window.staticTexts["index2.html"].exists)
     }
     
     func testAddingTextFilesDirectly() {

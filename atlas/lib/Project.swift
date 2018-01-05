@@ -59,8 +59,8 @@ class Project {
         )
     }
     
-    func commit(_ message: String) {
-        let stagedFileNames = FileSystem.filesInDirectory(staging)
+    func commit(_ message: String, files: [String]?=nil) {
+        let stagedFileNames = files ?? FileSystem.filesInDirectory(staging)
         var movedCount = 0
         for file in stagedFileNames {
             guard file != "readme.md" else {

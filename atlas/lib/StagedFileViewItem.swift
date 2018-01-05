@@ -11,11 +11,17 @@ import Cocoa
 class StagedFileViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var label: NSTextField!
-    
+    @IBOutlet weak var selectCheck: NSButton! 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        self.isSelected = true
+    }
+    
+    @IBAction func select(_ sender: NSButton) {
+        self.isSelected = (selectCheck.state.rawValue == 1)
     }
     
     @IBAction func remove(_ sender: NSButton) {
