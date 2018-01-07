@@ -42,6 +42,9 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         terminal = Terminal(terminalView)
         
+        Terminal.log(ProcessInfo.processInfo.arguments.joined())
+        Terminal.log(ProcessInfo.processInfo.environment["OPENFILE"] ?? "N/A")
+
         Terminal.log("Welcome to Atlas!")
         
         configureCollectionViews()
