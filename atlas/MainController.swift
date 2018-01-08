@@ -42,9 +42,6 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         terminal = Terminal(terminalView)
         
-        Terminal.log(ProcessInfo.processInfo.arguments.joined())
-        Terminal.log(ProcessInfo.processInfo.environment["OPENFILE"] ?? "N/A")
-
         Terminal.log("Welcome to Atlas!")
         
         configureCollectionViews()
@@ -66,6 +63,19 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
         
         initCommands()
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "add-file"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let activeProject = self.projects?.active {
+                if let path = notification.userInfo?["filename"] as? String {
+                    activeProject.stageFile(URL(fileURLWithPath: path))
+                }
+            }
+        }
     }
     
     override func viewDidDisappear() {

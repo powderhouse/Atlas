@@ -10,7 +10,6 @@ import Cocoa
 
 struct Configuration {
     static var atlasDirectory = ProcessInfo.processInfo.environment["atlasDirectory"] ?? "Atlas"
-    var openFile: String = ""
 }
 
 @NSApplicationMain
@@ -25,7 +24,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func application(_ sender: NSApplication, openFile filename: String) -> Bool {
-        ProcessInfo.processInfo.setValue(filename, forKey: "OPENFILE")
+//        NSPasteboard.general.clearContents()
+//        NSPasteboard.general.setString(filename, forType: .string)
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "add-file"),
+            object: nil,
+            userInfo: ["filename": filename]
+        )
         return true
     }
 
