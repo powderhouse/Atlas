@@ -9,10 +9,10 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>png</string>
+				<string>*</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>PNG</string>
+			<string>All</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSTypeIsPackage</key>
@@ -39,8 +39,6 @@
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
-	<key>NSDockTilePlugIn</key>
-	<string>DockTile.docktileplugin</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 Powderhouse Studios. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>

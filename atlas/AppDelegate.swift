@@ -24,8 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func application(_ sender: NSApplication, openFile filename: String) -> Bool {
-//        NSPasteboard.general.clearContents()
-//        NSPasteboard.general.setString(filename, forType: .string)
         NotificationCenter.default.post(
             name: NSNotification.Name(rawValue: "add-file"),
             object: nil,
