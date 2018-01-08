@@ -30,6 +30,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     var git: Git?
     
     var projects: Projects?
+    
+    var menuBarItem: MenuBarItem!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         initCommands()
         initDragAndDrop()
+        
+        menuBarItem = MenuBarItem(projects!)
     }
     
     override func viewDidDisappear() {

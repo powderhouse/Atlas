@@ -15,8 +15,6 @@ struct Configuration {
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let menuBarItem = MenuBarItem()
-    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
