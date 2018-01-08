@@ -30,6 +30,8 @@
 		3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */; };
 		3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */; };
 		3AC03DAB1FC1C868007077AE /* GlueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DAA1FC1C868007077AE /* GlueTests.swift */; };
+		3AD57A092003CEF400136587 /* MenuBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD57A082003CEF400136587 /* MenuBarItemController.swift */; };
+		3AD57A0B2003D08900136587 /* MenuBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD57A0A2003D08900136587 /* MenuBarItem.swift */; };
 		3AE4AE221FC277B200430BC2 /* AtlasProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE211FC277B200430BC2 /* AtlasProcess.swift */; };
 		3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE231FC277B400430BC2 /* Glue.swift */; };
 		3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE251FC277B600430BC2 /* Testing.swift */; };
@@ -88,6 +90,8 @@
 		3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemTests.swift; sourceTree = "<group>"; };
 		3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
 		3AC03DAA1FC1C868007077AE /* GlueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlueTests.swift; sourceTree = "<group>"; };
+		3AD57A082003CEF400136587 /* MenuBarItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItemController.swift; sourceTree = "<group>"; };
+		3AD57A0A2003D08900136587 /* MenuBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItem.swift; sourceTree = "<group>"; };
 		3AE4AE211FC277B200430BC2 /* AtlasProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasProcess.swift; sourceTree = "<group>"; };
 		3AE4AE231FC277B400430BC2 /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
 		3AE4AE251FC277B600430BC2 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				2BCB0DCA1FBC15320044C117 /* atlas.entitlements */,
 				3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */,
 				3AEB93C01FEC2FBF00AAB49D /* NewTextController.swift */,
+				3AD57A082003CEF400136587 /* MenuBarItemController.swift */,
 			);
 			path = atlas;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				3AB8F3101FE2D59A003E3EB8 /* Terminal.swift */,
 				3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */,
 				3A8BDC141FEDAA5B00F64232 /* String.swift */,
+				3AD57A0A2003D08900136587 /* MenuBarItem.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE4AE281FC277B800430BC2 /* FileSystem.swift in Sources */,
+				3AD57A0B2003D08900136587 /* MenuBarItem.swift in Sources */,
 				3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */,
 				3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */,
 				3AEB93C11FEC2FC000AAB49D /* NewTextController.swift in Sources */,
@@ -362,6 +369,7 @@
 				3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */,
 				3A26C8FA1FDEE98900A3E18D /* StagedFileViewItem.swift in Sources */,
 				3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */,
+				3AD57A092003CEF400136587 /* MenuBarItemController.swift in Sources */,
 				3A8BDC151FEDAA5B00F64232 /* String.swift in Sources */,
 				3AE4AE221FC277B200430BC2 /* AtlasProcess.swift in Sources */,
 				3A6388EA1FD844FE0023BF57 /* Projects.swift in Sources */,

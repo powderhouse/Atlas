@@ -63,6 +63,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
         
         initCommands()
+        initDragAndDrop()
     }
     
     override func viewDidDisappear() {
@@ -273,6 +274,21 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                 } else {
                     _ = result.removeLast()
                     Terminal.log(result)
+                }
+            }
+        }
+    }
+    
+    func initDragAndDrop() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "add-file"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let activeProject = self.projects?.active {
+                if let path = notification.userInfo?["filename"] as? String {
+                    activeProject.stageFile(URL(fileURLWithPath: path))
                 }
             }
         }
