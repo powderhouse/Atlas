@@ -12,7 +12,9 @@ class MenuBarItemController: NSViewController, NSCollectionViewDelegate, NSColle
 
     @IBOutlet weak var projectButtonsView: NSCollectionView!
     
+    var popover: NSPopover?
     var projects: Projects?
+    var filePath: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +50,20 @@ class MenuBarItemController: NSViewController, NSCollectionViewDelegate, NSColle
             projectButtonViewItem.project = project
         }
         
+        projectButtonViewItem.popover = popover
+        projectButtonViewItem.filePath = filePath
+        
         return projectButtonViewItem
     }
     
-    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        print("SELECTED!")
-        if let selectedIndex = indexPaths.first?.item {
-            if let project = projects?.list()[selectedIndex] {
-                print("PROJECT SELECTED: \(project.name)")
-            }
-        }
-    }
+//    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+//        print("SELECTED!")
+//        if let selectedIndex = indexPaths.first?.item {
+//            if let project = projects?.list()[selectedIndex] {
+//                print("PROJECT SELECTED: \(project.name)")
+//            }
+//        }
+//    }
     
     fileprivate func configureCollectionViews() {
         projectButtonsView.isSelectable = true

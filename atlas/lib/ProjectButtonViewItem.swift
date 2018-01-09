@@ -12,6 +12,10 @@ class ProjectButtonViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var projectButton: NSButton!
     
+    var popover: NSPopover?
+    
+    var filePath: String?
+    
     var project: Project? {
         didSet {
             guard project != nil else { return }
@@ -26,6 +30,9 @@ class ProjectButtonViewItem: NSCollectionViewItem {
     }
 
     @IBAction func click(_ sender: NSButton) {
-        print("CLICK PROJECT: \(project!.name)")
+        guard project != nil else { return }
+        guard filePath != nil else { return }
+        project!.stageFile(URL(fileURLWithPath: filePath!))
+        popover?.close()
     }
 }

@@ -18,6 +18,8 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
     
     var projects: Projects!
     
+    var menuBarItemController: MenuBarItemController?
+    
     init(_ projects: Projects) {
         super.init()
         
@@ -34,19 +36,10 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
             button.window?.delegate = self
         }
         
-        let menuBarItemController = MenuBarItemController.freshController()
-        menuBarItemController.projects = projects
-        popover.contentViewController = menuBarItemController
-    }
-    
-    @objc func sendToProject(_ sender: Any?) {
-        guard filePath != nil else { return }
-        print("SENDER: \(sender)")
-//        let projectName = sender.title
-//
-//        if let project = projects.list().first(where: { $0.name == projectName }) {
-//            project.stageFile(URL(fileURLWithPath: self.filePath!))
-//        }
+        menuBarItemController = MenuBarItemController.freshController()
+        menuBarItemController!.projects = projects
+        menuBarItemController!.popover = popover
+        popover.contentViewController = menuBarItemController!
     }
     
     func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
@@ -59,30 +52,13 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
             else { return false }
         
         self.filePath = path
-        showPopover(sender: self)
-        
-        return true
-    }
-    
-    @objc func togglePopover(_ sender: Any?) {
-        print("POPOVER")
-        if popover.isShown {
-            closePopover(sender: sender)
-        } else {
-            showPopover(sender: sender)
-        }
-    }
-    
-    func showPopover(sender: Any?) {
+        menuBarItemController!.filePath = filePath
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
+
+        return true
     }
-    
-    func closePopover(sender: Any?) {
-        popover.performClose(sender)
-    }
-    
 }
 
 
