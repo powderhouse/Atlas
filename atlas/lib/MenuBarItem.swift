@@ -18,8 +18,6 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
     
     var projects: Projects!
     
-    var menuBarItemController: MenuBarItemController?
-    
     init(_ projects: Projects) {
         super.init()
         
@@ -35,11 +33,6 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
 
             button.window?.delegate = self
         }
-        
-        menuBarItemController = MenuBarItemController.freshController()
-        menuBarItemController!.projects = projects
-        menuBarItemController!.popover = popover
-        popover.contentViewController = menuBarItemController!
     }
     
     func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
@@ -52,7 +45,14 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
             else { return false }
         
         self.filePath = path
-        menuBarItemController!.filePath = filePath
+        
+        let menuBarItemController = MenuBarItemController.freshController()
+        menuBarItemController.projects = projects
+        menuBarItemController.popover = popover
+        menuBarItemController.filePath = filePath
+
+        popover.contentViewController = menuBarItemController
+        
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
