@@ -14,9 +14,11 @@ class SideDrop {
     var contentController: DropAreaController?
     var dragStart: NSPoint? = nil
     
-    init() {
+    var projects: Projects!
+    
+    init(_ projects: Projects) {
         initDragTracking()
-        
+        self.projects = projects
     }
     
     func initDragTracking() {
@@ -39,6 +41,7 @@ class SideDrop {
                     if self.window?.isVisible ?? false {
                         print("FILE: \(self.contentController?.dropView.filePath)")
                         self.window?.close()
+                        self.window = nil
                     }
             })
         }
@@ -52,8 +55,10 @@ class SideDrop {
             return
         }
         
+        let screenWidth = NSScreen.main?.frame.width ?? 0
+        let side = (abs(current.x) < 100) || (abs(screenWidth - current.x) < 100)
         let moved = (abs(dragStart!.x - current.x) > 20) || (abs(dragStart!.y - current.y) > 20)
-        if abs(current.x) < 100 && moved {
+        if side && moved {
             self.showDropArea(current)
         }
     }
@@ -65,6 +70,7 @@ class SideDrop {
             let windowController = storyboard.instantiateController(withIdentifier: identifier) as! DropAreaWindowController
             window = windowController.window
             contentController = windowController.contentViewController as? DropAreaController
+            contentController?.projects = projects
         }
         
         let x = center.x - (window!.frame.width / 2)

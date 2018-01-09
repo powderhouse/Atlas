@@ -22,7 +22,7 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
         super.viewDidLoad()
         // Do view setup here.
         
-//        configureCollectionViews()
+        configureCollectionViews()
     }
     
     func setProjects(_ projects: Projects) {

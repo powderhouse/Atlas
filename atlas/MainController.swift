@@ -65,7 +65,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
         
         initCommands()
-        sideDrop = SideDrop()
+        sideDrop = SideDrop(projects!)
     }
     
     override func viewDidDisappear() {
