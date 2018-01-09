@@ -10,6 +10,8 @@ import Cocoa
 
 class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
     
+    let popover = NSPopover()
+    
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     
     var filePath: String? = nil
@@ -21,11 +23,8 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
         
         self.projects = projects
 
-//        constructMenu()
-        
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
-//            button.action = #selector(printQuote)
             
             button.window?.registerForDraggedTypes([
                 NSPasteboard.PasteboardType.URL,
@@ -34,34 +33,10 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
 
             button.window?.delegate = self
         }
-    }
-    
-    func constructMenu() {
-        let menu = NSMenu()
         
-        let menuItem = NSMenuItem(title: "Print Quote", action: #selector(printQuote), keyEquivalent: "P")
-        menu.addItem(menuItem)
-        menu.addItem(NSMenuItem.separator())
-        
-//        for project in projects.list() {
-//            initProjectMenuItem(menu, project: project)
-//            menu.addItem(NSMenuItem.separator())
-//        }
-        
-        statusItem.menu = menu
-    }
-    
-    func initProjectMenuItem(_ menu: NSMenu, project: Project) {
-        let character = "\(project.name.first)"
-        print("CHARACTER: \(character)")
-        
-        let menuItem = NSMenuItem(
-            title: project.name,
-            action: #selector(sendToProject(_:)),
-            keyEquivalent: character
-        )
-        menuItem.isEnabled = true
-        menu.addItem(menuItem)
+        let menuBarItemController = MenuBarItemController.freshController()
+        menuBarItemController.projects = projects
+        popover.contentViewController = menuBarItemController
     }
     
     @objc func sendToProject(_ sender: Any?) {
@@ -84,9 +59,28 @@ class MenuBarItem: NSObject, NSWindowDelegate, NSDraggingDestination {
             else { return false }
         
         self.filePath = path
-        statusItem.popUpMenu(statusItem.menu!)
+        showPopover(sender: self)
         
         return true
+    }
+    
+    @objc func togglePopover(_ sender: Any?) {
+        print("POPOVER")
+        if popover.isShown {
+            closePopover(sender: sender)
+        } else {
+            showPopover(sender: sender)
+        }
+    }
+    
+    func showPopover(sender: Any?) {
+        if let button = statusItem.button {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+        }
+    }
+    
+    func closePopover(sender: Any?) {
+        popover.performClose(sender)
     }
     
 }

@@ -8,49 +8,84 @@
 
 import Cocoa
 
-class MenuBarItemController: NSObject, NSWindowDelegate, NSDraggingDestination {
+class MenuBarItemController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
+
+    @IBOutlet weak var projectButtonsView: NSCollectionView!
     
-    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    var projects: Projects?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do view setup here.
+        
+        configureCollectionViews()
+    }
+    
+    func setProjects(_ projects: Projects) {
+        self.projects = projects
+        projectButtonsView.reloadData()
+    }
+    
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return projects?.list().count ?? 0
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        
+        let item = collectionView.makeItem(
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectButtonViewItem"),
+            for: indexPath
+        )
+        guard let projectButtonViewItem = item as? ProjectButtonViewItem else {
+            return item
+        }
+            
+        if let project = projects?.list()[indexPath.item] {
+            projectButtonViewItem.project = project
+        }
+        
+        return projectButtonViewItem
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        print("SELECTED!")
+        if let selectedIndex = indexPaths.first?.item {
+            if let project = projects?.list()[selectedIndex] {
+                print("PROJECT SELECTED: \(project.name)")
+            }
+        }
+    }
+    
+    fileprivate func configureCollectionViews() {
+        projectButtonsView.isSelectable = true
+        let flowLayout = NSCollectionViewFlowLayout()
+        flowLayout.itemSize = NSSize(width: 120.0, height: 40.0)
+        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+        flowLayout.minimumInteritemSpacing = 20.0
+        flowLayout.minimumLineSpacing = 10.0
+        projectButtonsView.collectionViewLayout = flowLayout
+        
+        view.wantsLayer = true
+        
+        projectButtonsView.layer?.backgroundColor = NSColor.black.cgColor
+    }
+}
 
-    override init() {
-        print("INIT!")
-        if let button = statusItem.button {
-            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
-//            button.action = #selector(printQuote(_:))
-            button.window?.registerForDraggedTypes([
-                NSPasteboard.PasteboardType.URL,
-                NSPasteboard.PasteboardType.fileURL
-            ])
+extension MenuBarItemController {
+    static func freshController() -> MenuBarItemController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        
+        let identifier = NSStoryboard.SceneIdentifier(rawValue: "MenuBarItemController")
 
-            print("WINDOW: \(button.window)")
-
-//            button.window?.delegate = self
+        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? MenuBarItemController else {
+            fatalError("Why cant i find MenuBarItemController? - Check Main.storyboard")
         }
 
+        return viewcontroller
     }
-    
-    @objc func printQuote(_ sender: Any?) {
-        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-        let quoteAuthor = "Mark Twain"
-        
-        print("\(quoteText) — \(quoteAuthor)")
-    }
-    
-    func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
-        return .copy
-    }
-    
-    func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        guard let pasteboard = sender.draggingPasteboard().propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
-            let path = pasteboard[0] as? String
-            else { return false }
-        
-        print("DRAGGED: \(path)")
-        
-        return true
-    }
-
-    
-
 }
 
