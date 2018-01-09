@@ -30,6 +30,11 @@
 		3AC03DA51FBE05C6007077AE /* FileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */; };
 		3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */; };
 		3AC03DAB1FC1C868007077AE /* GlueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC03DAA1FC1C868007077AE /* GlueTests.swift */; };
+		3AD57A15200516A500136587 /* SideDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD57A14200516A500136587 /* SideDrop.swift */; };
+		3AD57A172005217400136587 /* DropAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD57A162005217400136587 /* DropAreaController.swift */; };
+		3AD57A1A2005221300136587 /* ProjectButtonViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD57A182005221300136587 /* ProjectButtonViewItem.swift */; };
+		3AD57A1B2005221300136587 /* ProjectButtonViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57A192005221300136587 /* ProjectButtonViewItem.xib */; };
+		3AD57A1D200529FC00136587 /* DropAreaWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD57A1C200529FC00136587 /* DropAreaWindowController.swift */; };
 		3AE4AE221FC277B200430BC2 /* AtlasProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE211FC277B200430BC2 /* AtlasProcess.swift */; };
 		3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE231FC277B400430BC2 /* Glue.swift */; };
 		3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4AE251FC277B600430BC2 /* Testing.swift */; };
@@ -88,6 +93,11 @@
 		3AC03DA41FBE05C6007077AE /* FileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemTests.swift; sourceTree = "<group>"; };
 		3AC03DA61FBFC9E5007077AE /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
 		3AC03DAA1FC1C868007077AE /* GlueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlueTests.swift; sourceTree = "<group>"; };
+		3AD57A14200516A500136587 /* SideDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideDrop.swift; sourceTree = "<group>"; };
+		3AD57A162005217400136587 /* DropAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAreaController.swift; sourceTree = "<group>"; };
+		3AD57A182005221300136587 /* ProjectButtonViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButtonViewItem.swift; sourceTree = "<group>"; };
+		3AD57A192005221300136587 /* ProjectButtonViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectButtonViewItem.xib; sourceTree = "<group>"; };
+		3AD57A1C200529FC00136587 /* DropAreaWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAreaWindowController.swift; sourceTree = "<group>"; };
 		3AE4AE211FC277B200430BC2 /* AtlasProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasProcess.swift; sourceTree = "<group>"; };
 		3AE4AE231FC277B400430BC2 /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
 		3AE4AE251FC277B600430BC2 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
@@ -156,6 +166,8 @@
 				2BCB0DCA1FBC15320044C117 /* atlas.entitlements */,
 				3AB1C0E61FBCE43A00ECE6EB /* MainController.swift */,
 				3AEB93C01FEC2FBF00AAB49D /* NewTextController.swift */,
+				3AD57A162005217400136587 /* DropAreaController.swift */,
+				3AD57A1C200529FC00136587 /* DropAreaWindowController.swift */,
 			);
 			path = atlas;
 			sourceTree = "<group>";
@@ -211,6 +223,9 @@
 				3AB8F3101FE2D59A003E3EB8 /* Terminal.swift */,
 				3AEB93BC1FEC1EA400AAB49D /* AtlasNotificationCenter.swift */,
 				3A8BDC141FEDAA5B00F64232 /* String.swift */,
+				3AD57A14200516A500136587 /* SideDrop.swift */,
+				3AD57A182005221300136587 /* ProjectButtonViewItem.swift */,
+				3AD57A192005221300136587 /* ProjectButtonViewItem.xib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -324,6 +339,7 @@
 			files = (
 				3A26C8F31FDA260B00A3E18D /* ProjectViewItem.xib in Resources */,
 				3A26C8FB1FDEE98900A3E18D /* StagedFileViewItem.xib in Resources */,
+				3AD57A1B2005221300136587 /* ProjectButtonViewItem.xib in Resources */,
 				2BCB0DC51FBC15320044C117 /* Assets.xcassets in Resources */,
 				2BCB0DC81FBC15320044C117 /* Main.storyboard in Resources */,
 			);
@@ -353,16 +369,20 @@
 				3AE4AE281FC277B800430BC2 /* FileSystem.swift in Sources */,
 				3AE4AE241FC277B400430BC2 /* Glue.swift in Sources */,
 				3AE4AE261FC277B600430BC2 /* Testing.swift in Sources */,
+				3AD57A1D200529FC00136587 /* DropAreaWindowController.swift in Sources */,
 				3AEB93C11FEC2FC000AAB49D /* NewTextController.swift in Sources */,
 				3AC03DA71FBFC9E5007077AE /* NewProjectController.swift in Sources */,
+				3AD57A172005217400136587 /* DropAreaController.swift in Sources */,
 				2BCB0DC31FBC15320044C117 /* AccountController.swift in Sources */,
 				3AEB93BD1FEC1EA400AAB49D /* AtlasNotificationCenter.swift in Sources */,
 				3A26C8FF1FE0C1E700A3E18D /* Project.swift in Sources */,
 				3AB8F3111FE2D59A003E3EB8 /* Terminal.swift in Sources */,
 				3A26C8F51FDDAF7300A3E18D /* DropView.swift in Sources */,
+				3AD57A1A2005221300136587 /* ProjectButtonViewItem.swift in Sources */,
 				3A26C8FA1FDEE98900A3E18D /* StagedFileViewItem.swift in Sources */,
 				3AB1C0E71FBCE43A00ECE6EB /* MainController.swift in Sources */,
 				3A8BDC151FEDAA5B00F64232 /* String.swift in Sources */,
+				3AD57A15200516A500136587 /* SideDrop.swift in Sources */,
 				3AE4AE221FC277B200430BC2 /* AtlasProcess.swift in Sources */,
 				3A6388EA1FD844FE0023BF57 /* Projects.swift in Sources */,
 				3A26C8F21FDA260B00A3E18D /* ProjectViewItem.swift in Sources */,

@@ -30,6 +30,8 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     var git: Git?
     
     var projects: Projects?
+    
+    var sideDrop: SideDrop!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         }
         
         initCommands()
+        sideDrop = SideDrop()
     }
     
     override func viewDidDisappear() {

@@ -1121,6 +1121,43 @@
             </objects>
             <point key="canvasLocation" x="815" y="1005"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="uWj-tj-d5X">
+            <objects>
+                <customObject id="e10-mn-qHq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <windowController storyboardIdentifier="DropAreaWindow" showSeguePresentationStyle="single" id="Vea-ob-o0b" customClass="DropAreaWindowController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="SideDrop" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="ldC-yh-Qqa">
+                        <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="-2002" y="461" width="210" height="160"/>
+                        <rect key="screenRect" x="-2560" y="0.0" width="2560" height="1417"/>
+                        <connections>
+                            <outlet property="delegate" destination="Vea-ob-o0b" id="Fgl-w3-q5D"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Vct-Ak-oCi" kind="relationship" relationship="window.shadowedContentViewController" id="hEB-bM-Rqm"/>
+                    </connections>
+                </windowController>
+            </objects>
+            <point key="canvasLocation" x="1325" y="926"/>
+        </scene>
+        <!--DropArea-->
+        <scene sceneID="qJ3-xv-H4K">
+            <objects>
+                <viewController title="DropArea" id="Vct-Ak-oCi" customClass="DropAreaController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="1f4-m5-cBo" customClass="DropView" customModule="atlas" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="195" height="123"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                    <connections>
+                        <outlet property="dropView" destination="1f4-m5-cBo" id="srM-bs-HdG"/>
+                    </connections>
+                </viewController>
+                <customObject id="Dwe-LG-d19" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="945"/>
+        </scene>
         <!--New Text Controller-->
         <scene sceneID="fro-Fb-9de">
             <objects>
