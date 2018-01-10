@@ -14,7 +14,7 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
     
     @IBOutlet weak var projectButtonsView: NSCollectionView!
     
-    var popover: NSPopover?
+    var window: NSWindow?
     var projects: Projects?
     var filePath: String?
     
@@ -51,23 +51,16 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
         if let project = projects?.list()[indexPath.item] {
             projectButtonViewItem.project = project
         }
+        
+        projectButtonViewItem.window = window
 
-        projectButtonViewItem.filePath = filePath
+        projectButtonViewItem.filePath = dropView.filePath
         
         projectButtonViewItem.isSelected = false
         
         return projectButtonViewItem
     }
-    
-    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        print("SELECTED!")
-        if let selectedIndex = indexPaths.first?.item {
-            if let project = projects?.list()[selectedIndex] {
-                print("PROJECT SELECTED: \(project.name)")
-            }
-        }
-    }
-    
+        
     fileprivate func configureCollectionViews() {
         projectButtonsView.isSelectable = true
         let flowLayout = NSCollectionViewFlowLayout()
@@ -84,6 +77,7 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
     
     func showProjectOptions() {
         dropView.isHidden = true
+        projectButtonsView.reloadData()
         projectButtonsView.isHidden = false
     }
 }

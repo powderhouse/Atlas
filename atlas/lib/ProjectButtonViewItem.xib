@@ -7,40 +7,35 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ProjectButtonViewItem" customModule="atlas" customModuleProvider="target">
             <connections>
-                <outlet property="projectButton" destination="G93-Vn-aF7" id="Lh9-FF-xde"/>
+                <outlet property="projectButton" destination="q6y-b6-iSZ" id="wdb-Yx-oew"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="275" height="21"/>
+            <rect key="frame" x="0.0" y="0.0" width="255" height="21"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G93-Vn-aF7">
-                    <rect key="frame" x="-6" y="-7" width="287" height="32"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jfc-uG-qoP">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q6y-b6-iSZ" userLabel="Project Name">
+                    <rect key="frame" x="-6" y="-7" width="267" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jvo-vO-r6X">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="click:" target="-2" id="wpq-Fp-fcg"/>
+                        <action selector="click:" target="-2" id="m6l-lT-2JU"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="G93-Vn-aF7" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="1Rj-yE-Hgt"/>
-                <constraint firstItem="G93-Vn-aF7" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="21Y-Zy-v4W"/>
-                <constraint firstItem="G93-Vn-aF7" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="592-Vx-YH1"/>
-                <constraint firstItem="G93-Vn-aF7" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="xK9-g6-CjB"/>
+                <constraint firstItem="q6y-b6-iSZ" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="bsJ-U1-MFM"/>
+                <constraint firstItem="q6y-b6-iSZ" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="eUf-VS-nKM"/>
+                <constraint firstItem="q6y-b6-iSZ" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="oO6-Qj-nM7"/>
+                <constraint firstItem="q6y-b6-iSZ" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="zaI-9A-SpL"/>
             </constraints>
-            <point key="canvasLocation" x="225.5" y="256.5"/>
+            <point key="canvasLocation" x="122.5" y="57"/>
         </customView>
-        <customObject id="tPm-VO-wYK" customClass="ProjectButtonViewItem" customModule="atlas" customModuleProvider="target">
-            <connections>
-                <outlet property="projectButton" destination="G93-Vn-aF7" id="eJ8-ik-MLo"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="cE6-iC-fQk"/>
-            </connections>
-        </customObject>
+        <customObject id="iwi-XY-Mah" customClass="ProjectButtonViewItem" customModule="atlas" customModuleProvider="target"/>
     </objects>
 </document>

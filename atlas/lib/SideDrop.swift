@@ -56,6 +56,7 @@ class SideDrop {
         let screenWidth = NSScreen.main?.frame.width ?? 0
         let side = (abs(current.x) < 100) || (abs(screenWidth - current.x) < 100)
         let moved = (abs(dragStart!.x - current.x) > 20) || (abs(dragStart!.y - current.y) > 20)
+        
         if side && moved {
             self.showDropArea(current)
         }
@@ -69,6 +70,7 @@ class SideDrop {
             window = windowController.window
             contentController = windowController.contentViewController as? DropAreaController
             contentController?.projects = projects
+            contentController?.window = window
         }
         
         let x = center.x - (window!.frame.width / 2)
