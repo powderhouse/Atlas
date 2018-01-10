@@ -38,17 +38,28 @@ class SideDrop {
                 withTimeInterval: 0.1,
                 repeats: false,
                 block: { (timer) in
-                    if self.window?.isVisible ?? false {
-                        self.contentController?.showProjectOptions()
+                    if (self.window?.isVisible ?? false) && (self.contentController != nil) {
+                        if !self.contentController!.showProjectOptions() {
+                            self.closeWindow()
+                        }
                     }
             })
         }
+    }
+    
+    func closeWindow() {
+        guard window != nil else { return }
+        window!.close()
+        window = nil
     }
     
     func trackDragging(_ event: NSEvent) {
         let current = event.locationInWindow
         
         guard dragStart != nil else {
+            if window != nil {
+                closeWindow()
+            }
             dragStart = current
             return
         }
@@ -63,20 +74,26 @@ class SideDrop {
     }
     
     func showDropArea(_ center: NSPoint) {
-        if window == nil {
-            let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-            let identifier = NSStoryboard.SceneIdentifier(rawValue: "DropAreaWindow")
-            let windowController = storyboard.instantiateController(withIdentifier: identifier) as! DropAreaWindowController
-            window = windowController.window
-            contentController = windowController.contentViewController as? DropAreaController
-            contentController?.projects = projects
-            contentController?.window = window
+        guard window == nil else { return }
+
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier(rawValue: "DropAreaWindow")
+        let windowController = storyboard.instantiateController(withIdentifier: identifier) as! DropAreaWindowController
+        window = windowController.window
+        contentController = windowController.contentViewController as? DropAreaController
+        contentController?.projects = projects
+        contentController?.window = window
+        
+        let screenWidth = NSScreen.main?.frame.width ?? 0
+        var x = window!.frame.width * -1
+        if center.x > 100 {
+            x = screenWidth - window!.frame.width
         }
         
-        let x = center.x - (window!.frame.width / 2)
-        let y = center.y - (window!.frame.height / 2)
+        let screenHeight = NSScreen.main?.frame.height ?? 0
+        let y = (screenHeight / 2) - (window!.frame.height / 2)
 
         window?.setFrameOrigin(NSPoint(x: x, y: y))
-        window?.windowController?.showWindow(self)
+        windowController.showWindow(self)
     }
 }

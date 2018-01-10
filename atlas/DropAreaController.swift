@@ -75,10 +75,15 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
         projectButtonsView.layer?.backgroundColor = NSColor.black.cgColor
     }
     
-    func showProjectOptions() {
+    func showProjectOptions() -> Bool {
+        guard dropView.filePath != nil else {
+            return false
+        }
+        
         dropView.isHidden = true
         projectButtonsView.reloadData()
         projectButtonsView.isHidden = false
+        return true
     }
 }
 
