@@ -10,6 +10,9 @@ import Cocoa
 
 class SideDrop {
     
+    let sideBuffer = CGFloat(400)
+    let movementBuffer = CGFloat(10)
+    
     var window: NSWindow?
     var contentController: DropAreaController?
     var dragStart: NSPoint? = nil
@@ -30,7 +33,7 @@ class SideDrop {
             self.trackDragging(event)
             return event
         }
-
+        
         NSEvent.addGlobalMonitorForEvents(matching: .leftMouseUp) { (event) in
             self.dragStart = nil
 
@@ -65,8 +68,10 @@ class SideDrop {
         }
         
         let screenWidth = NSScreen.main?.frame.width ?? 0
-        let side = (abs(current.x) < 100) || (abs(screenWidth - current.x) < 100)
-        let moved = (abs(dragStart!.x - current.x) > 20) || (abs(dragStart!.y - current.y) > 20)
+        let side = (abs(current.x) < sideBuffer) ||
+                   (abs(screenWidth - current.x) < sideBuffer)
+        let moved = (abs(dragStart!.x - current.x) > movementBuffer) ||
+                    (abs(dragStart!.y - current.y) > movementBuffer)
         
         if side && moved {
             self.showDropArea(current)
@@ -86,7 +91,7 @@ class SideDrop {
         
         let screenWidth = NSScreen.main?.frame.width ?? 0
         var x = window!.frame.width * -1
-        if center.x > 100 {
+        if center.x > sideBuffer {
             x = screenWidth - window!.frame.width
         }
         

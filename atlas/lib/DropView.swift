@@ -47,7 +47,6 @@ class DropView: NSView {
             else { return false }
         
         self.filePath = path
-        print("SETTING: \(self.filePath)")
         project?.stageFile(URL(fileURLWithPath: path))
         
         return true
