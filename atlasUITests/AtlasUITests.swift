@@ -136,19 +136,21 @@ class AtlasUITests: XCTestCase {
         commitArea.click()
         commitArea.typeText("A commit message")
         
+        XCTAssertFalse(window.buttons["Commit"].isEnabled)
+        
+        createAndStageFile("index.html", app: app)
+
         XCTAssert(window.buttons["Commit"].isEnabled)
+
+        app.collectionViews.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
+
+        XCTAssertFalse(window.buttons["Commit"].isEnabled)
     }
     
     func testStagingAndUnstagingFile() {
-        let terminal = app.textViews["terminal"]
         XCTAssertFalse(app.staticTexts["index.html"].exists)
-
-        terminal.click()
-        terminal.typeText("touch ../index.html\n")
-
-        terminal.typeText("stage ../index.html\n")
-        assertTerminalContains("“index.html” staged in “General”")
-        XCTAssert(app.staticTexts["index.html"].exists)
+        
+        createAndStageFile("index.html", app: app)
         
         app/*@START_MENU_TOKEN@*/.collectionViews.groups["StagedFileViewItem"].buttons["-"]/*[[".scrollViews.collectionViews",".groups[\"StagedFileViewItem\"].buttons[\"-\"]",".buttons[\"-\"]",".collectionViews"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,1]]@END_MENU_TOKEN@*/.click()
         
@@ -159,19 +161,10 @@ class AtlasUITests: XCTestCase {
     func testCommitingFiles() {
         let window = app.windows["Window"]
 
-        let terminal = window.textViews["terminal"]
-
         waitForTerminalToContain("Active Project: General")
         
-        terminal.click()
-        terminal.typeText("touch ../index.html\n")
-        terminal.typeText("stage ../index.html\n")
-        XCTAssert(waitForElementToAppear(window.staticTexts["index.html"]))
-
-        terminal.click()
-        terminal.typeText("touch ../index2.html\n")
-        terminal.typeText("stage ../index2.html\n")
-        XCTAssert(waitForElementToAppear(window.staticTexts["index2.html"]))
+        createAndStageFile("index.html", app: app)
+        createAndStageFile("index2.html", app: app)
         
         app/*@START_MENU_TOKEN@*/.collectionViews/*[[".scrollViews.collectionViews",".collectionViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
         
@@ -239,5 +232,14 @@ class AtlasUITests: XCTestCase {
         
         expectation(for: subsitutedContains, evaluatedWith: terminal, handler: nil)
         waitForExpectations(timeout: 30, handler: nil)
+    }
+    
+    func createAndStageFile(_ name: String, app: XCUIApplication) {
+        let terminal = app.textViews["terminal"]
+        terminal.click()
+        terminal.typeText("touch ../\(name)\n")
+        terminal.typeText("stage ../\(name)\n")
+        XCTAssert(waitForElementToAppear(app.staticTexts[name]))
+
     }
 }

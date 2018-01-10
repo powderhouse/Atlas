@@ -62,6 +62,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             )
         }
         
+        initStaging()
         initCommands()
     }
     
@@ -111,6 +112,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
                         self.stagedFilesView.reloadData()
                         self.selectProject(notificationProject.name)
                         self.projects?.commitChanges()
+                        self.checkCommitButton()
                     }
                 }
                 
@@ -169,6 +171,57 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         view.wantsLayer = true
         
         projectListView.layer?.backgroundColor = NSColor.black.cgColor
+    }
+    
+    func selectedStagedFiles() -> [String] {
+        var selected: [String] = []
+        if let stagedFileCount = projects?.active?.stagedFiles.count {
+            for i in 0..<stagedFileCount {
+                if let stagedFile = stagedFilesView.item(at: i) as? StagedFileViewItem {
+                    if stagedFile.isSelected {
+                        selected.append(stagedFile.label.stringValue)
+                    }
+                }
+            }
+        }
+        return selected
+    }
+    
+    @IBAction func commit(_ sender: NSButton) {
+        if let project = projects?.active {
+            let toCommit = selectedStagedFiles()
+            
+            guard toCommit.count != 0 else {
+                Terminal.log("No files are selected to commit.")
+                return
+            }
+            
+            if let commitMessage = commitMessageField.textStorage?.string {
+                project.commit(commitMessage, files: toCommit)
+            }            
+        }
+    }
+    
+    func textDidChange(_ notification: Notification) {
+        checkCommitButton()
+    }
+    
+    func checkCommitButton() {
+        if let commitMessage = commitMessageField.textStorage?.string {
+            commitButton.isEnabled =  (commitMessage.count > 0) && (selectedStagedFiles().count > 0)
+        }
+    }
+    
+    func initStaging() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staging-file-toggled"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            print("TOGGLE")
+            self.checkCommitButton()
+        }
         
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "remove-staged-file"),
@@ -179,33 +232,9 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             if let activeProject = self.projects?.active {
                 if let stagedFileName = notification.userInfo?["name"] as? String {
                     activeProject.removeStagedFile(stagedFileName)
+                    self.stagedFilesView.reloadData()
                 }
             }
-        }
-    }
-    
-    @IBAction func commit(_ sender: NSButton) {
-        if let project = projects?.active {
-            var selectedStagedFiles: [String] = []
-            if let stagedFileCount = projects?.active?.stagedFiles.count {
-                for i in 0..<stagedFileCount {
-                    if let stagedFile = stagedFilesView.item(at: i) as? StagedFileViewItem {
-                        if stagedFile.isSelected {
-                            selectedStagedFiles.append(stagedFile.label.stringValue)
-                        }
-                    }
-                }
-            }
-            
-            if let commitMessage = commitMessageField.textStorage?.string {
-                project.commit(commitMessage, files: selectedStagedFiles)
-            }            
-        }
-    }
-    
-    func textDidChange(_ notification: Notification) {
-        if let commitMessage = commitMessageField.textStorage?.string {
-            commitButton.isEnabled = (commitMessage.count > 0)
         }
     }
     

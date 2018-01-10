@@ -22,6 +22,11 @@ class StagedFileViewItem: NSCollectionViewItem {
     
     @IBAction func select(_ sender: NSButton) {
         self.isSelected = (selectCheck.state.rawValue == 1)
+        print("HI")
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "staging-file-toggled"),
+            object: nil
+        )
     }
     
     @IBAction func remove(_ sender: NSButton) {
