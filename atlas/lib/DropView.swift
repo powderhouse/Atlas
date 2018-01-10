@@ -14,7 +14,6 @@ class DropView: NSView {
     
     var filePath: String?
     var project: Project?
-//    let expectedExt = ["png"]  //file extensions allowed for Drag&Drop (example: "jpg","png","docx", etc..)
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -25,31 +24,11 @@ class DropView: NSView {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        // Drawing code here.
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
-        if checkExtension(sender) == true {
-            self.layer?.backgroundColor = NSColor.green.cgColor
-            return .copy
-        } else {
-            return NSDragOperation()
-        }
-    }
-    
-    fileprivate func checkExtension(_ drag: NSDraggingInfo) -> Bool {
-        return true
-//        guard let board = drag.draggingPasteboard().propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
-//            let path = board[0] as? String
-//            else { return false }
-//
-//        let suffix = URL(fileURLWithPath: path).pathExtension
-//        for ext in self.expectedExt {
-//            if ext.lowercased() == suffix {
-//                return true
-//            }
-//        }
-//        return false
+        self.layer?.backgroundColor = NSColor.green.cgColor
+        return .copy
     }
     
     override func draggingExited(_ sender: NSDraggingInfo?) {
