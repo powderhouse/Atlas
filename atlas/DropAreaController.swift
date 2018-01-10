@@ -48,24 +48,25 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
             return item
         }
         
-//        if let project = projects?.list()[indexPath.item] {
-//            projectButtonViewItem.project = project
-//        }
-//
-//        projectButtonViewItem.popover = popover
-//        projectButtonViewItem.filePath = filePath
+        if let project = projects?.list()[indexPath.item] {
+            projectButtonViewItem.project = project
+        }
+
+        projectButtonViewItem.filePath = filePath
+        
+        projectButtonViewItem.isSelected = false
         
         return projectButtonViewItem
     }
     
-    //    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-    //        print("SELECTED!")
-    //        if let selectedIndex = indexPaths.first?.item {
-    //            if let project = projects?.list()[selectedIndex] {
-    //                print("PROJECT SELECTED: \(project.name)")
-    //            }
-    //        }
-    //    }
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        print("SELECTED!")
+        if let selectedIndex = indexPaths.first?.item {
+            if let project = projects?.list()[selectedIndex] {
+                print("PROJECT SELECTED: \(project.name)")
+            }
+        }
+    }
     
     fileprivate func configureCollectionViews() {
         projectButtonsView.isSelectable = true
@@ -79,6 +80,11 @@ class DropAreaController: NSViewController, NSCollectionViewDelegate, NSCollecti
         view.wantsLayer = true
         
         projectButtonsView.layer?.backgroundColor = NSColor.black.cgColor
+    }
+    
+    func showProjectOptions() {
+        dropView.isHidden = true
+        projectButtonsView.isHidden = false
     }
 }
 

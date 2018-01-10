@@ -39,9 +39,7 @@ class SideDrop {
                 repeats: false,
                 block: { (timer) in
                     if self.window?.isVisible ?? false {
-                        print("FILE: \(self.contentController?.dropView.filePath)")
-                        self.window?.close()
-                        self.window = nil
+                        self.contentController?.showProjectOptions()
                     }
             })
         }

@@ -39,7 +39,7 @@
         <customObject id="tPm-VO-wYK" customClass="ProjectButtonViewItem" customModule="atlas" customModuleProvider="target">
             <connections>
                 <outlet property="projectButton" destination="G93-Vn-aF7" id="eJ8-ik-MLo"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="zPU-Fz-5im"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="cE6-iC-fQk"/>
             </connections>
         </customObject>
     </objects>

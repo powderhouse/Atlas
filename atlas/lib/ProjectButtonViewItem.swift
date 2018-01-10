@@ -12,14 +12,28 @@ class ProjectButtonViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var projectButton: NSButton!
     
-    var project: Project?
+    var filePath: String?
+    
+    var project: Project? {
+        didSet {
+            guard project != nil else  { return }
+            projectButton.title = project!.name
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
     
     @IBAction func click(_ sender: NSButton) {
-        print("CLICKED \(project?.name)")
+        self.isSelected = true
+        print("HI \(project) \(filePath)")
+        guard project != nil else { return }
+        guard filePath != nil else { return }
+        project!.stageFile(URL(fileURLWithPath: filePath!))
+        print("PROJECT: \(project) \(filePath)")
     }
 }
