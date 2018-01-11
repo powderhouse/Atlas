@@ -319,7 +319,7 @@ class MainController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         guard git != nil else {
             return
         }
-
+        
         let readme = atlasRepository.appendingPathComponent("readme.md", isDirectory: false)
         if !FileSystem.fileExists(readme, isDirectory: false) {
             do {

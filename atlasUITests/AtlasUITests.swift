@@ -205,7 +205,26 @@ class AtlasUITests: XCTestCase {
         addTextButton.click()
         textField.typeText("Some text that is longer than 20 characters so it will have to truncate.")
         popover.buttons["Save"].click()
-        waitForTerminalToContain("“Some text that is longer than 20 characte—“ staged in “General”")
+        waitForTerminalToContain("”Some text that is longer than 20 characte—“ staged in “General”")
+    }
+    
+    func testEditingTerminal() {
+        let terminal = app.textViews["terminal"]
+        waitForTerminalToContain("Active Project: General")
+        
+        terminal.click()
+        terminal.typeText("zzzz")
+        
+        assertTerminalContains("zzzz")
+        XCTAssertEqual(272, (terminal.value as! String).count)
+        
+        for _ in 0..<20 {
+            terminal.typeKey(.delete, modifierFlags:[])
+        }
+        
+        assertTerminalDoesNotContain("zzzz")
+        assertTerminalContains("Active Project: General")
+        XCTAssertEqual(268, (terminal.value as! String).count)
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
@@ -223,6 +242,12 @@ class AtlasUITests: XCTestCase {
         XCTAssertNotNil(terminalText.range(of: text), "The terminal does not contain the text: \(text)")
     }
     
+    func assertTerminalDoesNotContain(_ text: String) {
+        let terminal = app.textViews["terminal"]
+        let terminalText = terminal.value as? String ?? ""
+        XCTAssertNil(terminalText.range(of: text), "The terminal contains the text: \(text)")
+    }
+
     func waitForTerminalToContain(_ text: String) {
         let terminal = app.textViews["terminal"]
 

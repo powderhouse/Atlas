@@ -17,6 +17,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     var queueTimer: Timer?
     var ready = false
     var logging = false
+    var minCursorPosition = 0
     
     init(_ view: NSTextView, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
         self.view = view
@@ -37,12 +38,25 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         }
     }
     
+    func textViewDidChangeSelection(_ notification: Notification) {
+        view.isEditable = (view.selectedRange().lowerBound >= minCursorPosition)
+    }
+    
     func textDidChange(_ notification: Notification) {
         guard !logging else {
             return
         }
         
         if var text = view.textStorage?.string {
+            if text.count < minCursorPosition {
+                var range = self.view.selectedRange()
+                range.location = range.location - 1
+                range.length = 1
+                view.isEditable = true
+                view.insertText("> ", replacementRange: range)
+                return
+            }
+            
             let lastCharacter = text.removeLast()
             if lastCharacter == "\n" {
                 if let commandStart = text.range(of: "> ", options: .backwards)?.upperBound {
@@ -126,9 +140,11 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func clear() {
+        minCursorPosition = 0
         view.selectAll(self)
         let range = view.selectedRange()
         view.insertText("> ", replacementRange: range)
+        minCursorPosition = 2
     }
     
     class func log(_ text: String) {
@@ -184,6 +200,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         text = "\(text)\n\n> ".replacingOccurrences(of: "\n\n\n", with: "\n", options: .literal, range: nil)
         
         self.view.insertText(text, replacementRange: range)
+        
+        minCursorPosition = (self.view.textStorage?.string ?? "").count
         
         logging = false
         
