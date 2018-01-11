@@ -226,6 +226,27 @@ class AtlasUITests: XCTestCase {
         assertTerminalContains("Active Project: General")
         XCTAssertEqual(268, (terminal.value as! String).count)
     }
+    
+    func testGitIgnore() {
+        let terminal = app.textViews["terminal"]
+        waitForTerminalToContain("Active Project: General")
+        
+        terminal.click()
+        terminal.typeText("touch ../DS_Store\n")
+        terminal.typeText("stage ../DS_Store\n")
+        XCTAssertFalse(app.staticTexts["DS_Store"].exists)
+        
+        createAndStageFile("index.html", app: app)
+        
+        let commitArea = app.textViews["commit"]
+        commitArea.click()
+        commitArea.typeText("Testing .gitIgnore")
+        app.buttons["Commit"].click()
+        
+        waitForTerminalToContain("1 file committed to “General”")
+        
+        XCTAssertFalse(app.staticTexts["index.html"].exists)
+    }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
         let predicate = NSPredicate(format: "exists == true")

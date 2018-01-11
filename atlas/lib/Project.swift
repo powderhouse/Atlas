@@ -17,7 +17,8 @@ class Project {
     
     let ignore = [
         "readme.md",
-        "staging"
+        "staging",
+        "DS_Store"
     ]
     
     init(_ directory: URL) {
@@ -63,7 +64,7 @@ class Project {
         let stagedFileNames = files ?? FileSystem.filesInDirectory(staging)
         var movedCount = 0
         for file in stagedFileNames {
-            guard file != "readme.md" else {
+            guard !ignore.contains(file) else {
                 continue
             }
             let filePath = staging.appendingPathComponent(file).path

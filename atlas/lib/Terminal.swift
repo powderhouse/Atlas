@@ -68,9 +68,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func runCommand(_ fullCommand: String) {
-        let lowercaseCommand = fullCommand.lowercased()
-        var allArgs = lowercaseCommand.split(separator: " ")
-        let command = String(allArgs.removeFirst())
+        var allArgs = fullCommand.split(separator: " ")
+        let command = String(allArgs.removeFirst().lowercased())
         
         switch command {
         case "status":
@@ -96,7 +95,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         case "clear":
             self.clear()
         case "atlas":
-            let atlasCommand = allArgs.removeFirst()
+            let atlasCommand = allArgs.removeFirst().lowercased()
             
             switch atlasCommand {
             case "log":
