@@ -155,6 +155,9 @@ class GitTests: XCTestCase {
         initialize()
         _ = actualGit.initGitHub()
         
+        let filePath = "\(directory.path)/index2.html"
+        _ = Glue.runProcess("touch", arguments: [filePath])
+        
         XCTAssert(actualGit.add())
         
         let commit = actualGit.commit()

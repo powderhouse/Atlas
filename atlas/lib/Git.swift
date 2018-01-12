@@ -17,6 +17,9 @@ struct Credentials {
 class Git {
     
     static let credentialsFilename = "github.json"
+    static let gitIgnore = [
+        "DS_Store"
+    ]
     
     var repositoryDirectory: URL
     var baseDirectory: URL
@@ -169,6 +172,30 @@ class Git {
             printGit("Failed to convert credentials to json")
         }
     }
+
+    func initGitIgnore() {
+        do {
+            let filename = repositoryDirectory.appendingPathComponent(".gitignore")
+            
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: filename.path) {
+                do {
+                    try fileManager.removeItem(at: filename)
+                } catch {
+                    printGit("Failed to delete .gitignore: \(error)")
+                }
+            }
+            
+            try Git.gitIgnore.joined(separator: "\n").write(to: filename, atomically: true, encoding: .utf8)
+        } catch {
+            printGit("Failed to save .gitignore: \(error)")
+        }
+        
+        _ = add()
+        _ = commit()
+        pushToGitHub()
+    }
+
     
     func buildArguments(_ command: String, additionalArguments:[String]=[]) -> [String] {
         let path = repositoryDirectory.path
@@ -182,9 +209,9 @@ class Git {
         )
         
         return Glue.runProcess("git",
-                               arguments: fullArguments,
-                               currentDirectory: repositoryDirectory,
-                               atlasProcess: atlasProcessFactory.build()
+           arguments: fullArguments,
+           currentDirectory: repositoryDirectory,
+           atlasProcess: atlasProcessFactory.build()
         )
     }
     
@@ -302,7 +329,9 @@ class Git {
         _ = run("remote", arguments: ["add", "origin", authenticatedPath])
         
         setGitHubRepositoryLink()
-        
+
+        initGitIgnore()
+
         return repoResult![0]
     }
     

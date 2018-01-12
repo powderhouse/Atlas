@@ -17,8 +17,7 @@ class Project {
     
     let ignore = [
         "readme.md",
-        "staging",
-        "DS_Store"
+        "staging"        
     ]
     
     init(_ directory: URL) {
@@ -100,7 +99,8 @@ class Project {
             return []
         }
         
-        let filteredContents = contents!.filter { !ignore.contains($0.lastPathComponent) }
+        let allIgnored = ignore + Git.gitIgnore
+        let filteredContents = contents!.filter { !allIgnored.contains($0.lastPathComponent) }
         return filteredContents.map { $0.lastPathComponent }.sorted()
     }
 }
