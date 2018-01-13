@@ -56,4 +56,10 @@ class TerminalTests: XCTestCase {
         userInfo = notificationCenter.lastPost["userInfo"] as? [String: String]
         XCTAssertEqual("some_random_command -u with_parameters", userInfo?["command"])
     }
+    
+    func testRunCommand_noCommand() {
+        terminal.runCommand("")
+        XCTAssert(true, "Did not fail")
+    }
+
 }

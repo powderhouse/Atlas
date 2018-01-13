@@ -69,6 +69,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     
     func runCommand(_ fullCommand: String) {
         var allArgs = fullCommand.split(separator: " ")
+        
+        guard allArgs.count != 0 else {
+            Terminal.log("Please enter a command")
+            return
+        }
+
         let command = String(allArgs.removeFirst().lowercased())
         
         switch command {
