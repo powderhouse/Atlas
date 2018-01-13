@@ -26,6 +26,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         super.init()
         
         view.delegate = self
+        view.isEditable = false
         clear()
         
         initObservers()
@@ -34,6 +35,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
             withTimeInterval: 3,
             repeats: false
         ) { (timer) in
+            view.isEditable = true
             self.ready = true
         }
     }
@@ -204,8 +206,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         
         text = "\(text)\n\n> ".replacingOccurrences(of: "\n\n\n", with: "\n", options: .literal, range: nil)
         
+        view.isEditable = true
+
         self.view.insertText(text, replacementRange: range)
         
+        view.isEditable = false
+
         minCursorPosition = (self.view.textStorage?.string ?? "").count
         
         logging = false
