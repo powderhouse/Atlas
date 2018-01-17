@@ -170,6 +170,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func dequeueLog() {
+        let hasFocus = view.isAccessibilityFocused()
+        
         guard !queue.isEmpty else {
             return
         }
@@ -196,7 +198,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         
         logging = true
         
-        var range = self.view.selectedRange()
+        var range = view.selectedRange()
         if view.textStorage?.string.suffix(2) == "> " {
             range.location = range.location - 2
             range.length = 2
@@ -215,6 +217,11 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         minCursorPosition = (self.view.textStorage?.string ?? "").count
         
         logging = false
+        
+        if hasFocus {
+            let range = view.selectedRange()
+            view.setSelectedRange(range)
+        }
         
         queueTimer = Timer.scheduledTimer(
             withTimeInterval: 1,
