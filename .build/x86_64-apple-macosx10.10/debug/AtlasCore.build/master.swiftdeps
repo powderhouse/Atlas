@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "9df9bdbd302517e133b5370a8647e086"
-build_time: [1518458454, 386934000]
-inputs:
-  "/Users/jcosulich/workspace/Atlas/.build/checkouts/AtlasCore.git-6262522149726209995/Sources/AtlasCore/AtlasCore.swift": [1518457829, 0]

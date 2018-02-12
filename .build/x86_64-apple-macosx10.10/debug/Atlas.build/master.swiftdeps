@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "ea7ba3ee9a53571d9b7397ba11555272"
-build_time: [1518458457, 987884000]
-inputs:
-  "/Users/jcosulich/workspace/Atlas/Sources/Atlas/main.swift": [1518458374, 0]
