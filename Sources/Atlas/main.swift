@@ -1,0 +1,3 @@
+import AtlasCore
+
+AtlasCore.hello()

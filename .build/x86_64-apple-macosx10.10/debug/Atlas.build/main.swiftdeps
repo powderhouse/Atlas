@@ -1,0 +1,17 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+provides-dynamic-lookup:
+depends-top-level:
+- "AtlasCore"
+depends-member:
+- ["9AtlasCoreAAC", "hello"]
+depends-nominal:
+- "9AtlasCoreAAC"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/AtlasCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "be4ce2658422df355495e1ad173852b9"

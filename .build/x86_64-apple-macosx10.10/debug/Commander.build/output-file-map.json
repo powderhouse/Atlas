@@ -1,0 +1,59 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/master.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/ArgumentConvertible.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentConvertible.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentConvertible.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentConvertible~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentConvertible.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/ArgumentDescription.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentDescription.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentDescription.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentDescription~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentDescription.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/ArgumentParser.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentParser.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentParser.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/ArgumentParser.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/Command.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Command.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Command.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Command~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Command.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/CommandRunner.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandRunner.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandRunner.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandRunner~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandRunner.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/CommandType.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandType.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandType.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandType~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/CommandType.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/Commands.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Commands.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Commands.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Commands~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Commands.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/Error.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Error.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Error.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Error~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Error.swiftdeps"
+  },
+  "/Users/jcosulich/workspace/Atlas/.build/checkouts/Commander.git-8842944228949165507/Sources/Commander/Group.swift": {
+    "dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Group.d",
+    "object": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Group.swift.o",
+    "swiftmodule": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Group~partial.swiftmodule",
+    "swift-dependencies": "/Users/jcosulich/workspace/Atlas/.build/x86_64-apple-macosx10.10/debug/Commander.build/Group.swiftdeps"
+  }
+}
