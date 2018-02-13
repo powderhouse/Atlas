@@ -7,341 +7,364 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A9F5F8420332F59006243C6 /* LoginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F5F8220332C7D006243C6 /* LoginCommand.swift */; };
-		3A9F5F8820332F95006243C6 /* LogoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F5F8520332F87006243C6 /* LogoutCommand.swift */; };
-		3AC3972C20328B8300ADA305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3972B20328B8300ADA305 /* AppDelegate.swift */; };
-		3AC3972E20328B8300ADA305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3972D20328B8300ADA305 /* ViewController.swift */; };
-		3AC3973020328B8300ADA305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC3972F20328B8300ADA305 /* Assets.xcassets */; };
-		3AC3973320328B8400ADA305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC3973120328B8400ADA305 /* Main.storyboard */; };
-		3AC3973F20328B8400ADA305 /* AtlasAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3973E20328B8400ADA305 /* AtlasAppTests.swift */; };
-		3AC3974A20328B8400ADA305 /* AtlasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3974920328B8400ADA305 /* AtlasAppUITests.swift */; };
-		OBJ_100 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Error.swift */; };
-		OBJ_101 /* GlobalOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* GlobalOptions.swift */; };
-		OBJ_102 /* HelpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* HelpCommand.swift */; };
-		OBJ_103 /* HelpMessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* HelpMessageGenerator.swift */; };
-		OBJ_104 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Input.swift */; };
-		OBJ_105 /* LightweightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* LightweightCommand.swift */; };
-		OBJ_106 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Option.swift */; };
-		OBJ_107 /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* OptionGroup.swift */; };
-		OBJ_108 /* OptionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* OptionRecognizer.swift */; };
-		OBJ_109 /* OptionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* OptionRegistry.swift */; };
-		OBJ_110 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Output.swift */; };
-		OBJ_111 /* OutputByteStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* OutputByteStream.swift */; };
-		OBJ_112 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Parameter.swift */; };
-		OBJ_113 /* ParameterFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* ParameterFiller.swift */; };
-		OBJ_114 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Router.swift */; };
-		OBJ_115 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Term.swift */; };
-		OBJ_116 /* VersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* VersionCommand.swift */; };
-		OBJ_56 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_62 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Package.swift */; };
-		OBJ_68 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Package.swift */; };
-		OBJ_74 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
-		OBJ_76 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
-		OBJ_77 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
-		OBJ_86 /* AtlasCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* AtlasCore.swift */; };
-		OBJ_92 /* ArgumentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* ArgumentList.swift */; };
-		OBJ_93 /* ArgumentListManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* ArgumentListManipulator.swift */; };
-		OBJ_94 /* CLI-deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CLI-deprecated.swift */; };
-		OBJ_95 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* CLI.swift */; };
-		OBJ_96 /* ChainableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* ChainableCommand.swift */; };
-		OBJ_97 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Command.swift */; };
-		OBJ_98 /* CommandSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* CommandSignature.swift */; };
-		OBJ_99 /* CompletionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* CompletionGenerator.swift */; };
+		3A9F60412033983F006243C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60402033983F006243C6 /* AppDelegate.swift */; };
+		3A9F60432033983F006243C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60422033983F006243C6 /* ViewController.swift */; };
+		3A9F60452033983F006243C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9F60442033983F006243C6 /* Assets.xcassets */; };
+		3A9F60482033983F006243C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9F60462033983F006243C6 /* Main.storyboard */; };
+		3A9F60542033983F006243C6 /* AtlasAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60532033983F006243C6 /* AtlasAppTests.swift */; };
+		3A9F605F20339840006243C6 /* AtlasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F605E20339840006243C6 /* AtlasAppUITests.swift */; };
+		OBJ_100 /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Glue.swift */; };
+		OBJ_106 /* ArgumentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* ArgumentList.swift */; };
+		OBJ_107 /* ArgumentListManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ArgumentListManipulator.swift */; };
+		OBJ_108 /* CLI-deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* CLI-deprecated.swift */; };
+		OBJ_109 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CLI.swift */; };
+		OBJ_110 /* ChainableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* ChainableCommand.swift */; };
+		OBJ_111 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Command.swift */; };
+		OBJ_112 /* CommandSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* CommandSignature.swift */; };
+		OBJ_113 /* CompletionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* CompletionGenerator.swift */; };
+		OBJ_114 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Error.swift */; };
+		OBJ_115 /* GlobalOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* GlobalOptions.swift */; };
+		OBJ_116 /* HelpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* HelpCommand.swift */; };
+		OBJ_117 /* HelpMessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* HelpMessageGenerator.swift */; };
+		OBJ_118 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Input.swift */; };
+		OBJ_119 /* LightweightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* LightweightCommand.swift */; };
+		OBJ_120 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Option.swift */; };
+		OBJ_121 /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* OptionGroup.swift */; };
+		OBJ_122 /* OptionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* OptionRecognizer.swift */; };
+		OBJ_123 /* OptionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* OptionRegistry.swift */; };
+		OBJ_124 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Output.swift */; };
+		OBJ_125 /* OutputByteStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* OutputByteStream.swift */; };
+		OBJ_126 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Parameter.swift */; };
+		OBJ_127 /* ParameterFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* ParameterFiller.swift */; };
+		OBJ_128 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Router.swift */; };
+		OBJ_129 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* Term.swift */; };
+		OBJ_130 /* VersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* VersionCommand.swift */; };
+		OBJ_64 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_70 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Package.swift */; };
+		OBJ_76 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Package.swift */; };
+		OBJ_82 /* LoginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* LoginCommand.swift */; };
+		OBJ_83 /* LogoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* LogoutCommand.swift */; };
+		OBJ_84 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* main.swift */; };
+		OBJ_86 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
+		OBJ_87 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
+		OBJ_96 /* AtlasCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* AtlasCore.swift */; };
+		OBJ_97 /* AtlasProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* AtlasProcess.swift */; };
+		OBJ_98 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* FileSystem.swift */; };
+		OBJ_99 /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Git.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3AC3972320328B6200ADA305 /* PBXContainerItemProxy */ = {
+		3A9F603820339826006243C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
-		3AC3972420328B6200ADA305 /* PBXContainerItemProxy */ = {
+		3A9F603920339826006243C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwiftCLI::SwiftCLI";
 			remoteInfo = SwiftCLI;
 		};
-		3AC3973B20328B8400ADA305 /* PBXContainerItemProxy */ = {
+		3A9F60502033983F006243C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3AC3972820328B8300ADA305;
+			remoteGlobalIDString = 3A9F603D2033983F006243C6;
 			remoteInfo = AtlasApp;
 		};
-		3AC3974620328B8400ADA305 /* PBXContainerItemProxy */ = {
+		3A9F605B20339840006243C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3AC3972820328B8300ADA305;
+			remoteGlobalIDString = 3A9F603D2033983F006243C6;
 			remoteInfo = AtlasApp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A9F5F8220332C7D006243C6 /* LoginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommand.swift; sourceTree = "<group>"; };
-		3A9F5F8520332F87006243C6 /* LogoutCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommand.swift; sourceTree = "<group>"; };
-		3AC3972920328B8300ADA305 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AC3972B20328B8300ADA305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3AC3972D20328B8300ADA305 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3AC3972F20328B8300ADA305 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3AC3973220328B8400ADA305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3AC3973420328B8400ADA305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AC3973520328B8400ADA305 /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
-		3AC3973A20328B8400ADA305 /* AtlasAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AC3973E20328B8400ADA305 /* AtlasAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppTests.swift; sourceTree = "<group>"; };
-		3AC3974020328B8400ADA305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AC3974520328B8400ADA305 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AC3974920328B8400ADA305 /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
-		3AC3974B20328B8400ADA305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9F603E2033983F006243C6 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A9F60402033983F006243C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A9F60422033983F006243C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3A9F60442033983F006243C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A9F60472033983F006243C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A9F60492033983F006243C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9F604A2033983F006243C6 /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
+		3A9F604F2033983F006243C6 /* AtlasAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A9F60532033983F006243C6 /* AtlasAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppTests.swift; sourceTree = "<group>"; };
+		3A9F60552033983F006243C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9F605A2033983F006243C6 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A9F605E20339840006243C6 /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
+		3A9F606020339840006243C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_17 /* AtlasCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasCore.swift; sourceTree = "<group>"; };
-		OBJ_18 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/AtlasCore.git-6262522149726209995/Package.swift"; sourceTree = "<group>"; };
-		OBJ_21 /* ArgumentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentList.swift; sourceTree = "<group>"; };
-		OBJ_22 /* ArgumentListManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentListManipulator.swift; sourceTree = "<group>"; };
-		OBJ_23 /* CLI-deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLI-deprecated.swift"; sourceTree = "<group>"; };
-		OBJ_24 /* CLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
-		OBJ_25 /* ChainableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainableCommand.swift; sourceTree = "<group>"; };
-		OBJ_26 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		OBJ_27 /* CommandSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSignature.swift; sourceTree = "<group>"; };
-		OBJ_28 /* CompletionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionGenerator.swift; sourceTree = "<group>"; };
-		OBJ_29 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		OBJ_30 /* GlobalOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOptions.swift; sourceTree = "<group>"; };
-		OBJ_31 /* HelpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommand.swift; sourceTree = "<group>"; };
-		OBJ_32 /* HelpMessageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMessageGenerator.swift; sourceTree = "<group>"; };
-		OBJ_33 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
-		OBJ_34 /* LightweightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightweightCommand.swift; sourceTree = "<group>"; };
-		OBJ_35 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
-		OBJ_36 /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
-		OBJ_37 /* OptionRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRecognizer.swift; sourceTree = "<group>"; };
-		OBJ_38 /* OptionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRegistry.swift; sourceTree = "<group>"; };
-		OBJ_39 /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
-		OBJ_40 /* OutputByteStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputByteStream.swift; sourceTree = "<group>"; };
-		OBJ_41 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		OBJ_42 /* ParameterFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterFiller.swift; sourceTree = "<group>"; };
-		OBJ_43 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		OBJ_44 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
-		OBJ_45 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
-		OBJ_46 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/SwiftCLI-8466703425035036135/Package.swift"; sourceTree = "<group>"; };
+		OBJ_11 /* LoginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommand.swift; sourceTree = "<group>"; };
+		OBJ_12 /* LogoutCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommand.swift; sourceTree = "<group>"; };
+		OBJ_13 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_21 /* AtlasCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasCore.swift; sourceTree = "<group>"; };
+		OBJ_22 /* AtlasProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasProcess.swift; sourceTree = "<group>"; };
+		OBJ_23 /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		OBJ_24 /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
+		OBJ_25 /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
+		OBJ_26 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/AtlasCore.git-6262522149726209995/Package.swift"; sourceTree = "<group>"; };
+		OBJ_29 /* ArgumentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentList.swift; sourceTree = "<group>"; };
+		OBJ_30 /* ArgumentListManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentListManipulator.swift; sourceTree = "<group>"; };
+		OBJ_31 /* CLI-deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLI-deprecated.swift"; sourceTree = "<group>"; };
+		OBJ_32 /* CLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
+		OBJ_33 /* ChainableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainableCommand.swift; sourceTree = "<group>"; };
+		OBJ_34 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		OBJ_35 /* CommandSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSignature.swift; sourceTree = "<group>"; };
+		OBJ_36 /* CompletionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionGenerator.swift; sourceTree = "<group>"; };
+		OBJ_37 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_38 /* GlobalOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOptions.swift; sourceTree = "<group>"; };
+		OBJ_39 /* HelpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommand.swift; sourceTree = "<group>"; };
+		OBJ_40 /* HelpMessageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMessageGenerator.swift; sourceTree = "<group>"; };
+		OBJ_41 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		OBJ_42 /* LightweightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightweightCommand.swift; sourceTree = "<group>"; };
+		OBJ_43 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		OBJ_44 /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
+		OBJ_45 /* OptionRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRecognizer.swift; sourceTree = "<group>"; };
+		OBJ_46 /* OptionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRegistry.swift; sourceTree = "<group>"; };
+		OBJ_47 /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
+		OBJ_48 /* OutputByteStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputByteStream.swift; sourceTree = "<group>"; };
+		OBJ_49 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		OBJ_50 /* ParameterFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterFiller.swift; sourceTree = "<group>"; };
+		OBJ_51 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		OBJ_52 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		OBJ_53 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
+		OBJ_54 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/SwiftCLI-8466703425035036135/Package.swift"; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_8 /* settings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = settings.xcconfig; sourceTree = "<group>"; };
 		"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCLI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3AC3972620328B8300ADA305 /* Frameworks */ = {
+		3A9F603B2033983F006243C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AC3973720328B8400ADA305 /* Frameworks */ = {
+		3A9F604C2033983F006243C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AC3974220328B8400ADA305 /* Frameworks */ = {
+		3A9F60572033983F006243C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_117 /* Frameworks */ = {
+		OBJ_101 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_75 /* Frameworks */ = {
+		OBJ_131 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_76 /* AtlasCore.framework in Frameworks */,
-				OBJ_77 /* SwiftCLI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_87 /* Frameworks */ = {
+		OBJ_85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				OBJ_86 /* AtlasCore.framework in Frameworks */,
+				OBJ_87 /* SwiftCLI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3AC3972A20328B8300ADA305 /* AtlasApp */ = {
+		3A9F603F2033983F006243C6 /* AtlasApp */ = {
 			isa = PBXGroup;
 			children = (
-				3AC3972B20328B8300ADA305 /* AppDelegate.swift */,
-				3AC3972D20328B8300ADA305 /* ViewController.swift */,
-				3AC3972F20328B8300ADA305 /* Assets.xcassets */,
-				3AC3973120328B8400ADA305 /* Main.storyboard */,
-				3AC3973420328B8400ADA305 /* Info.plist */,
-				3AC3973520328B8400ADA305 /* AtlasApp.entitlements */,
+				3A9F60402033983F006243C6 /* AppDelegate.swift */,
+				3A9F60422033983F006243C6 /* ViewController.swift */,
+				3A9F60442033983F006243C6 /* Assets.xcassets */,
+				3A9F60462033983F006243C6 /* Main.storyboard */,
+				3A9F60492033983F006243C6 /* Info.plist */,
+				3A9F604A2033983F006243C6 /* AtlasApp.entitlements */,
 			);
 			path = AtlasApp;
 			sourceTree = "<group>";
 		};
-		3AC3973D20328B8400ADA305 /* AtlasAppTests */ = {
+		3A9F60522033983F006243C6 /* AtlasAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				3AC3973E20328B8400ADA305 /* AtlasAppTests.swift */,
-				3AC3974020328B8400ADA305 /* Info.plist */,
+				3A9F60532033983F006243C6 /* AtlasAppTests.swift */,
+				3A9F60552033983F006243C6 /* Info.plist */,
 			);
 			path = AtlasAppTests;
 			sourceTree = "<group>";
 		};
-		3AC3974820328B8400ADA305 /* AtlasAppUITests */ = {
+		3A9F605D20339840006243C6 /* AtlasAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3AC3974920328B8400ADA305 /* AtlasAppUITests.swift */,
-				3AC3974B20328B8400ADA305 /* Info.plist */,
+				3A9F605E20339840006243C6 /* AtlasAppUITests.swift */,
+				3A9F606020339840006243C6 /* Info.plist */,
 			);
 			path = AtlasAppUITests;
 			sourceTree = "<group>";
 		};
-		OBJ_10 /* Tests */ = {
+		OBJ_10 /* Atlas */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* LoginCommand.swift */,
+				OBJ_12 /* LogoutCommand.swift */,
+				OBJ_13 /* main.swift */,
+			);
+			name = Atlas;
+			path = Sources/Atlas;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_14 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_14 /* Dependencies */ = {
+		OBJ_18 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_15 /* AtlasCore 0.1.3 */,
-				OBJ_19 /* SwiftCLI 4.0.3 */,
+				OBJ_19 /* AtlasCore 0.2.1 */,
+				OBJ_27 /* SwiftCLI 4.0.3 */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		OBJ_15 /* AtlasCore 0.1.3 */ = {
+		OBJ_19 /* AtlasCore 0.2.1 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* AtlasCore */,
-				OBJ_18 /* Package.swift */,
+				OBJ_20 /* AtlasCore */,
+				OBJ_26 /* Package.swift */,
 			);
-			name = "AtlasCore 0.1.3";
+			name = "AtlasCore 0.2.1";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_16 /* AtlasCore */ = {
+		OBJ_20 /* AtlasCore */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* AtlasCore.swift */,
+				OBJ_21 /* AtlasCore.swift */,
+				OBJ_22 /* AtlasProcess.swift */,
+				OBJ_23 /* FileSystem.swift */,
+				OBJ_24 /* Git.swift */,
+				OBJ_25 /* Glue.swift */,
 			);
 			name = AtlasCore;
 			path = ".build/checkouts/AtlasCore.git-6262522149726209995/Sources/AtlasCore";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_19 /* SwiftCLI 4.0.3 */ = {
+		OBJ_27 /* SwiftCLI 4.0.3 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_20 /* SwiftCLI */,
-				OBJ_46 /* Package.swift */,
+				OBJ_28 /* SwiftCLI */,
+				OBJ_54 /* Package.swift */,
 			);
 			name = "SwiftCLI 4.0.3";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_20 /* SwiftCLI */ = {
+		OBJ_28 /* SwiftCLI */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_21 /* ArgumentList.swift */,
-				OBJ_22 /* ArgumentListManipulator.swift */,
-				OBJ_23 /* CLI-deprecated.swift */,
-				OBJ_24 /* CLI.swift */,
-				OBJ_25 /* ChainableCommand.swift */,
-				OBJ_26 /* Command.swift */,
-				OBJ_27 /* CommandSignature.swift */,
-				OBJ_28 /* CompletionGenerator.swift */,
-				OBJ_29 /* Error.swift */,
-				OBJ_30 /* GlobalOptions.swift */,
-				OBJ_31 /* HelpCommand.swift */,
-				OBJ_32 /* HelpMessageGenerator.swift */,
-				OBJ_33 /* Input.swift */,
-				OBJ_34 /* LightweightCommand.swift */,
-				OBJ_35 /* Option.swift */,
-				OBJ_36 /* OptionGroup.swift */,
-				OBJ_37 /* OptionRecognizer.swift */,
-				OBJ_38 /* OptionRegistry.swift */,
-				OBJ_39 /* Output.swift */,
-				OBJ_40 /* OutputByteStream.swift */,
-				OBJ_41 /* Parameter.swift */,
-				OBJ_42 /* ParameterFiller.swift */,
-				OBJ_43 /* Router.swift */,
-				OBJ_44 /* Term.swift */,
-				OBJ_45 /* VersionCommand.swift */,
+				OBJ_29 /* ArgumentList.swift */,
+				OBJ_30 /* ArgumentListManipulator.swift */,
+				OBJ_31 /* CLI-deprecated.swift */,
+				OBJ_32 /* CLI.swift */,
+				OBJ_33 /* ChainableCommand.swift */,
+				OBJ_34 /* Command.swift */,
+				OBJ_35 /* CommandSignature.swift */,
+				OBJ_36 /* CompletionGenerator.swift */,
+				OBJ_37 /* Error.swift */,
+				OBJ_38 /* GlobalOptions.swift */,
+				OBJ_39 /* HelpCommand.swift */,
+				OBJ_40 /* HelpMessageGenerator.swift */,
+				OBJ_41 /* Input.swift */,
+				OBJ_42 /* LightweightCommand.swift */,
+				OBJ_43 /* Option.swift */,
+				OBJ_44 /* OptionGroup.swift */,
+				OBJ_45 /* OptionRecognizer.swift */,
+				OBJ_46 /* OptionRegistry.swift */,
+				OBJ_47 /* Output.swift */,
+				OBJ_48 /* OutputByteStream.swift */,
+				OBJ_49 /* Parameter.swift */,
+				OBJ_50 /* ParameterFiller.swift */,
+				OBJ_51 /* Router.swift */,
+				OBJ_52 /* Term.swift */,
+				OBJ_53 /* VersionCommand.swift */,
 			);
 			name = SwiftCLI;
 			path = ".build/checkouts/SwiftCLI-8466703425035036135/Sources/SwiftCLI";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_47 /* Products */ = {
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Configs */,
+				OBJ_9 /* Sources */,
+				OBJ_14 /* Tests */,
+				OBJ_18 /* Dependencies */,
+				3A9F603F2033983F006243C6 /* AtlasApp */,
+				3A9F60522033983F006243C6 /* AtlasAppTests */,
+				3A9F605D20339840006243C6 /* AtlasAppUITests */,
+				OBJ_55 /* Products */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_55 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"Atlas::Atlas::Product" /* Atlas */,
 				"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */,
 				"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */,
-				3AC3972920328B8300ADA305 /* AtlasApp.app */,
-				3AC3973A20328B8400ADA305 /* AtlasAppTests.xctest */,
-				3AC3974520328B8400ADA305 /* AtlasAppUITests.xctest */,
+				3A9F603E2033983F006243C6 /* AtlasApp.app */,
+				3A9F604F2033983F006243C6 /* AtlasAppTests.xctest */,
+				3A9F605A2033983F006243C6 /* AtlasAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_7 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_6 /* Package.swift */,
-				OBJ_7 /* Sources */,
-				OBJ_10 /* Tests */,
-				OBJ_14 /* Dependencies */,
-				3AC3972A20328B8300ADA305 /* AtlasApp */,
-				3AC3973D20328B8400ADA305 /* AtlasAppTests */,
-				3AC3974820328B8400ADA305 /* AtlasAppUITests */,
-				OBJ_47 /* Products */,
+				OBJ_8 /* settings.xcconfig */,
 			);
+			name = Configs;
 			sourceTree = "<group>";
 		};
-		OBJ_7 /* Sources */ = {
+		OBJ_9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* Atlas */,
+				OBJ_10 /* Atlas */,
 			);
 			name = Sources;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_8 /* Atlas */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_9 /* main.swift */,
-				3A9F5F8220332C7D006243C6 /* LoginCommand.swift */,
-				3A9F5F8520332F87006243C6 /* LogoutCommand.swift */,
-			);
-			name = Atlas;
-			path = Sources/Atlas;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3AC3972820328B8300ADA305 /* AtlasApp */ = {
+		3A9F603D2033983F006243C6 /* AtlasApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AC3974C20328B8400ADA305 /* Build configuration list for PBXNativeTarget "AtlasApp" */;
+			buildConfigurationList = 3A9F606120339840006243C6 /* Build configuration list for PBXNativeTarget "AtlasApp" */;
 			buildPhases = (
-				3AC3972520328B8300ADA305 /* Sources */,
-				3AC3972620328B8300ADA305 /* Frameworks */,
-				3AC3972720328B8300ADA305 /* Resources */,
+				3A9F603A2033983F006243C6 /* Sources */,
+				3A9F603B2033983F006243C6 /* Frameworks */,
+				3A9F603C2033983F006243C6 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -349,57 +372,57 @@
 			);
 			name = AtlasApp;
 			productName = AtlasApp;
-			productReference = 3AC3972920328B8300ADA305 /* AtlasApp.app */;
+			productReference = 3A9F603E2033983F006243C6 /* AtlasApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3AC3973920328B8400ADA305 /* AtlasAppTests */ = {
+		3A9F604E2033983F006243C6 /* AtlasAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AC3974F20328B8400ADA305 /* Build configuration list for PBXNativeTarget "AtlasAppTests" */;
+			buildConfigurationList = 3A9F606420339840006243C6 /* Build configuration list for PBXNativeTarget "AtlasAppTests" */;
 			buildPhases = (
-				3AC3973620328B8400ADA305 /* Sources */,
-				3AC3973720328B8400ADA305 /* Frameworks */,
-				3AC3973820328B8400ADA305 /* Resources */,
+				3A9F604B2033983F006243C6 /* Sources */,
+				3A9F604C2033983F006243C6 /* Frameworks */,
+				3A9F604D2033983F006243C6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3AC3973C20328B8400ADA305 /* PBXTargetDependency */,
+				3A9F60512033983F006243C6 /* PBXTargetDependency */,
 			);
 			name = AtlasAppTests;
 			productName = AtlasAppTests;
-			productReference = 3AC3973A20328B8400ADA305 /* AtlasAppTests.xctest */;
+			productReference = 3A9F604F2033983F006243C6 /* AtlasAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3AC3974420328B8400ADA305 /* AtlasAppUITests */ = {
+		3A9F60592033983F006243C6 /* AtlasAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AC3975220328B8400ADA305 /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */;
+			buildConfigurationList = 3A9F606720339840006243C6 /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */;
 			buildPhases = (
-				3AC3974120328B8400ADA305 /* Sources */,
-				3AC3974220328B8400ADA305 /* Frameworks */,
-				3AC3974320328B8400ADA305 /* Resources */,
+				3A9F60562033983F006243C6 /* Sources */,
+				3A9F60572033983F006243C6 /* Frameworks */,
+				3A9F60582033983F006243C6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3AC3974720328B8400ADA305 /* PBXTargetDependency */,
+				3A9F605C20339840006243C6 /* PBXTargetDependency */,
 			);
 			name = AtlasAppUITests;
 			productName = AtlasAppUITests;
-			productReference = 3AC3974520328B8400ADA305 /* AtlasAppUITests.xctest */;
+			productReference = 3A9F605A2033983F006243C6 /* AtlasAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		"Atlas::Atlas" /* Atlas */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_70 /* Build configuration list for PBXNativeTarget "Atlas" */;
+			buildConfigurationList = OBJ_78 /* Build configuration list for PBXNativeTarget "Atlas" */;
 			buildPhases = (
-				OBJ_73 /* Sources */,
-				OBJ_75 /* Frameworks */,
+				OBJ_81 /* Sources */,
+				OBJ_85 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_78 /* PBXTargetDependency */,
-				OBJ_80 /* PBXTargetDependency */,
+				OBJ_88 /* PBXTargetDependency */,
+				OBJ_90 /* PBXTargetDependency */,
 			);
 			name = Atlas;
 			productName = Atlas;
@@ -408,9 +431,9 @@
 		};
 		"Atlas::SwiftPMPackageDescription" /* AtlasPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_52 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */;
+			buildConfigurationList = OBJ_60 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */;
 			buildPhases = (
-				OBJ_55 /* Sources */,
+				OBJ_63 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -422,10 +445,10 @@
 		};
 		"AtlasCore::AtlasCore" /* AtlasCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_82 /* Build configuration list for PBXNativeTarget "AtlasCore" */;
+			buildConfigurationList = OBJ_92 /* Build configuration list for PBXNativeTarget "AtlasCore" */;
 			buildPhases = (
-				OBJ_85 /* Sources */,
-				OBJ_87 /* Frameworks */,
+				OBJ_95 /* Sources */,
+				OBJ_101 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -438,9 +461,9 @@
 		};
 		"AtlasCore::SwiftPMPackageDescription" /* AtlasCorePackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_58 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */;
+			buildConfigurationList = OBJ_66 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */;
 			buildPhases = (
-				OBJ_61 /* Sources */,
+				OBJ_69 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -452,10 +475,10 @@
 		};
 		"SwiftCLI::SwiftCLI" /* SwiftCLI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_88 /* Build configuration list for PBXNativeTarget "SwiftCLI" */;
+			buildConfigurationList = OBJ_102 /* Build configuration list for PBXNativeTarget "SwiftCLI" */;
 			buildPhases = (
-				OBJ_91 /* Sources */,
-				OBJ_117 /* Frameworks */,
+				OBJ_105 /* Sources */,
+				OBJ_131 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,9 +491,9 @@
 		};
 		"SwiftCLI::SwiftPMPackageDescription" /* SwiftCLIPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_64 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */;
+			buildConfigurationList = OBJ_72 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */;
 			buildPhases = (
-				OBJ_67 /* Sources */,
+				OBJ_75 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -489,22 +512,22 @@
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					3AC3972820328B8300ADA305 = {
+					3A9F603D2033983F006243C6 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
 					};
-					3AC3973920328B8400ADA305 = {
+					3A9F604E2033983F006243C6 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3AC3972820328B8300ADA305;
+						TestTargetID = 3A9F603D2033983F006243C6;
 					};
-					3AC3974420328B8400ADA305 = {
+					3A9F60592033983F006243C6 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3AC3972820328B8300ADA305;
+						TestTargetID = 3A9F603D2033983F006243C6;
 					};
 				};
 			};
@@ -516,8 +539,8 @@
 				en,
 				Base,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_47 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -527,31 +550,31 @@
 				"Atlas::Atlas" /* Atlas */,
 				"AtlasCore::AtlasCore" /* AtlasCore */,
 				"SwiftCLI::SwiftCLI" /* SwiftCLI */,
-				3AC3972820328B8300ADA305 /* AtlasApp */,
-				3AC3973920328B8400ADA305 /* AtlasAppTests */,
-				3AC3974420328B8400ADA305 /* AtlasAppUITests */,
+				3A9F603D2033983F006243C6 /* AtlasApp */,
+				3A9F604E2033983F006243C6 /* AtlasAppTests */,
+				3A9F60592033983F006243C6 /* AtlasAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3AC3972720328B8300ADA305 /* Resources */ = {
+		3A9F603C2033983F006243C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC3973020328B8300ADA305 /* Assets.xcassets in Resources */,
-				3AC3973320328B8400ADA305 /* Main.storyboard in Resources */,
+				3A9F60452033983F006243C6 /* Assets.xcassets in Resources */,
+				3A9F60482033983F006243C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AC3973820328B8400ADA305 /* Resources */ = {
+		3A9F604D2033983F006243C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AC3974320328B8400ADA305 /* Resources */ = {
+		3A9F60582033983F006243C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -561,135 +584,139 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3AC3972520328B8300ADA305 /* Sources */ = {
+		3A9F603A2033983F006243C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC3972E20328B8300ADA305 /* ViewController.swift in Sources */,
-				3AC3972C20328B8300ADA305 /* AppDelegate.swift in Sources */,
+				3A9F60432033983F006243C6 /* ViewController.swift in Sources */,
+				3A9F60412033983F006243C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AC3973620328B8400ADA305 /* Sources */ = {
+		3A9F604B2033983F006243C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC3973F20328B8400ADA305 /* AtlasAppTests.swift in Sources */,
+				3A9F60542033983F006243C6 /* AtlasAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AC3974120328B8400ADA305 /* Sources */ = {
+		3A9F60562033983F006243C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AC3974A20328B8400ADA305 /* AtlasAppUITests.swift in Sources */,
+				3A9F605F20339840006243C6 /* AtlasAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_55 /* Sources */ = {
+		OBJ_105 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_56 /* Package.swift in Sources */,
+				OBJ_106 /* ArgumentList.swift in Sources */,
+				OBJ_107 /* ArgumentListManipulator.swift in Sources */,
+				OBJ_108 /* CLI-deprecated.swift in Sources */,
+				OBJ_109 /* CLI.swift in Sources */,
+				OBJ_110 /* ChainableCommand.swift in Sources */,
+				OBJ_111 /* Command.swift in Sources */,
+				OBJ_112 /* CommandSignature.swift in Sources */,
+				OBJ_113 /* CompletionGenerator.swift in Sources */,
+				OBJ_114 /* Error.swift in Sources */,
+				OBJ_115 /* GlobalOptions.swift in Sources */,
+				OBJ_116 /* HelpCommand.swift in Sources */,
+				OBJ_117 /* HelpMessageGenerator.swift in Sources */,
+				OBJ_118 /* Input.swift in Sources */,
+				OBJ_119 /* LightweightCommand.swift in Sources */,
+				OBJ_120 /* Option.swift in Sources */,
+				OBJ_121 /* OptionGroup.swift in Sources */,
+				OBJ_122 /* OptionRecognizer.swift in Sources */,
+				OBJ_123 /* OptionRegistry.swift in Sources */,
+				OBJ_124 /* Output.swift in Sources */,
+				OBJ_125 /* OutputByteStream.swift in Sources */,
+				OBJ_126 /* Parameter.swift in Sources */,
+				OBJ_127 /* ParameterFiller.swift in Sources */,
+				OBJ_128 /* Router.swift in Sources */,
+				OBJ_129 /* Term.swift in Sources */,
+				OBJ_130 /* VersionCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_61 /* Sources */ = {
+		OBJ_63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_62 /* Package.swift in Sources */,
+				OBJ_64 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_67 /* Sources */ = {
+		OBJ_69 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_68 /* Package.swift in Sources */,
+				OBJ_70 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_73 /* Sources */ = {
+		OBJ_75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_74 /* main.swift in Sources */,
-				3A9F5F8820332F95006243C6 /* LogoutCommand.swift in Sources */,
-				3A9F5F8420332F59006243C6 /* LoginCommand.swift in Sources */,
+				OBJ_76 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_85 /* Sources */ = {
+		OBJ_81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_86 /* AtlasCore.swift in Sources */,
+				OBJ_82 /* LoginCommand.swift in Sources */,
+				OBJ_83 /* LogoutCommand.swift in Sources */,
+				OBJ_84 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_91 /* Sources */ = {
+		OBJ_95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_92 /* ArgumentList.swift in Sources */,
-				OBJ_93 /* ArgumentListManipulator.swift in Sources */,
-				OBJ_94 /* CLI-deprecated.swift in Sources */,
-				OBJ_95 /* CLI.swift in Sources */,
-				OBJ_96 /* ChainableCommand.swift in Sources */,
-				OBJ_97 /* Command.swift in Sources */,
-				OBJ_98 /* CommandSignature.swift in Sources */,
-				OBJ_99 /* CompletionGenerator.swift in Sources */,
-				OBJ_100 /* Error.swift in Sources */,
-				OBJ_101 /* GlobalOptions.swift in Sources */,
-				OBJ_102 /* HelpCommand.swift in Sources */,
-				OBJ_103 /* HelpMessageGenerator.swift in Sources */,
-				OBJ_104 /* Input.swift in Sources */,
-				OBJ_105 /* LightweightCommand.swift in Sources */,
-				OBJ_106 /* Option.swift in Sources */,
-				OBJ_107 /* OptionGroup.swift in Sources */,
-				OBJ_108 /* OptionRecognizer.swift in Sources */,
-				OBJ_109 /* OptionRegistry.swift in Sources */,
-				OBJ_110 /* Output.swift in Sources */,
-				OBJ_111 /* OutputByteStream.swift in Sources */,
-				OBJ_112 /* Parameter.swift in Sources */,
-				OBJ_113 /* ParameterFiller.swift in Sources */,
-				OBJ_114 /* Router.swift in Sources */,
-				OBJ_115 /* Term.swift in Sources */,
-				OBJ_116 /* VersionCommand.swift in Sources */,
+				OBJ_96 /* AtlasCore.swift in Sources */,
+				OBJ_97 /* AtlasProcess.swift in Sources */,
+				OBJ_98 /* FileSystem.swift in Sources */,
+				OBJ_99 /* Git.swift in Sources */,
+				OBJ_100 /* Glue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3AC3973C20328B8400ADA305 /* PBXTargetDependency */ = {
+		3A9F60512033983F006243C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3AC3972820328B8300ADA305 /* AtlasApp */;
-			targetProxy = 3AC3973B20328B8400ADA305 /* PBXContainerItemProxy */;
+			target = 3A9F603D2033983F006243C6 /* AtlasApp */;
+			targetProxy = 3A9F60502033983F006243C6 /* PBXContainerItemProxy */;
 		};
-		3AC3974720328B8400ADA305 /* PBXTargetDependency */ = {
+		3A9F605C20339840006243C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3AC3972820328B8300ADA305 /* AtlasApp */;
-			targetProxy = 3AC3974620328B8400ADA305 /* PBXContainerItemProxy */;
+			target = 3A9F603D2033983F006243C6 /* AtlasApp */;
+			targetProxy = 3A9F605B20339840006243C6 /* PBXContainerItemProxy */;
 		};
-		OBJ_78 /* PBXTargetDependency */ = {
+		OBJ_88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
-			targetProxy = 3AC3972320328B6200ADA305 /* PBXContainerItemProxy */;
+			targetProxy = 3A9F603820339826006243C6 /* PBXContainerItemProxy */;
 		};
-		OBJ_80 /* PBXTargetDependency */ = {
+		OBJ_90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftCLI::SwiftCLI" /* SwiftCLI */;
-			targetProxy = 3AC3972420328B6200ADA305 /* PBXContainerItemProxy */;
+			targetProxy = 3A9F603920339826006243C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3AC3973120328B8400ADA305 /* Main.storyboard */ = {
+		3A9F60462033983F006243C6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3AC3973220328B8400ADA305 /* Base */,
+				3A9F60472033983F006243C6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -697,7 +724,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3AC3974D20328B8400ADA305 /* Debug */ = {
+		3A9F606220339840006243C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -757,7 +784,7 @@
 			};
 			name = Debug;
 		};
-		3AC3974E20328B8400ADA305 /* Release */ = {
+		3A9F606320339840006243C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -812,7 +839,7 @@
 			};
 			name = Release;
 		};
-		3AC3975020328B8400ADA305 /* Debug */ = {
+		3A9F606520339840006243C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -873,7 +900,7 @@
 			};
 			name = Debug;
 		};
-		3AC3975120328B8400ADA305 /* Release */ = {
+		3A9F606620339840006243C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -929,7 +956,7 @@
 			};
 			name = Release;
 		};
-		3AC3975320328B8400ADA305 /* Debug */ = {
+		3A9F606820339840006243C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -989,7 +1016,7 @@
 			};
 			name = Debug;
 		};
-		3AC3975420328B8400ADA305 /* Release */ = {
+		3A9F606920339840006243C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1041,6 +1068,52 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = AtlasApp;
+			};
+			name = Release;
+		};
+		OBJ_103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Atlas.xcodeproj/SwiftCLI_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftCLI;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftCLI;
+			};
+			name = Debug;
+		};
+		OBJ_104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Atlas.xcodeproj/SwiftCLI_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftCLI;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftCLI;
 			};
 			name = Release;
 		};
@@ -1054,7 +1127,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1075,7 +1148,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1086,7 +1159,7 @@
 			};
 			name = Release;
 		};
-		OBJ_53 /* Debug */ = {
+		OBJ_61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1095,7 +1168,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_54 /* Release */ = {
+		OBJ_62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1104,7 +1177,7 @@
 			};
 			name = Release;
 		};
-		OBJ_59 /* Debug */ = {
+		OBJ_67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1113,7 +1186,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_60 /* Release */ = {
+		OBJ_68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1122,7 +1195,7 @@
 			};
 			name = Release;
 		};
-		OBJ_65 /* Debug */ = {
+		OBJ_73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1131,7 +1204,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_66 /* Release */ = {
+		OBJ_74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -1140,8 +1213,9 @@
 			};
 			name = Release;
 		};
-		OBJ_71 /* Debug */ = {
+		OBJ_79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1159,8 +1233,9 @@
 			};
 			name = Debug;
 		};
-		OBJ_72 /* Release */ = {
+		OBJ_80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1178,8 +1253,9 @@
 			};
 			name = Release;
 		};
-		OBJ_83 /* Debug */ = {
+		OBJ_93 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1200,8 +1276,9 @@
 			};
 			name = Debug;
 		};
-		OBJ_84 /* Release */ = {
+		OBJ_94 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1219,79 +1296,44 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = AtlasCore;
-			};
-			name = Release;
-		};
-		OBJ_89 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Atlas.xcodeproj/SwiftCLI_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwiftCLI;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = SwiftCLI;
-			};
-			name = Debug;
-		};
-		OBJ_90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Atlas.xcodeproj/SwiftCLI_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwiftCLI;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = SwiftCLI;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3AC3974C20328B8400ADA305 /* Build configuration list for PBXNativeTarget "AtlasApp" */ = {
+		3A9F606120339840006243C6 /* Build configuration list for PBXNativeTarget "AtlasApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3AC3974D20328B8400ADA305 /* Debug */,
-				3AC3974E20328B8400ADA305 /* Release */,
+				3A9F606220339840006243C6 /* Debug */,
+				3A9F606320339840006243C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3AC3974F20328B8400ADA305 /* Build configuration list for PBXNativeTarget "AtlasAppTests" */ = {
+		3A9F606420339840006243C6 /* Build configuration list for PBXNativeTarget "AtlasAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3AC3975020328B8400ADA305 /* Debug */,
-				3AC3975120328B8400ADA305 /* Release */,
+				3A9F606520339840006243C6 /* Debug */,
+				3A9F606620339840006243C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3AC3975220328B8400ADA305 /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */ = {
+		3A9F606720339840006243C6 /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3AC3975320328B8400ADA305 /* Debug */,
-				3AC3975420328B8400ADA305 /* Release */,
+				3A9F606820339840006243C6 /* Debug */,
+				3A9F606920339840006243C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_102 /* Build configuration list for PBXNativeTarget "SwiftCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_103 /* Debug */,
+				OBJ_104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -1305,56 +1347,47 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_52 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */ = {
+		OBJ_60 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_53 /* Debug */,
-				OBJ_54 /* Release */,
+				OBJ_61 /* Debug */,
+				OBJ_62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_58 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */ = {
+		OBJ_66 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_59 /* Debug */,
-				OBJ_60 /* Release */,
+				OBJ_67 /* Debug */,
+				OBJ_68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_64 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */ = {
+		OBJ_72 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_65 /* Debug */,
-				OBJ_66 /* Release */,
+				OBJ_73 /* Debug */,
+				OBJ_74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_70 /* Build configuration list for PBXNativeTarget "Atlas" */ = {
+		OBJ_78 /* Build configuration list for PBXNativeTarget "Atlas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_71 /* Debug */,
-				OBJ_72 /* Release */,
+				OBJ_79 /* Debug */,
+				OBJ_80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_82 /* Build configuration list for PBXNativeTarget "AtlasCore" */ = {
+		OBJ_92 /* Build configuration list for PBXNativeTarget "AtlasCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_83 /* Debug */,
-				OBJ_84 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_88 /* Build configuration list for PBXNativeTarget "SwiftCLI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_89 /* Debug */,
-				OBJ_90 /* Release */,
+				OBJ_93 /* Debug */,
+				OBJ_94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

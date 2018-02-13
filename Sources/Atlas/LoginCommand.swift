@@ -44,11 +44,13 @@ class LoginCommand: Command {
             return
         }
         
-        
-//        let credentials =
-//        atlasCore.initGit(
+        let credentials = Credentials(username!, password: password!)
+        if atlasCore.initGit(credentials) {
+            print("Logged in to Atlas as \(username!)")
+        } else {
+            print("Error logging in.")
+        }
 
-        print("Logged in to Atlas as \(username)")
     }
     
 }

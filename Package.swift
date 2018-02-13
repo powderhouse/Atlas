@@ -18,3 +18,8 @@ let package = Package(
             dependencies: ["SwiftCLI", "AtlasCore"]),
     ]
 )
+
+
+// GENERATE: swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
+// BUILD: swift build -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
+// RUN: swift run -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13" Atlas
