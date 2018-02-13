@@ -44,7 +44,7 @@ class LoginCommand: Command {
             return
         }
 
-        print("Logged in as \(username)/\(password): \(atlasCore.hello())")
+        print("Logged in as \(username)/\(password): \(atlasCore.version())")
     }
     
 }
