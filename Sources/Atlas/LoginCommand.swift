@@ -43,8 +43,12 @@ class LoginCommand: Command {
             print("Please provide a username using -p or --password (e.g. -p github_password)")
             return
         }
+        
+        
+//        let credentials =
+//        atlasCore.initGit(
 
-        print("Logged in as \(username)/\(password): \(atlasCore.version())")
+        print("Logged in to Atlas as \(username)")
     }
     
 }
