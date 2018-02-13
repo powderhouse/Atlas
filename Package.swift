@@ -7,7 +7,7 @@ let package = Package(
     name: "Atlas",
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/kylef/Commander.git", from: "0.8.0"),
+        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "4.0.0"),
         .package(url: "https://github.com/powderhouse/AtlasCore.git", from: "0.1.0")
     ],
     targets: [
@@ -15,6 +15,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Atlas",
-            dependencies: ["Commander", "AtlasCore"]),
+            dependencies: ["SwiftCLI", "AtlasCore"]),
     ]
 )

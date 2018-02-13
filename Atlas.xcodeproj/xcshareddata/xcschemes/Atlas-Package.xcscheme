@@ -42,9 +42,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Commander::Commander"
-               BuildableName = "Commander.framework"
-               BlueprintName = "Commander"
+               BlueprintIdentifier = "SwiftCLI::SwiftCLI"
+               BuildableName = "SwiftCLI.framework"
+               BlueprintName = "SwiftCLI"
                ReferencedContainer = "container:Atlas.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
