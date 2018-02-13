@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A9F5F8420332F59006243C6 /* LoginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F5F8220332C7D006243C6 /* LoginCommand.swift */; };
+		3A9F5F8820332F95006243C6 /* LogoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F5F8520332F87006243C6 /* LogoutCommand.swift */; };
 		3AC3972C20328B8300ADA305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3972B20328B8300ADA305 /* AppDelegate.swift */; };
 		3AC3972E20328B8300ADA305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3972D20328B8300ADA305 /* ViewController.swift */; };
 		3AC3973020328B8300ADA305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC3972F20328B8300ADA305 /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A9F5F8220332C7D006243C6 /* LoginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommand.swift; sourceTree = "<group>"; };
+		3A9F5F8520332F87006243C6 /* LogoutCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommand.swift; sourceTree = "<group>"; };
 		3AC3972920328B8300ADA305 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC3972B20328B8300ADA305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AC3972D20328B8300ADA305 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* main.swift */,
+				3A9F5F8220332C7D006243C6 /* LoginCommand.swift */,
+				3A9F5F8520332F87006243C6 /* LogoutCommand.swift */,
 			);
 			name = Atlas;
 			path = Sources/Atlas;
@@ -609,6 +615,8 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_74 /* main.swift in Sources */,
+				3A9F5F8820332F95006243C6 /* LogoutCommand.swift in Sources */,
+				3A9F5F8420332F59006243C6 /* LoginCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

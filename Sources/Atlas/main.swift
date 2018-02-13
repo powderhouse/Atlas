@@ -1,33 +1,15 @@
-import Commander
+import SwiftCLI
 import AtlasCore
 
-let main = command { (filename:String) in
-    print("Reading file \(filename)...")
-}
+let cli = CLI(name: "Atlas", version: "0.0.1", description: "Powderhouse Studios Atlas")
 
-let group = Group {
+let atlasCore: AtlasCore = AtlasCore()
 
-    print("$0: \($0)")
-    
-//    $0.command(
-//        "login",
-//        description: "TEST",
-//        Option("username")
-//    ) { (username:String) in
-//        print("Hello \(username)")
-//    }
+cli.commands = [
+    LoginCommand(atlasCore),
+    LogoutCommand()
+]
 
-    $0.command("logout") {
-        print("Goodbye.")
-    }
-    
-    $0.command("test") { (parser:ArgumentParser) in
-        print("HAS V: \(parser.hasOption("v")) - \(parser)")
-    }
-}
-    
-group.command("test", "TEST") { (test:String) in
-    print("TEST: \(test)")
-}
-    
-group.run()
+_ = cli.go()
+
+
