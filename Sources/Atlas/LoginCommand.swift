@@ -24,6 +24,13 @@ class LoginCommand: Command {
     }
     
     func execute() throws  {
+        if let credentials = atlasCore.getCredentials() {
+            let confirmLogin = "You are already logged in as \(credentials.username). Do you want to log in as someone else?"
+            if !Input.awaitYesNoInput(message: confirmLogin) {
+                return
+            }
+        }
+        
         var username = usernameOption.value
         if username == nil {
             username = Input.awaitInput(message: "GitHub Username:")
@@ -45,8 +52,11 @@ class LoginCommand: Command {
         }
         
         let credentials = Credentials(username!, password: password!)
-        if atlasCore.initGit(credentials) {
+        if atlasCore.initializeGit(credentials) {
+            atlasCore.createGitRepository()
             print("Logged in to Atlas as \(username!)")
+            print("GitHub repository: \(atlasCore.gitHubRepository() ?? "N/A")")
+            print("Local repository: \(atlasCore.atlasDirectory.path)")
         } else {
             print("Error logging in.")
         }

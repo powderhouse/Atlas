@@ -6,6 +6,7 @@ let cli = CLI(name: "Atlas", version: "0.0.1", description: "Powderhouse Studios
 let atlasCore: AtlasCore = AtlasCore()
 
 cli.commands = [
+    InfoCommand(atlasCore),
     LoginCommand(atlasCore),
     LogoutCommand()
 ]
