@@ -52,11 +52,14 @@ class LoginCommand: Command {
         }
         
         let credentials = Credentials(username!, password: password!)
-        if atlasCore.initializeGit(credentials) {
-            atlasCore.createGitRepository()
-            print("Logged in to Atlas as \(username!)")
-            print("GitHub repository: \(atlasCore.gitHubRepository() ?? "N/A")")
-            print("Local repository: \(atlasCore.atlasDirectory.path)")
+        if atlasCore.initGitAndGitHub(credentials) {
+            print("Logged into Atlas as \(credentials.username)")
+            if let repository = atlasCore.gitHubRepository() {
+                print("GitHub Repository: \(repository)")
+            }
+            if let localRepository = atlasCore.atlasDirectory {
+                print("Local repository: \(localRepository.path)")
+            }
         } else {
             print("Error logging in.")
         }

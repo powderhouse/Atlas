@@ -21,12 +21,16 @@ class InfoCommand: Command {
     }
     
     func execute() throws  {
-        if let credentials = atlasCore.getGitCredentials() {
+        if let credentials = atlasCore.getCredentials() {
             print("Logged into Atlas as \(credentials.username)")
             if let repository = atlasCore.gitHubRepository() {
                 print("GitHub Repository: \(repository)")
             }
-            print("Local repository: \(atlasCore.baseDirectory.path)")
+            if let localRepository = atlasCore.atlasDirectory {
+                print("Local repository: \(localRepository.path)")
+            }
+        } else {
+            print("Not logged in.")
         }
     }
 }
