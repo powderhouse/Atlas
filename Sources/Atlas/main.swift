@@ -8,7 +8,9 @@ let atlasCore: AtlasCore = AtlasCore()
 cli.commands = [
     InfoCommand(atlasCore),
     LoginCommand(atlasCore),
-    LogoutCommand()
+    LogoutCommand(),
+    StartProjectCommand(atlasCore),
+    StatusCommand(atlasCore),
 ]
 
 _ = cli.go()
