@@ -60,6 +60,8 @@ class LoginCommand: Command {
             if let localRepository = atlasCore.atlasDirectory {
                 print("Local repository: \(localRepository.path)")
             }
+            
+            _ = atlasCore.startProject("General")
         } else {
             print("Error logging in.")
         }
