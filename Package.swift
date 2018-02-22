@@ -23,4 +23,4 @@ let package = Package(
 // GENERATE: swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
 // BUILD: swift build -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
 // RUN: swift run -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13" Atlas
-// BUILD: swift build -c release -Xswiftc -static-stdlib -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
+// BUILD FOR DISTRIBUTION: swift build -c release -Xswiftc -static-stdlib -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"

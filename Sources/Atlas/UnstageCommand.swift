@@ -1,28 +1,27 @@
 //
-//  InfoCommand.swift
+//  UnstageCommand.swift
 //  Atlas
 //
-//  Created by Jared Cosulich on 2/14/18.
+//  Created by Jared Cosulich on 2/21/18.
 //
 
 import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class ImportCommand: Command {
+class UnstageCommand: Command {
     
-    // Atlas import -f {files} -p {project} -u {urls}
+    // Atlas unstage -f {files} -p {project}
     
     var atlasCore: AtlasCore
     
-    let name = "import"
-    let shortDescription = "Import (copy) one or more files or urls into an Atlas project."
+    let name = "unstage"
+    let shortDescription = "Unstage files in a project. This will prevent them from being committed until they are staged again."
     
-    let filesType = Flag("-f", "--files", description: "Import files into the project.")
-    let urlsType = Flag("-u", "--urls", description: "Import urls into the project.")
+    let filesType = Flag("-f", "--files", description: "Unstage the specified files.")
     let imports = CollectedParameter()
     let project = Key<String>("-p", "--project", description: "The project you want to import the files into.")
-
+    
     init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
@@ -30,17 +29,15 @@ class ImportCommand: Command {
     func execute() throws  {
         if let projectName = project.value {
             for file in imports.value {
-                if atlasCore.copy(file, into: projectName) {
+                if atlasCore.move(file, into: "unstaged") {
                     if let fileName = file.split(separator: "/").last {
-                        print("Atlas Imported \(fileName) into \(projectName)")
+                        print("Unstaged \(fileName) in the project \"\(projectName)\"")
                     }
                 }
             }
-            atlasCore.atlasCommit("Importing files into \(projectName)")
+            atlasCore.atlasCommit("Unstaging files in \(projectName)")
         } else {
             print("Please specify a project name with -p or --project (e.g. -p MyProject)")
         }
     }
 }
-
-

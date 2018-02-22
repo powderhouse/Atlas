@@ -62,6 +62,8 @@ class LoginCommand: Command {
             }
             
             _ = atlasCore.startProject("General")
+            
+            atlasCore.atlasCommit("Atlas Initialization")
         } else {
             print("Error logging in.")
         }

@@ -25,6 +25,7 @@ class StartProjectCommand: Command {
     func execute() throws  {
         if atlasCore.startProject(project.value) {
             print("Project Started: \(project.value)")
+            atlasCore.atlasCommit("\(name) Project Initialization")
         } else {
             print("There was an error creating this project.")
         }
