@@ -20,7 +20,7 @@ class UnstageCommand: Command {
     
     let filesType = Flag("-f", "--files", description: "Unstage the specified files.")
     let files = CollectedParameter()
-    let project = Key<String>("-p", "--project", description: "The project you want to import the files into.")
+    let project = Key<String>("-p", "--project", description: "The project the files reside in.")
     
     init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
