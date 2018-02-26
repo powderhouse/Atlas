@@ -10,8 +10,11 @@ cli.commands = [
     InfoCommand(atlasCore),
     LoginCommand(atlasCore),
     LogoutCommand(),
+    StagedCommand(atlasCore),
     StartProjectCommand(atlasCore),
     StatusCommand(atlasCore),
+    UnstageCommand(atlasCore),
+    UnstagedCommand(atlasCore),
 ]
 
 _ = cli.go()

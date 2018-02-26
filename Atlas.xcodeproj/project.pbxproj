@@ -13,6 +13,8 @@
 		3A9F60C4203F68C8006243C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9F60C2203F68C8006243C6 /* Main.storyboard */; };
 		3A9F60D0203F68C8006243C6 /* AtlasAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60CF203F68C8006243C6 /* AtlasAppTests.swift */; };
 		3A9F60DB203F68C9006243C6 /* AtlasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60DA203F68C9006243C6 /* AtlasAppUITests.swift */; };
+		3A9F60E920447D31006243C6 /* StagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60E820447D31006243C6 /* StagedCommand.swift */; };
+		3A9F60EB204484C3006243C6 /* UnstagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9F60EA204484C3006243C6 /* UnstagedCommand.swift */; };
 		OBJ_100 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
 		OBJ_109 /* AtlasCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AtlasCore.swift */; };
 		OBJ_110 /* AtlasProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* AtlasProcess.swift */; };
@@ -106,6 +108,8 @@
 		3A9F60D6203F68C8006243C6 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9F60DA203F68C9006243C6 /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
 		3A9F60DC203F68C9006243C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9F60E820447D31006243C6 /* StagedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedCommand.swift; sourceTree = "<group>"; };
+		3A9F60EA204484C3006243C6 /* UnstagedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstagedCommand.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_11 /* ImportCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCommand.swift; sourceTree = "<group>"; };
@@ -242,9 +246,11 @@
 				OBJ_12 /* InfoCommand.swift */,
 				OBJ_13 /* LoginCommand.swift */,
 				OBJ_14 /* LogoutCommand.swift */,
+				3A9F60E820447D31006243C6 /* StagedCommand.swift */,
 				OBJ_15 /* StartProjectCommand.swift */,
 				OBJ_16 /* StatusCommand.swift */,
 				OBJ_17 /* UnstageCommand.swift */,
+				3A9F60EA204484C3006243C6 /* UnstagedCommand.swift */,
 				OBJ_18 /* main.swift */,
 			);
 			name = Atlas;
@@ -710,7 +716,9 @@
 			files = (
 				OBJ_90 /* ImportCommand.swift in Sources */,
 				OBJ_91 /* InfoCommand.swift in Sources */,
+				3A9F60EB204484C3006243C6 /* UnstagedCommand.swift in Sources */,
 				OBJ_92 /* LoginCommand.swift in Sources */,
+				3A9F60E920447D31006243C6 /* StagedCommand.swift in Sources */,
 				OBJ_93 /* LogoutCommand.swift in Sources */,
 				OBJ_94 /* StartProjectCommand.swift in Sources */,
 				OBJ_95 /* StatusCommand.swift in Sources */,

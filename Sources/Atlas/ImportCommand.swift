@@ -29,14 +29,11 @@ class ImportCommand: Command {
     
     func execute() throws  {
         if let projectName = project.value {
-            for file in imports.value {
-                if atlasCore.copy(file, into: projectName) {
-                    if let fileName = file.split(separator: "/").last {
-                        print("Atlas Imported \(fileName) into \(projectName)")
-                    }
-                }
+            if atlasCore.copy(imports.value, into: projectName) {
+                atlasCore.atlasCommit("Importing files into \(projectName)")
+            } else {
+                print("Failed to import files.")
             }
-            atlasCore.atlasCommit("Importing files into \(projectName)")
         } else {
             print("Please specify a project name with -p or --project (e.g. -p MyProject)")
         }

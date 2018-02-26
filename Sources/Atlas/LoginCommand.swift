@@ -61,7 +61,7 @@ class LoginCommand: Command {
                 print("Local repository: \(localRepository.path)")
             }
             
-            _ = atlasCore.startProject("General")
+            _ = atlasCore.initProject("General")
             
             atlasCore.atlasCommit("Atlas Initialization")
         } else {
