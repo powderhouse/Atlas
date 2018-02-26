@@ -8,7 +8,9 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/jakeheis/SwiftCLI", from: "4.0.0"),
-        .package(url: "https://github.com/powderhouse/AtlasCore.git", from: "0.2.0")
+        .package(url: "https://github.com/powderhouse/AtlasCore.git", from: "0.2.0"),
+        .package(url: "https://github.com/Quick/Quick.git", from: "1.0.0"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -16,6 +18,18 @@ let package = Package(
         .target(
             name: "Atlas",
             dependencies: ["SwiftCLI", "AtlasCore"]),
+        .target(
+            name: "AtlasTests",
+            dependencies: ["SwiftCLI", "AtlasCore", "Quick", "Nimble"]),
+        .target(
+            name: "AtlasApp",
+            dependencies: ["AtlasCore"]),
+        .target(
+            name: "AtlasAppTests",
+            dependencies: ["AtlasCore", "Quick", "Nimble"]),
+        .target(
+            name: "AtlasAppUITests",
+            dependencies: ["AtlasCore", "Quick", "Nimble"]),
     ]
 )
 
