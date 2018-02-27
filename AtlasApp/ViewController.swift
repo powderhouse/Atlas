@@ -14,7 +14,6 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        AtlasCore.hello()
     }
 
     override var representedObject: Any? {

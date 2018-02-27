@@ -1,13 +1,13 @@
 //
-//  AtlasTests.swift
-//  AtlasTests
+//  Tests.swift
+//  Tests
 //
 //  Created by Jared Cosulich on 2/26/18.
 //
 
 import XCTest
 
-class AtlasTests: XCTestCase {
+class Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,6 +22,7 @@ class AtlasTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(true)
     }
     
     func testPerformanceExample() {
