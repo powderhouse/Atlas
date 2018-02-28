@@ -11,30 +11,24 @@ let package = Package(
         .package(url: "https://github.com/powderhouse/AtlasCore.git", from: "0.2.0"),
         .package(url: "https://github.com/Quick/Quick.git", from: "1.0.0"),
         .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),
-    ],
+        ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Atlas",
             dependencies: ["SwiftCLI", "AtlasCore"]),
-        .target(
+        .testTarget(
             name: "AtlasTests",
-            dependencies: ["SwiftCLI", "AtlasCore", "Quick", "Nimble"]),
-        .target(
-            name: "AtlasApp",
-            dependencies: ["AtlasCore"]),
-        .target(
-            name: "AtlasAppTests",
-            dependencies: ["AtlasCore", "Quick", "Nimble"]),
-        .target(
-            name: "AtlasAppUITests",
-            dependencies: ["AtlasCore", "Quick", "Nimble"]),
-    ]
+            dependencies: ["Atlas", "AtlasCore", "Quick", "Nimble"]),
+        ]
 )
+
+
 
 
 // GENERATE: swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
 // BUILD: swift build -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
 // RUN: swift run -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13" Atlas
 // BUILD FOR DISTRIBUTION: swift build -c release -Xswiftc -static-stdlib -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
+

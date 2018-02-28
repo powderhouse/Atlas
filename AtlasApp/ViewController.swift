@@ -10,10 +10,13 @@ import AtlasCore
 
 class ViewController: NSViewController {
 
+    let atlasCore = AtlasCore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("ATLAS DIRECTORY: \(atlasCore.atlasDirectory)")
     }
 
     override var representedObject: Any? {
