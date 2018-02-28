@@ -16,7 +16,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("ATLAS DIRECTORY: \(atlasCore.atlasDirectory)")
+        print("ATLAS DIRECTORY: \(atlasCore.baseDirectory)")
     }
 
     override var representedObject: Any? {
