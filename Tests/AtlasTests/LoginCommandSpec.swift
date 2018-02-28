@@ -1,10 +1,9 @@
 //
-//  ImportCommandSpec
+//  LoginCommandSpec.swift
 //  AtlasTests
 //
-//  Created by Jared Cosulich on 2/26/18.
+//  Created by Jared Cosulich on 2/28/18.
 //
-
 
 import Foundation
 import Quick
@@ -12,15 +11,15 @@ import Nimble
 import AtlasCore
 import Atlas
 
-class ImportCommandSpec: QuickSpec {
+class LoginCommandSpec: QuickSpec {
     override func spec() {
         
-        describe("Import") {
+        describe("Login") {
             
             var directory: URL!
             var atlasCore: AtlasCore!
             
-            var importCommand: ImportCommand!
+            var loginCommand: LoginCommand!
             
             beforeEach {
                 directory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("ATLAS_CORE")
@@ -32,7 +31,7 @@ class ImportCommandSpec: QuickSpec {
                 //                expect(exists).to(beTrue(), description: "No folder found")
                 
                 atlasCore = AtlasCore(directory)
-                importCommand = ImportCommand(atlasCore)
+                loginCommand = LoginCommand(atlasCore)
             }
             
             afterEach {
@@ -44,14 +43,14 @@ class ImportCommandSpec: QuickSpec {
                 
                 it("should work") {
                     do {
-                        try importCommand.execute()
+                        try loginCommand.execute()
                         print("SUCCESS")
                     } catch {
                         print("FAIL")
                     }
                     expect(true).to(beTrue())
                 }
-
+                
                 it("should fail") {
                     expect(false).to(beTrue())
                 }
@@ -59,6 +58,3 @@ class ImportCommandSpec: QuickSpec {
         }
     }
 }
-
-
-
