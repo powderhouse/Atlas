@@ -43,10 +43,19 @@ class ImportCommandSpec: QuickSpec {
             context("running") {
                 
                 it("should work") {
-                    print("HI: \(importCommand)")
+                    do {
+                        try importCommand.execute()
+                        print("SUCCESS")
+                    } catch {
+                        print("FAIL")
+                    }
                     expect(true).to(beTrue())
                 }
-            }
+
+                it("should fail") {
+                    expect(false).to(beTrue())
+                }
+}
         }
     }
 }
