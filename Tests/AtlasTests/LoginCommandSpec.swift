@@ -16,6 +16,13 @@ class LoginCommandSpec: QuickSpec {
         
         describe("Login") {
             
+            let gitHubUser = "atlastest"
+            let gitHubPassword = "1a2b3c4d"
+            
+            let fileManager = FileManager.default
+            var isFile : ObjCBool = false
+            var isDirectory : ObjCBool = true
+            
             var directory: URL!
             var atlasCore: AtlasCore!
             
@@ -32,27 +39,63 @@ class LoginCommandSpec: QuickSpec {
                 
                 atlasCore = AtlasCore(directory)
                 loginCommand = LoginCommand(atlasCore)
+                loginCommand.input.setDefaultInput(message: "GitHub Username:", response: gitHubUser)
+                loginCommand.input.setDefaultInput(message: "GitHub Password:", response: gitHubPassword)
             }
             
             afterEach {
                 FileSystem.deleteDirectory(directory)
+                atlasCore.deleteGitHubRepository()
             }
             
             
-            context("running") {
+            context("execute") {
                 
-                it("should work") {
+                beforeEach {
                     do {
                         try loginCommand.execute()
-                        print("SUCCESS")
                     } catch {
-                        print("FAIL")
+                        expect(false).to(beTrue(), description: "LoginCommand failed")
                     }
-                    expect(true).to(beTrue())
                 }
                 
-                it("should fail") {
-                    expect(false).to(beTrue())
+                it("should store the github credentials to the filesystem") {
+                    let credentialsFile = directory.appendingPathComponent("credentials.json")
+                    let exists = fileManager.fileExists(atPath: credentialsFile.path, isDirectory: &isFile)
+                    expect(exists).to(beTrue(), description: "No credentials.json found")
+                }
+                
+                it("saves a readme to the filesystem") {
+                    if let readmeFile = atlasCore.atlasDirectory?.appendingPathComponent("readme.md") {
+                        let exists = fileManager.fileExists(atPath: readmeFile.path, isDirectory: &isFile)
+                        expect(exists).to(beTrue(), description: "No readme.md found")
+                    } else {
+                        expect(false).to(beTrue(), description: "Atlas directory was not set")
+                    }
+                }
+                
+                context("future usage") {
+                    var loginCommand: LoginCommand!
+                    
+                    beforeEach {
+                        let atlasCore2 = AtlasCore(directory)
+                        loginCommand = LoginCommand(atlasCore2)
+                    }
+                    
+                    it("asks if you want to login again") {
+                        let message = "You are already logged in as \(gitHubUser). Do you want to log in as someone else?"
+                        loginCommand.input.setDefaultInput(message: message, response: "N")
+                        
+                        do {
+                            try loginCommand.execute()
+                        } catch {
+                            expect(false).to(beTrue(), description: "LoginCommand failed")
+                        }
+                        
+                        let credentialsFile = directory.appendingPathComponent("credentials.json")
+                        let exists = fileManager.fileExists(atPath: credentialsFile.path, isDirectory: &isFile)
+                        expect(exists).to(beTrue(), description: "No credentials.json found")
+                    }
                 }
             }
         }

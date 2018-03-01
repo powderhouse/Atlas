@@ -19,26 +19,29 @@ class LoginCommand: Command {
     let usernameOption = Key<String>("-u", "--username", description: "Your GitHub username")
     let passwordOption = Key<String>("-p", "--password", description: "Your GitHub password")
     
+    var input: AtlasInput!
+    
     init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
+        self.input = AtlasInput()
     }
     
     func execute() throws  {
         if let credentials = atlasCore.getCredentials() {
             let confirmLogin = "You are already logged in as \(credentials.username). Do you want to log in as someone else?"
-            if !Input.awaitYesNoInput(message: confirmLogin) {
+            if !input.awaitYesNoInput(message: confirmLogin) {
                 return
             }
         }
         
         var username = usernameOption.value
         if username == nil {
-            username = Input.awaitInput(message: "GitHub Username:")
+            username = input.awaitInput(message: "GitHub Username:")
         }
 
         var password = passwordOption.value
         if password == nil {
-            password = Input.awaitInput(message: "GitHub Password:", secure: true)
+            password = input.awaitInput(message: "GitHub Password:", secure: true)
         }
         
         guard username != nil else {
