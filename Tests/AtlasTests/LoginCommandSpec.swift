@@ -74,6 +74,25 @@ class LoginCommandSpec: QuickSpec {
                     }
                 }
                 
+                it("sets atlasDirectory and creates the directory") {
+                    if let atlasDirectory = atlasCore.atlasDirectory {
+                        let exists = fileManager.fileExists(atPath: atlasDirectory.path, isDirectory: &isDirectory)
+                        expect(exists).to(beTrue(), description: "atlasDirectory not found")
+                    } else {
+                        expect(false).to(beTrue(), description: "atlasDirectory not set")
+                    }
+                }
+                
+                it("initializes a General project") {
+                    if let project = atlasCore.project("General") {
+                        let projectPath = project.directory().path
+                        let exists = fileManager.fileExists(atPath: projectPath, isDirectory: &isDirectory)
+                        expect(exists).to(beTrue(), description: "General project directory not found")
+                    } else {
+                        expect(false).to(beTrue(), description: "General project does not exist")
+                    }
+                }
+                
                 context("future usage") {
                     var loginCommand: LoginCommand!
                     
