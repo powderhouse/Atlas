@@ -30,6 +30,7 @@ class ImportCommand: Command {
     func execute() throws  {
         if let projectName = project.value {
             if atlasCore.copy(imports.value, into: projectName) {
+                print("Files successfully imported into \(projectName)")
                 atlasCore.atlasCommit("Importing files into \(projectName)")
             } else {
                 print("Failed to import files.")
