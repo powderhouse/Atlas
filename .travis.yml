@@ -1,5 +1,5 @@
 os: osx
 osx_image: Xcode 9.3beta
 language: swift
-xcode_scheme: AtlasTests
-xcode_project: atlas.xcodeproj
+script:
+    - xcodebuild clean test -project Atlas.xcodeproj -scheme Atlas -destination "platform=OS X,arch=x86_64" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
