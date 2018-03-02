@@ -75,7 +75,7 @@ class ImportCommandSpec: QuickSpec {
                             if let projectURL = atlasCore.project(projectName)?.directory("staged") {
                                 let filePath = projectURL.appendingPathComponent("\(fileName)").path
                                 let exists = fileManager.fileExists(atPath: filePath, isDirectory: &isFile)
-                                expect(exists).to(beFalse(), description: "File not found")
+                                expect(exists).to(beTrue(), description: "File not found")
                             }
                         }
                     }
