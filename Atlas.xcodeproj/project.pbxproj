@@ -310,7 +310,6 @@
 		3A1D0D0220471AFE00CBBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1D0D0320471AFE00CBBAB9 /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
 		3A1D0D0820471AFE00CBBAB9 /* AtlasAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A1D0D0E20471AFE00CBBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1D0D1320471AFF00CBBAB9 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1D0D1720471AFF00CBBAB9 /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
 		3A1D0D1920471AFF00CBBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -549,14 +548,6 @@
 			path = AtlasApp;
 			sourceTree = "<group>";
 		};
-		3A1D0D0B20471AFE00CBBAB9 /* AtlasAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				3A1D0D0E20471AFE00CBBAB9 /* Info.plist */,
-			);
-			path = AtlasAppTests;
-			sourceTree = "<group>";
-		};
 		3A1D0D1620471AFF00CBBAB9 /* AtlasAppUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,7 +774,7 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -792,12 +783,10 @@
 				OBJ_22 /* Tests */,
 				OBJ_28 /* Dependencies */,
 				3A1D0CF820471AFE00CBBAB9 /* AtlasApp */,
-				3A1D0D0B20471AFE00CBBAB9 /* AtlasAppTests */,
 				3A1D0D1620471AFF00CBBAB9 /* AtlasAppUITests */,
 				OBJ_159 /* Products */,
 				3A1D0D2320471DFC00CBBAB9 /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_52 /* DSL */ = {
@@ -1213,7 +1202,7 @@
 				en,
 				Base,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_159 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
