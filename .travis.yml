@@ -1,5 +1,5 @@
 os: osx
 osx_image: Xcode 9.3beta 
 language: swift
-xcode_project: atlas.xcodeproj # path to your xcodeproj folder
+xcode_project: atlas.xcodeproj
 xcode_scheme: AtlasTests
