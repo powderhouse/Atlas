@@ -84,7 +84,7 @@ class ImportCommandSpec: QuickSpec {
                 it("should leave both files in the original folder") {
                     for file in [file1, file2] {
                         let exists = fileManager.fileExists(atPath: file!.path, isDirectory: &isFile)
-                        expect(exists).to(beFalse(), description: "Original file not found")
+                        expect(exists).to(beTrue(), description: "Original file not found")
                     }
                 }
 
