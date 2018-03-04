@@ -5,4 +5,4 @@ jobs:
       xcode: "9.0"
     steps:
       - checkout
-      - run: swift test -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
+      - run: xcodebuild test -sdk macosx10.13 -project Atlas.xcodeproj/ -scheme Atlas -destination 'platform=OS X,arch=x86_64' 
