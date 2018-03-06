@@ -89,6 +89,10 @@ class UnstageCommandSpec: QuickSpec {
                         expect(exists).to(beTrue(), description: "File not found in unstaged")
                     }
                 }
+                
+                it("should sync with github") {
+                    expect(atlasCore.status()).to(contain("nothing to commit"))
+                }
             }
         }
     }

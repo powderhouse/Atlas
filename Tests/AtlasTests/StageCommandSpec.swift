@@ -1,6 +1,6 @@
 //
 //  StageCommandSpec.swift
-//  Atlas
+//  AtlasTests
 //
 //  Created by Jared Cosulich on 3/6/18.
 //
@@ -98,6 +98,10 @@ class StageCommandSpec: QuickSpec {
                         let exists = fileManager.fileExists(atPath: filePath, isDirectory: &isFile)
                         expect(exists).to(beTrue(), description: "Staged file not found")
                     }
+                }
+                
+                it("should sync with github") {
+                    expect(atlasCore.status()).to(contain("nothing to commit"))
                 }
             }
         }
