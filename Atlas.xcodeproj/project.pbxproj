@@ -51,6 +51,8 @@
 		3A8A73FD204EEAA200FD679B /* StageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */; };
 		3A8A73FF204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */; };
 		3A8A7400204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */; };
+		3A8A7402204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */; };
+		3A8A7403204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */; };
 		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Package.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Package.swift */; };
@@ -310,6 +312,7 @@
 		3A1D0D5C204EE4D600CBBAB9 /* UnstageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstageCommandSpec.swift; sourceTree = "<group>"; };
 		3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCommandSpec.swift; sourceTree = "<group>"; };
 		3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartProjectCommandSpec.swift; sourceTree = "<group>"; };
+		3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommandSpec.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -654,6 +657,7 @@
 			children = (
 				OBJ_24 /* ImportCommandSpec.swift */,
 				3A1D0D3D20474B3000CBBAB9 /* LoginCommandSpec.swift */,
+				3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */,
 				3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */,
 				3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */,
 				3A1D0D5C204EE4D600CBBAB9 /* UnstageCommandSpec.swift */,
@@ -1231,6 +1235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				3A8A7402204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */,
 				3A1D0D5D204EE4D600CBBAB9 /* UnstageCommandSpec.swift in Sources */,
 				OBJ_172 /* Package.swift in Sources */,
 				3A8A73FC204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
@@ -1284,6 +1289,7 @@
 				3A1D0D5E204EE4D600CBBAB9 /* UnstageCommandSpec.swift in Sources */,
 				3A1D0D3F20474B3500CBBAB9 /* LoginCommandSpec.swift in Sources */,
 				3A1D0D3820474B1200CBBAB9 /* StagedCommand.swift in Sources */,
+				3A8A7403204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */,
 				3A1D0D3920474B1200CBBAB9 /* StartProjectCommand.swift in Sources */,
 				3A1D0D3A20474B1200CBBAB9 /* StatusCommand.swift in Sources */,
 				3A1D0D4E2049917600CBBAB9 /* Helper.swift in Sources */,

@@ -9,7 +9,7 @@ cli.commands = [
     ImportCommand(atlasCore),
     InfoCommand(atlasCore),
     LoginCommand(atlasCore),
-    LogoutCommand(),
+    LogoutCommand(atlasCore),
     StageCommand(atlasCore),
     StagedCommand(atlasCore),
     StartProjectCommand(atlasCore),
