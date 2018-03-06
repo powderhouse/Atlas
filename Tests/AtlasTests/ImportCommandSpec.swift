@@ -50,6 +50,7 @@ class ImportCommandSpec: QuickSpec {
             }
             
             afterEach {
+                atlasCore.deleteGitHubRepository()
                 FileSystem.deleteDirectory(fileDirectory)
                 FileSystem.deleteDirectory(directory)
             }
@@ -71,9 +72,9 @@ class ImportCommandSpec: QuickSpec {
                 
                 it("should copy both files into the project's staging folder") {
                     for file in [file1, file2] {
-                        if let fileName = file?.path.split(separator: "/").last {
+                        if let fileName = file?.lastPathComponent {
                             if let projectURL = atlasCore.project(projectName)?.directory("staged") {
-                                let filePath = projectURL.appendingPathComponent("\(fileName)").path
+                                let filePath = projectURL.appendingPathComponent(fileName).path
                                 let exists = fileManager.fileExists(atPath: filePath, isDirectory: &isFile)
                                 expect(exists).to(beTrue(), description: "File not found")
                             }
