@@ -1166,6 +1166,9 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3A1D0CF620471AFE00CBBAB9;
 					};
+					"Atlas::Atlas" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
 					"AtlasCore::AtlasCore" = {
 						DevelopmentTeam = 4B7L43K59M;
 					};
@@ -2109,6 +2112,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2130,6 +2135,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
