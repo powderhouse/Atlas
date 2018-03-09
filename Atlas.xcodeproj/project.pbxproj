@@ -58,6 +58,9 @@
 		3A8A74082050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
 		3A8A74092050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
 		3A8A740A2050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
+		3A8A740C205335C400FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
+		3A8A740D20533B5800FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
+		3A8A740E20533B5C00FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
 		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Package.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Package.swift */; };
@@ -320,6 +323,7 @@
 		3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommandSpec.swift; sourceTree = "<group>"; };
 		3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommandSpec.swift; sourceTree = "<group>"; };
 		3A8A74072050C9A500FD679B /* CommitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommand.swift; sourceTree = "<group>"; };
+		3A8A740B205335C400FD679B /* LogCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommand.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -567,6 +571,7 @@
 				3A8A74072050C9A500FD679B /* CommitCommand.swift */,
 				OBJ_11 /* ImportCommand.swift */,
 				OBJ_12 /* InfoCommand.swift */,
+				3A8A740B205335C400FD679B /* LogCommand.swift */,
 				OBJ_13 /* LoginCommand.swift */,
 				OBJ_14 /* LogoutCommand.swift */,
 				OBJ_15 /* StageCommand.swift */,
@@ -1252,6 +1257,7 @@
 				OBJ_172 /* Package.swift in Sources */,
 				3A8A73FC204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
 				3A8A73FF204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */,
+				3A8A740C205335C400FD679B /* LogCommand.swift in Sources */,
 				3A8A7405204F34A700FD679B /* CommitCommandSpec.swift in Sources */,
 				3A1D0D4D2049917600CBBAB9 /* Helper.swift in Sources */,
 				3A8A74082050C9A500FD679B /* CommitCommand.swift in Sources */,
@@ -1314,6 +1320,7 @@
 				3A1D0D3C20474B1200CBBAB9 /* UnstagedCommand.swift in Sources */,
 				3A1D0D332047473E00CBBAB9 /* ImportCommand.swift in Sources */,
 				OBJ_202 /* ImportCommandSpec.swift in Sources */,
+				3A8A740E20533B5C00FD679B /* LogCommand.swift in Sources */,
 				3A8A73FD204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1421,6 +1428,7 @@
 				OBJ_317 /* InfoCommand.swift in Sources */,
 				3A1D0D4B20486A8500CBBAB9 /* AtlasInput.swift in Sources */,
 				OBJ_318 /* LoginCommand.swift in Sources */,
+				3A8A740D20533B5800FD679B /* LogCommand.swift in Sources */,
 				OBJ_319 /* LogoutCommand.swift in Sources */,
 				OBJ_320 /* StageCommand.swift in Sources */,
 				OBJ_321 /* StagedCommand.swift in Sources */,

@@ -9,6 +9,7 @@ cli.commands = [
     CommitCommand(atlasCore),
     ImportCommand(atlasCore),
     InfoCommand(atlasCore),
+    LogCommand(atlasCore),
     LoginCommand(atlasCore),
     LogoutCommand(atlasCore),
     StageCommand(atlasCore),
