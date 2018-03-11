@@ -6,8 +6,17 @@ machine:
   timezone:
     America/New_York # Set the timezone
 
-## Customize test commands
 test:
-  post:
-    - xcodebuild test -sdk macosx10.13 -project Atlas.xcodeproj/ -scheme Atlas -destination 'platform=OS X,arch=x86_64'
-    
+  override:
+    - set -o pipefail &&
+      xcodebuild
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        -sdk macosx10.13
+        -destination 'platform=OS X,arch=x86_64'
+        -project Atlas.xcodeproj/
+        -scheme Atlas
+        clean build test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
