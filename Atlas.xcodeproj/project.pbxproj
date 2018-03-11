@@ -53,7 +53,6 @@
 		3A8A7400204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */; };
 		3A8A7402204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */; };
 		3A8A7403204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */; };
-		3A8A7405204F34A700FD679B /* CommitCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */; };
 		3A8A7406204F34A700FD679B /* CommitCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */; };
 		3A8A74082050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
 		3A8A74092050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
@@ -61,6 +60,7 @@
 		3A8A740C205335C400FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
 		3A8A740D20533B5800FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
 		3A8A740E20533B5C00FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
+		3A8A7411205372AF00FD679B /* LogCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740F205372AF00FD679B /* LogCommandSpec.swift */; };
 		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Package.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Package.swift */; };
@@ -324,6 +324,7 @@
 		3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommandSpec.swift; sourceTree = "<group>"; };
 		3A8A74072050C9A500FD679B /* CommitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommand.swift; sourceTree = "<group>"; };
 		3A8A740B205335C400FD679B /* LogCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommand.swift; sourceTree = "<group>"; };
+		3A8A740F205372AF00FD679B /* LogCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommandSpec.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -670,6 +671,7 @@
 			children = (
 				3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */,
 				OBJ_24 /* ImportCommandSpec.swift */,
+				3A8A740F205372AF00FD679B /* LogCommandSpec.swift */,
 				3A1D0D3D20474B3000CBBAB9 /* LoginCommandSpec.swift */,
 				3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */,
 				3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */,
@@ -1258,7 +1260,6 @@
 				3A8A73FC204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
 				3A8A73FF204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */,
 				3A8A740C205335C400FD679B /* LogCommand.swift in Sources */,
-				3A8A7405204F34A700FD679B /* CommitCommandSpec.swift in Sources */,
 				3A1D0D4D2049917600CBBAB9 /* Helper.swift in Sources */,
 				3A8A74082050C9A500FD679B /* CommitCommand.swift in Sources */,
 				3A1D0D4920486A8500CBBAB9 /* AtlasInput.swift in Sources */,
@@ -1320,6 +1321,7 @@
 				3A1D0D3C20474B1200CBBAB9 /* UnstagedCommand.swift in Sources */,
 				3A1D0D332047473E00CBBAB9 /* ImportCommand.swift in Sources */,
 				OBJ_202 /* ImportCommandSpec.swift in Sources */,
+				3A8A7411205372AF00FD679B /* LogCommandSpec.swift in Sources */,
 				3A8A740E20533B5C00FD679B /* LogCommand.swift in Sources */,
 				3A8A73FD204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
 			);
