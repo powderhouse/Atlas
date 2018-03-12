@@ -8,13 +8,13 @@
 import Cocoa
 import SwiftCLI
 
-class AtlasInput {
+public class AtlasInput {
     
-    var defaultInputs: [String: String] = [:]
+    public var defaultInputs: [String: String] = [:]
     
-    init() {}
+    public init() {}
     
-    func awaitInput(message: String, secure:Bool=false) -> String {
+    public func awaitInput(message: String, secure:Bool=false) -> String {
         if let response = defaultInputs[message] {
             return response
         }
@@ -22,7 +22,7 @@ class AtlasInput {
         return Input.awaitInput(message: message, secure: secure)
     }
     
-    func awaitYesNoInput(message: String) -> Bool {
+    public func awaitYesNoInput(message: String) -> Bool {
         print("AWAIT YES/NO: \(message)")
         
         if let response = defaultInputs[message] {
@@ -32,7 +32,7 @@ class AtlasInput {
         return Input.awaitYesNoInput(message: message)
     }
     
-    func setDefaultInput(message: String, response: String) {
+    public func setDefaultInput(message: String, response: String) {
         defaultInputs[message] = response
     }
     

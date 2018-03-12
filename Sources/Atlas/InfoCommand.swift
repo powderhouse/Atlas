@@ -9,18 +9,18 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class InfoCommand: Command {
+public class InfoCommand: Command {
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "info"
-    let shortDescription = "Login information regarding Atlas."
+    public let name = "info"
+    public let shortDescription = "Login information regarding Atlas."
     
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if let credentials = atlasCore.getCredentials() {
             print("Logged into Atlas as \(credentials.username)")
             if let repository = atlasCore.gitHubRepository() {

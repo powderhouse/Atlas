@@ -9,20 +9,20 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class StartProjectCommand: Command {
+public class StartProjectCommand: Command {
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "start"
-    let shortDescription = "Start a new Atlas project."
+    public let name = "start"
+    public let shortDescription = "Start a new Atlas project."
     
-    let project = Parameter()
+    public let project = Parameter()
 
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if atlasCore.initProject(project.value) {
             print("Project Started: \(project.value)")
             atlasCore.atlasCommit("\(name) Project Initialization")

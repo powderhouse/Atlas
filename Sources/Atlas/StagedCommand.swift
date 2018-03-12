@@ -9,22 +9,22 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class StagedCommand: Command {
+public class StagedCommand: Command {
     
     // Atlas staged -p {project}
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "staged"
-    let shortDescription = "List out all staged files in a project."
+    public let name = "staged"
+    public let shortDescription = "List out all staged files in a project."
     
-    let project = Key<String>("-p", "--project", description: "The project name.")
+    public let project = Key<String>("-p", "--project", description: "The project name.")
     
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if let projectName = project.value {
             if let project = atlasCore.project(projectName) {
                 print("Staged Files in \(projectName)")

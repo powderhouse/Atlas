@@ -9,24 +9,24 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class StageCommand: Command {
+public class StageCommand: Command {
     
     // Atlas stage -f {files} -p {project}
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "stage"
-    let shortDescription = "Stage files in a project, moving them from the unstaged state to the staged state."
+    public let name = "stage"
+    public let shortDescription = "Stage files in a project, moving them from the unstaged state to the staged state."
     
-    let filesType = Flag("-f", "--files", description: "Stage the specified files.")
-    let files = CollectedParameter()
-    let project = Key<String>("-p", "--project", description: "The project the files reside in.")
+    public let filesType = Flag("-f", "--files", description: "Stage the specified files.")
+    public let files = CollectedParameter()
+    public let project = Key<String>("-p", "--project", description: "The project the files reside in.")
     
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if let projectName = project.value {
             if atlasCore.changeState(files.value, within: projectName, to: "staged") {
                 atlasCore.atlasCommit("Staging files in \(projectName)")
