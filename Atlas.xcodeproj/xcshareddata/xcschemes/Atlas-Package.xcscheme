@@ -70,6 +70,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Atlas::AtlasCommands"
+               BuildableName = "AtlasCommands.framework"
+               BlueprintName = "AtlasCommands"
+               ReferencedContainer = "container:Atlas.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "AtlasCore::AtlasCore"
                BuildableName = "AtlasCore.framework"
                BlueprintName = "AtlasCore"

@@ -23,8 +23,6 @@ public class AtlasInput {
     }
     
     public func awaitYesNoInput(message: String) -> Bool {
-        print("AWAIT YES/NO: \(message)")
-        
         if let response = defaultInputs[message] {
             return response.lowercased() == "y" || response.lowercased() == "yes"
         }
