@@ -1,9 +1,0 @@
-version: 2
-jobs:
-  build:
-    macos:
-      xcode: "9.0"
-    steps:
-      - checkout
-      - run: swift test -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
-##      - run: xcodebuild test -project Atlas.xcodeproj -scheme AtlasApp -destination 'platform=OS X,arch=x86_64'
