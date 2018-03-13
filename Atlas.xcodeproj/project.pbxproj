@@ -28,6 +28,8 @@
 		3A8A75A72058328D00FD679B /* AtlasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75A62058328D00FD679B /* AtlasAppUITests.swift */; };
 		3A8A75AF2058378C00FD679B /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
 		3A8A75B02058378C00FD679B /* AtlasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A8A75B82058528400FD679B /* CommitMessageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */; };
+		3A8A75BA205854CE00FD679B /* CommitMessageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
@@ -310,6 +312,8 @@
 		3A8A75A22058328C00FD679B /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8A75A62058328D00FD679B /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
 		3A8A75A82058328D00FD679B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitMessageCommand.swift; sourceTree = "<group>"; };
+		3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitMessageCommandSpec.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -572,6 +576,7 @@
 			children = (
 				OBJ_11 /* AtlasInput.swift */,
 				OBJ_12 /* CommitCommand.swift */,
+				3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */,
 				OBJ_13 /* ImportCommand.swift */,
 				OBJ_14 /* InfoCommand.swift */,
 				OBJ_15 /* LogCommand.swift */,
@@ -717,8 +722,9 @@
 		OBJ_27 /* AtlasTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_28 /* CommitCommandSpec.swift */,
 				OBJ_29 /* Helper.swift */,
+				OBJ_28 /* CommitCommandSpec.swift */,
+				3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */,
 				OBJ_30 /* ImportCommandSpec.swift */,
 				OBJ_31 /* LogCommandSpec.swift */,
 				OBJ_32 /* LoginCommandSpec.swift */,
@@ -1327,6 +1333,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_214 /* CommitCommandSpec.swift in Sources */,
+				3A8A75BA205854CE00FD679B /* CommitMessageCommandSpec.swift in Sources */,
 				OBJ_215 /* Helper.swift in Sources */,
 				OBJ_216 /* ImportCommandSpec.swift in Sources */,
 				OBJ_217 /* LogCommandSpec.swift in Sources */,
@@ -1455,6 +1462,7 @@
 				OBJ_357 /* StageCommand.swift in Sources */,
 				OBJ_358 /* StagedCommand.swift in Sources */,
 				OBJ_359 /* StartProjectCommand.swift in Sources */,
+				3A8A75B82058528400FD679B /* CommitMessageCommand.swift in Sources */,
 				OBJ_360 /* StatusCommand.swift in Sources */,
 				OBJ_361 /* UnstageCommand.swift in Sources */,
 				OBJ_362 /* UnstagedCommand.swift in Sources */,
