@@ -9,23 +9,23 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class CommitCommand: Command {
+public class CommitCommand: Command {
     
     // Atlas commit -m {message} -p {project}
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "commit"
-    let shortDescription = "Commit all staged files with the provide commit message."
+    public let name = "commit"
+    public let shortDescription = "Commit all staged files with the provide commit message."
     
-    let message = Key<String>("-m", "--message", description: "The commit message.")
-    let project = Key<String>("-p", "--project", description: "The project the files reside in.")
+    public let message = Key<String>("-m", "--message", description: "The commit message.")
+    public let project = Key<String>("-p", "--project", description: "The project the files reside in.")
     
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if let projectName = project.value {
             if let project = atlasCore.project(projectName) {
                 if let message = message.value {

@@ -9,7 +9,7 @@ import Foundation
 import Quick
 import Nimble
 import AtlasCore
-import Atlas
+import AtlasCommands
 
 class LogCommandSpec: QuickSpec {
     

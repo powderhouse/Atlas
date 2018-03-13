@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"Atlas::AtlasPackageTests::ProductTarget" /* AtlasPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_376 /* Build configuration list for PBXAggregateTarget "AtlasPackageTests" */;
+			buildConfigurationList = OBJ_412 /* Build configuration list for PBXAggregateTarget "AtlasPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_379 /* PBXTargetDependency */,
+				OBJ_415 /* PBXTargetDependency */,
 			);
 			name = AtlasPackageTests;
 			productName = AtlasPackageTests;
@@ -21,282 +21,278 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3A1D0CFA20471AFE00CBBAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0CF920471AFE00CBBAB9 /* AppDelegate.swift */; };
-		3A1D0CFC20471AFE00CBBAB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0CFB20471AFE00CBBAB9 /* ViewController.swift */; };
-		3A1D0CFE20471AFE00CBBAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1D0CFD20471AFE00CBBAB9 /* Assets.xcassets */; };
-		3A1D0D0120471AFE00CBBAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1D0CFF20471AFE00CBBAB9 /* Main.storyboard */; };
-		3A1D0D1820471AFF00CBBAB9 /* AtlasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D1720471AFF00CBBAB9 /* AtlasAppUITests.swift */; };
-		3A1D0D2420471DFC00CBBAB9 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
-		3A1D0D312047204100CBBAB9 /* AtlasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3A1D0D332047473E00CBBAB9 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* ImportCommand.swift */; };
-		3A1D0D3420474B1200CBBAB9 /* InfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* InfoCommand.swift */; };
-		3A1D0D3520474B1200CBBAB9 /* LoginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LoginCommand.swift */; };
-		3A1D0D3620474B1200CBBAB9 /* LogoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LogoutCommand.swift */; };
-		3A1D0D3720474B1200CBBAB9 /* StageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* StageCommand.swift */; };
-		3A1D0D3820474B1200CBBAB9 /* StagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* StagedCommand.swift */; };
-		3A1D0D3920474B1200CBBAB9 /* StartProjectCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* StartProjectCommand.swift */; };
-		3A1D0D3A20474B1200CBBAB9 /* StatusCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* StatusCommand.swift */; };
-		3A1D0D3B20474B1200CBBAB9 /* UnstageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* UnstageCommand.swift */; };
-		3A1D0D3C20474B1200CBBAB9 /* UnstagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* UnstagedCommand.swift */; };
-		3A1D0D3F20474B3500CBBAB9 /* LoginCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D3D20474B3000CBBAB9 /* LoginCommandSpec.swift */; };
-		3A1D0D4920486A8500CBBAB9 /* AtlasInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D4820486A8500CBBAB9 /* AtlasInput.swift */; };
-		3A1D0D4A20486A8500CBBAB9 /* AtlasInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D4820486A8500CBBAB9 /* AtlasInput.swift */; };
-		3A1D0D4B20486A8500CBBAB9 /* AtlasInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D4820486A8500CBBAB9 /* AtlasInput.swift */; };
-		3A1D0D4D2049917600CBBAB9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D4C2049917600CBBAB9 /* Helper.swift */; };
-		3A1D0D4E2049917600CBBAB9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D4C2049917600CBBAB9 /* Helper.swift */; };
-		3A1D0D4F2049917600CBBAB9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D4C2049917600CBBAB9 /* Helper.swift */; };
-		3A1D0D5D204EE4D600CBBAB9 /* UnstageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D5C204EE4D600CBBAB9 /* UnstageCommandSpec.swift */; };
-		3A1D0D5E204EE4D600CBBAB9 /* UnstageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0D5C204EE4D600CBBAB9 /* UnstageCommandSpec.swift */; };
-		3A8A73FC204EEAA200FD679B /* StageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */; };
-		3A8A73FD204EEAA200FD679B /* StageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */; };
-		3A8A73FF204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */; };
-		3A8A7400204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */; };
-		3A8A7402204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */; };
-		3A8A7403204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */; };
-		3A8A7406204F34A700FD679B /* CommitCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */; };
-		3A8A74082050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
-		3A8A74092050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
-		3A8A740A2050C9A500FD679B /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A74072050C9A500FD679B /* CommitCommand.swift */; };
-		3A8A740C205335C400FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
-		3A8A740D20533B5800FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
-		3A8A740E20533B5C00FD679B /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740B205335C400FD679B /* LogCommand.swift */; };
-		3A8A7411205372AF00FD679B /* LogCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A740F205372AF00FD679B /* LogCommandSpec.swift */; };
-		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Package.swift */; };
-		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Package.swift */; };
-		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* Package.swift */; };
-		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_158 /* Package.swift */; };
-		OBJ_202 /* ImportCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* ImportCommandSpec.swift */; };
-		OBJ_204 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Nimble::Nimble::Product" /* Nimble.framework */; };
-		OBJ_205 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::Quick::Product" /* Quick.framework */; };
-		OBJ_206 /* QuickSpecBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; };
-		OBJ_207 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
-		OBJ_208 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
-		OBJ_225 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* AdapterProtocols.swift */; };
-		OBJ_226 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* AssertionDispatcher.swift */; };
-		OBJ_227 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* AssertionRecorder.swift */; };
-		OBJ_228 /* NMBExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* NMBExpectation.swift */; };
-		OBJ_229 /* NMBObjCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* NMBObjCMatcher.swift */; };
-		OBJ_230 /* NimbleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* NimbleEnvironment.swift */; };
-		OBJ_231 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* NimbleXCTestHandler.swift */; };
-		OBJ_232 /* ExceptionCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* ExceptionCapture.swift */; };
-		OBJ_233 /* DSL+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* DSL+Wait.swift */; };
-		OBJ_234 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* DSL.swift */; };
-		OBJ_235 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* Expectation.swift */; };
-		OBJ_236 /* ExpectationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* ExpectationMessage.swift */; };
-		OBJ_237 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* Expression.swift */; };
-		OBJ_238 /* FailureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* FailureMessage.swift */; };
-		OBJ_239 /* AllPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* AllPass.swift */; };
-		OBJ_240 /* AsyncMatcherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* AsyncMatcherWrapper.swift */; };
-		OBJ_241 /* BeAKindOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* BeAKindOf.swift */; };
-		OBJ_242 /* BeAnInstanceOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* BeAnInstanceOf.swift */; };
-		OBJ_243 /* BeCloseTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* BeCloseTo.swift */; };
-		OBJ_244 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* BeEmpty.swift */; };
-		OBJ_245 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* BeGreaterThan.swift */; };
-		OBJ_246 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* BeGreaterThanOrEqualTo.swift */; };
-		OBJ_247 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* BeIdenticalTo.swift */; };
-		OBJ_248 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* BeLessThan.swift */; };
-		OBJ_249 /* BeLessThanOrEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* BeLessThanOrEqual.swift */; };
-		OBJ_250 /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* BeLogical.swift */; };
-		OBJ_251 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* BeNil.swift */; };
-		OBJ_252 /* BeVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* BeVoid.swift */; };
-		OBJ_253 /* BeginWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* BeginWith.swift */; };
-		OBJ_254 /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* Contain.swift */; };
-		OBJ_255 /* ContainElementSatisfying.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* ContainElementSatisfying.swift */; };
-		OBJ_256 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* EndWith.swift */; };
-		OBJ_257 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* Equal.swift */; };
-		OBJ_258 /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* HaveCount.swift */; };
-		OBJ_259 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* Match.swift */; };
-		OBJ_260 /* MatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* MatchError.swift */; };
-		OBJ_261 /* MatcherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* MatcherFunc.swift */; };
-		OBJ_262 /* MatcherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* MatcherProtocols.swift */; };
-		OBJ_263 /* PostNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* PostNotification.swift */; };
-		OBJ_264 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_118 /* Predicate.swift */; };
-		OBJ_265 /* RaisesException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* RaisesException.swift */; };
-		OBJ_266 /* SatisfyAnyOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* SatisfyAnyOf.swift */; };
-		OBJ_267 /* ThrowAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* ThrowAssertion.swift */; };
-		OBJ_268 /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* ThrowError.swift */; };
-		OBJ_269 /* ToSucceed.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* ToSucceed.swift */; };
-		OBJ_270 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* Async.swift */; };
-		OBJ_271 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* Errors.swift */; };
-		OBJ_272 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* Functional.swift */; };
-		OBJ_273 /* SourceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_128 /* SourceLocation.swift */; };
-		OBJ_274 /* Stringers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* Stringers.swift */; };
-		OBJ_280 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Behavior.swift */; };
-		OBJ_281 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* Callsite.swift */; };
-		OBJ_282 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Configuration.swift */; };
-		OBJ_283 /* QuickConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* QuickConfiguration.swift */; };
-		OBJ_284 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* DSL.swift */; };
-		OBJ_285 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* World+DSL.swift */; };
-		OBJ_286 /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* ErrorUtility.swift */; };
-		OBJ_287 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* Example.swift */; };
-		OBJ_288 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* ExampleGroup.swift */; };
-		OBJ_289 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* ExampleMetadata.swift */; };
-		OBJ_290 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Filter.swift */; };
-		OBJ_291 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Closures.swift */; };
-		OBJ_292 /* ExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* ExampleHooks.swift */; };
-		OBJ_293 /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* HooksPhase.swift */; };
-		OBJ_294 /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* SuiteHooks.swift */; };
-		OBJ_295 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* NSBundle+CurrentTestBundle.swift */; };
-		OBJ_296 /* NSString+C99ExtendedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* NSString+C99ExtendedIdentifier.swift */; };
-		OBJ_297 /* QuickMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* QuickMain.swift */; };
-		OBJ_298 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* QuickSelectedTestSuiteBuilder.swift */; };
-		OBJ_299 /* QuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* QuickSpec.swift */; };
-		OBJ_300 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* QuickTestSuite.swift */; };
-		OBJ_301 /* URL+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* URL+FileName.swift */; };
-		OBJ_302 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* World.swift */; };
-		OBJ_304 /* QuickSpecBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; };
-		OBJ_310 /* QuickSpecBase.m in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* QuickSpecBase.m */; };
-		OBJ_316 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* ImportCommand.swift */; };
-		OBJ_317 /* InfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* InfoCommand.swift */; };
-		OBJ_318 /* LoginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* LoginCommand.swift */; };
-		OBJ_319 /* LogoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* LogoutCommand.swift */; };
-		OBJ_320 /* StageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* StageCommand.swift */; };
-		OBJ_321 /* StagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* StagedCommand.swift */; };
-		OBJ_322 /* StartProjectCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* StartProjectCommand.swift */; };
-		OBJ_323 /* StatusCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* StatusCommand.swift */; };
-		OBJ_324 /* UnstageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* UnstageCommand.swift */; };
-		OBJ_325 /* UnstagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* UnstagedCommand.swift */; };
-		OBJ_326 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* main.swift */; };
-		OBJ_328 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
-		OBJ_329 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
-		OBJ_336 /* AtlasCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* AtlasCore.swift */; };
-		OBJ_337 /* AtlasProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* AtlasProcess.swift */; };
-		OBJ_338 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Credentials.swift */; };
-		OBJ_339 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* FileSystem.swift */; };
-		OBJ_340 /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Git.swift */; };
-		OBJ_341 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* GitHub.swift */; };
-		OBJ_342 /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Glue.swift */; };
-		OBJ_343 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* Project.swift */; };
-		OBJ_349 /* ArgumentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_133 /* ArgumentList.swift */; };
-		OBJ_350 /* ArgumentListManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_134 /* ArgumentListManipulator.swift */; };
-		OBJ_351 /* CLI-deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_135 /* CLI-deprecated.swift */; };
-		OBJ_352 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_136 /* CLI.swift */; };
-		OBJ_353 /* ChainableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_137 /* ChainableCommand.swift */; };
-		OBJ_354 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_138 /* Command.swift */; };
-		OBJ_355 /* CommandSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_139 /* CommandSignature.swift */; };
-		OBJ_356 /* CompletionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_140 /* CompletionGenerator.swift */; };
-		OBJ_357 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* Error.swift */; };
-		OBJ_358 /* GlobalOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* GlobalOptions.swift */; };
-		OBJ_359 /* HelpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_143 /* HelpCommand.swift */; };
-		OBJ_360 /* HelpMessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_144 /* HelpMessageGenerator.swift */; };
-		OBJ_361 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* Input.swift */; };
-		OBJ_362 /* LightweightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* LightweightCommand.swift */; };
-		OBJ_363 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* Option.swift */; };
-		OBJ_364 /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* OptionGroup.swift */; };
-		OBJ_365 /* OptionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* OptionRecognizer.swift */; };
-		OBJ_366 /* OptionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* OptionRegistry.swift */; };
-		OBJ_367 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* Output.swift */; };
-		OBJ_368 /* OutputByteStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_152 /* OutputByteStream.swift */; };
-		OBJ_369 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_153 /* Parameter.swift */; };
-		OBJ_370 /* ParameterFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_154 /* ParameterFiller.swift */; };
-		OBJ_371 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_155 /* Router.swift */; };
-		OBJ_372 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_156 /* Term.swift */; };
-		OBJ_373 /* VersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_157 /* VersionCommand.swift */; };
+		3A8A75942058328C00FD679B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75932058328C00FD679B /* AppDelegate.swift */; };
+		3A8A75962058328C00FD679B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75952058328C00FD679B /* ViewController.swift */; };
+		3A8A75982058328C00FD679B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A75972058328C00FD679B /* Assets.xcassets */; };
+		3A8A759B2058328C00FD679B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A75992058328C00FD679B /* Main.storyboard */; };
+		3A8A75A72058328D00FD679B /* AtlasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75A62058328D00FD679B /* AtlasAppUITests.swift */; };
+		3A8A75AF2058378C00FD679B /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
+		3A8A75B02058378C00FD679B /* AtlasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
+		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
+		OBJ_202 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* Package.swift */; };
+		OBJ_208 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_169 /* Package.swift */; };
+		OBJ_214 /* CommitCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* CommitCommandSpec.swift */; };
+		OBJ_215 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Helper.swift */; };
+		OBJ_216 /* ImportCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ImportCommandSpec.swift */; };
+		OBJ_217 /* LogCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* LogCommandSpec.swift */; };
+		OBJ_218 /* LoginCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* LoginCommandSpec.swift */; };
+		OBJ_219 /* LogoutCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* LogoutCommandSpec.swift */; };
+		OBJ_220 /* StageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* StageCommandSpec.swift */; };
+		OBJ_221 /* StartProjectCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* StartProjectCommandSpec.swift */; };
+		OBJ_222 /* UnstageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* UnstageCommandSpec.swift */; };
+		OBJ_224 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Nimble::Nimble::Product" /* Nimble.framework */; };
+		OBJ_225 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::Quick::Product" /* Quick.framework */; };
+		OBJ_226 /* QuickSpecBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; };
+		OBJ_227 /* AtlasCommands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Atlas::AtlasCommands::Product" /* AtlasCommands.framework */; };
+		OBJ_228 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
+		OBJ_229 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
+		OBJ_246 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* AdapterProtocols.swift */; };
+		OBJ_247 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* AssertionDispatcher.swift */; };
+		OBJ_248 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* AssertionRecorder.swift */; };
+		OBJ_249 /* NMBExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* NMBExpectation.swift */; };
+		OBJ_250 /* NMBObjCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* NMBObjCMatcher.swift */; };
+		OBJ_251 /* NimbleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* NimbleEnvironment.swift */; };
+		OBJ_252 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* NimbleXCTestHandler.swift */; };
+		OBJ_253 /* ExceptionCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* ExceptionCapture.swift */; };
+		OBJ_254 /* DSL+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* DSL+Wait.swift */; };
+		OBJ_255 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* DSL.swift */; };
+		OBJ_256 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* Expectation.swift */; };
+		OBJ_257 /* ExpectationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* ExpectationMessage.swift */; };
+		OBJ_258 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* Expression.swift */; };
+		OBJ_259 /* FailureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* FailureMessage.swift */; };
+		OBJ_260 /* AllPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* AllPass.swift */; };
+		OBJ_261 /* AsyncMatcherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* AsyncMatcherWrapper.swift */; };
+		OBJ_262 /* BeAKindOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* BeAKindOf.swift */; };
+		OBJ_263 /* BeAnInstanceOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* BeAnInstanceOf.swift */; };
+		OBJ_264 /* BeCloseTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* BeCloseTo.swift */; };
+		OBJ_265 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* BeEmpty.swift */; };
+		OBJ_266 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* BeGreaterThan.swift */; };
+		OBJ_267 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* BeGreaterThanOrEqualTo.swift */; };
+		OBJ_268 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* BeIdenticalTo.swift */; };
+		OBJ_269 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* BeLessThan.swift */; };
+		OBJ_270 /* BeLessThanOrEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* BeLessThanOrEqual.swift */; };
+		OBJ_271 /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* BeLogical.swift */; };
+		OBJ_272 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* BeNil.swift */; };
+		OBJ_273 /* BeVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* BeVoid.swift */; };
+		OBJ_274 /* BeginWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_118 /* BeginWith.swift */; };
+		OBJ_275 /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* Contain.swift */; };
+		OBJ_276 /* ContainElementSatisfying.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* ContainElementSatisfying.swift */; };
+		OBJ_277 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* EndWith.swift */; };
+		OBJ_278 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* Equal.swift */; };
+		OBJ_279 /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* HaveCount.swift */; };
+		OBJ_280 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* Match.swift */; };
+		OBJ_281 /* MatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* MatchError.swift */; };
+		OBJ_282 /* MatcherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* MatcherFunc.swift */; };
+		OBJ_283 /* MatcherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* MatcherProtocols.swift */; };
+		OBJ_284 /* PostNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_128 /* PostNotification.swift */; };
+		OBJ_285 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* Predicate.swift */; };
+		OBJ_286 /* RaisesException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* RaisesException.swift */; };
+		OBJ_287 /* SatisfyAnyOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_131 /* SatisfyAnyOf.swift */; };
+		OBJ_288 /* ThrowAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_132 /* ThrowAssertion.swift */; };
+		OBJ_289 /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_133 /* ThrowError.swift */; };
+		OBJ_290 /* ToSucceed.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_134 /* ToSucceed.swift */; };
+		OBJ_291 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_136 /* Async.swift */; };
+		OBJ_292 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_137 /* Errors.swift */; };
+		OBJ_293 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_138 /* Functional.swift */; };
+		OBJ_294 /* SourceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_139 /* SourceLocation.swift */; };
+		OBJ_295 /* Stringers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_140 /* Stringers.swift */; };
+		OBJ_301 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Behavior.swift */; };
+		OBJ_302 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Callsite.swift */; };
+		OBJ_303 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Configuration.swift */; };
+		OBJ_304 /* QuickConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* QuickConfiguration.swift */; };
+		OBJ_305 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* DSL.swift */; };
+		OBJ_306 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* World+DSL.swift */; };
+		OBJ_307 /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* ErrorUtility.swift */; };
+		OBJ_308 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* Example.swift */; };
+		OBJ_309 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* ExampleGroup.swift */; };
+		OBJ_310 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* ExampleMetadata.swift */; };
+		OBJ_311 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* Filter.swift */; };
+		OBJ_312 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* Closures.swift */; };
+		OBJ_313 /* ExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* ExampleHooks.swift */; };
+		OBJ_314 /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* HooksPhase.swift */; };
+		OBJ_315 /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* SuiteHooks.swift */; };
+		OBJ_316 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* NSBundle+CurrentTestBundle.swift */; };
+		OBJ_317 /* NSString+C99ExtendedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* NSString+C99ExtendedIdentifier.swift */; };
+		OBJ_318 /* QuickMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* QuickMain.swift */; };
+		OBJ_319 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* QuickSelectedTestSuiteBuilder.swift */; };
+		OBJ_320 /* QuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* QuickSpec.swift */; };
+		OBJ_321 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* QuickTestSuite.swift */; };
+		OBJ_322 /* URL+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* URL+FileName.swift */; };
+		OBJ_323 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* World.swift */; };
+		OBJ_325 /* QuickSpecBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; };
+		OBJ_331 /* QuickSpecBase.m in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* QuickSpecBase.m */; };
+		OBJ_338 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* main.swift */; };
+		OBJ_340 /* AtlasCommands.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Atlas::AtlasCommands::Product" /* AtlasCommands.framework */; };
+		OBJ_341 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
+		OBJ_342 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
+		OBJ_350 /* AtlasInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AtlasInput.swift */; };
+		OBJ_351 /* CommitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CommitCommand.swift */; };
+		OBJ_352 /* ImportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ImportCommand.swift */; };
+		OBJ_353 /* InfoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* InfoCommand.swift */; };
+		OBJ_354 /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* LogCommand.swift */; };
+		OBJ_355 /* LoginCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* LoginCommand.swift */; };
+		OBJ_356 /* LogoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* LogoutCommand.swift */; };
+		OBJ_357 /* StageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* StageCommand.swift */; };
+		OBJ_358 /* StagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* StagedCommand.swift */; };
+		OBJ_359 /* StartProjectCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* StartProjectCommand.swift */; };
+		OBJ_360 /* StatusCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* StatusCommand.swift */; };
+		OBJ_361 /* UnstageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* UnstageCommand.swift */; };
+		OBJ_362 /* UnstagedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* UnstagedCommand.swift */; };
+		OBJ_364 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
+		OBJ_365 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
+		OBJ_372 /* AtlasCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* AtlasCore.swift */; };
+		OBJ_373 /* AtlasProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* AtlasProcess.swift */; };
+		OBJ_374 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Credentials.swift */; };
+		OBJ_375 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* FileSystem.swift */; };
+		OBJ_376 /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Git.swift */; };
+		OBJ_377 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* GitHub.swift */; };
+		OBJ_378 /* Glue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* Glue.swift */; };
+		OBJ_379 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Project.swift */; };
+		OBJ_385 /* ArgumentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_144 /* ArgumentList.swift */; };
+		OBJ_386 /* ArgumentListManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* ArgumentListManipulator.swift */; };
+		OBJ_387 /* CLI-deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* CLI-deprecated.swift */; };
+		OBJ_388 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* CLI.swift */; };
+		OBJ_389 /* ChainableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* ChainableCommand.swift */; };
+		OBJ_390 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* Command.swift */; };
+		OBJ_391 /* CommandSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* CommandSignature.swift */; };
+		OBJ_392 /* CompletionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* CompletionGenerator.swift */; };
+		OBJ_393 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_152 /* Error.swift */; };
+		OBJ_394 /* GlobalOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_153 /* GlobalOptions.swift */; };
+		OBJ_395 /* HelpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_154 /* HelpCommand.swift */; };
+		OBJ_396 /* HelpMessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_155 /* HelpMessageGenerator.swift */; };
+		OBJ_397 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_156 /* Input.swift */; };
+		OBJ_398 /* LightweightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_157 /* LightweightCommand.swift */; };
+		OBJ_399 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_158 /* Option.swift */; };
+		OBJ_400 /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* OptionGroup.swift */; };
+		OBJ_401 /* OptionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_160 /* OptionRecognizer.swift */; };
+		OBJ_402 /* OptionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* OptionRegistry.swift */; };
+		OBJ_403 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_162 /* Output.swift */; };
+		OBJ_404 /* OutputByteStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_163 /* OutputByteStream.swift */; };
+		OBJ_405 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_164 /* Parameter.swift */; };
+		OBJ_406 /* ParameterFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_165 /* ParameterFiller.swift */; };
+		OBJ_407 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_166 /* Router.swift */; };
+		OBJ_408 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_167 /* Term.swift */; };
+		OBJ_409 /* VersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_168 /* VersionCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3A1D0CE920471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75802058320500FD679B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Atlas::AtlasCommands";
+			remoteInfo = AtlasCommands;
+		};
+		3A8A75812058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
-		3A1D0CEA20471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75822058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwiftCLI::SwiftCLI";
 			remoteInfo = SwiftCLI;
 		};
-		3A1D0CEB20471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75832058320500FD679B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "AtlasCore::AtlasCore";
+			remoteInfo = AtlasCore;
+		};
+		3A8A75842058320500FD679B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftCLI::SwiftCLI";
+			remoteInfo = SwiftCLI;
+		};
+		3A8A75852058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Nimble::Nimble";
 			remoteInfo = Nimble;
 		};
-		3A1D0CEC20471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75862058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Quick::Quick";
 			remoteInfo = Quick;
 		};
-		3A1D0CED20471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75872058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Quick::QuickSpecBase";
 			remoteInfo = QuickSpecBase;
 		};
-		3A1D0CEE20471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75882058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Quick::QuickSpecBase";
 			remoteInfo = QuickSpecBase;
 		};
-		3A1D0CEF20471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75892058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Atlas::Atlas";
-			remoteInfo = Atlas;
+			remoteGlobalIDString = "Atlas::AtlasCommands";
+			remoteInfo = AtlasCommands;
 		};
-		3A1D0CF020471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A758A2058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
-		3A1D0CF120471AD400CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A758B2058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwiftCLI::SwiftCLI";
 			remoteInfo = SwiftCLI;
 		};
-		3A1D0CF220471AD500CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A758C2058320500FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Atlas::AtlasTests";
 			remoteInfo = AtlasTests;
 		};
-		3A1D0D1420471AFF00CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75A32058328C00FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3A1D0CF620471AFE00CBBAB9;
+			remoteGlobalIDString = 3A8A75902058328C00FD679B;
 			remoteInfo = AtlasApp;
 		};
-		3A1D0D2A20471E6900CBBAB9 /* PBXContainerItemProxy */ = {
+		3A8A75B12058378C00FD679B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
-		3A1D0D2C20471E7700CBBAB9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "AtlasCore::SwiftPMPackageDescription";
-			remoteInfo = AtlasCorePackageDescription;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3A1D0D322047204100CBBAB9 /* Embed Frameworks */ = {
+		3A8A75B32058378C00FD679B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3A1D0D312047204100CBBAB9 /* AtlasCore.framework in Embed Frameworks */,
+				3A8A75B02058378C00FD679B /* AtlasCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,230 +300,242 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A1D0CF720471AFE00CBBAB9 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A1D0CF920471AFE00CBBAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A1D0CFB20471AFE00CBBAB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3A1D0CFD20471AFE00CBBAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A1D0D0020471AFE00CBBAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A1D0D0220471AFE00CBBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A1D0D0320471AFE00CBBAB9 /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
-		3A1D0D1320471AFF00CBBAB9 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A1D0D1720471AFF00CBBAB9 /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
-		3A1D0D1920471AFF00CBBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A1D0D3D20474B3000CBBAB9 /* LoginCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommandSpec.swift; sourceTree = "<group>"; };
-		3A1D0D4820486A8500CBBAB9 /* AtlasInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasInput.swift; sourceTree = "<group>"; };
-		3A1D0D4C2049917600CBBAB9 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		3A1D0D5C204EE4D600CBBAB9 /* UnstageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstageCommandSpec.swift; sourceTree = "<group>"; };
-		3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCommandSpec.swift; sourceTree = "<group>"; };
-		3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartProjectCommandSpec.swift; sourceTree = "<group>"; };
-		3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommandSpec.swift; sourceTree = "<group>"; };
-		3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommandSpec.swift; sourceTree = "<group>"; };
-		3A8A74072050C9A500FD679B /* CommitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommand.swift; sourceTree = "<group>"; };
-		3A8A740B205335C400FD679B /* LogCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommand.swift; sourceTree = "<group>"; };
-		3A8A740F205372AF00FD679B /* LogCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommandSpec.swift; sourceTree = "<group>"; };
-		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8A75912058328C00FD679B /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8A75932058328C00FD679B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A8A75952058328C00FD679B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3A8A75972058328C00FD679B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A8A759A2058328C00FD679B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A8A759C2058328C00FD679B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A8A759D2058328C00FD679B /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
+		3A8A75A22058328C00FD679B /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8A75A62058328D00FD679B /* AtlasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasAppUITests.swift; sourceTree = "<group>"; };
+		3A8A75A82058328D00FD679B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_100 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
-		OBJ_101 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeIdenticalTo.swift; sourceTree = "<group>"; };
-		OBJ_102 /* BeLessThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThan.swift; sourceTree = "<group>"; };
-		OBJ_103 /* BeLessThanOrEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqual.swift; sourceTree = "<group>"; };
-		OBJ_104 /* BeLogical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLogical.swift; sourceTree = "<group>"; };
-		OBJ_105 /* BeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeNil.swift; sourceTree = "<group>"; };
-		OBJ_106 /* BeVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeVoid.swift; sourceTree = "<group>"; };
-		OBJ_107 /* BeginWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginWith.swift; sourceTree = "<group>"; };
-		OBJ_108 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
-		OBJ_109 /* ContainElementSatisfying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainElementSatisfying.swift; sourceTree = "<group>"; };
-		OBJ_11 /* ImportCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCommand.swift; sourceTree = "<group>"; };
-		OBJ_110 /* EndWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndWith.swift; sourceTree = "<group>"; };
-		OBJ_111 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
-		OBJ_112 /* HaveCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveCount.swift; sourceTree = "<group>"; };
-		OBJ_113 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
-		OBJ_114 /* MatchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchError.swift; sourceTree = "<group>"; };
-		OBJ_115 /* MatcherFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherFunc.swift; sourceTree = "<group>"; };
-		OBJ_116 /* MatcherProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherProtocols.swift; sourceTree = "<group>"; };
-		OBJ_117 /* PostNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNotification.swift; sourceTree = "<group>"; };
-		OBJ_118 /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicate.swift; sourceTree = "<group>"; };
-		OBJ_119 /* RaisesException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisesException.swift; sourceTree = "<group>"; };
-		OBJ_12 /* InfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCommand.swift; sourceTree = "<group>"; };
-		OBJ_120 /* SatisfyAnyOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisfyAnyOf.swift; sourceTree = "<group>"; };
-		OBJ_121 /* ThrowAssertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowAssertion.swift; sourceTree = "<group>"; };
-		OBJ_122 /* ThrowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowError.swift; sourceTree = "<group>"; };
-		OBJ_123 /* ToSucceed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSucceed.swift; sourceTree = "<group>"; };
-		OBJ_125 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
-		OBJ_126 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		OBJ_127 /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
-		OBJ_128 /* SourceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocation.swift; sourceTree = "<group>"; };
-		OBJ_129 /* Stringers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stringers.swift; sourceTree = "<group>"; };
-		OBJ_13 /* LoginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommand.swift; sourceTree = "<group>"; };
-		OBJ_130 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/Nimble.git-1225162792785459507/Package.swift"; sourceTree = "<group>"; };
-		OBJ_133 /* ArgumentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentList.swift; sourceTree = "<group>"; };
-		OBJ_134 /* ArgumentListManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentListManipulator.swift; sourceTree = "<group>"; };
-		OBJ_135 /* CLI-deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLI-deprecated.swift"; sourceTree = "<group>"; };
-		OBJ_136 /* CLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
-		OBJ_137 /* ChainableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainableCommand.swift; sourceTree = "<group>"; };
-		OBJ_138 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		OBJ_139 /* CommandSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSignature.swift; sourceTree = "<group>"; };
-		OBJ_14 /* LogoutCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommand.swift; sourceTree = "<group>"; };
-		OBJ_140 /* CompletionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionGenerator.swift; sourceTree = "<group>"; };
-		OBJ_141 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		OBJ_142 /* GlobalOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOptions.swift; sourceTree = "<group>"; };
-		OBJ_143 /* HelpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommand.swift; sourceTree = "<group>"; };
-		OBJ_144 /* HelpMessageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMessageGenerator.swift; sourceTree = "<group>"; };
-		OBJ_145 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
-		OBJ_146 /* LightweightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightweightCommand.swift; sourceTree = "<group>"; };
-		OBJ_147 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
-		OBJ_148 /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
-		OBJ_149 /* OptionRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRecognizer.swift; sourceTree = "<group>"; };
-		OBJ_15 /* StageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCommand.swift; sourceTree = "<group>"; };
-		OBJ_150 /* OptionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRegistry.swift; sourceTree = "<group>"; };
-		OBJ_151 /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
-		OBJ_152 /* OutputByteStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputByteStream.swift; sourceTree = "<group>"; };
-		OBJ_153 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		OBJ_154 /* ParameterFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterFiller.swift; sourceTree = "<group>"; };
-		OBJ_155 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		OBJ_156 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
-		OBJ_157 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
-		OBJ_158 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/SwiftCLI-8466703425035036135/Package.swift"; sourceTree = "<group>"; };
-		OBJ_16 /* StagedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedCommand.swift; sourceTree = "<group>"; };
-		OBJ_17 /* StartProjectCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartProjectCommand.swift; sourceTree = "<group>"; };
-		OBJ_18 /* StatusCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCommand.swift; sourceTree = "<group>"; };
-		OBJ_19 /* UnstageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstageCommand.swift; sourceTree = "<group>"; };
-		OBJ_20 /* UnstagedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstagedCommand.swift; sourceTree = "<group>"; };
-		OBJ_21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		OBJ_24 /* ImportCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCommandSpec.swift; sourceTree = "<group>"; };
-		OBJ_31 /* AtlasCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasCore.swift; sourceTree = "<group>"; };
-		OBJ_32 /* AtlasProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasProcess.swift; sourceTree = "<group>"; };
-		OBJ_33 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		OBJ_34 /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
-		OBJ_35 /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
-		OBJ_36 /* GitHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
-		OBJ_37 /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
-		OBJ_38 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		OBJ_39 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/AtlasCore.git-6262522149726209995/Package.swift"; sourceTree = "<group>"; };
-		OBJ_42 /* QuickSpecBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSpecBase.m; sourceTree = "<group>"; };
-		OBJ_44 /* QuickSpecBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSpecBase.h; sourceTree = "<group>"; };
-		OBJ_45 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = /Users/jcosulich/workspace/Atlas/Atlas.xcodeproj/GeneratedModuleMap/QuickSpecBase/module.modulemap; sourceTree = "<group>"; };
-		OBJ_47 /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
-		OBJ_48 /* Callsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
-		OBJ_50 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		OBJ_51 /* QuickConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
-		OBJ_53 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
-		OBJ_54 /* World+DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "World+DSL.swift"; sourceTree = "<group>"; };
-		OBJ_55 /* ErrorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUtility.swift; sourceTree = "<group>"; };
-		OBJ_56 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		OBJ_57 /* ExampleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
-		OBJ_58 /* ExampleMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
-		OBJ_59 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		OBJ_100 /* ExpectationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectationMessage.swift; sourceTree = "<group>"; };
+		OBJ_101 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		OBJ_102 /* FailureMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureMessage.swift; sourceTree = "<group>"; };
+		OBJ_104 /* AllPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPass.swift; sourceTree = "<group>"; };
+		OBJ_105 /* AsyncMatcherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncMatcherWrapper.swift; sourceTree = "<group>"; };
+		OBJ_106 /* BeAKindOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAKindOf.swift; sourceTree = "<group>"; };
+		OBJ_107 /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAnInstanceOf.swift; sourceTree = "<group>"; };
+		OBJ_108 /* BeCloseTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeCloseTo.swift; sourceTree = "<group>"; };
+		OBJ_109 /* BeEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
+		OBJ_11 /* AtlasInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasInput.swift; sourceTree = "<group>"; };
+		OBJ_110 /* BeGreaterThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThan.swift; sourceTree = "<group>"; };
+		OBJ_111 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
+		OBJ_112 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeIdenticalTo.swift; sourceTree = "<group>"; };
+		OBJ_113 /* BeLessThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThan.swift; sourceTree = "<group>"; };
+		OBJ_114 /* BeLessThanOrEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqual.swift; sourceTree = "<group>"; };
+		OBJ_115 /* BeLogical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLogical.swift; sourceTree = "<group>"; };
+		OBJ_116 /* BeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeNil.swift; sourceTree = "<group>"; };
+		OBJ_117 /* BeVoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeVoid.swift; sourceTree = "<group>"; };
+		OBJ_118 /* BeginWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginWith.swift; sourceTree = "<group>"; };
+		OBJ_119 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
+		OBJ_12 /* CommitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommand.swift; sourceTree = "<group>"; };
+		OBJ_120 /* ContainElementSatisfying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainElementSatisfying.swift; sourceTree = "<group>"; };
+		OBJ_121 /* EndWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndWith.swift; sourceTree = "<group>"; };
+		OBJ_122 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
+		OBJ_123 /* HaveCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveCount.swift; sourceTree = "<group>"; };
+		OBJ_124 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		OBJ_125 /* MatchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchError.swift; sourceTree = "<group>"; };
+		OBJ_126 /* MatcherFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherFunc.swift; sourceTree = "<group>"; };
+		OBJ_127 /* MatcherProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherProtocols.swift; sourceTree = "<group>"; };
+		OBJ_128 /* PostNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNotification.swift; sourceTree = "<group>"; };
+		OBJ_129 /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicate.swift; sourceTree = "<group>"; };
+		OBJ_13 /* ImportCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCommand.swift; sourceTree = "<group>"; };
+		OBJ_130 /* RaisesException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisesException.swift; sourceTree = "<group>"; };
+		OBJ_131 /* SatisfyAnyOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisfyAnyOf.swift; sourceTree = "<group>"; };
+		OBJ_132 /* ThrowAssertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowAssertion.swift; sourceTree = "<group>"; };
+		OBJ_133 /* ThrowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowError.swift; sourceTree = "<group>"; };
+		OBJ_134 /* ToSucceed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSucceed.swift; sourceTree = "<group>"; };
+		OBJ_136 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		OBJ_137 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		OBJ_138 /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
+		OBJ_139 /* SourceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLocation.swift; sourceTree = "<group>"; };
+		OBJ_14 /* InfoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCommand.swift; sourceTree = "<group>"; };
+		OBJ_140 /* Stringers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stringers.swift; sourceTree = "<group>"; };
+		OBJ_141 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/Nimble.git-1225162792785459507/Package.swift"; sourceTree = "<group>"; };
+		OBJ_144 /* ArgumentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentList.swift; sourceTree = "<group>"; };
+		OBJ_145 /* ArgumentListManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentListManipulator.swift; sourceTree = "<group>"; };
+		OBJ_146 /* CLI-deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLI-deprecated.swift"; sourceTree = "<group>"; };
+		OBJ_147 /* CLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
+		OBJ_148 /* ChainableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainableCommand.swift; sourceTree = "<group>"; };
+		OBJ_149 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		OBJ_15 /* LogCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommand.swift; sourceTree = "<group>"; };
+		OBJ_150 /* CommandSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSignature.swift; sourceTree = "<group>"; };
+		OBJ_151 /* CompletionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionGenerator.swift; sourceTree = "<group>"; };
+		OBJ_152 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_153 /* GlobalOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalOptions.swift; sourceTree = "<group>"; };
+		OBJ_154 /* HelpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommand.swift; sourceTree = "<group>"; };
+		OBJ_155 /* HelpMessageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMessageGenerator.swift; sourceTree = "<group>"; };
+		OBJ_156 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		OBJ_157 /* LightweightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightweightCommand.swift; sourceTree = "<group>"; };
+		OBJ_158 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		OBJ_159 /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
+		OBJ_16 /* LoginCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommand.swift; sourceTree = "<group>"; };
+		OBJ_160 /* OptionRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRecognizer.swift; sourceTree = "<group>"; };
+		OBJ_161 /* OptionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRegistry.swift; sourceTree = "<group>"; };
+		OBJ_162 /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
+		OBJ_163 /* OutputByteStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputByteStream.swift; sourceTree = "<group>"; };
+		OBJ_164 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		OBJ_165 /* ParameterFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterFiller.swift; sourceTree = "<group>"; };
+		OBJ_166 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		OBJ_167 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		OBJ_168 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
+		OBJ_169 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/SwiftCLI-8466703425035036135/Package.swift"; sourceTree = "<group>"; };
+		OBJ_17 /* LogoutCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommand.swift; sourceTree = "<group>"; };
+		OBJ_18 /* StageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCommand.swift; sourceTree = "<group>"; };
+		OBJ_19 /* StagedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedCommand.swift; sourceTree = "<group>"; };
+		OBJ_20 /* StartProjectCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartProjectCommand.swift; sourceTree = "<group>"; };
+		OBJ_21 /* StatusCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCommand.swift; sourceTree = "<group>"; };
+		OBJ_22 /* UnstageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstageCommand.swift; sourceTree = "<group>"; };
+		OBJ_23 /* UnstagedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstagedCommand.swift; sourceTree = "<group>"; };
+		OBJ_25 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_28 /* CommitCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		OBJ_30 /* ImportCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_31 /* LogCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_32 /* LoginCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_33 /* LogoutCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_34 /* StageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_35 /* StartProjectCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartProjectCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_36 /* UnstageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstageCommandSpec.swift; sourceTree = "<group>"; };
+		OBJ_42 /* AtlasCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasCore.swift; sourceTree = "<group>"; };
+		OBJ_43 /* AtlasProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasProcess.swift; sourceTree = "<group>"; };
+		OBJ_44 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		OBJ_45 /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		OBJ_46 /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
+		OBJ_47 /* GitHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
+		OBJ_48 /* Glue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glue.swift; sourceTree = "<group>"; };
+		OBJ_49 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		OBJ_50 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/AtlasCore.git-6262522149726209995/Package.swift"; sourceTree = "<group>"; };
+		OBJ_53 /* QuickSpecBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSpecBase.m; sourceTree = "<group>"; };
+		OBJ_55 /* QuickSpecBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSpecBase.h; sourceTree = "<group>"; };
+		OBJ_56 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = /Users/jcosulich/workspace/Atlas/Atlas.xcodeproj/GeneratedModuleMap/QuickSpecBase/module.modulemap; sourceTree = "<group>"; };
+		OBJ_58 /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
+		OBJ_59 /* Callsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_61 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
-		OBJ_62 /* ExampleHooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleHooks.swift; sourceTree = "<group>"; };
-		OBJ_63 /* HooksPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
-		OBJ_64 /* SuiteHooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiteHooks.swift; sourceTree = "<group>"; };
-		OBJ_65 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
-		OBJ_66 /* NSString+C99ExtendedIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+C99ExtendedIdentifier.swift"; sourceTree = "<group>"; };
-		OBJ_67 /* QuickMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMain.swift; sourceTree = "<group>"; };
-		OBJ_68 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
-		OBJ_69 /* QuickSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSpec.swift; sourceTree = "<group>"; };
-		OBJ_70 /* QuickTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
-		OBJ_71 /* URL+FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+FileName.swift"; sourceTree = "<group>"; };
-		OBJ_72 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
-		OBJ_73 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/Quick.git-2733117082000052066/Package.swift"; sourceTree = "<group>"; };
-		OBJ_77 /* AdapterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterProtocols.swift; sourceTree = "<group>"; };
-		OBJ_78 /* AssertionDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionDispatcher.swift; sourceTree = "<group>"; };
-		OBJ_79 /* AssertionRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionRecorder.swift; sourceTree = "<group>"; };
+		OBJ_61 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		OBJ_62 /* QuickConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
+		OBJ_64 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
+		OBJ_65 /* World+DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "World+DSL.swift"; sourceTree = "<group>"; };
+		OBJ_66 /* ErrorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUtility.swift; sourceTree = "<group>"; };
+		OBJ_67 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		OBJ_68 /* ExampleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
+		OBJ_69 /* ExampleMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
+		OBJ_70 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		OBJ_72 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		OBJ_73 /* ExampleHooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleHooks.swift; sourceTree = "<group>"; };
+		OBJ_74 /* HooksPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
+		OBJ_75 /* SuiteHooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiteHooks.swift; sourceTree = "<group>"; };
+		OBJ_76 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
+		OBJ_77 /* NSString+C99ExtendedIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+C99ExtendedIdentifier.swift"; sourceTree = "<group>"; };
+		OBJ_78 /* QuickMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMain.swift; sourceTree = "<group>"; };
+		OBJ_79 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		OBJ_8 /* settings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = settings.xcconfig; sourceTree = "<group>"; };
-		OBJ_80 /* NMBExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMBExpectation.swift; sourceTree = "<group>"; };
-		OBJ_81 /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMBObjCMatcher.swift; sourceTree = "<group>"; };
-		OBJ_82 /* NimbleEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleEnvironment.swift; sourceTree = "<group>"; };
-		OBJ_83 /* NimbleXCTestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleXCTestHandler.swift; sourceTree = "<group>"; };
-		OBJ_85 /* ExceptionCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionCapture.swift; sourceTree = "<group>"; };
-		OBJ_86 /* DSL+Wait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DSL+Wait.swift"; sourceTree = "<group>"; };
-		OBJ_87 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
-		OBJ_88 /* Expectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expectation.swift; sourceTree = "<group>"; };
-		OBJ_89 /* ExpectationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectationMessage.swift; sourceTree = "<group>"; };
-		OBJ_90 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
-		OBJ_91 /* FailureMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureMessage.swift; sourceTree = "<group>"; };
-		OBJ_93 /* AllPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPass.swift; sourceTree = "<group>"; };
-		OBJ_94 /* AsyncMatcherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncMatcherWrapper.swift; sourceTree = "<group>"; };
-		OBJ_95 /* BeAKindOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAKindOf.swift; sourceTree = "<group>"; };
-		OBJ_96 /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAnInstanceOf.swift; sourceTree = "<group>"; };
-		OBJ_97 /* BeCloseTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeCloseTo.swift; sourceTree = "<group>"; };
-		OBJ_98 /* BeEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
-		OBJ_99 /* BeGreaterThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThan.swift; sourceTree = "<group>"; };
+		OBJ_80 /* QuickSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSpec.swift; sourceTree = "<group>"; };
+		OBJ_81 /* QuickTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
+		OBJ_82 /* URL+FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+FileName.swift"; sourceTree = "<group>"; };
+		OBJ_83 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		OBJ_84 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jcosulich/workspace/Atlas/.build/checkouts/Quick.git-2733117082000052066/Package.swift"; sourceTree = "<group>"; };
+		OBJ_88 /* AdapterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterProtocols.swift; sourceTree = "<group>"; };
+		OBJ_89 /* AssertionDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionDispatcher.swift; sourceTree = "<group>"; };
+		OBJ_90 /* AssertionRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionRecorder.swift; sourceTree = "<group>"; };
+		OBJ_91 /* NMBExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMBExpectation.swift; sourceTree = "<group>"; };
+		OBJ_92 /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMBObjCMatcher.swift; sourceTree = "<group>"; };
+		OBJ_93 /* NimbleEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleEnvironment.swift; sourceTree = "<group>"; };
+		OBJ_94 /* NimbleXCTestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleXCTestHandler.swift; sourceTree = "<group>"; };
+		OBJ_96 /* ExceptionCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionCapture.swift; sourceTree = "<group>"; };
+		OBJ_97 /* DSL+Wait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DSL+Wait.swift"; sourceTree = "<group>"; };
+		OBJ_98 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
+		OBJ_99 /* Expectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expectation.swift; sourceTree = "<group>"; };
 		"Quick::Quick::Product" /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSpecBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCLI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3A1D0CF420471AFE00CBBAB9 /* Frameworks */ = {
+		3A8A758E2058328C00FD679B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8A75AF2058378C00FD679B /* AtlasCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A8A759F2058328C00FD679B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A1D0D1020471AFF00CBBAB9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A1D0D2420471DFC00CBBAB9 /* AtlasCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_203 /* Frameworks */ = {
+		OBJ_223 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_204 /* Nimble.framework in Frameworks */,
-				OBJ_205 /* Quick.framework in Frameworks */,
-				OBJ_206 /* QuickSpecBase.framework in Frameworks */,
-				OBJ_207 /* AtlasCore.framework in Frameworks */,
-				OBJ_208 /* SwiftCLI.framework in Frameworks */,
+				OBJ_224 /* Nimble.framework in Frameworks */,
+				OBJ_225 /* Quick.framework in Frameworks */,
+				OBJ_226 /* QuickSpecBase.framework in Frameworks */,
+				OBJ_227 /* AtlasCommands.framework in Frameworks */,
+				OBJ_228 /* AtlasCore.framework in Frameworks */,
+				OBJ_229 /* SwiftCLI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_275 /* Frameworks */ = {
+		OBJ_296 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_303 /* Frameworks */ = {
+		OBJ_324 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_304 /* QuickSpecBase.framework in Frameworks */,
+				OBJ_325 /* QuickSpecBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_311 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_327 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_328 /* AtlasCore.framework in Frameworks */,
-				OBJ_329 /* SwiftCLI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_344 /* Frameworks */ = {
+		OBJ_332 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_374 /* Frameworks */ = {
+		OBJ_339 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_340 /* AtlasCommands.framework in Frameworks */,
+				OBJ_341 /* AtlasCore.framework in Frameworks */,
+				OBJ_342 /* SwiftCLI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_363 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_364 /* AtlasCore.framework in Frameworks */,
+				OBJ_365 /* SwiftCLI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_380 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_410 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -537,112 +545,142 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A1D0CF820471AFE00CBBAB9 /* AtlasApp */ = {
+		3A8A75922058328C00FD679B /* AtlasApp */ = {
 			isa = PBXGroup;
 			children = (
-				3A1D0CF920471AFE00CBBAB9 /* AppDelegate.swift */,
-				3A1D0CFB20471AFE00CBBAB9 /* ViewController.swift */,
-				3A1D0CFD20471AFE00CBBAB9 /* Assets.xcassets */,
-				3A1D0CFF20471AFE00CBBAB9 /* Main.storyboard */,
-				3A1D0D0220471AFE00CBBAB9 /* Info.plist */,
-				3A1D0D0320471AFE00CBBAB9 /* AtlasApp.entitlements */,
+				3A8A75932058328C00FD679B /* AppDelegate.swift */,
+				3A8A75952058328C00FD679B /* ViewController.swift */,
+				3A8A75972058328C00FD679B /* Assets.xcassets */,
+				3A8A75992058328C00FD679B /* Main.storyboard */,
+				3A8A759C2058328C00FD679B /* Info.plist */,
+				3A8A759D2058328C00FD679B /* AtlasApp.entitlements */,
 			);
 			path = AtlasApp;
 			sourceTree = "<group>";
 		};
-		3A1D0D1620471AFF00CBBAB9 /* AtlasAppUITests */ = {
+		3A8A75A52058328C00FD679B /* AtlasAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3A1D0D1720471AFF00CBBAB9 /* AtlasAppUITests.swift */,
-				3A1D0D1920471AFF00CBBAB9 /* Info.plist */,
+				3A8A75A62058328D00FD679B /* AtlasAppUITests.swift */,
+				3A8A75A82058328D00FD679B /* Info.plist */,
 			);
 			path = AtlasAppUITests;
 			sourceTree = "<group>";
 		};
-		3A1D0D2320471DFC00CBBAB9 /* Frameworks */ = {
+		OBJ_10 /* AtlasCommands */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_11 /* AtlasInput.swift */,
+				OBJ_12 /* CommitCommand.swift */,
+				OBJ_13 /* ImportCommand.swift */,
+				OBJ_14 /* InfoCommand.swift */,
+				OBJ_15 /* LogCommand.swift */,
+				OBJ_16 /* LoginCommand.swift */,
+				OBJ_17 /* LogoutCommand.swift */,
+				OBJ_18 /* StageCommand.swift */,
+				OBJ_19 /* StagedCommand.swift */,
+				OBJ_20 /* StartProjectCommand.swift */,
+				OBJ_21 /* StatusCommand.swift */,
+				OBJ_22 /* UnstageCommand.swift */,
+				OBJ_23 /* UnstagedCommand.swift */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		OBJ_10 /* Atlas */ = {
-			isa = PBXGroup;
-			children = (
-				3A8A74072050C9A500FD679B /* CommitCommand.swift */,
-				OBJ_11 /* ImportCommand.swift */,
-				OBJ_12 /* InfoCommand.swift */,
-				3A8A740B205335C400FD679B /* LogCommand.swift */,
-				OBJ_13 /* LoginCommand.swift */,
-				OBJ_14 /* LogoutCommand.swift */,
-				OBJ_15 /* StageCommand.swift */,
-				OBJ_16 /* StagedCommand.swift */,
-				OBJ_17 /* StartProjectCommand.swift */,
-				OBJ_18 /* StatusCommand.swift */,
-				OBJ_19 /* UnstageCommand.swift */,
-				OBJ_20 /* UnstagedCommand.swift */,
-				OBJ_21 /* main.swift */,
-				3A1D0D4820486A8500CBBAB9 /* AtlasInput.swift */,
-			);
-			name = Atlas;
-			path = Sources/Atlas;
+			name = AtlasCommands;
+			path = Sources/AtlasCommands;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_124 /* Utils */ = {
+		OBJ_103 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_125 /* Async.swift */,
-				OBJ_126 /* Errors.swift */,
-				OBJ_127 /* Functional.swift */,
-				OBJ_128 /* SourceLocation.swift */,
-				OBJ_129 /* Stringers.swift */,
+				OBJ_104 /* AllPass.swift */,
+				OBJ_105 /* AsyncMatcherWrapper.swift */,
+				OBJ_106 /* BeAKindOf.swift */,
+				OBJ_107 /* BeAnInstanceOf.swift */,
+				OBJ_108 /* BeCloseTo.swift */,
+				OBJ_109 /* BeEmpty.swift */,
+				OBJ_110 /* BeGreaterThan.swift */,
+				OBJ_111 /* BeGreaterThanOrEqualTo.swift */,
+				OBJ_112 /* BeIdenticalTo.swift */,
+				OBJ_113 /* BeLessThan.swift */,
+				OBJ_114 /* BeLessThanOrEqual.swift */,
+				OBJ_115 /* BeLogical.swift */,
+				OBJ_116 /* BeNil.swift */,
+				OBJ_117 /* BeVoid.swift */,
+				OBJ_118 /* BeginWith.swift */,
+				OBJ_119 /* Contain.swift */,
+				OBJ_120 /* ContainElementSatisfying.swift */,
+				OBJ_121 /* EndWith.swift */,
+				OBJ_122 /* Equal.swift */,
+				OBJ_123 /* HaveCount.swift */,
+				OBJ_124 /* Match.swift */,
+				OBJ_125 /* MatchError.swift */,
+				OBJ_126 /* MatcherFunc.swift */,
+				OBJ_127 /* MatcherProtocols.swift */,
+				OBJ_128 /* PostNotification.swift */,
+				OBJ_129 /* Predicate.swift */,
+				OBJ_130 /* RaisesException.swift */,
+				OBJ_131 /* SatisfyAnyOf.swift */,
+				OBJ_132 /* ThrowAssertion.swift */,
+				OBJ_133 /* ThrowError.swift */,
+				OBJ_134 /* ToSucceed.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
+		OBJ_135 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_136 /* Async.swift */,
+				OBJ_137 /* Errors.swift */,
+				OBJ_138 /* Functional.swift */,
+				OBJ_139 /* SourceLocation.swift */,
+				OBJ_140 /* Stringers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		OBJ_131 /* SwiftCLI 4.0.3 */ = {
+		OBJ_142 /* SwiftCLI 4.0.3 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_132 /* SwiftCLI */,
-				OBJ_158 /* Package.swift */,
+				OBJ_143 /* SwiftCLI */,
+				OBJ_169 /* Package.swift */,
 			);
 			name = "SwiftCLI 4.0.3";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_132 /* SwiftCLI */ = {
+		OBJ_143 /* SwiftCLI */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_133 /* ArgumentList.swift */,
-				OBJ_134 /* ArgumentListManipulator.swift */,
-				OBJ_135 /* CLI-deprecated.swift */,
-				OBJ_136 /* CLI.swift */,
-				OBJ_137 /* ChainableCommand.swift */,
-				OBJ_138 /* Command.swift */,
-				OBJ_139 /* CommandSignature.swift */,
-				OBJ_140 /* CompletionGenerator.swift */,
-				OBJ_141 /* Error.swift */,
-				OBJ_142 /* GlobalOptions.swift */,
-				OBJ_143 /* HelpCommand.swift */,
-				OBJ_144 /* HelpMessageGenerator.swift */,
-				OBJ_145 /* Input.swift */,
-				OBJ_146 /* LightweightCommand.swift */,
-				OBJ_147 /* Option.swift */,
-				OBJ_148 /* OptionGroup.swift */,
-				OBJ_149 /* OptionRecognizer.swift */,
-				OBJ_150 /* OptionRegistry.swift */,
-				OBJ_151 /* Output.swift */,
-				OBJ_152 /* OutputByteStream.swift */,
-				OBJ_153 /* Parameter.swift */,
-				OBJ_154 /* ParameterFiller.swift */,
-				OBJ_155 /* Router.swift */,
-				OBJ_156 /* Term.swift */,
-				OBJ_157 /* VersionCommand.swift */,
+				OBJ_144 /* ArgumentList.swift */,
+				OBJ_145 /* ArgumentListManipulator.swift */,
+				OBJ_146 /* CLI-deprecated.swift */,
+				OBJ_147 /* CLI.swift */,
+				OBJ_148 /* ChainableCommand.swift */,
+				OBJ_149 /* Command.swift */,
+				OBJ_150 /* CommandSignature.swift */,
+				OBJ_151 /* CompletionGenerator.swift */,
+				OBJ_152 /* Error.swift */,
+				OBJ_153 /* GlobalOptions.swift */,
+				OBJ_154 /* HelpCommand.swift */,
+				OBJ_155 /* HelpMessageGenerator.swift */,
+				OBJ_156 /* Input.swift */,
+				OBJ_157 /* LightweightCommand.swift */,
+				OBJ_158 /* Option.swift */,
+				OBJ_159 /* OptionGroup.swift */,
+				OBJ_160 /* OptionRecognizer.swift */,
+				OBJ_161 /* OptionRegistry.swift */,
+				OBJ_162 /* Output.swift */,
+				OBJ_163 /* OutputByteStream.swift */,
+				OBJ_164 /* Parameter.swift */,
+				OBJ_165 /* ParameterFiller.swift */,
+				OBJ_166 /* Router.swift */,
+				OBJ_167 /* Term.swift */,
+				OBJ_168 /* VersionCommand.swift */,
 			);
 			name = SwiftCLI;
 			path = ".build/checkouts/SwiftCLI-8466703425035036135/Sources/SwiftCLI";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_159 /* Products */ = {
+		OBJ_170 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"Atlas::AtlasTests::Product" /* AtlasTests.xctest */,
@@ -650,172 +688,171 @@
 				"Quick::Quick::Product" /* Quick.framework */,
 				"Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */,
 				"Atlas::Atlas::Product" /* Atlas */,
+				"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */,
 				"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */,
 				"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */,
-				3A1D0CF720471AFE00CBBAB9 /* AtlasApp.app */,
-				3A1D0D1320471AFF00CBBAB9 /* AtlasAppUITests.xctest */,
+				3A8A75912058328C00FD679B /* AtlasApp.app */,
+				3A8A75A22058328C00FD679B /* AtlasAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_22 /* Tests */ = {
+		OBJ_24 /* Atlas */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_23 /* AtlasTests */,
+				OBJ_25 /* main.swift */,
+			);
+			name = Atlas;
+			path = Sources/Atlas;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_26 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_27 /* AtlasTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_23 /* AtlasTests */ = {
+		OBJ_27 /* AtlasTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A8A7404204F34A700FD679B /* CommitCommandSpec.swift */,
-				OBJ_24 /* ImportCommandSpec.swift */,
-				3A8A740F205372AF00FD679B /* LogCommandSpec.swift */,
-				3A1D0D3D20474B3000CBBAB9 /* LoginCommandSpec.swift */,
-				3A8A7401204EFD1700FD679B /* LogoutCommandSpec.swift */,
-				3A8A73FE204EEDE000FD679B /* StartProjectCommandSpec.swift */,
-				3A8A73FB204EEAA200FD679B /* StageCommandSpec.swift */,
-				3A1D0D5C204EE4D600CBBAB9 /* UnstageCommandSpec.swift */,
-				3A1D0D4C2049917600CBBAB9 /* Helper.swift */,
+				OBJ_28 /* CommitCommandSpec.swift */,
+				OBJ_29 /* Helper.swift */,
+				OBJ_30 /* ImportCommandSpec.swift */,
+				OBJ_31 /* LogCommandSpec.swift */,
+				OBJ_32 /* LoginCommandSpec.swift */,
+				OBJ_33 /* LogoutCommandSpec.swift */,
+				OBJ_34 /* StageCommandSpec.swift */,
+				OBJ_35 /* StartProjectCommandSpec.swift */,
+				OBJ_36 /* UnstageCommandSpec.swift */,
 			);
 			name = AtlasTests;
 			path = Tests/AtlasTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_28 /* Dependencies */ = {
+		OBJ_39 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_29 /* AtlasCore 0.3.8 */,
-				OBJ_40 /* Quick 1.2.0 */,
-				OBJ_74 /* Nimble 7.0.3 */,
-				OBJ_131 /* SwiftCLI 4.0.3 */,
+				OBJ_40 /* AtlasCore 0.4.3 */,
+				OBJ_51 /* Quick 1.2.0 */,
+				OBJ_85 /* Nimble 7.0.3 */,
+				OBJ_142 /* SwiftCLI 4.0.3 */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		OBJ_29 /* AtlasCore 0.3.8 */ = {
+		OBJ_40 /* AtlasCore 0.4.3 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_30 /* AtlasCore */,
-				OBJ_39 /* Package.swift */,
+				OBJ_41 /* AtlasCore */,
+				OBJ_50 /* Package.swift */,
 			);
-			name = "AtlasCore 0.3.8";
+			name = "AtlasCore 0.4.3";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_30 /* AtlasCore */ = {
+		OBJ_41 /* AtlasCore */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_31 /* AtlasCore.swift */,
-				OBJ_32 /* AtlasProcess.swift */,
-				OBJ_33 /* Credentials.swift */,
-				OBJ_34 /* FileSystem.swift */,
-				OBJ_35 /* Git.swift */,
-				OBJ_36 /* GitHub.swift */,
-				OBJ_37 /* Glue.swift */,
-				OBJ_38 /* Project.swift */,
+				OBJ_42 /* AtlasCore.swift */,
+				OBJ_43 /* AtlasProcess.swift */,
+				OBJ_44 /* Credentials.swift */,
+				OBJ_45 /* FileSystem.swift */,
+				OBJ_46 /* Git.swift */,
+				OBJ_47 /* GitHub.swift */,
+				OBJ_48 /* Glue.swift */,
+				OBJ_49 /* Project.swift */,
 			);
 			name = AtlasCore;
 			path = ".build/checkouts/AtlasCore.git-6262522149726209995/Sources/AtlasCore";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_40 /* Quick 1.2.0 */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_41 /* QuickSpecBase */,
-				OBJ_46 /* Quick */,
-				OBJ_73 /* Package.swift */,
-			);
-			name = "Quick 1.2.0";
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_41 /* QuickSpecBase */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_42 /* QuickSpecBase.m */,
-				OBJ_43 /* include */,
-			);
-			name = QuickSpecBase;
-			path = ".build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase";
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_43 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_44 /* QuickSpecBase.h */,
-				OBJ_45 /* module.modulemap */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		OBJ_46 /* Quick */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_47 /* Behavior.swift */,
-				OBJ_48 /* Callsite.swift */,
-				OBJ_49 /* Configuration */,
-				OBJ_52 /* DSL */,
-				OBJ_55 /* ErrorUtility.swift */,
-				OBJ_56 /* Example.swift */,
-				OBJ_57 /* ExampleGroup.swift */,
-				OBJ_58 /* ExampleMetadata.swift */,
-				OBJ_59 /* Filter.swift */,
-				OBJ_60 /* Hooks */,
-				OBJ_65 /* NSBundle+CurrentTestBundle.swift */,
-				OBJ_66 /* NSString+C99ExtendedIdentifier.swift */,
-				OBJ_67 /* QuickMain.swift */,
-				OBJ_68 /* QuickSelectedTestSuiteBuilder.swift */,
-				OBJ_69 /* QuickSpec.swift */,
-				OBJ_70 /* QuickTestSuite.swift */,
-				OBJ_71 /* URL+FileName.swift */,
-				OBJ_72 /* World.swift */,
-			);
-			name = Quick;
-			path = ".build/checkouts/Quick.git-2733117082000052066/Sources/Quick";
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_49 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_50 /* Configuration.swift */,
-				OBJ_51 /* QuickConfiguration.swift */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Configs */,
 				OBJ_9 /* Sources */,
-				OBJ_22 /* Tests */,
-				OBJ_28 /* Dependencies */,
-				3A1D0CF820471AFE00CBBAB9 /* AtlasApp */,
-				3A1D0D1620471AFF00CBBAB9 /* AtlasAppUITests */,
-				OBJ_159 /* Products */,
-				3A1D0D2320471DFC00CBBAB9 /* Frameworks */,
+				OBJ_26 /* Tests */,
+				OBJ_39 /* Dependencies */,
+				3A8A75922058328C00FD679B /* AtlasApp */,
+				3A8A75A52058328C00FD679B /* AtlasAppUITests */,
+				OBJ_170 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
-		OBJ_52 /* DSL */ = {
+		OBJ_51 /* Quick 1.2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_53 /* DSL.swift */,
-				OBJ_54 /* World+DSL.swift */,
+				OBJ_52 /* QuickSpecBase */,
+				OBJ_57 /* Quick */,
+				OBJ_84 /* Package.swift */,
+			);
+			name = "Quick 1.2.0";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_52 /* QuickSpecBase */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_53 /* QuickSpecBase.m */,
+				OBJ_54 /* include */,
+			);
+			name = QuickSpecBase;
+			path = ".build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_54 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_55 /* QuickSpecBase.h */,
+				OBJ_56 /* module.modulemap */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		OBJ_57 /* Quick */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_58 /* Behavior.swift */,
+				OBJ_59 /* Callsite.swift */,
+				OBJ_60 /* Configuration */,
+				OBJ_63 /* DSL */,
+				OBJ_66 /* ErrorUtility.swift */,
+				OBJ_67 /* Example.swift */,
+				OBJ_68 /* ExampleGroup.swift */,
+				OBJ_69 /* ExampleMetadata.swift */,
+				OBJ_70 /* Filter.swift */,
+				OBJ_71 /* Hooks */,
+				OBJ_76 /* NSBundle+CurrentTestBundle.swift */,
+				OBJ_77 /* NSString+C99ExtendedIdentifier.swift */,
+				OBJ_78 /* QuickMain.swift */,
+				OBJ_79 /* QuickSelectedTestSuiteBuilder.swift */,
+				OBJ_80 /* QuickSpec.swift */,
+				OBJ_81 /* QuickTestSuite.swift */,
+				OBJ_82 /* URL+FileName.swift */,
+				OBJ_83 /* World.swift */,
+			);
+			name = Quick;
+			path = ".build/checkouts/Quick.git-2733117082000052066/Sources/Quick";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_60 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_61 /* Configuration.swift */,
+				OBJ_62 /* QuickConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		OBJ_63 /* DSL */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_64 /* DSL.swift */,
+				OBJ_65 /* World+DSL.swift */,
 			);
 			path = DSL;
-			sourceTree = "<group>";
-		};
-		OBJ_60 /* Hooks */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_61 /* Closures.swift */,
-				OBJ_62 /* ExampleHooks.swift */,
-				OBJ_63 /* HooksPhase.swift */,
-				OBJ_64 /* SuiteHooks.swift */,
-			);
-			path = Hooks;
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Configs */ = {
@@ -826,176 +863,168 @@
 			name = Configs;
 			sourceTree = "<group>";
 		};
-		OBJ_74 /* Nimble 7.0.3 */ = {
+		OBJ_71 /* Hooks */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_75 /* Nimble */,
-				OBJ_130 /* Package.swift */,
+				OBJ_72 /* Closures.swift */,
+				OBJ_73 /* ExampleHooks.swift */,
+				OBJ_74 /* HooksPhase.swift */,
+				OBJ_75 /* SuiteHooks.swift */,
+			);
+			path = Hooks;
+			sourceTree = "<group>";
+		};
+		OBJ_85 /* Nimble 7.0.3 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_86 /* Nimble */,
+				OBJ_141 /* Package.swift */,
 			);
 			name = "Nimble 7.0.3";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_75 /* Nimble */ = {
+		OBJ_86 /* Nimble */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_76 /* Adapters */,
-				OBJ_86 /* DSL+Wait.swift */,
-				OBJ_87 /* DSL.swift */,
-				OBJ_88 /* Expectation.swift */,
-				OBJ_89 /* ExpectationMessage.swift */,
-				OBJ_90 /* Expression.swift */,
-				OBJ_91 /* FailureMessage.swift */,
-				OBJ_92 /* Matchers */,
-				OBJ_124 /* Utils */,
+				OBJ_87 /* Adapters */,
+				OBJ_97 /* DSL+Wait.swift */,
+				OBJ_98 /* DSL.swift */,
+				OBJ_99 /* Expectation.swift */,
+				OBJ_100 /* ExpectationMessage.swift */,
+				OBJ_101 /* Expression.swift */,
+				OBJ_102 /* FailureMessage.swift */,
+				OBJ_103 /* Matchers */,
+				OBJ_135 /* Utils */,
 			);
 			name = Nimble;
 			path = ".build/checkouts/Nimble.git-1225162792785459507/Sources/Nimble";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_76 /* Adapters */ = {
+		OBJ_87 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_77 /* AdapterProtocols.swift */,
-				OBJ_78 /* AssertionDispatcher.swift */,
-				OBJ_79 /* AssertionRecorder.swift */,
-				OBJ_80 /* NMBExpectation.swift */,
-				OBJ_81 /* NMBObjCMatcher.swift */,
-				OBJ_82 /* NimbleEnvironment.swift */,
-				OBJ_83 /* NimbleXCTestHandler.swift */,
-				OBJ_84 /* NonObjectiveC */,
+				OBJ_88 /* AdapterProtocols.swift */,
+				OBJ_89 /* AssertionDispatcher.swift */,
+				OBJ_90 /* AssertionRecorder.swift */,
+				OBJ_91 /* NMBExpectation.swift */,
+				OBJ_92 /* NMBObjCMatcher.swift */,
+				OBJ_93 /* NimbleEnvironment.swift */,
+				OBJ_94 /* NimbleXCTestHandler.swift */,
+				OBJ_95 /* NonObjectiveC */,
 			);
 			path = Adapters;
-			sourceTree = "<group>";
-		};
-		OBJ_84 /* NonObjectiveC */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_85 /* ExceptionCapture.swift */,
-			);
-			path = NonObjectiveC;
 			sourceTree = "<group>";
 		};
 		OBJ_9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_10 /* Atlas */,
+				OBJ_10 /* AtlasCommands */,
+				OBJ_24 /* Atlas */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_92 /* Matchers */ = {
+		OBJ_95 /* NonObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_93 /* AllPass.swift */,
-				OBJ_94 /* AsyncMatcherWrapper.swift */,
-				OBJ_95 /* BeAKindOf.swift */,
-				OBJ_96 /* BeAnInstanceOf.swift */,
-				OBJ_97 /* BeCloseTo.swift */,
-				OBJ_98 /* BeEmpty.swift */,
-				OBJ_99 /* BeGreaterThan.swift */,
-				OBJ_100 /* BeGreaterThanOrEqualTo.swift */,
-				OBJ_101 /* BeIdenticalTo.swift */,
-				OBJ_102 /* BeLessThan.swift */,
-				OBJ_103 /* BeLessThanOrEqual.swift */,
-				OBJ_104 /* BeLogical.swift */,
-				OBJ_105 /* BeNil.swift */,
-				OBJ_106 /* BeVoid.swift */,
-				OBJ_107 /* BeginWith.swift */,
-				OBJ_108 /* Contain.swift */,
-				OBJ_109 /* ContainElementSatisfying.swift */,
-				OBJ_110 /* EndWith.swift */,
-				OBJ_111 /* Equal.swift */,
-				OBJ_112 /* HaveCount.swift */,
-				OBJ_113 /* Match.swift */,
-				OBJ_114 /* MatchError.swift */,
-				OBJ_115 /* MatcherFunc.swift */,
-				OBJ_116 /* MatcherProtocols.swift */,
-				OBJ_117 /* PostNotification.swift */,
-				OBJ_118 /* Predicate.swift */,
-				OBJ_119 /* RaisesException.swift */,
-				OBJ_120 /* SatisfyAnyOf.swift */,
-				OBJ_121 /* ThrowAssertion.swift */,
-				OBJ_122 /* ThrowError.swift */,
-				OBJ_123 /* ToSucceed.swift */,
+				OBJ_96 /* ExceptionCapture.swift */,
 			);
-			path = Matchers;
+			path = NonObjectiveC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A1D0CF620471AFE00CBBAB9 /* AtlasApp */ = {
+		3A8A75902058328C00FD679B /* AtlasApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A1D0D1A20471AFF00CBBAB9 /* Build configuration list for PBXNativeTarget "AtlasApp" */;
+			buildConfigurationList = 3A8A75A92058328D00FD679B /* Build configuration list for PBXNativeTarget "AtlasApp" */;
 			buildPhases = (
-				3A1D0CF320471AFE00CBBAB9 /* Sources */,
-				3A1D0CF420471AFE00CBBAB9 /* Frameworks */,
-				3A1D0CF520471AFE00CBBAB9 /* Resources */,
-				3A1D0D322047204100CBBAB9 /* Embed Frameworks */,
+				3A8A758D2058328C00FD679B /* Sources */,
+				3A8A758E2058328C00FD679B /* Frameworks */,
+				3A8A758F2058328C00FD679B /* Resources */,
+				3A8A75B32058378C00FD679B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3A8A75B22058378C00FD679B /* PBXTargetDependency */,
 			);
 			name = AtlasApp;
 			productName = AtlasApp;
-			productReference = 3A1D0CF720471AFE00CBBAB9 /* AtlasApp.app */;
+			productReference = 3A8A75912058328C00FD679B /* AtlasApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3A1D0D1220471AFF00CBBAB9 /* AtlasAppUITests */ = {
+		3A8A75A12058328C00FD679B /* AtlasAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A1D0D2020471AFF00CBBAB9 /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */;
+			buildConfigurationList = 3A8A75AC2058328D00FD679B /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */;
 			buildPhases = (
-				3A1D0D0F20471AFF00CBBAB9 /* Sources */,
-				3A1D0D1020471AFF00CBBAB9 /* Frameworks */,
-				3A1D0D1120471AFF00CBBAB9 /* Resources */,
+				3A8A759E2058328C00FD679B /* Sources */,
+				3A8A759F2058328C00FD679B /* Frameworks */,
+				3A8A75A02058328C00FD679B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3A1D0D2D20471E7700CBBAB9 /* PBXTargetDependency */,
-				3A1D0D2B20471E6900CBBAB9 /* PBXTargetDependency */,
-				3A1D0D1520471AFF00CBBAB9 /* PBXTargetDependency */,
+				3A8A75A42058328C00FD679B /* PBXTargetDependency */,
 			);
 			name = AtlasAppUITests;
 			productName = AtlasAppUITests;
-			productReference = 3A1D0D1320471AFF00CBBAB9 /* AtlasAppUITests.xctest */;
+			productReference = 3A8A75A22058328C00FD679B /* AtlasAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		"Atlas::Atlas" /* Atlas */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_312 /* Build configuration list for PBXNativeTarget "Atlas" */;
+			buildConfigurationList = OBJ_334 /* Build configuration list for PBXNativeTarget "Atlas" */;
 			buildPhases = (
-				OBJ_315 /* Sources */,
-				OBJ_327 /* Frameworks */,
+				OBJ_337 /* Sources */,
+				OBJ_339 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_330 /* PBXTargetDependency */,
-				OBJ_331 /* PBXTargetDependency */,
+				OBJ_343 /* PBXTargetDependency */,
+				OBJ_344 /* PBXTargetDependency */,
+				OBJ_345 /* PBXTargetDependency */,
 			);
 			name = Atlas;
 			productName = Atlas;
 			productReference = "Atlas::Atlas::Product" /* Atlas */;
 			productType = "com.apple.product-type.tool";
 		};
-		"Atlas::AtlasTests" /* AtlasTests */ = {
+		"Atlas::AtlasCommands" /* AtlasCommands */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_198 /* Build configuration list for PBXNativeTarget "AtlasTests" */;
+			buildConfigurationList = OBJ_346 /* Build configuration list for PBXNativeTarget "AtlasCommands" */;
 			buildPhases = (
-				OBJ_201 /* Sources */,
-				OBJ_203 /* Frameworks */,
+				OBJ_349 /* Sources */,
+				OBJ_363 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_215 /* PBXTargetDependency */,
-				OBJ_209 /* PBXTargetDependency */,
-				OBJ_211 /* PBXTargetDependency */,
-				OBJ_213 /* PBXTargetDependency */,
-				OBJ_217 /* PBXTargetDependency */,
-				OBJ_219 /* PBXTargetDependency */,
+				OBJ_366 /* PBXTargetDependency */,
+				OBJ_367 /* PBXTargetDependency */,
+			);
+			name = AtlasCommands;
+			productName = AtlasCommands;
+			productReference = "Atlas::AtlasCommands::Product" /* AtlasCommands.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Atlas::AtlasTests" /* AtlasTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_210 /* Build configuration list for PBXNativeTarget "AtlasTests" */;
+			buildPhases = (
+				OBJ_213 /* Sources */,
+				OBJ_223 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_230 /* PBXTargetDependency */,
+				OBJ_232 /* PBXTargetDependency */,
+				OBJ_234 /* PBXTargetDependency */,
+				OBJ_236 /* PBXTargetDependency */,
+				OBJ_238 /* PBXTargetDependency */,
+				OBJ_240 /* PBXTargetDependency */,
 			);
 			name = AtlasTests;
 			productName = AtlasTests;
@@ -1004,9 +1033,9 @@
 		};
 		"Atlas::SwiftPMPackageDescription" /* AtlasPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_168 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */;
+			buildConfigurationList = OBJ_180 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */;
 			buildPhases = (
-				OBJ_171 /* Sources */,
+				OBJ_183 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1018,10 +1047,10 @@
 		};
 		"AtlasCore::AtlasCore" /* AtlasCore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_332 /* Build configuration list for PBXNativeTarget "AtlasCore" */;
+			buildConfigurationList = OBJ_368 /* Build configuration list for PBXNativeTarget "AtlasCore" */;
 			buildPhases = (
-				OBJ_335 /* Sources */,
-				OBJ_344 /* Frameworks */,
+				OBJ_371 /* Sources */,
+				OBJ_380 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1034,9 +1063,9 @@
 		};
 		"AtlasCore::SwiftPMPackageDescription" /* AtlasCorePackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_174 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */;
+			buildConfigurationList = OBJ_186 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */;
 			buildPhases = (
-				OBJ_177 /* Sources */,
+				OBJ_189 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1048,10 +1077,10 @@
 		};
 		"Nimble::Nimble" /* Nimble */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_221 /* Build configuration list for PBXNativeTarget "Nimble" */;
+			buildConfigurationList = OBJ_242 /* Build configuration list for PBXNativeTarget "Nimble" */;
 			buildPhases = (
-				OBJ_224 /* Sources */,
-				OBJ_275 /* Frameworks */,
+				OBJ_245 /* Sources */,
+				OBJ_296 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1064,9 +1093,9 @@
 		};
 		"Nimble::SwiftPMPackageDescription" /* NimblePackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_186 /* Build configuration list for PBXNativeTarget "NimblePackageDescription" */;
+			buildConfigurationList = OBJ_198 /* Build configuration list for PBXNativeTarget "NimblePackageDescription" */;
 			buildPhases = (
-				OBJ_189 /* Sources */,
+				OBJ_201 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1078,15 +1107,15 @@
 		};
 		"Quick::Quick" /* Quick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_276 /* Build configuration list for PBXNativeTarget "Quick" */;
+			buildConfigurationList = OBJ_297 /* Build configuration list for PBXNativeTarget "Quick" */;
 			buildPhases = (
-				OBJ_279 /* Sources */,
-				OBJ_303 /* Frameworks */,
+				OBJ_300 /* Sources */,
+				OBJ_324 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_305 /* PBXTargetDependency */,
+				OBJ_326 /* PBXTargetDependency */,
 			);
 			name = Quick;
 			productName = Quick;
@@ -1095,10 +1124,10 @@
 		};
 		"Quick::QuickSpecBase" /* QuickSpecBase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_306 /* Build configuration list for PBXNativeTarget "QuickSpecBase" */;
+			buildConfigurationList = OBJ_327 /* Build configuration list for PBXNativeTarget "QuickSpecBase" */;
 			buildPhases = (
-				OBJ_309 /* Sources */,
-				OBJ_311 /* Frameworks */,
+				OBJ_330 /* Sources */,
+				OBJ_332 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1111,9 +1140,9 @@
 		};
 		"Quick::SwiftPMPackageDescription" /* QuickPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_180 /* Build configuration list for PBXNativeTarget "QuickPackageDescription" */;
+			buildConfigurationList = OBJ_192 /* Build configuration list for PBXNativeTarget "QuickPackageDescription" */;
 			buildPhases = (
-				OBJ_183 /* Sources */,
+				OBJ_195 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1125,10 +1154,10 @@
 		};
 		"SwiftCLI::SwiftCLI" /* SwiftCLI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_345 /* Build configuration list for PBXNativeTarget "SwiftCLI" */;
+			buildConfigurationList = OBJ_381 /* Build configuration list for PBXNativeTarget "SwiftCLI" */;
 			buildPhases = (
-				OBJ_348 /* Sources */,
-				OBJ_374 /* Frameworks */,
+				OBJ_384 /* Sources */,
+				OBJ_410 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1141,9 +1170,9 @@
 		};
 		"SwiftCLI::SwiftPMPackageDescription" /* SwiftCLIPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_192 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */;
+			buildConfigurationList = OBJ_204 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */;
 			buildPhases = (
-				OBJ_195 /* Sources */,
+				OBJ_207 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1162,19 +1191,21 @@
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					3A1D0CF620471AFE00CBBAB9 = {
+					3A8A75902058328C00FD679B = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
-					3A1D0D1220471AFF00CBBAB9 = {
+					3A8A75A12058328C00FD679B = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 3A1D0CF620471AFE00CBBAB9;
-					};
-					"Atlas::Atlas" = {
-						DevelopmentTeam = 4B7L43K59M;
+						TestTargetID = 3A8A75902058328C00FD679B;
 					};
 					"AtlasCore::AtlasCore" = {
 						DevelopmentTeam = 4B7L43K59M;
@@ -1189,8 +1220,8 @@
 				en,
 				Base,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_159 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_170 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -1204,26 +1235,27 @@
 				"Quick::Quick" /* Quick */,
 				"Quick::QuickSpecBase" /* QuickSpecBase */,
 				"Atlas::Atlas" /* Atlas */,
+				"Atlas::AtlasCommands" /* AtlasCommands */,
 				"AtlasCore::AtlasCore" /* AtlasCore */,
 				"SwiftCLI::SwiftCLI" /* SwiftCLI */,
 				"Atlas::AtlasPackageTests::ProductTarget" /* AtlasPackageTests */,
-				3A1D0CF620471AFE00CBBAB9 /* AtlasApp */,
-				3A1D0D1220471AFF00CBBAB9 /* AtlasAppUITests */,
+				3A8A75902058328C00FD679B /* AtlasApp */,
+				3A8A75A12058328C00FD679B /* AtlasAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3A1D0CF520471AFE00CBBAB9 /* Resources */ = {
+		3A8A758F2058328C00FD679B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A1D0CFE20471AFE00CBBAB9 /* Assets.xcassets in Resources */,
-				3A1D0D0120471AFE00CBBAB9 /* Main.storyboard in Resources */,
+				3A8A75982058328C00FD679B /* Assets.xcassets in Resources */,
+				3A8A759B2058328C00FD679B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A1D0D1120471AFF00CBBAB9 /* Resources */ = {
+		3A8A75A02058328C00FD679B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1233,44 +1265,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3A1D0CF320471AFE00CBBAB9 /* Sources */ = {
+		3A8A758D2058328C00FD679B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A1D0CFC20471AFE00CBBAB9 /* ViewController.swift in Sources */,
-				3A1D0CFA20471AFE00CBBAB9 /* AppDelegate.swift in Sources */,
+				3A8A75962058328C00FD679B /* ViewController.swift in Sources */,
+				3A8A75942058328C00FD679B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A1D0D0F20471AFF00CBBAB9 /* Sources */ = {
+		3A8A759E2058328C00FD679B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A1D0D1820471AFF00CBBAB9 /* AtlasAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_171 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				3A8A7402204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */,
-				3A1D0D5D204EE4D600CBBAB9 /* UnstageCommandSpec.swift in Sources */,
-				OBJ_172 /* Package.swift in Sources */,
-				3A8A73FC204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
-				3A8A73FF204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */,
-				3A8A740C205335C400FD679B /* LogCommand.swift in Sources */,
-				3A1D0D4D2049917600CBBAB9 /* Helper.swift in Sources */,
-				3A8A74082050C9A500FD679B /* CommitCommand.swift in Sources */,
-				3A1D0D4920486A8500CBBAB9 /* AtlasInput.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_177 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_178 /* Package.swift in Sources */,
+				3A8A75A72058328D00FD679B /* AtlasAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1302,270 +1310,289 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				3A1D0D3420474B1200CBBAB9 /* InfoCommand.swift in Sources */,
-				3A1D0D3520474B1200CBBAB9 /* LoginCommand.swift in Sources */,
-				3A1D0D3620474B1200CBBAB9 /* LogoutCommand.swift in Sources */,
-				3A1D0D4A20486A8500CBBAB9 /* AtlasInput.swift in Sources */,
-				3A1D0D3720474B1200CBBAB9 /* StageCommand.swift in Sources */,
-				3A8A7406204F34A700FD679B /* CommitCommandSpec.swift in Sources */,
-				3A1D0D5E204EE4D600CBBAB9 /* UnstageCommandSpec.swift in Sources */,
-				3A1D0D3F20474B3500CBBAB9 /* LoginCommandSpec.swift in Sources */,
-				3A1D0D3820474B1200CBBAB9 /* StagedCommand.swift in Sources */,
-				3A8A7403204EFD1700FD679B /* LogoutCommandSpec.swift in Sources */,
-				3A8A74092050C9A500FD679B /* CommitCommand.swift in Sources */,
-				3A1D0D3920474B1200CBBAB9 /* StartProjectCommand.swift in Sources */,
-				3A1D0D3A20474B1200CBBAB9 /* StatusCommand.swift in Sources */,
-				3A1D0D4E2049917600CBBAB9 /* Helper.swift in Sources */,
-				3A8A7400204EEDE000FD679B /* StartProjectCommandSpec.swift in Sources */,
-				3A1D0D3B20474B1200CBBAB9 /* UnstageCommand.swift in Sources */,
-				3A1D0D3C20474B1200CBBAB9 /* UnstagedCommand.swift in Sources */,
-				3A1D0D332047473E00CBBAB9 /* ImportCommand.swift in Sources */,
-				OBJ_202 /* ImportCommandSpec.swift in Sources */,
-				3A8A7411205372AF00FD679B /* LogCommandSpec.swift in Sources */,
-				3A8A740E20533B5C00FD679B /* LogCommand.swift in Sources */,
-				3A8A73FD204EEAA200FD679B /* StageCommandSpec.swift in Sources */,
+				OBJ_202 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_224 /* Sources */ = {
+		OBJ_207 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_225 /* AdapterProtocols.swift in Sources */,
-				OBJ_226 /* AssertionDispatcher.swift in Sources */,
-				OBJ_227 /* AssertionRecorder.swift in Sources */,
-				OBJ_228 /* NMBExpectation.swift in Sources */,
-				OBJ_229 /* NMBObjCMatcher.swift in Sources */,
-				OBJ_230 /* NimbleEnvironment.swift in Sources */,
-				OBJ_231 /* NimbleXCTestHandler.swift in Sources */,
-				OBJ_232 /* ExceptionCapture.swift in Sources */,
-				OBJ_233 /* DSL+Wait.swift in Sources */,
-				OBJ_234 /* DSL.swift in Sources */,
-				OBJ_235 /* Expectation.swift in Sources */,
-				OBJ_236 /* ExpectationMessage.swift in Sources */,
-				OBJ_237 /* Expression.swift in Sources */,
-				OBJ_238 /* FailureMessage.swift in Sources */,
-				OBJ_239 /* AllPass.swift in Sources */,
-				OBJ_240 /* AsyncMatcherWrapper.swift in Sources */,
-				OBJ_241 /* BeAKindOf.swift in Sources */,
-				OBJ_242 /* BeAnInstanceOf.swift in Sources */,
-				OBJ_243 /* BeCloseTo.swift in Sources */,
-				OBJ_244 /* BeEmpty.swift in Sources */,
-				OBJ_245 /* BeGreaterThan.swift in Sources */,
-				OBJ_246 /* BeGreaterThanOrEqualTo.swift in Sources */,
-				OBJ_247 /* BeIdenticalTo.swift in Sources */,
-				OBJ_248 /* BeLessThan.swift in Sources */,
-				OBJ_249 /* BeLessThanOrEqual.swift in Sources */,
-				OBJ_250 /* BeLogical.swift in Sources */,
-				OBJ_251 /* BeNil.swift in Sources */,
-				OBJ_252 /* BeVoid.swift in Sources */,
-				OBJ_253 /* BeginWith.swift in Sources */,
-				OBJ_254 /* Contain.swift in Sources */,
-				OBJ_255 /* ContainElementSatisfying.swift in Sources */,
-				OBJ_256 /* EndWith.swift in Sources */,
-				OBJ_257 /* Equal.swift in Sources */,
-				OBJ_258 /* HaveCount.swift in Sources */,
-				OBJ_259 /* Match.swift in Sources */,
-				OBJ_260 /* MatchError.swift in Sources */,
-				OBJ_261 /* MatcherFunc.swift in Sources */,
-				OBJ_262 /* MatcherProtocols.swift in Sources */,
-				OBJ_263 /* PostNotification.swift in Sources */,
-				OBJ_264 /* Predicate.swift in Sources */,
-				OBJ_265 /* RaisesException.swift in Sources */,
-				OBJ_266 /* SatisfyAnyOf.swift in Sources */,
-				OBJ_267 /* ThrowAssertion.swift in Sources */,
-				OBJ_268 /* ThrowError.swift in Sources */,
-				OBJ_269 /* ToSucceed.swift in Sources */,
-				OBJ_270 /* Async.swift in Sources */,
-				OBJ_271 /* Errors.swift in Sources */,
-				OBJ_272 /* Functional.swift in Sources */,
-				OBJ_273 /* SourceLocation.swift in Sources */,
-				OBJ_274 /* Stringers.swift in Sources */,
+				OBJ_208 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_279 /* Sources */ = {
+		OBJ_213 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_280 /* Behavior.swift in Sources */,
-				OBJ_281 /* Callsite.swift in Sources */,
-				OBJ_282 /* Configuration.swift in Sources */,
-				OBJ_283 /* QuickConfiguration.swift in Sources */,
-				OBJ_284 /* DSL.swift in Sources */,
-				OBJ_285 /* World+DSL.swift in Sources */,
-				OBJ_286 /* ErrorUtility.swift in Sources */,
-				OBJ_287 /* Example.swift in Sources */,
-				OBJ_288 /* ExampleGroup.swift in Sources */,
-				OBJ_289 /* ExampleMetadata.swift in Sources */,
-				OBJ_290 /* Filter.swift in Sources */,
-				OBJ_291 /* Closures.swift in Sources */,
-				OBJ_292 /* ExampleHooks.swift in Sources */,
-				OBJ_293 /* HooksPhase.swift in Sources */,
-				OBJ_294 /* SuiteHooks.swift in Sources */,
-				OBJ_295 /* NSBundle+CurrentTestBundle.swift in Sources */,
-				OBJ_296 /* NSString+C99ExtendedIdentifier.swift in Sources */,
-				OBJ_297 /* QuickMain.swift in Sources */,
-				OBJ_298 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
-				OBJ_299 /* QuickSpec.swift in Sources */,
-				OBJ_300 /* QuickTestSuite.swift in Sources */,
-				OBJ_301 /* URL+FileName.swift in Sources */,
-				OBJ_302 /* World.swift in Sources */,
+				OBJ_214 /* CommitCommandSpec.swift in Sources */,
+				OBJ_215 /* Helper.swift in Sources */,
+				OBJ_216 /* ImportCommandSpec.swift in Sources */,
+				OBJ_217 /* LogCommandSpec.swift in Sources */,
+				OBJ_218 /* LoginCommandSpec.swift in Sources */,
+				OBJ_219 /* LogoutCommandSpec.swift in Sources */,
+				OBJ_220 /* StageCommandSpec.swift in Sources */,
+				OBJ_221 /* StartProjectCommandSpec.swift in Sources */,
+				OBJ_222 /* UnstageCommandSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_309 /* Sources */ = {
+		OBJ_245 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_310 /* QuickSpecBase.m in Sources */,
+				OBJ_246 /* AdapterProtocols.swift in Sources */,
+				OBJ_247 /* AssertionDispatcher.swift in Sources */,
+				OBJ_248 /* AssertionRecorder.swift in Sources */,
+				OBJ_249 /* NMBExpectation.swift in Sources */,
+				OBJ_250 /* NMBObjCMatcher.swift in Sources */,
+				OBJ_251 /* NimbleEnvironment.swift in Sources */,
+				OBJ_252 /* NimbleXCTestHandler.swift in Sources */,
+				OBJ_253 /* ExceptionCapture.swift in Sources */,
+				OBJ_254 /* DSL+Wait.swift in Sources */,
+				OBJ_255 /* DSL.swift in Sources */,
+				OBJ_256 /* Expectation.swift in Sources */,
+				OBJ_257 /* ExpectationMessage.swift in Sources */,
+				OBJ_258 /* Expression.swift in Sources */,
+				OBJ_259 /* FailureMessage.swift in Sources */,
+				OBJ_260 /* AllPass.swift in Sources */,
+				OBJ_261 /* AsyncMatcherWrapper.swift in Sources */,
+				OBJ_262 /* BeAKindOf.swift in Sources */,
+				OBJ_263 /* BeAnInstanceOf.swift in Sources */,
+				OBJ_264 /* BeCloseTo.swift in Sources */,
+				OBJ_265 /* BeEmpty.swift in Sources */,
+				OBJ_266 /* BeGreaterThan.swift in Sources */,
+				OBJ_267 /* BeGreaterThanOrEqualTo.swift in Sources */,
+				OBJ_268 /* BeIdenticalTo.swift in Sources */,
+				OBJ_269 /* BeLessThan.swift in Sources */,
+				OBJ_270 /* BeLessThanOrEqual.swift in Sources */,
+				OBJ_271 /* BeLogical.swift in Sources */,
+				OBJ_272 /* BeNil.swift in Sources */,
+				OBJ_273 /* BeVoid.swift in Sources */,
+				OBJ_274 /* BeginWith.swift in Sources */,
+				OBJ_275 /* Contain.swift in Sources */,
+				OBJ_276 /* ContainElementSatisfying.swift in Sources */,
+				OBJ_277 /* EndWith.swift in Sources */,
+				OBJ_278 /* Equal.swift in Sources */,
+				OBJ_279 /* HaveCount.swift in Sources */,
+				OBJ_280 /* Match.swift in Sources */,
+				OBJ_281 /* MatchError.swift in Sources */,
+				OBJ_282 /* MatcherFunc.swift in Sources */,
+				OBJ_283 /* MatcherProtocols.swift in Sources */,
+				OBJ_284 /* PostNotification.swift in Sources */,
+				OBJ_285 /* Predicate.swift in Sources */,
+				OBJ_286 /* RaisesException.swift in Sources */,
+				OBJ_287 /* SatisfyAnyOf.swift in Sources */,
+				OBJ_288 /* ThrowAssertion.swift in Sources */,
+				OBJ_289 /* ThrowError.swift in Sources */,
+				OBJ_290 /* ToSucceed.swift in Sources */,
+				OBJ_291 /* Async.swift in Sources */,
+				OBJ_292 /* Errors.swift in Sources */,
+				OBJ_293 /* Functional.swift in Sources */,
+				OBJ_294 /* SourceLocation.swift in Sources */,
+				OBJ_295 /* Stringers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_315 /* Sources */ = {
+		OBJ_300 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_316 /* ImportCommand.swift in Sources */,
-				OBJ_317 /* InfoCommand.swift in Sources */,
-				3A1D0D4B20486A8500CBBAB9 /* AtlasInput.swift in Sources */,
-				OBJ_318 /* LoginCommand.swift in Sources */,
-				3A8A740D20533B5800FD679B /* LogCommand.swift in Sources */,
-				OBJ_319 /* LogoutCommand.swift in Sources */,
-				OBJ_320 /* StageCommand.swift in Sources */,
-				OBJ_321 /* StagedCommand.swift in Sources */,
-				OBJ_322 /* StartProjectCommand.swift in Sources */,
-				OBJ_323 /* StatusCommand.swift in Sources */,
-				OBJ_324 /* UnstageCommand.swift in Sources */,
-				3A8A740A2050C9A500FD679B /* CommitCommand.swift in Sources */,
-				3A1D0D4F2049917600CBBAB9 /* Helper.swift in Sources */,
-				OBJ_325 /* UnstagedCommand.swift in Sources */,
-				OBJ_326 /* main.swift in Sources */,
+				OBJ_301 /* Behavior.swift in Sources */,
+				OBJ_302 /* Callsite.swift in Sources */,
+				OBJ_303 /* Configuration.swift in Sources */,
+				OBJ_304 /* QuickConfiguration.swift in Sources */,
+				OBJ_305 /* DSL.swift in Sources */,
+				OBJ_306 /* World+DSL.swift in Sources */,
+				OBJ_307 /* ErrorUtility.swift in Sources */,
+				OBJ_308 /* Example.swift in Sources */,
+				OBJ_309 /* ExampleGroup.swift in Sources */,
+				OBJ_310 /* ExampleMetadata.swift in Sources */,
+				OBJ_311 /* Filter.swift in Sources */,
+				OBJ_312 /* Closures.swift in Sources */,
+				OBJ_313 /* ExampleHooks.swift in Sources */,
+				OBJ_314 /* HooksPhase.swift in Sources */,
+				OBJ_315 /* SuiteHooks.swift in Sources */,
+				OBJ_316 /* NSBundle+CurrentTestBundle.swift in Sources */,
+				OBJ_317 /* NSString+C99ExtendedIdentifier.swift in Sources */,
+				OBJ_318 /* QuickMain.swift in Sources */,
+				OBJ_319 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
+				OBJ_320 /* QuickSpec.swift in Sources */,
+				OBJ_321 /* QuickTestSuite.swift in Sources */,
+				OBJ_322 /* URL+FileName.swift in Sources */,
+				OBJ_323 /* World.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_335 /* Sources */ = {
+		OBJ_330 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_336 /* AtlasCore.swift in Sources */,
-				OBJ_337 /* AtlasProcess.swift in Sources */,
-				OBJ_338 /* Credentials.swift in Sources */,
-				OBJ_339 /* FileSystem.swift in Sources */,
-				OBJ_340 /* Git.swift in Sources */,
-				OBJ_341 /* GitHub.swift in Sources */,
-				OBJ_342 /* Glue.swift in Sources */,
-				OBJ_343 /* Project.swift in Sources */,
+				OBJ_331 /* QuickSpecBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_348 /* Sources */ = {
+		OBJ_337 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_349 /* ArgumentList.swift in Sources */,
-				OBJ_350 /* ArgumentListManipulator.swift in Sources */,
-				OBJ_351 /* CLI-deprecated.swift in Sources */,
-				OBJ_352 /* CLI.swift in Sources */,
-				OBJ_353 /* ChainableCommand.swift in Sources */,
-				OBJ_354 /* Command.swift in Sources */,
-				OBJ_355 /* CommandSignature.swift in Sources */,
-				OBJ_356 /* CompletionGenerator.swift in Sources */,
-				OBJ_357 /* Error.swift in Sources */,
-				OBJ_358 /* GlobalOptions.swift in Sources */,
-				OBJ_359 /* HelpCommand.swift in Sources */,
-				OBJ_360 /* HelpMessageGenerator.swift in Sources */,
-				OBJ_361 /* Input.swift in Sources */,
-				OBJ_362 /* LightweightCommand.swift in Sources */,
-				OBJ_363 /* Option.swift in Sources */,
-				OBJ_364 /* OptionGroup.swift in Sources */,
-				OBJ_365 /* OptionRecognizer.swift in Sources */,
-				OBJ_366 /* OptionRegistry.swift in Sources */,
-				OBJ_367 /* Output.swift in Sources */,
-				OBJ_368 /* OutputByteStream.swift in Sources */,
-				OBJ_369 /* Parameter.swift in Sources */,
-				OBJ_370 /* ParameterFiller.swift in Sources */,
-				OBJ_371 /* Router.swift in Sources */,
-				OBJ_372 /* Term.swift in Sources */,
-				OBJ_373 /* VersionCommand.swift in Sources */,
+				OBJ_338 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_350 /* AtlasInput.swift in Sources */,
+				OBJ_351 /* CommitCommand.swift in Sources */,
+				OBJ_352 /* ImportCommand.swift in Sources */,
+				OBJ_353 /* InfoCommand.swift in Sources */,
+				OBJ_354 /* LogCommand.swift in Sources */,
+				OBJ_355 /* LoginCommand.swift in Sources */,
+				OBJ_356 /* LogoutCommand.swift in Sources */,
+				OBJ_357 /* StageCommand.swift in Sources */,
+				OBJ_358 /* StagedCommand.swift in Sources */,
+				OBJ_359 /* StartProjectCommand.swift in Sources */,
+				OBJ_360 /* StatusCommand.swift in Sources */,
+				OBJ_361 /* UnstageCommand.swift in Sources */,
+				OBJ_362 /* UnstagedCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_372 /* AtlasCore.swift in Sources */,
+				OBJ_373 /* AtlasProcess.swift in Sources */,
+				OBJ_374 /* Credentials.swift in Sources */,
+				OBJ_375 /* FileSystem.swift in Sources */,
+				OBJ_376 /* Git.swift in Sources */,
+				OBJ_377 /* GitHub.swift in Sources */,
+				OBJ_378 /* Glue.swift in Sources */,
+				OBJ_379 /* Project.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_384 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_385 /* ArgumentList.swift in Sources */,
+				OBJ_386 /* ArgumentListManipulator.swift in Sources */,
+				OBJ_387 /* CLI-deprecated.swift in Sources */,
+				OBJ_388 /* CLI.swift in Sources */,
+				OBJ_389 /* ChainableCommand.swift in Sources */,
+				OBJ_390 /* Command.swift in Sources */,
+				OBJ_391 /* CommandSignature.swift in Sources */,
+				OBJ_392 /* CompletionGenerator.swift in Sources */,
+				OBJ_393 /* Error.swift in Sources */,
+				OBJ_394 /* GlobalOptions.swift in Sources */,
+				OBJ_395 /* HelpCommand.swift in Sources */,
+				OBJ_396 /* HelpMessageGenerator.swift in Sources */,
+				OBJ_397 /* Input.swift in Sources */,
+				OBJ_398 /* LightweightCommand.swift in Sources */,
+				OBJ_399 /* Option.swift in Sources */,
+				OBJ_400 /* OptionGroup.swift in Sources */,
+				OBJ_401 /* OptionRecognizer.swift in Sources */,
+				OBJ_402 /* OptionRegistry.swift in Sources */,
+				OBJ_403 /* Output.swift in Sources */,
+				OBJ_404 /* OutputByteStream.swift in Sources */,
+				OBJ_405 /* Parameter.swift in Sources */,
+				OBJ_406 /* ParameterFiller.swift in Sources */,
+				OBJ_407 /* Router.swift in Sources */,
+				OBJ_408 /* Term.swift in Sources */,
+				OBJ_409 /* VersionCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3A1D0D1520471AFF00CBBAB9 /* PBXTargetDependency */ = {
+		3A8A75A42058328C00FD679B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A1D0CF620471AFE00CBBAB9 /* AtlasApp */;
-			targetProxy = 3A1D0D1420471AFF00CBBAB9 /* PBXContainerItemProxy */;
+			target = 3A8A75902058328C00FD679B /* AtlasApp */;
+			targetProxy = 3A8A75A32058328C00FD679B /* PBXContainerItemProxy */;
 		};
-		3A1D0D2B20471E6900CBBAB9 /* PBXTargetDependency */ = {
+		3A8A75B22058378C00FD679B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
-			targetProxy = 3A1D0D2A20471E6900CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75B12058378C00FD679B /* PBXContainerItemProxy */;
 		};
-		3A1D0D2D20471E7700CBBAB9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "AtlasCore::SwiftPMPackageDescription" /* AtlasCorePackageDescription */;
-			targetProxy = 3A1D0D2C20471E7700CBBAB9 /* PBXContainerItemProxy */;
-		};
-		OBJ_209 /* PBXTargetDependency */ = {
+		OBJ_230 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Nimble::Nimble" /* Nimble */;
-			targetProxy = 3A1D0CEB20471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75852058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_211 /* PBXTargetDependency */ = {
+		OBJ_232 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Quick::Quick" /* Quick */;
-			targetProxy = 3A1D0CEC20471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75862058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_213 /* PBXTargetDependency */ = {
+		OBJ_234 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Quick::QuickSpecBase" /* QuickSpecBase */;
-			targetProxy = 3A1D0CEE20471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75882058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_215 /* PBXTargetDependency */ = {
+		OBJ_236 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Atlas::Atlas" /* Atlas */;
-			targetProxy = 3A1D0CEF20471AD400CBBAB9 /* PBXContainerItemProxy */;
+			target = "Atlas::AtlasCommands" /* AtlasCommands */;
+			targetProxy = 3A8A75892058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_217 /* PBXTargetDependency */ = {
+		OBJ_238 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
-			targetProxy = 3A1D0CF020471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A758A2058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_219 /* PBXTargetDependency */ = {
+		OBJ_240 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftCLI::SwiftCLI" /* SwiftCLI */;
-			targetProxy = 3A1D0CF120471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A758B2058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_305 /* PBXTargetDependency */ = {
+		OBJ_326 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Quick::QuickSpecBase" /* QuickSpecBase */;
-			targetProxy = 3A1D0CED20471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75872058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_330 /* PBXTargetDependency */ = {
+		OBJ_343 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Atlas::AtlasCommands" /* AtlasCommands */;
+			targetProxy = 3A8A75802058320500FD679B /* PBXContainerItemProxy */;
+		};
+		OBJ_344 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
-			targetProxy = 3A1D0CE920471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75832058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_331 /* PBXTargetDependency */ = {
+		OBJ_345 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftCLI::SwiftCLI" /* SwiftCLI */;
-			targetProxy = 3A1D0CEA20471AD400CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A75842058320500FD679B /* PBXContainerItemProxy */;
 		};
-		OBJ_379 /* PBXTargetDependency */ = {
+		OBJ_366 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "AtlasCore::AtlasCore" /* AtlasCore */;
+			targetProxy = 3A8A75812058320500FD679B /* PBXContainerItemProxy */;
+		};
+		OBJ_367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftCLI::SwiftCLI" /* SwiftCLI */;
+			targetProxy = 3A8A75822058320500FD679B /* PBXContainerItemProxy */;
+		};
+		OBJ_415 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Atlas::AtlasTests" /* AtlasTests */;
-			targetProxy = 3A1D0CF220471AD500CBBAB9 /* PBXContainerItemProxy */;
+			targetProxy = 3A8A758C2058320500FD679B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A1D0CFF20471AFE00CBBAB9 /* Main.storyboard */ = {
+		3A8A75992058328C00FD679B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A1D0D0020471AFE00CBBAB9 /* Base */,
+				3A8A759A2058328C00FD679B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1573,7 +1600,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3A1D0D1B20471AFF00CBBAB9 /* Debug */ = {
+		3A8A75AA2058328D00FD679B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1603,7 +1630,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = AtlasApp/AtlasApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1629,12 +1655,13 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = powderhs.AtlasApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		3A1D0D1C20471AFF00CBBAB9 /* Release */ = {
+		3A8A75AB2058328D00FD679B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1664,7 +1691,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = AtlasApp/AtlasApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1686,11 +1712,12 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = powderhs.AtlasApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		3A1D0D2120471AFF00CBBAB9 /* Debug */ = {
+		3A8A75AD2058328D00FD679B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1750,7 +1777,7 @@
 			};
 			name = Debug;
 		};
-		3A1D0D2220471AFF00CBBAB9 /* Release */ = {
+		3A8A75AE2058328D00FD679B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1802,42 +1829,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = AtlasApp;
-			};
-			name = Release;
-		};
-		OBJ_169 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_170 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_175 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_176 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1897,34 +1888,68 @@
 		};
 		OBJ_199 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_TESTABILITY = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase/include",
-					"$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/QuickSpecBase",
-				);
-				INFOPLIST_FILE = Atlas.xcodeproj/AtlasTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/QuickSpecBase/module.modulemap";
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = AtlasTests;
 			};
 			name = Debug;
 		};
 		OBJ_200 /* Release */ = {
 			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_206 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_211 /* Debug */ = {
+			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_TESTABILITY = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase/include",
+					"$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/QuickSpecBase",
+				);
+				INFOPLIST_FILE = Atlas.xcodeproj/AtlasTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/QuickSpecBase/module.modulemap";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AtlasTests;
+			};
+			name = Debug;
+		};
+		OBJ_212 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1943,7 +1968,7 @@
 			};
 			name = Release;
 		};
-		OBJ_222 /* Debug */ = {
+		OBJ_243 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -1966,7 +1991,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_223 /* Release */ = {
+		OBJ_244 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -1989,7 +2014,7 @@
 			};
 			name = Release;
 		};
-		OBJ_277 /* Debug */ = {
+		OBJ_298 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2016,7 +2041,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_278 /* Release */ = {
+		OBJ_299 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2053,7 +2078,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2061,12 +2086,11 @@
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		OBJ_307 /* Debug */ = {
+		OBJ_328 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2092,7 +2116,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_308 /* Release */ = {
+		OBJ_329 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2118,13 +2142,10 @@
 			};
 			name = Release;
 		};
-		OBJ_313 /* Debug */ = {
+		OBJ_335 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				DEVELOPMENT_TEAM = 4B7L43K59M;
-				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -2141,13 +2162,10 @@
 			};
 			name = Debug;
 		};
-		OBJ_314 /* Release */ = {
+		OBJ_336 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				DEVELOPMENT_TEAM = 4B7L43K59M;
-				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -2164,7 +2182,53 @@
 			};
 			name = Release;
 		};
-		OBJ_333 /* Debug */ = {
+		OBJ_347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Atlas.xcodeproj/AtlasCommands_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = AtlasCommands;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AtlasCommands;
+			};
+			name = Debug;
+		};
+		OBJ_348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Atlas.xcodeproj/AtlasCommands_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = AtlasCommands;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AtlasCommands;
+			};
+			name = Release;
+		};
+		OBJ_369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2189,7 +2253,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_334 /* Release */ = {
+		OBJ_370 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2214,7 +2278,7 @@
 			};
 			name = Release;
 		};
-		OBJ_346 /* Debug */ = {
+		OBJ_382 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2237,7 +2301,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_347 /* Release */ = {
+		OBJ_383 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
@@ -2257,18 +2321,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = SwiftCLI;
-			};
-			name = Release;
-		};
-		OBJ_377 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_378 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
 			};
 			name = Release;
 		};
@@ -2281,59 +2333,51 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
-				PRODUCT_BUNDLE_IDENTIFIER = com.powderhouse.atlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A1D0D1A20471AFF00CBBAB9 /* Build configuration list for PBXNativeTarget "AtlasApp" */ = {
+		3A8A75A92058328D00FD679B /* Build configuration list for PBXNativeTarget "AtlasApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A1D0D1B20471AFF00CBBAB9 /* Debug */,
-				3A1D0D1C20471AFF00CBBAB9 /* Release */,
+				3A8A75AA2058328D00FD679B /* Debug */,
+				3A8A75AB2058328D00FD679B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3A1D0D2020471AFF00CBBAB9 /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */ = {
+		3A8A75AC2058328D00FD679B /* Build configuration list for PBXNativeTarget "AtlasAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A1D0D2120471AFF00CBBAB9 /* Debug */,
-				3A1D0D2220471AFF00CBBAB9 /* Release */,
+				3A8A75AD2058328D00FD679B /* Debug */,
+				3A8A75AE2058328D00FD679B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_168 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_169 /* Debug */,
-				OBJ_170 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_174 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_175 /* Debug */,
-				OBJ_176 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_180 /* Build configuration list for PBXNativeTarget "QuickPackageDescription" */ = {
+		OBJ_180 /* Build configuration list for PBXNativeTarget "AtlasPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_181 /* Debug */,
@@ -2342,7 +2386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_186 /* Build configuration list for PBXNativeTarget "NimblePackageDescription" */ = {
+		OBJ_186 /* Build configuration list for PBXNativeTarget "AtlasCorePackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_187 /* Debug */,
@@ -2351,7 +2395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_192 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */ = {
+		OBJ_192 /* Build configuration list for PBXNativeTarget "QuickPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_193 /* Debug */,
@@ -2360,7 +2404,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_198 /* Build configuration list for PBXNativeTarget "AtlasTests" */ = {
+		OBJ_198 /* Build configuration list for PBXNativeTarget "NimblePackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_199 /* Debug */,
@@ -2378,65 +2422,92 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_221 /* Build configuration list for PBXNativeTarget "Nimble" */ = {
+		OBJ_204 /* Build configuration list for PBXNativeTarget "SwiftCLIPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_222 /* Debug */,
-				OBJ_223 /* Release */,
+				OBJ_205 /* Debug */,
+				OBJ_206 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_276 /* Build configuration list for PBXNativeTarget "Quick" */ = {
+		OBJ_210 /* Build configuration list for PBXNativeTarget "AtlasTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_277 /* Debug */,
-				OBJ_278 /* Release */,
+				OBJ_211 /* Debug */,
+				OBJ_212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_306 /* Build configuration list for PBXNativeTarget "QuickSpecBase" */ = {
+		OBJ_242 /* Build configuration list for PBXNativeTarget "Nimble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_307 /* Debug */,
-				OBJ_308 /* Release */,
+				OBJ_243 /* Debug */,
+				OBJ_244 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_312 /* Build configuration list for PBXNativeTarget "Atlas" */ = {
+		OBJ_297 /* Build configuration list for PBXNativeTarget "Quick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_313 /* Debug */,
-				OBJ_314 /* Release */,
+				OBJ_298 /* Debug */,
+				OBJ_299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_332 /* Build configuration list for PBXNativeTarget "AtlasCore" */ = {
+		OBJ_327 /* Build configuration list for PBXNativeTarget "QuickSpecBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_333 /* Debug */,
-				OBJ_334 /* Release */,
+				OBJ_328 /* Debug */,
+				OBJ_329 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_345 /* Build configuration list for PBXNativeTarget "SwiftCLI" */ = {
+		OBJ_334 /* Build configuration list for PBXNativeTarget "Atlas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_346 /* Debug */,
-				OBJ_347 /* Release */,
+				OBJ_335 /* Debug */,
+				OBJ_336 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_376 /* Build configuration list for PBXAggregateTarget "AtlasPackageTests" */ = {
+		OBJ_346 /* Build configuration list for PBXNativeTarget "AtlasCommands" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_377 /* Debug */,
-				OBJ_378 /* Release */,
+				OBJ_347 /* Debug */,
+				OBJ_348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_368 /* Build configuration list for PBXNativeTarget "AtlasCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_369 /* Debug */,
+				OBJ_370 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_381 /* Build configuration list for PBXNativeTarget "SwiftCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_382 /* Debug */,
+				OBJ_383 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_412 /* Build configuration list for PBXAggregateTarget "AtlasPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_413 /* Debug */,
+				OBJ_414 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

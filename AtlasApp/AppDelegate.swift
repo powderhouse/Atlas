@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AtlasApp
 //
-//  Created by Jared Cosulich on 2/12/18.
+//  Created by Jared Cosulich on 3/12/18.
 //
 
 import Cocoa

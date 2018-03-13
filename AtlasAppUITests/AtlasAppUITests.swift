@@ -2,7 +2,7 @@
 //  AtlasAppUITests.swift
 //  AtlasAppUITests
 //
-//  Created by Jared Cosulich on 2/12/18.
+//  Created by Jared Cosulich on 3/12/18.
 //
 
 import XCTest
@@ -28,9 +28,9 @@ class AtlasAppUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssert(true)
+        let app = XCUIApplication()
+        let window = app.windows["Window"]
+        XCTAssert(window.staticTexts["On branch master\nYour branch is up-to-date with 'origin/master'."].exists)
     }
     
 }

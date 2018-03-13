@@ -9,24 +9,24 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class LoginCommand: Command {
+public class LoginCommand: Command {
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "login"
-    let shortDescription = "Login to Atlas using your GitHub credentials."
+    public let name = "login"
+    public let shortDescription = "Login to Atlas using your GitHub credentials."
     
-    let usernameOption = Key<String>("-u", "--username", description: "Your GitHub username")
-    let passwordOption = Key<String>("-p", "--password", description: "Your GitHub password")
+    public let usernameOption = Key<String>("-u", "--username", description: "Your GitHub username")
+    public let passwordOption = Key<String>("-p", "--password", description: "Your GitHub password")
     
-    var input: AtlasInput!
+    public var input: AtlasInput!
     
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
         self.input = AtlasInput()
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if let credentials = atlasCore.getCredentials() {
             let confirmLogin = "You are already logged in as \(credentials.username). Do you want to log in as someone else?"
             if !input.awaitYesNoInput(message: confirmLogin) {

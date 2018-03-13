@@ -9,18 +9,18 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-class StatusCommand: Command {
+public class StatusCommand: Command {
     
-    var atlasCore: AtlasCore
+    public var atlasCore: AtlasCore
     
-    let name = "status"
-    let shortDescription = "Get the git status of the local Atlas repository."
+    public let name = "status"
+    public let shortDescription = "Get the git status of the local Atlas repository."
     
-    init(_ atlasCore: AtlasCore) {
+    public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
-    func execute() throws  {
+    public func execute() throws  {
         if let status = atlasCore.status() {
             print(status)
         } else {

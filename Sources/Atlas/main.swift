@@ -1,5 +1,6 @@
 import SwiftCLI
 import AtlasCore
+import AtlasCommands
 
 let cli = CLI(name: "Atlas", version: "0.0.1", description: "Powderhouse Studios Atlas")
 
