@@ -30,10 +30,7 @@ class AtlasAppUITests: XCTestCase {
     func testExample() {
         let app = XCUIApplication()
         let window = app.windows["Window"]
-        XCTAssert(window.staticTexts["On branch master\nYour branch is up-to-date with 'origin/master'.\n\nnothing to commit, working tree clean"].exists)
-        
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(window.staticTexts["On branch master\nYour branch is up-to-date with 'origin/master'."].exists)
     }
     
 }
