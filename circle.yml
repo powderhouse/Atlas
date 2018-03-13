@@ -1,5 +1,9 @@
 # xcodebuild test -sdk macosx10.13 -project Atlas.xcodeproj/ -scheme AtlasApp -destination 'platform=OS X,arch=x86_64'
 
+machine:
+  xcode:
+    version: 9.2
+
 test:
   override:
     - set -o pipefail &&
