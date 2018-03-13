@@ -92,6 +92,7 @@ class UnstageCommandSpec: QuickSpec {
                 
                 it("should sync with github") {
                     expect(atlasCore.status()).to(contain("nothing to commit"))
+                    expect(false).to(beTrue())
                 }
             }
         }
