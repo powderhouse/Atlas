@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="XfG-lQ-9wD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -701,6 +703,92 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Account Controller-->
+        <scene sceneID="U6g-DL-Qvg">
+            <objects>
+                <viewController title="Account Controller" id="amK-yh-WYg" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="5W2-1i-BXL">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2K-Jd-TDr">
+                                <rect key="frame" x="157" y="244" width="137" height="36"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Welcome!" id="Bbe-qu-ogb">
+                                    <font key="font" metaFont="system" size="30"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lES-EU-1CX" userLabel="Github Form">
+                                <rect key="frame" x="23" y="121" width="404" height="103"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Dc-0E-gXO">
+                                        <rect key="frame" x="-2" y="86" width="230" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please enter your GitHub credentials:" id="G6b-au-4d5">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jkK-LV-0qn" userLabel="Username">
+                                        <rect key="frame" x="0.0" y="56" width="404" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Username" drawsBackground="YES" id="gZY-Lp-iHV">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qxY-iS-gkw" userLabel="Password">
+                                        <rect key="frame" x="0.0" y="26" width="404" height="22"/>
+                                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="GitHub Password" drawsBackground="YES" usesSingleLineMode="YES" id="26J-Se-YaR">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </secureTextFieldCell>
+                                    </secureTextField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-2M-A3a">
+                                        <rect key="frame" x="0.0" y="-1" width="42" height="19"/>
+                                        <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JNQ-e6-FAs">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="cellTitle"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jkK-LV-0qn" firstAttribute="width" secondItem="lES-EU-1CX" secondAttribute="width" id="DhF-Ws-Qy6"/>
+                                    <constraint firstItem="jkK-LV-0qn" firstAttribute="centerX" secondItem="lES-EU-1CX" secondAttribute="centerX" id="Fur-kR-DvX"/>
+                                    <constraint firstItem="qxY-iS-gkw" firstAttribute="centerX" secondItem="lES-EU-1CX" secondAttribute="centerX" id="V83-LF-qQN"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lES-EU-1CX" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="35y-eW-YiZ"/>
+                            <constraint firstItem="lES-EU-1CX" firstAttribute="top" secondItem="Y2K-Jd-TDr" secondAttribute="bottom" constant="20" id="9AD-m0-M0v"/>
+                            <constraint firstItem="Y2K-Jd-TDr" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="9ke-Jz-xSQ"/>
+                            <constraint firstItem="lES-EU-1CX" firstAttribute="width" secondItem="5W2-1i-BXL" secondAttribute="width" multiplier="0.9" id="cyq-WT-hC6"/>
+                            <constraint firstItem="Y2K-Jd-TDr" firstAttribute="top" secondItem="5W2-1i-BXL" secondAttribute="top" constant="20" id="y6I-d8-35x"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="LWh-2P-ErR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-564" y="1273"/>
+        </scene>
         <!--Main Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -720,6 +808,9 @@
                             </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <segue destination="amK-yh-WYg" kind="modal" identifier="account-segue" id="2Pg-6W-S2H"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

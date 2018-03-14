@@ -25,6 +25,19 @@ class MainController: NSViewController {
         } else {
             atlasCore = AtlasCore()
         }
+        
+        if let credentials = atlasCore.getCredentials() {
+            if atlasCore.initGitAndGitHub(credentials) {
+                print("GIT INIT SUCCESS")
+            } else {
+                print("ERROR: GIT INIT")
+            }
+        } else {
+            performSegue(
+                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
+                sender: self
+            )
+        }
     }
     
     override func viewDidDisappear() {
