@@ -40,7 +40,16 @@ public class CommitCommand: Command {
                         print("Failed to save commit message.")
                     }
                 } else {
-                    print("Please provide a commit message.")
+                    if let commitMessage = project.currentCommitMessage() {
+                        if project.commitStaged() {
+                            print("Files committed!")
+                            atlasCore.commitChanges(commitMessage.text)
+                        } else {
+                            print("Failed to commit files.")
+                        }
+                    } else {
+                        print("Please provide a commit message.")
+                    }
                 }
             } else {
                 print("Failed to find or initialize project")
