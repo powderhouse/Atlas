@@ -8,6 +8,7 @@ let atlasCore: AtlasCore = AtlasCore()
 
 cli.commands = [
     CommitCommand(atlasCore),
+    CommitMessageCommand(atlasCore),
     ImportCommand(atlasCore),
     InfoCommand(atlasCore),
     LogCommand(atlasCore),

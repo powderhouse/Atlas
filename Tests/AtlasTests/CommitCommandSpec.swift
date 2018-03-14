@@ -131,6 +131,64 @@ class CommitCommandSpec: QuickSpec {
                     expect(atlasCore.status()).to(contain("nothing to commit"))
                 }
             }
+            
+            context("running with no message provided") {
+                
+                var project: Project!
+                var commitUrl: URL!
+                var slug: String!
+                var commitFolder: URL!
+                
+                beforeEach {
+                    _ = commitCommand.project.setValue(projectName)
+                    
+                    project = atlasCore.project(projectName)
+                    
+                    guard project != nil else  {
+                        expect(false).to(beTrue(), description: "Project not found")
+                        return
+                    }
+                    
+                    commitUrl = project!.directory("committed")
+                    slug = project!.commitSlug(commitMessage)
+                    commitFolder = commitUrl.appendingPathComponent(slug)
+                    
+                }
+                
+                it("should do nothing if no commit message has already been created") {
+                    do {
+                        try commitCommand.execute()
+                    } catch {
+                        expect(false).to(beTrue(), description: "Commit command failed")
+                    }
+
+                    let exists = fileManager.fileExists(atPath: commitFolder.path, isDirectory: &isDirectory)
+                    expect(exists).to(beFalse(), description: "Found commited folder")
+                }
+                
+                it("should create the commit folder and move the committed.txt into it if a commit message has been added") {
+                    let commitFileName = "commit_message.txt"
+                    let commitFile = project.directory().appendingPathComponent(commitFileName)
+                    do {
+                        try commitMessage.write(to: commitFile, atomically: true, encoding: .utf8)
+                    } catch {
+                        expect(false).to(beTrue(), description: "Failed to write commit message file")
+                    }
+                    
+                    do {
+                        try commitCommand.execute()
+                    } catch {
+                        expect(false).to(beTrue(), description: "Commit command failed")
+                    }
+                    
+                    let exists = fileManager.fileExists(atPath: commitFolder.path, isDirectory: &isDirectory)
+                    expect(exists).to(beTrue(), description: "Did not find commited folder")
+
+                    let committedFile = commitFolder.appendingPathComponent(commitFileName)
+                    let fileExists = fileManager.fileExists(atPath: committedFile.path, isDirectory: &isFile)
+                    expect(fileExists).to(beTrue(), description: "Did not find committed commit message file")
+                }
+            }
         }
     }
 }

@@ -29,17 +29,30 @@ public class CommitCommand: Command {
         if let projectName = project.value {
             if let project = atlasCore.project(projectName) {
                 if let message = message.value {
-                    if project.commitStaged(message) {
-                        print("Files committed!")
-                        atlasCore.commitChanges(message)
+                    if project.commitMessage(message) {
+                        if project.commitStaged() {
+                            print("Files committed!")
+                            atlasCore.commitChanges(message)
+                        } else {
+                            print("Failed to commit files.")
+                        }
                     } else {
-                        print("Failed to commit files.")
+                        print("Failed to save commit message.")
                     }
                 } else {
-                    print("Please provide a commit message.")
+                    if let commitMessage = project.currentCommitMessage() {
+                        if project.commitStaged() {
+                            print("Files committed!")
+                            atlasCore.commitChanges(commitMessage.text)
+                        } else {
+                            print("Failed to commit files.")
+                        }
+                    } else {
+                        print("Please provide a commit message.")
+                    }
                 }
             } else {
-                print("Faield to stage files")
+                print("Failed to find or initialize project")
             }
         } else {
             print("Please specify a project name with -p or --project (e.g. -p MyProject)")
