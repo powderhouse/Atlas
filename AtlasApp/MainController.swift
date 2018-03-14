@@ -27,11 +27,7 @@ class MainController: NSViewController {
         }
         
         if let credentials = atlasCore.getCredentials() {
-            if atlasCore.initGitAndGitHub(credentials) {
-                print("GIT INIT SUCCESS")
-            } else {
-                print("ERROR: GIT INIT")
-            }
+            initializeAtlas(credentials)
         } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
@@ -53,6 +49,23 @@ class MainController: NSViewController {
         }
     }
 
-
+    func initializeAtlas(_ credentials: Credentials) {
+        if atlasCore.initGitAndGitHub(credentials) {
+            print("Successfully initialized github")
+        } else {
+            print("ERROR: Failed to initialize github")
+        }
+    }
+    
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier?.rawValue == "account-segue" {
+            let dvc = segue.destinationController as! AccountController
+            if let currentCredentials = atlasCore.getCredentials() {
+                dvc.usernameField.stringValue = currentCredentials.username
+            }
+            dvc.mainController = self
+        }
+    }
 }
 

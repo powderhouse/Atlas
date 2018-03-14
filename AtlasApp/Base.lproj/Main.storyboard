@@ -706,7 +706,7 @@
         <!--Account Controller-->
         <scene sceneID="U6g-DL-Qvg">
             <objects>
-                <viewController title="Account Controller" id="amK-yh-WYg" sceneMemberID="viewController">
+                <viewController title="Account Controller" id="amK-yh-WYg" customClass="AccountController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="5W2-1i-BXL">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -754,6 +754,9 @@
                                         <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JNQ-e6-FAs">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
+                                            <connections>
+                                                <action selector="save:" target="amK-yh-WYg" id="4Vp-ay-sec"/>
+                                            </connections>
                                         </buttonCell>
                                     </button>
                                 </subviews>
@@ -784,6 +787,10 @@
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="top" secondItem="5W2-1i-BXL" secondAttribute="top" constant="20" id="y6I-d8-35x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="qxY-iS-gkw" id="ETe-y5-hsv"/>
+                        <outlet property="usernameField" destination="jkK-LV-0qn" id="upd-RO-eo7"/>
+                    </connections>
                 </viewController>
                 <customObject id="LWh-2P-ErR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

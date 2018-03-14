@@ -31,6 +31,7 @@
 		3A8A75B82058528400FD679B /* CommitMessageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */; };
 		3A8A75BA205854CE00FD679B /* CommitMessageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */; };
 		3A8A75C120598DF100FD679B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C020598DF100FD679B /* Helper.swift */; };
+		3A8A75C320599E8C00FD679B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C220599E8C00FD679B /* AccountController.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
@@ -316,6 +317,7 @@
 		3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitMessageCommand.swift; sourceTree = "<group>"; };
 		3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitMessageCommandSpec.swift; sourceTree = "<group>"; };
 		3A8A75C020598DF100FD679B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		3A8A75C220599E8C00FD679B /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -556,6 +558,7 @@
 			children = (
 				3A8A75932058328C00FD679B /* AppDelegate.swift */,
 				3A8A75952058328C00FD679B /* MainController.swift */,
+				3A8A75C220599E8C00FD679B /* AccountController.swift */,
 				3A8A75972058328C00FD679B /* Assets.xcassets */,
 				3A8A75992058328C00FD679B /* Main.storyboard */,
 				3A8A759C2058328C00FD679B /* Info.plist */,
@@ -1277,6 +1280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8A75C320599E8C00FD679B /* AccountController.swift in Sources */,
 				3A8A75962058328C00FD679B /* MainController.swift in Sources */,
 				3A8A75942058328C00FD679B /* AppDelegate.swift in Sources */,
 			);
