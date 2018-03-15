@@ -12,19 +12,26 @@ class MainController: NSViewController {
 
     var atlasCore: AtlasCore!
     
+    @IBOutlet var terminalView: NSTextView!
+    var terminal: Terminal!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        if ProcessInfo.processInfo.environment["TESTING"] != nil {
-            if let testingDirectoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
-                let testingDirectory = URL(fileURLWithPath: testingDirectoryPath)
-                atlasCore = AtlasCore(testingDirectory)
-            }
+
+        if let directoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
+            let directory = URL(fileURLWithPath: directoryPath)
+            atlasCore = AtlasCore(directory)
         } else {
             atlasCore = AtlasCore()
         }
+
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            reset()
+        }
+        
+        terminal = Terminal(terminalView)
         
         if let credentials = atlasCore.getCredentials() {
             initializeAtlas(credentials)
@@ -38,8 +45,7 @@ class MainController: NSViewController {
     
     override func viewDidDisappear() {
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
-            atlasCore.deleteBaseDirectory()
-            atlasCore.deleteGitHubRepository()
+            reset()
         }
     }
 
@@ -48,10 +54,19 @@ class MainController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    func reset() {
+        atlasCore.deleteBaseDirectory()
+        atlasCore.deleteGitHubRepository()
+    }
 
     func initializeAtlas(_ credentials: Credentials) {
         if atlasCore.initGitAndGitHub(credentials) {
-            print("Successfully initialized github")
+            Terminal.log("Logged in to Atlas.")
+            Terminal.log("Account: \(credentials.username)")
+            Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
+            Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
+
         } else {
             print("ERROR: Failed to initialize github")
         }

@@ -37,6 +37,25 @@ class LoginTest: XCTestCase {
     }
     
     func testLogin() {
+        login(app)
+        
+        waitForTerminalToContain("Account: atlastest")
+        waitForTerminalToContain("GGitHub Repository: https://github.com/atlastest/Atlas")
+    }
+    
+    
+    
+    
+    func waitForElementToAppear(_ element: XCUIElement) -> Bool {
+        let predicate = NSPredicate(format: "exists == true")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate,
+        object: element)
+        
+        let result = XCTWaiter().wait(for: [expectation], timeout: 5)
+        return result == .completed
+    }
+    
+    func login(_ app: XCUIApplication) {
         let accountModal = app.dialogs["Account Controller"]
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         XCTAssert(accountModal.staticTexts["Please enter your GitHub credentials:"].exists)
@@ -50,17 +69,29 @@ class LoginTest: XCTestCase {
         passwordSecureTextField.typeText("1a2b3c4d")
         
         accountModal.buttons["Save"].click()
-        
-        let label = app.staticTexts["Account: atlastest"]
-        let exists = NSPredicate(format: "exists == 1")
-        
-        expectation(for: exists, evaluatedWith: label, handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
     }
     
+    //    //func assertTerminalContains(_ text: String) {
+    //    //    let terminal = app.textViews["terminal"]
+    //    //    let terminalText = terminal.value as? String ?? ""
+    //    //    XCTAssertNotNil(terminalText.range(of: text), "The terminal does not contain the text: \(text)")
+    //    //}
+    //
+    //    //func assertTerminalDoesNotContain(_ text: String) {
+    //    //    let terminal = app.textViews["terminal"]
+    //    //    let terminalText = terminal.value as? String ?? ""
+    //    //    XCTAssertNil(terminalText.range(of: text), "The terminal contains the text: \(text)")
+    //    //}
     
-    
-    
-    
+    func waitForTerminalToContain(_ text: String) {
+        let terminal = app.textViews["terminal"]
+        
+        let contains = NSPredicate(format: "value contains[c] %@", text)
+        
+        let subsitutedContains = contains.withSubstitutionVariables(["text": text])
+        
+        expectation(for: subsitutedContains, evaluatedWith: terminal, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
+    }
     
 }
