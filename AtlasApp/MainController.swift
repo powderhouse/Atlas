@@ -12,9 +12,6 @@ class MainController: NSViewController {
 
     var atlasCore: AtlasCore!
     
-    @IBOutlet var terminalView: NSTextView!
-    var terminal: Terminal!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,8 +27,6 @@ class MainController: NSViewController {
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             reset()
         }
-        
-        terminal = Terminal(terminalView)
         
         if let credentials = atlasCore.getCredentials() {
             initializeAtlas(credentials)
