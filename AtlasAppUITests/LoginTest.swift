@@ -40,7 +40,7 @@ class LoginTest: XCTestCase {
         login(app)
         
         waitForTerminalToContain("Account: atlastest")
-        waitForTerminalToContain("GGitHub Repository: https://github.com/atlastest/Atlas")
+        waitForTerminalToContain("GitHub Repository: https://github.com/atlastest/Atlas")
     }
     
     
@@ -84,13 +84,13 @@ class LoginTest: XCTestCase {
     //    //}
     
     func waitForTerminalToContain(_ text: String) {
-        let terminal = app.textViews["terminal"]
+        let terminalView = app.textViews["TerminalView"]
         
         let contains = NSPredicate(format: "value contains[c] %@", text)
         
         let subsitutedContains = contains.withSubstitutionVariables(["text": text])
         
-        expectation(for: subsitutedContains, evaluatedWith: terminal, handler: nil)
+        expectation(for: subsitutedContains, evaluatedWith: terminalView, handler: nil)
         waitForExpectations(timeout: 30, handler: nil)
     }
     
