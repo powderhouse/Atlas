@@ -30,7 +30,10 @@
 		3A8A75B02058378C00FD679B /* AtlasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A8A75B82058528400FD679B /* CommitMessageCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */; };
 		3A8A75BA205854CE00FD679B /* CommitMessageCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */; };
-		3A8A75C120598DF100FD679B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C020598DF100FD679B /* Helper.swift */; };
+		3A8A75C120598DF100FD679B /* AtlasUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C020598DF100FD679B /* AtlasUITestCase.swift */; };
+		3A8A75C320599E8C00FD679B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C220599E8C00FD679B /* AccountController.swift */; };
+		3A8A75C62059EF1000FD679B /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C52059EF1000FD679B /* Terminal.swift */; };
+		3A8A75C82059EF3500FD679B /* AtlasNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C72059EF3500FD679B /* AtlasNotificationCenter.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
@@ -315,7 +318,10 @@
 		3A8A75A82058328D00FD679B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A8A75B42058527A00FD679B /* CommitMessageCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitMessageCommand.swift; sourceTree = "<group>"; };
 		3A8A75B9205854CE00FD679B /* CommitMessageCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitMessageCommandSpec.swift; sourceTree = "<group>"; };
-		3A8A75C020598DF100FD679B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		3A8A75C020598DF100FD679B /* AtlasUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasUITestCase.swift; sourceTree = "<group>"; };
+		3A8A75C220599E8C00FD679B /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		3A8A75C52059EF1000FD679B /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		3A8A75C72059EF3500FD679B /* AtlasNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasNotificationCenter.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -554,8 +560,10 @@
 		3A8A75922058328C00FD679B /* AtlasApp */ = {
 			isa = PBXGroup;
 			children = (
+				3A8A75C42059EEF400FD679B /* lib */,
 				3A8A75932058328C00FD679B /* AppDelegate.swift */,
 				3A8A75952058328C00FD679B /* MainController.swift */,
+				3A8A75C220599E8C00FD679B /* AccountController.swift */,
 				3A8A75972058328C00FD679B /* Assets.xcassets */,
 				3A8A75992058328C00FD679B /* Main.storyboard */,
 				3A8A759C2058328C00FD679B /* Info.plist */,
@@ -569,9 +577,18 @@
 			children = (
 				3A8A75A62058328D00FD679B /* LoginTest.swift */,
 				3A8A75A82058328D00FD679B /* Info.plist */,
-				3A8A75C020598DF100FD679B /* Helper.swift */,
+				3A8A75C020598DF100FD679B /* AtlasUITestCase.swift */,
 			);
 			path = AtlasAppUITests;
+			sourceTree = "<group>";
+		};
+		3A8A75C42059EEF400FD679B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				3A8A75C52059EF1000FD679B /* Terminal.swift */,
+				3A8A75C72059EF3500FD679B /* AtlasNotificationCenter.swift */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* AtlasCommands */ = {
@@ -1277,7 +1294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8A75C320599E8C00FD679B /* AccountController.swift in Sources */,
+				3A8A75C62059EF1000FD679B /* Terminal.swift in Sources */,
 				3A8A75962058328C00FD679B /* MainController.swift in Sources */,
+				3A8A75C82059EF3500FD679B /* AtlasNotificationCenter.swift in Sources */,
 				3A8A75942058328C00FD679B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1287,7 +1307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8A75A72058328D00FD679B /* LoginTest.swift in Sources */,
-				3A8A75C120598DF100FD679B /* Helper.swift in Sources */,
+				3A8A75C120598DF100FD679B /* AtlasUITestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
