@@ -10,6 +10,9 @@ import AtlasCore
 
 class StagingController: NSViewController {
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,4 +24,12 @@ class StagingController: NSViewController {
         }
     }
     
+    @IBAction func resize(_ sender: NSButton) {
+        if let panels = self.parent as? NSSplitViewController {
+            if let main = panels.parent {
+                let newPosition = main.view.frame.width * 0.8
+                panels.splitView.setPosition(newPosition, ofDividerAt: 0)
+            }
+        }
+    }
 }

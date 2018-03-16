@@ -859,6 +859,22 @@
                     <view key="view" id="XBa-8l-vsP">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q2V-Ea-xTv">
+                                <rect key="frame" x="407" y="272" width="49" height="32"/>
+                                <buttonCell key="cell" type="push" title="&gt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bc3-rQ-ffv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resize:" target="nbE-NV-Jhj" id="egB-Hq-v5X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="q2V-Ea-xTv" firstAttribute="top" secondItem="XBa-8l-vsP" secondAttribute="top" id="6j6-0p-8Py"/>
+                            <constraint firstAttribute="trailing" secondItem="q2V-Ea-xTv" secondAttribute="trailing" id="ufd-tI-PY6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="4iC-87-8aW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -876,14 +892,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="90"/>
                                 <clipView key="contentView" id="nxK-Ai-kuu">
-                                    <rect key="frame" x="1" y="1" width="448" height="88"/>
+                                    <rect key="frame" x="1" y="1" width="433" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="601" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="448" height="88"/>
+                                            <size key="minSize" width="433" height="88"/>
                                             <size key="maxSize" width="616" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
@@ -895,15 +911,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                    <rect key="frame" x="433" y="1" width="16" height="88"/>
+                                    <rect key="frame" x="434" y="1" width="15" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mgq-RN-0tT">
+                                <rect key="frame" x="-6" y="272" width="49" height="32"/>
+                                <buttonCell key="cell" type="push" title="&lt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qHk-me-dgx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resize:" target="Nna-Al-Euo" id="3kl-Wz-MG5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gKO-V2-0gc" secondAttribute="bottom" id="Ns1-1I-cMH"/>
+                            <constraint firstItem="mgq-RN-0tT" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" id="Srt-lT-BLQ"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" id="iOm-rU-Mp2"/>
                             <constraint firstAttribute="trailing" secondItem="gKO-V2-0gc" secondAttribute="trailing" id="oHV-dX-21R"/>
+                            <constraint firstItem="mgq-RN-0tT" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" id="oml-Be-AnQ"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="height" secondItem="ouU-2W-nVT" secondAttribute="height" multiplier="0.3" id="zFL-RS-g8T"/>
                         </constraints>
                     </view>

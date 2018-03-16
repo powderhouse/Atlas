@@ -26,5 +26,14 @@ class LogController: NSViewController {
         }
     }
     
+    @IBAction func resize(_ sender: NSButton) {
+        if let panels = self.parent as? NSSplitViewController {
+            if let main = panels.parent {
+                let newPosition = main.view.frame.width * 0.2
+                panels.splitView.setPosition(newPosition, ofDividerAt: 0)
+            }
+        }
+    }
+    
 }
 
