@@ -68,7 +68,7 @@ class UnstageCommandSpec: QuickSpec {
                 
                 beforeEach {
                     unstageCommand.files.value = [file1.lastPathComponent]
-                    _ = unstageCommand.project.setValue(projectName)
+                    _ = unstageCommand.projectInput.setValue(projectName)
                     do {
                         try unstageCommand.execute()
                     } catch {

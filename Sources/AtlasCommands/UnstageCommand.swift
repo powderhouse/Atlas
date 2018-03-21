@@ -20,18 +20,20 @@ public class UnstageCommand: Command {
     
     public let filesType = Flag("-f", "--files", description: "Unstage the specified files.")
     public let files = CollectedParameter()
-    public let project = Key<String>("-p", "--project", description: "The project the files reside in.")
+    public let projectInput = Key<String>("-p", "--project", description: "The project the files reside in.")
     
     public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
     public func execute() throws  {
-        if let projectName = project.value {
-            if atlasCore.changeState(files.value, within: projectName, to: "unstaged") {
-                atlasCore.atlasCommit("Unstaging files in \(projectName)")
-            } else {
-                print("Faield to unstage files")
+        if let projectName = projectInput.value {
+            if let project = atlasCore.project(projectName) {
+                if project.changeState(files.value, to: "unstaged") {
+                    atlasCore.atlasCommit("Unstaging files in \(projectName)")
+                } else {
+                    print("Faield to unstage files")
+                }
             }
         } else {
             print("Please specify a project name with -p or --project (e.g. -p MyProject)")

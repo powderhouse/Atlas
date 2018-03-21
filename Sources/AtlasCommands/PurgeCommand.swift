@@ -13,22 +13,22 @@ import AtlasCore
 
 public class PurgeCommand: Command {
     
-    // Atlas purge -f {files} -p {project}
+    // Atlas purge {files}
     
     public var atlasCore: AtlasCore
     
     public let name = "purge"
     public let shortDescription = "Purge (delete) one or more files from an Atlas project commit."
     
-    public let filesType = Flag("-f", "--files", description: "Purge these files from the project. Please provide the full GitHub path.")
     public let files = CollectedParameter()
-    public let project = Key<String>("-p", "--project", description: "The project you want to purge the files from.")
     
     public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
     }
     
     public func execute() throws  {
-        
+        if atlasCore.purge(files.value) {
+            print("Files successfully purged.")
+        }
     }
 }

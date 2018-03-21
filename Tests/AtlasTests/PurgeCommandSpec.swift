@@ -26,7 +26,7 @@ class PurgeCommandSpec: QuickSpec {
             
             let fileManager = FileManager.default
             var isFile : ObjCBool = false
-            var isDirectory : ObjCBool = true
+//            var isDirectory : ObjCBool = true
 
             var project: Project!
 
@@ -95,14 +95,13 @@ class PurgeCommandSpec: QuickSpec {
             context("running") {
 
                 var fileName: String!
-                var filePath: String!
+                var relativeFilePath: String!
                 
                 beforeEach {
                     fileName = file1.lastPathComponent
-                    filePath = commitFolder.appendingPathComponent(fileName).path
+                    relativeFilePath = "./\(projectName)/committed/\(slug!)/\(fileName!)"
                     
-                    purgeCommand.files.value = [filePath]
-                    purgeCommand.project.setValue(projectName)
+                    purgeCommand.files.value = [relativeFilePath]
                     
                     do {
                         try purgeCommand.execute()
@@ -111,13 +110,16 @@ class PurgeCommandSpec: QuickSpec {
                     }
                 }
                 
-//                it("should remove the file from the committed folder") {
-//                    let exists = fileManager.fileExists(atPath: filePath, isDirectory: &isFile)
-//                    expect(exists).to(beFalse(), description: "Committed file still found")
-//                }
-//                
-//                it("should should remove the commit from the log") {
-//                }
+                it("should remove the file from the committed folder") {
+                    let filePath = commitUrl.appendingPathComponent(fileName).path
+                    let exists = fileManager.fileExists(atPath: filePath, isDirectory: &isFile)
+                    expect(exists).to(beFalse(), description: "Committed file still found")
+                }
+                
+                it("should should remove the commit from the log") {
+                    let log = atlasCore.log()
+                    expect(log.count).to(equal(0))
+                }
             }
         }
     }
