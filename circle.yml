@@ -1,0 +1,22 @@
+# xcodebuild test -sdk macosx10.13 -project Atlas.xcodeproj/ -scheme AtlasApp -destination 'platform=OS X,arch=x86_64'
+
+machine:
+  xcode:
+    version: 9.2.0
+
+test:
+  override:
+    - set -o pipefail &&
+      swift test -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
+      swift build -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13" &&
+      xcodebuild
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        -sdk macosx10.13
+        -destination 'platform=OS X,arch=x86_64'
+        -project Atlas.xcodeproj
+        -scheme "AtlasApp"
+        clean build test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
