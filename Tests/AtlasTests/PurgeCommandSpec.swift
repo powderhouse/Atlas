@@ -99,7 +99,7 @@ class PurgeCommandSpec: QuickSpec {
                 
                 beforeEach {
                     fileName = file1.lastPathComponent
-                    relativeFilePath = "./\(projectName)/committed/\(slug!)/\(fileName!)"
+                    relativeFilePath = "\(projectName)/committed/\(slug!)/\(fileName!)"
                     
                     purgeCommand.files.value = [relativeFilePath]
                     
