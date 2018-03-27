@@ -7,7 +7,7 @@ let package = Package(
     name: "Atlas",
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "4.0.0"),
+        .package(url: "https://github.com/jakeheis/SwiftCLI", .exact("4.0.3")),
         .package(url: "https://github.com/powderhouse/AtlasCore.git", from: "0.4.0"),
         .package(url: "https://github.com/Quick/Quick.git", from: "1.0.0"),
         .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),

@@ -36,6 +36,8 @@
 		3A8A75C82059EF3500FD679B /* AtlasNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C72059EF3500FD679B /* AtlasNotificationCenter.swift */; };
 		3A8A75CA205B2E8D00FD679B /* StagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75C9205B2E8D00FD679B /* StagingController.swift */; };
 		3A8A75CC205B2E9C00FD679B /* LogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75CB205B2E9C00FD679B /* LogController.swift */; };
+		3A8A75D0205C326900FD679B /* PurgeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75CD205C326100FD679B /* PurgeCommand.swift */; };
+		3A8A75D2205C36CB00FD679B /* PurgeCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75D1205C36CB00FD679B /* PurgeCommandSpec.swift */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
@@ -326,6 +328,8 @@
 		3A8A75C72059EF3500FD679B /* AtlasNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasNotificationCenter.swift; sourceTree = "<group>"; };
 		3A8A75C9205B2E8D00FD679B /* StagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagingController.swift; sourceTree = "<group>"; };
 		3A8A75CB205B2E9C00FD679B /* LogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogController.swift; sourceTree = "<group>"; };
+		3A8A75CD205C326100FD679B /* PurgeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurgeCommand.swift; sourceTree = "<group>"; };
+		3A8A75D1205C36CB00FD679B /* PurgeCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurgeCommandSpec.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -608,6 +612,7 @@
 				OBJ_15 /* LogCommand.swift */,
 				OBJ_16 /* LoginCommand.swift */,
 				OBJ_17 /* LogoutCommand.swift */,
+				3A8A75CD205C326100FD679B /* PurgeCommand.swift */,
 				OBJ_18 /* StageCommand.swift */,
 				OBJ_19 /* StagedCommand.swift */,
 				OBJ_20 /* StartProjectCommand.swift */,
@@ -755,6 +760,7 @@
 				OBJ_31 /* LogCommandSpec.swift */,
 				OBJ_32 /* LoginCommandSpec.swift */,
 				OBJ_33 /* LogoutCommandSpec.swift */,
+				3A8A75D1205C36CB00FD679B /* PurgeCommandSpec.swift */,
 				OBJ_34 /* StageCommandSpec.swift */,
 				OBJ_35 /* StartProjectCommandSpec.swift */,
 				OBJ_36 /* UnstageCommandSpec.swift */,
@@ -1372,6 +1378,7 @@
 				OBJ_219 /* LogoutCommandSpec.swift in Sources */,
 				OBJ_220 /* StageCommandSpec.swift in Sources */,
 				OBJ_221 /* StartProjectCommandSpec.swift in Sources */,
+				3A8A75D2205C36CB00FD679B /* PurgeCommandSpec.swift in Sources */,
 				OBJ_222 /* UnstageCommandSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1488,6 +1495,7 @@
 				OBJ_352 /* ImportCommand.swift in Sources */,
 				OBJ_353 /* InfoCommand.swift in Sources */,
 				OBJ_354 /* LogCommand.swift in Sources */,
+				3A8A75D0205C326900FD679B /* PurgeCommand.swift in Sources */,
 				OBJ_355 /* LoginCommand.swift in Sources */,
 				OBJ_356 /* LogoutCommand.swift in Sources */,
 				OBJ_357 /* StageCommand.swift in Sources */,

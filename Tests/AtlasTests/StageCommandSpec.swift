@@ -56,7 +56,7 @@ class StageCommandSpec: QuickSpec {
                 
                 let unstageCommand = UnstageCommand(atlasCore)
                 unstageCommand.files.value = [file1.path]
-                if !unstageCommand.project.setValue(projectName) {
+                if !unstageCommand.projectInput.setValue(projectName) {
                     expect(false).to(beTrue(), description: "Failed to set project key value")
                 }
                 do {
@@ -78,7 +78,7 @@ class StageCommandSpec: QuickSpec {
                 
                 beforeEach {
                     stageCommand.files.value = [file1.lastPathComponent]
-                    _ = stageCommand.project.setValue(projectName)
+                    _ = stageCommand.projectInput.setValue(projectName)
                     do {
                         try stageCommand.execute()
                     } catch {
