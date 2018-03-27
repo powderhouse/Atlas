@@ -26,7 +26,7 @@ class PurgeCommandSpec: QuickSpec {
             
             let fileManager = FileManager.default
             var isFile : ObjCBool = false
-//            var isDirectory : ObjCBool = true
+            var isDirectory : ObjCBool = true
 
             var project: Project!
 
@@ -119,6 +119,11 @@ class PurgeCommandSpec: QuickSpec {
                 it("should should remove the commit from the log") {
                     let log = atlasCore.log()
                     expect(log.count).to(equal(0))
+                }
+
+                it("should should remove the commit folder") {
+                    let exists = fileManager.fileExists(atPath: commitFolder.path, isDirectory: &isDirectory)
+                    expect(exists).to(beFalse(), description: "Commit folder still found")
                 }
             }
         }

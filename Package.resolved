@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/powderhouse/AtlasCore.git",
         "state": {
           "branch": null,
-          "revision": "2b3d9f1efb487e6ecf7a651a444692f7bd48cd0c",
-          "version": "0.4.7"
+          "revision": "7506b2703fcd1dde8d1627f132df55ee04f31a2e",
+          "version": "0.4.9"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/jakeheis/SwiftCLI",
         "state": {
           "branch": null,
-          "revision": "ce663ba76a1b431ee80b95d7bd04d74e428ece56",
-          "version": "4.0.4"
+          "revision": "afd7cd100aa18e1ad878279f506fbff71b59ed91",
+          "version": "4.0.3"
         }
       }
     ]
