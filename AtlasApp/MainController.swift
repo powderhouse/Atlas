@@ -12,6 +12,8 @@ class MainController: NSViewController {
 
     var atlasCore: AtlasCore!
     
+    @IBOutlet weak var splitView: NSView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,8 @@ class MainController: NSViewController {
                 sender: self
             )
         }
+        
+        print("SUBVIEWS: \(splitView.subviews)")
     }
     
     override func viewDidDisappear() {
@@ -67,7 +71,6 @@ class MainController: NSViewController {
         }
     }
     
-    
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier?.rawValue == "account-segue" {
             let dvc = segue.destinationController as! AccountController
@@ -75,6 +78,9 @@ class MainController: NSViewController {
                 dvc.usernameField.stringValue = currentCredentials.username
             }
             dvc.mainController = self
+        } else if segue.identifier?.rawValue == "panel-embed" {
+            let dvc = segue.destinationController as! PanelController
+            dvc.atlasCore = atlasCore
         }
     }
 }
