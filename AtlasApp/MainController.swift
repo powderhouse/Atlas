@@ -38,8 +38,6 @@ class MainController: NSViewController {
                 sender: self
             )
         }
-        
-        print("SUBVIEWS: \(splitView.subviews)")
     }
     
     override func viewDidDisappear() {
