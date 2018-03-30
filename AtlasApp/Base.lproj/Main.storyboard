@@ -686,7 +686,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" identifier="MainWindow" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingIdentifier="MainWindow" id="IQv-IB-iLA">
+                    <window key="window" identifier="MainWindow" title="Atlas" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingIdentifier="MainWindow" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="800" height="600"/>
@@ -859,22 +859,36 @@
             <objects>
                 <viewController title="Staging Controller" id="nbE-NV-Jhj" customClass="StagingController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="XBa-8l-vsP">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsI-jg-KeW">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <clipView key="contentView" drawsBackground="NO" id="Fyz-w4-yfN">
-                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q2V-Ea-xTv">
+                                <rect key="frame" x="407" y="372" width="49" height="32"/>
+                                <buttonCell key="cell" type="push" title="&gt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bc3-rQ-ffv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resize:" target="nbE-NV-Jhj" id="egB-Hq-v5X"/>
+                                </connections>
+                            </button>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsI-jg-KeW" userLabel="Project List Scroll View">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Fyz-w4-yfN">
+                                    <rect key="frame" x="1" y="1" width="448" height="398"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="1aO-NR-zBR">
                                             <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="9ah-sZ-F6X">
-                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="itemSize" width="240" height="240"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="nbE-NV-Jhj" id="Fdo-ot-TjS"/>
+                                                <outlet property="delegate" destination="nbE-NV-Jhj" id="yB9-yk-MGS"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -888,33 +902,30 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q2V-Ea-xTv">
-                                <rect key="frame" x="407" y="272" width="49" height="32"/>
-                                <buttonCell key="cell" type="push" title="&gt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bc3-rQ-ffv">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="resize:" target="nbE-NV-Jhj" id="egB-Hq-v5X"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="nsI-jg-KeW" firstAttribute="top" secondItem="XBa-8l-vsP" secondAttribute="top" id="5Wu-o7-VAx"/>
                             <constraint firstItem="q2V-Ea-xTv" firstAttribute="top" secondItem="XBa-8l-vsP" secondAttribute="top" id="6j6-0p-8Py"/>
-                            <constraint firstAttribute="bottom" secondItem="nsI-jg-KeW" secondAttribute="bottom" id="E4Z-Cv-vaY"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="leading" secondItem="XBa-8l-vsP" secondAttribute="leading" id="Tgn-vS-0s1"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="leading" secondItem="XBa-8l-vsP" secondAttribute="leading" id="XJg-nE-TVA"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="centerX" secondItem="XBa-8l-vsP" secondAttribute="centerX" id="awz-rl-uzO"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="centerY" secondItem="XBa-8l-vsP" secondAttribute="centerY" id="hR7-Jp-nFV"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="width" secondItem="XBa-8l-vsP" secondAttribute="width" id="jA9-JG-UN2"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="height" secondItem="XBa-8l-vsP" secondAttribute="height" id="nL2-zq-RqY"/>
+                            <constraint firstAttribute="bottom" secondItem="nsI-jg-KeW" secondAttribute="bottom" id="pU7-hJ-B6y"/>
+                            <constraint firstAttribute="trailing" secondItem="nsI-jg-KeW" secondAttribute="trailing" id="sk6-Q6-aIj"/>
+                            <constraint firstItem="nsI-jg-KeW" firstAttribute="top" secondItem="XBa-8l-vsP" secondAttribute="top" id="uJE-4z-bB7"/>
                             <constraint firstAttribute="trailing" secondItem="q2V-Ea-xTv" secondAttribute="trailing" id="ufd-tI-PY6"/>
-                            <constraint firstItem="nsI-jg-KeW" firstAttribute="leading" secondItem="XBa-8l-vsP" secondAttribute="leading" id="xhm-Y7-g4U"/>
-                            <constraint firstAttribute="trailing" secondItem="nsI-jg-KeW" secondAttribute="trailing" id="xqn-mC-P0E"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clipView" destination="Fyz-w4-yfN" id="OMN-we-cE0"/>
+                        <outlet property="collectionView" destination="nsI-jg-KeW" id="8wY-7b-iT1"/>
                         <outlet property="projectListView" destination="1aO-NR-zBR" id="w8T-k2-FOm"/>
                     </connections>
                 </viewController>
                 <customObject id="4iC-87-8aW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="2224"/>
+            <point key="canvasLocation" x="-161" y="2124"/>
         </scene>
         <!--Log Controller-->
         <scene sceneID="494-Sy-Ipm">

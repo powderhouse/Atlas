@@ -13,11 +13,14 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     var atlasCore: AtlasCore!
     
     @IBOutlet weak var projectListView: NSCollectionView!
+    @IBOutlet weak var clipView: NSClipView!
+    @IBOutlet weak var collectionView: NSScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        configureProjectListView()
     }
 
     override var representedObject: Any? {
@@ -70,8 +73,9 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
         projectListView.collectionViewLayout = flowLayout
-        
+
         view.wantsLayer = true
+        projectListView.setFrameSize(NSSize(width: view.frame.width, height: view.frame.height))
     }
 
 }

@@ -71,7 +71,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         guard project != nil else { return 0 }
         stagedFiles = project!.files("staged")
         return stagedFiles.count
-        return 0
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -127,7 +126,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         }
 
         return selected
-        return []
     }
     
     @IBAction func commit(_ sender: NSButton) {

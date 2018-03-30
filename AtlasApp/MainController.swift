@@ -13,20 +13,17 @@ class MainController: NSViewController {
     var atlasCore: AtlasCore!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-
-        if let directoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
-            let directory = URL(fileURLWithPath: directoryPath)
-            atlasCore = AtlasCore(directory)
-        } else {
-            atlasCore = AtlasCore()
+        if atlasCore == nil {
+            initAtlasCore()
         }
-
+        
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             reset()
         }
+
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
         
         if let credentials = atlasCore.getCredentials() {
             initializeAtlas(credentials)
@@ -66,7 +63,20 @@ class MainController: NSViewController {
         }
     }
     
+    func initAtlasCore() {
+        if let directoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
+            let directory = URL(fileURLWithPath: directoryPath)
+            atlasCore = AtlasCore(directory)
+        } else {
+            atlasCore = AtlasCore()
+        }
+    }
+    
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if atlasCore == nil {
+            initAtlasCore()
+        }
+        
         if segue.identifier?.rawValue == "account-segue" {
             let dvc = segue.destinationController as! AccountController
             if let currentCredentials = atlasCore.getCredentials() {
