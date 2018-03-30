@@ -101,7 +101,20 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
                 }
             }
         }
-        
+
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staged-file-committed"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["project"] as? String {
+                if self.project?.name == projectName {
+                    self.refresh()
+                }
+            }
+        }
+
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "staged-file-toggled"),
             object: nil,

@@ -46,6 +46,15 @@ class CommitController: NSViewController, NSTextFieldDelegate {
         self.dismiss(self)
         if project!.commitMessage(commitMessage.stringValue) {
             if project!.commitStaged() {
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(rawValue: "staged-file-committed"),
+                    object: nil,
+                    userInfo: [
+                        "project": project!.name!,
+                        "message": commitMessage.stringValue
+                    ]
+                )
+                
                 Terminal.log("Files successfully committed.")
             } else {
                 Terminal.log("Failed to commit files.")

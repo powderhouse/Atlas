@@ -63,6 +63,15 @@ class MainController: NSViewController {
             (notification) in
             self.atlasCore.atlasCommit()
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staged-file-committed"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            self.atlasCore.atlasCommit(notification.userInfo?["message"] as? String)
+        }
     }
 
     func initializeAtlas(_ credentials: Credentials) {
