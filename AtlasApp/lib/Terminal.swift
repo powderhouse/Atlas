@@ -28,7 +28,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         clear()
         
         initObservers()
-        
+
         Timer.scheduledTimer(
             withTimeInterval: 3,
             repeats: false

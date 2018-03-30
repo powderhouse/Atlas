@@ -8,14 +8,17 @@
 import Cocoa
 import AtlasCore
 
-class StagingController: NSViewController {
+class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
     
+    var atlasCore: AtlasCore!
     
-    
+    @IBOutlet weak var projectListView: NSCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        configureProjectListView()
     }
 
     override var representedObject: Any? {
@@ -32,4 +35,56 @@ class StagingController: NSViewController {
             }
         }
     }
+    
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        let projects = atlasCore.projects()
+        if collectionView == projectListView {
+            return projects.count
+        }
+
+        let project = projects[section]
+        return project.files("staged").count
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = collectionView.makeItem(
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem"),
+            for: indexPath
+        )
+
+        guard let projectViewItem = item as? ProjectViewItem else {
+            return item
+        }
+        
+        projectViewItem.project = atlasCore.projects()[indexPath.item]
+
+        projectViewItem.refresh()
+
+        return projectViewItem
+    }
+
+    fileprivate func configureProjectListView() {
+        projectListView.isSelectable = true
+        let flowLayout = NSCollectionViewFlowLayout()
+        
+        let projectHeight: CGFloat = 240
+        let projectWidth: CGFloat = 240
+
+        let bufferDim: CGFloat = 18
+        
+        flowLayout.itemSize = NSSize(width: projectWidth, height: projectHeight)
+        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
+        flowLayout.minimumInteritemSpacing = bufferDim
+        flowLayout.minimumLineSpacing = bufferDim
+        projectListView.collectionViewLayout = flowLayout
+
+        view.wantsLayer = true
+        projectListView.setFrameSize(
+            NSSize(
+                width: view.frame.width,
+                height: CGFloat(atlasCore.projects().count) * (projectHeight + (bufferDim * CGFloat(2)))
+            )
+        )
+    }
+
 }

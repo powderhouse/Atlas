@@ -14,10 +14,10 @@ class LogController: NSViewController {
     var terminal: Terminal!
     
     override func viewDidLoad() {
+        terminal = Terminal(terminalView)
+
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        terminal = Terminal(terminalView)
     }
     
     override var representedObject: Any? {
