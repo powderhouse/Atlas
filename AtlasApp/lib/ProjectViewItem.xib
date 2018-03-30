@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ProjectViewItem" customModule="atlas" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="MMS-xY-kSu"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="APu-q9-Ec7"/>
@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="406" height="342"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="46y-ZN-GYi" userLabel="Drop View" customClass="DropView" customModule="atlas" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="46y-ZN-GYi" userLabel="Drop View" customClass="DropView" customModule="AtlasApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="406" height="342"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
@@ -56,6 +56,10 @@
                                             <size key="itemSize" width="10" height="10"/>
                                         </collectionViewFlowLayout>
                                         <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="46y-ZN-GYi" id="P6P-S5-1nI"/>
+                                            <outlet property="delegate" destination="46y-ZN-GYi" id="fO0-kC-zTO"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
@@ -93,7 +97,7 @@
             </constraints>
             <point key="canvasLocation" x="176" y="203"/>
         </customView>
-        <collectionViewItem title="ProjectViewItem" nibName="ProjectViewItem" id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="atlas" customModuleProvider="target">
+        <collectionViewItem title="ProjectViewItem" nibName="ProjectViewItem" id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="Gfl-oD-rlL"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="x2T-h1-4Yl"/>

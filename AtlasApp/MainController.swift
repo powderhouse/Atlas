@@ -58,6 +58,10 @@ class MainController: NSViewController {
             Terminal.log("Account: \(credentials.username)")
             Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
+            
+            if atlasCore.projects().count == 0 {
+                _ = atlasCore.initProject("General")
+            }
         } else {
             Terminal.log("ERROR: Failed to initialize github")
         }

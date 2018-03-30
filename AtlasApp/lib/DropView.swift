@@ -10,8 +10,6 @@ import Cocoa
 import AtlasCore
 
 class DropView: NSView {
-
-    weak var delegate: ProjectViewItem?
     
     var filePath: String?
     var project: Project?
@@ -41,13 +39,22 @@ class DropView: NSView {
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-//        guard let pasteboard = sender.draggingPasteboard().propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
-//            let path = pasteboard[0] as? String
-//            else { return false }
-//        
-//        self.filePath = path
-//        project?.stageFile(URL(fileURLWithPath: path))
+        guard let pasteboard = sender.draggingPasteboard().propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
+            let path = pasteboard[0] as? String
+            else { return false }
         
-        return true
+        guard project != nil else { return false }
+        
+        self.filePath = path
+        if project!.copyInto([path]) {
+            let filename = URL(fileURLWithPath: path).lastPathComponent
+            Terminal.log("Imported \(filename) into \(project!.name!)")
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "staged-file-added"),
+                object: nil,
+                userInfo: ["project": project!.name!])
+            return true
+        }
+        return false
     }
 }

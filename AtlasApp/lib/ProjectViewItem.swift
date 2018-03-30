@@ -63,13 +63,16 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     }
     
     func refresh() {
+        print("REFRESH")
         stagedFilesView.reloadData()
         checkCommitButton()
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("HI")
         guard project != nil else { return 0 }
         stagedFiles = project!.files("staged")
+        print("STAGED: \(stagedFiles)")
         return stagedFiles.count
     }
     
@@ -90,7 +93,20 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     func initNotifications() {
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staging-file-toggled"),
+            forName: NSNotification.Name(rawValue: "staged-file-added"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["project"] as? String {
+                if self.project?.name == projectName {
+                    self.refresh()
+                }
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staged-file-toggled"),
             object: nil,
             queue: nil
         ) {
@@ -99,7 +115,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         }
         
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "remove-staged-file"),
+            forName: NSNotification.Name(rawValue: "staged-file-removed"),
             object: nil,
             queue: nil
         ) {
