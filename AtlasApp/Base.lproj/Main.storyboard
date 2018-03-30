@@ -804,7 +804,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="k5j-NW-RQj">
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="k5j-NW-RQj" userLabel="Split View">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                                 <connections>
                                     <segue destination="r7d-gj-KOS" kind="embed" identifier="panel-embed" id="WwR-hX-kEO"/>
@@ -819,7 +819,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="splitView" destination="k5j-NW-RQj" id="alh-ch-jjh"/>
                         <outlet property="terminalView" destination="gHe-ED-165" id="QbK-RC-VG0"/>
                         <segue destination="amK-yh-WYg" kind="modal" identifier="account-segue" id="2Pg-6W-S2H"/>
                     </connections>

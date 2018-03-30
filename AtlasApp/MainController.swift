@@ -12,8 +12,6 @@ class MainController: NSViewController {
 
     var atlasCore: AtlasCore!
     
-    @IBOutlet weak var splitView: NSView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,9 +61,8 @@ class MainController: NSViewController {
             Terminal.log("Account: \(credentials.username)")
             Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
-
         } else {
-            print("ERROR: Failed to initialize github")
+            Terminal.log("ERROR: Failed to initialize github")
         }
     }
     
