@@ -987,5 +987,77 @@
             </objects>
             <point key="canvasLocation" x="360" y="2224"/>
         </scene>
+        <!--Commit Controller-->
+        <scene sceneID="b5z-c9-DBW">
+            <objects>
+                <customObject id="R4D-Dp-CDY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController title="Commit Controller" storyboardIdentifier="CommitController" id="T1f-Dv-8fs" customClass="CommitController" customModule="AtlasApp" sceneMemberID="viewController">
+                    <view key="view" id="rhu-e3-XXw">
+                        <rect key="frame" x="0.0" y="0.0" width="333" height="363"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OXX-Pz-JRA">
+                                <rect key="frame" x="17" y="45" width="300" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="HrL-Za-pgC"/>
+                                    <constraint firstAttribute="width" constant="300" id="JK1-9K-Vbg"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Why are you submitting these files?" drawsBackground="YES" id="9On-Lw-lv4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MZn-Cw-08g">
+                                <rect key="frame" x="123" y="5" width="88" height="32"/>
+                                <buttonCell key="cell" type="push" title="Commit" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Svl-ll-qLI">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="commit:" target="T1f-Dv-8fs" id="uCE-s9-rFc"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kfa-38-CRm">
+                                <rect key="frame" x="15" y="297" width="304" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Files" id="igm-nQ-uV5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6vC-pw-sBd">
+                                <rect key="frame" x="-2" y="326" width="337" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Please provide a commit message:" id="1Su-4C-k6q">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MZn-Cw-08g" firstAttribute="top" secondItem="OXX-Pz-JRA" secondAttribute="bottom" constant="12" id="2ZF-CT-nV4"/>
+                            <constraint firstItem="OXX-Pz-JRA" firstAttribute="width" secondItem="rhu-e3-XXw" secondAttribute="width" multiplier="0.9" id="5X1-3u-WYr"/>
+                            <constraint firstItem="kfa-38-CRm" firstAttribute="width" secondItem="rhu-e3-XXw" secondAttribute="width" multiplier="0.9" id="7FU-JZ-mQf"/>
+                            <constraint firstItem="kfa-38-CRm" firstAttribute="top" secondItem="6vC-pw-sBd" secondAttribute="bottom" constant="12" id="F4A-mK-7LE"/>
+                            <constraint firstAttribute="bottom" secondItem="MZn-Cw-08g" secondAttribute="bottom" constant="12" id="IYR-37-8bF"/>
+                            <constraint firstItem="OXX-Pz-JRA" firstAttribute="centerX" secondItem="rhu-e3-XXw" secondAttribute="centerX" id="JUF-Qh-a2E"/>
+                            <constraint firstItem="kfa-38-CRm" firstAttribute="centerX" secondItem="rhu-e3-XXw" secondAttribute="centerX" id="Kl6-MA-QGJ"/>
+                            <constraint firstItem="MZn-Cw-08g" firstAttribute="centerX" secondItem="rhu-e3-XXw" secondAttribute="centerX" id="dB6-XG-6lj"/>
+                            <constraint firstItem="OXX-Pz-JRA" firstAttribute="top" secondItem="kfa-38-CRm" secondAttribute="bottom" constant="12" id="eUJ-ux-Nkt"/>
+                            <constraint firstItem="6vC-pw-sBd" firstAttribute="top" secondItem="rhu-e3-XXw" secondAttribute="top" constant="20" id="et1-ie-kVn"/>
+                            <constraint firstItem="6vC-pw-sBd" firstAttribute="width" secondItem="rhu-e3-XXw" secondAttribute="width" id="mvI-A8-BTJ"/>
+                            <constraint firstItem="6vC-pw-sBd" firstAttribute="centerX" secondItem="rhu-e3-XXw" secondAttribute="centerX" id="rRX-nx-gvO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commitButton" destination="MZn-Cw-08g" id="qLe-ZT-6Po"/>
+                        <outlet property="commitMessage" destination="OXX-Pz-JRA" id="FVS-pc-aqW"/>
+                        <outlet property="files" destination="kfa-38-CRm" id="c4b-vm-c1U"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="815" y="1551"/>
+        </scene>
     </scenes>
 </document>

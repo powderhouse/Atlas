@@ -63,16 +63,13 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     }
     
     func refresh() {
-        print("REFRESH")
         stagedFilesView.reloadData()
         checkCommitButton()
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("HI")
         guard project != nil else { return 0 }
         stagedFiles = project!.files("staged")
-        print("STAGED: \(stagedFiles)")
         return stagedFiles.count
     }
     
@@ -128,24 +125,8 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         }
     }
     
-    func selectedStagedFiles() -> [String] {
-        stagedFiles = dropView.project!.files("staged")
-
-        var selected: [String] = []
-
-        for i in 0..<stagedFiles.count {
-            if let stagedFile = stagedFilesView.item(at: i) as? StagedFileViewItem {
-                if stagedFile.isSelected {
-                    selected.append(stagedFile.label.stringValue)
-                }
-            }
-        }
-
-        return selected
-    }
-    
     @IBAction func commit(_ sender: NSButton) {
-        let toCommit = selectedStagedFiles()
+        let toCommit = dropView.project!.files("staged")
 
         guard toCommit.count != 0 else {
             Terminal.log("No files are selected to commit.")
@@ -178,7 +159,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             withTimeInterval: 0.2,
             repeats: false,
             block: { (timer) in
-                self.commitButton.isEnabled = self.selectedStagedFiles().count > 0
+                self.commitButton.isEnabled = self.dropView.project!.files("staged").count > 0
                 
         })
     }

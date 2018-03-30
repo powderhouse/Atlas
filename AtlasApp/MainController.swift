@@ -25,6 +25,8 @@ class MainController: NSViewController {
         
         // Do any additional setup after loading the view.
         
+        initNotifications()
+        
         if let credentials = atlasCore.getCredentials() {
             initializeAtlas(credentials)
         } else {
@@ -51,6 +53,17 @@ class MainController: NSViewController {
         atlasCore.deleteBaseDirectory()
         atlasCore.deleteGitHubRepository()
     }
+    
+    func initNotifications() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staged-file-added"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            self.atlasCore.atlasCommit()
+        }
+    }
 
     func initializeAtlas(_ credentials: Credentials) {
         if atlasCore.initGitAndGitHub(credentials) {
@@ -61,6 +74,7 @@ class MainController: NSViewController {
             
             if atlasCore.projects().count == 0 {
                 _ = atlasCore.initProject("General")
+                _ = atlasCore.atlasCommit()
             }
         } else {
             Terminal.log("ERROR: Failed to initialize github")

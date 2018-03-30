@@ -53,6 +53,7 @@ class DropView: NSView {
                 name: NSNotification.Name(rawValue: "staged-file-added"),
                 object: nil,
                 userInfo: ["project": project!.name!])
+
             return true
         }
         return false
