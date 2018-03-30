@@ -13,8 +13,6 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     var atlasCore: AtlasCore!
     
     @IBOutlet weak var projectListView: NSCollectionView!
-    @IBOutlet weak var clipView: NSClipView!
-    @IBOutlet weak var collectionView: NSScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,14 +66,25 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     fileprivate func configureProjectListView() {
         projectListView.isSelectable = true
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: 240.0, height: 240.0)
-        flowLayout.sectionInset = NSEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.minimumLineSpacing = 10
+        
+        let projectHeight: CGFloat = 240
+        let projectWidth: CGFloat = 240
+
+        let bufferDim: CGFloat = 18
+        
+        flowLayout.itemSize = NSSize(width: projectWidth, height: projectHeight)
+        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
+        flowLayout.minimumInteritemSpacing = bufferDim
+        flowLayout.minimumLineSpacing = bufferDim
         projectListView.collectionViewLayout = flowLayout
 
         view.wantsLayer = true
-        projectListView.setFrameSize(NSSize(width: view.frame.width, height: view.frame.height))
+        projectListView.setFrameSize(
+            NSSize(
+                width: view.frame.width,
+                height: CGFloat(atlasCore.projects().count) * (projectHeight + (bufferDim * CGFloat(2)))
+            )
+        )
     }
 
 }

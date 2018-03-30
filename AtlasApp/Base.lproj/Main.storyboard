@@ -859,11 +859,11 @@
             <objects>
                 <viewController title="Staging Controller" id="nbE-NV-Jhj" customClass="StagingController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="XBa-8l-vsP">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q2V-Ea-xTv">
-                                <rect key="frame" x="407" y="372" width="49" height="32"/>
+                                <rect key="frame" x="407" y="272" width="49" height="32"/>
                                 <buttonCell key="cell" type="push" title="&gt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bc3-rQ-ffv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -873,9 +873,9 @@
                                 </connections>
                             </button>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsI-jg-KeW" userLabel="Project List Scroll View">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Fyz-w4-yfN">
-                                    <rect key="frame" x="1" y="1" width="448" height="398"/>
+                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="1aO-NR-zBR">
@@ -918,14 +918,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="clipView" destination="Fyz-w4-yfN" id="OMN-we-cE0"/>
-                        <outlet property="collectionView" destination="nsI-jg-KeW" id="8wY-7b-iT1"/>
                         <outlet property="projectListView" destination="1aO-NR-zBR" id="w8T-k2-FOm"/>
                     </connections>
                 </viewController>
                 <customObject id="4iC-87-8aW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="2124"/>
+            <point key="canvasLocation" x="-155" y="2224"/>
         </scene>
         <!--Log Controller-->
         <scene sceneID="494-Sy-Ipm">
