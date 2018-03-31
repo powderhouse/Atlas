@@ -25,6 +25,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         view.dataSource = self
         
         configure()
+        initObservers()
     }
     
     func refresh() {
@@ -77,16 +78,39 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         return commitViewItem
     }
     
+    func initObservers() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staged-file-committed"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            self.refresh()
+        }
+    }
+    
     func configure() {
         view.isSelectable = false
-        let flowLayout = NSCollectionViewFlowLayout()        
-        flowLayout.itemSize = NSSize(width: view.frame.width - 40, height: 200)
-        flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.minimumLineSpacing = 10
+        let flowLayout = NSCollectionViewFlowLayout()
+        
+        let commitHeight = CGFloat(200)
+        let commitWidth = CGFloat(view.frame.width - 100)
+        let bufferDim = CGFloat(12)
+        
+        flowLayout.itemSize = NSSize(width: commitWidth, height: commitHeight)
+        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
+        flowLayout.minimumInteritemSpacing = bufferDim
+        flowLayout.minimumLineSpacing = bufferDim
         view.collectionViewLayout = flowLayout
         
-        view.wantsLayer = true        
+        view.wantsLayer = true
+        
+        view.setFrameSize(
+            NSSize(
+                width: view.frame.width,
+                height: CGFloat(commits.count) * (commitHeight + (bufferDim * CGFloat(2)))
+            )
+        )
     }
     
 }

@@ -70,7 +70,7 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            self.atlasCore.atlasCommit(notification.userInfo?["message"] as? String)
+            self.atlasCore.commitChanges(notification.userInfo?["message"] as? String)
         }
     }
 
