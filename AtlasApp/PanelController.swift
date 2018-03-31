@@ -21,6 +21,10 @@ class PanelController: NSSplitViewController {
             stagingController.atlasCore = atlasCore
         }
 
+        if let logController = logArea.viewController as? LogController {
+            logController.atlasCore = atlasCore
+        }
+
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.

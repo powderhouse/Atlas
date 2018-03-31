@@ -10,6 +10,11 @@ import AtlasCore
 
 class LogController: NSViewController {
     
+    var atlasCore: AtlasCore!
+    
+    @IBOutlet weak var logView: NSCollectionView!
+    var activityLog: ActivityLog!
+    
     @IBOutlet var terminalView: NSTextView!
     var terminal: Terminal!
     
@@ -18,6 +23,8 @@ class LogController: NSViewController {
 
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        activityLog = ActivityLog(logView, atlasCore: atlasCore)
     }
     
     override var representedObject: Any? {
