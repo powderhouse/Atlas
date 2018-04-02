@@ -108,8 +108,8 @@ class CommitCommandSpec: QuickSpec {
                     expect(exists).to(beTrue(), description: "Unable to find commited folder")
                 }
                 
-                it("should include a file with the full commit message") {
-                    let commitMessageFileUrl = commitFolder.appendingPathComponent("commit_message.txt")
+                it("should include a file with the full commit message in a readme.md") {
+                    let commitMessageFileUrl = commitFolder.appendingPathComponent(Project.readme)
                     let exists = fileManager.fileExists(atPath: commitMessageFileUrl.path, isDirectory: &isFile)
                     expect(exists).to(beTrue(), description: "Commit message file not found in committed directory")
                     
@@ -166,9 +166,8 @@ class CommitCommandSpec: QuickSpec {
                     expect(exists).to(beFalse(), description: "Found commited folder")
                 }
                 
-                it("should create the commit folder and move the committed.txt into it if a commit message has been added") {
-                    let commitFileName = "commit_message.txt"
-                    let commitFile = project.directory().appendingPathComponent(commitFileName)
+                it("should create the commit folder and move the committed.txt into it if a commit message has been added (rename it to readme.me)") {
+                    let commitFile = project.directory().appendingPathComponent(Project.commitMessageFile)
                     do {
                         try commitMessage.write(to: commitFile, atomically: true, encoding: .utf8)
                     } catch {
@@ -184,7 +183,7 @@ class CommitCommandSpec: QuickSpec {
                     let exists = fileManager.fileExists(atPath: commitFolder.path, isDirectory: &isDirectory)
                     expect(exists).to(beTrue(), description: "Did not find commited folder")
 
-                    let committedFile = commitFolder.appendingPathComponent(commitFileName)
+                    let committedFile = commitFolder.appendingPathComponent(Project.readme)
                     let fileExists = fileManager.fileExists(atPath: committedFile.path, isDirectory: &isFile)
                     expect(fileExists).to(beTrue(), description: "Did not find committed commit message file")
                 }
