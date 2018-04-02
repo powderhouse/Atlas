@@ -10,6 +10,9 @@ import AtlasCore
 
 class Helper {
     
+    static let username = "atlasapptests"
+    static let password = "1a2b3c4d"
+    
     class func addFile(_ name: String, directory: URL) -> URL {
         let filePath = "\(directory.path)/\(name)"
         _ = Glue.runProcess("touch", arguments: [filePath])
@@ -17,7 +20,7 @@ class Helper {
     }
     
     class func initAtlasCore(_ atlasCore: AtlasCore) -> Bool {
-        let username = "atlastest"
+        let username = "atlasapptests"
         let password = "1a2b3c4d"
         
         let credentials = Credentials(username, password: password)

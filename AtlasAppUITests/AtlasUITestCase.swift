@@ -53,11 +53,11 @@ class AtlasUITestCase: XCTestCase {
         
         let usernameField = accountModal.textFields["GitHub Username"]
         usernameField.click()
-        usernameField.typeText("atlastest")
+        usernameField.typeText(Helper.username)
         
         let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
         passwordSecureTextField.click()
-        passwordSecureTextField.typeText("1a2b3c4d")
+        passwordSecureTextField.typeText(Helper.password)
         
         accountModal.buttons["Save"].click()
     }
