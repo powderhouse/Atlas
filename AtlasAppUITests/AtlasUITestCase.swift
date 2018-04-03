@@ -10,6 +10,9 @@ import XCTest
 
 class AtlasUITestCase: XCTestCase {
 
+    let username = "atlasapptests"
+    let password = "1a2b3c4d"
+    
     var app: XCUIApplication!
 
     override func setUp() {
@@ -39,11 +42,36 @@ class AtlasUITestCase: XCTestCase {
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
         let predicate = NSPredicate(format: "exists == true")
-        let expectation = XCTNSPredicateExpectation(predicate: predicate,
-                                                    object: element)
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
         
         let result = XCTWaiter().wait(for: [expectation], timeout: 5)
         return result == .completed
+    }
+    
+    func assertTerminalContains(_ text: String) {
+        let terminal = app.textViews["TerminalView"]
+        let terminalText = terminal.value as? String ?? ""
+        XCTAssertNotNil(terminalText.range(of: text), "The terminal does not contain the text: \(text)")
+    }
+
+    func assertTerminalDoesNotContain(_ text: String) {
+        let terminal = app.textViews["TerminalView"]
+        let terminalText = terminal.value as? String ?? ""
+        XCTAssertNil(terminalText.range(of: text), "The terminal contains the text: \(text)")
+    }
+    
+    func waitForTerminalToContain(_ text: String) {
+        let terminalView = app.textViews["TerminalView"]
+        waitForElementToContain(terminalView, text: text)
+    }
+    
+    func waitForElementToContain(_ element: XCUIElement, text: String) {
+        let contains = NSPredicate(format: "value contains[c] %@", text)
+        
+        let subsitutedContains = contains.withSubstitutionVariables(["text": text])
+        
+        expectation(for: subsitutedContains, evaluatedWith: element, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
     
     func login(_ app: XCUIApplication) {
@@ -53,37 +81,28 @@ class AtlasUITestCase: XCTestCase {
         
         let usernameField = accountModal.textFields["GitHub Username"]
         usernameField.click()
-        usernameField.typeText(Helper.username)
+        usernameField.typeText(username)
         
         let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
         passwordSecureTextField.click()
-        passwordSecureTextField.typeText(Helper.password)
+        passwordSecureTextField.typeText(password)
         
         accountModal.buttons["Save"].click()
     }
     
-    //    //func assertTerminalContains(_ text: String) {
-    //    //    let terminal = app.textViews["terminal"]
-    //    //    let terminalText = terminal.value as? String ?? ""
-    //    //    XCTAssertNotNil(terminalText.range(of: text), "The terminal does not contain the text: \(text)")
-    //    //}
-    //
-    //    //func assertTerminalDoesNotContain(_ text: String) {
-    //    //    let terminal = app.textViews["terminal"]
-    //    //    let terminalText = terminal.value as? String ?? ""
-    //    //    XCTAssertNil(terminalText.range(of: text), "The terminal contains the text: \(text)")
-    //    //}
-    
-    func waitForTerminalToContain(_ text: String) {
-        let terminalView = app.textViews["TerminalView"]
+    func stage(_ app: XCUIApplication, projectName: String, filename: String) {
+        let terminal = app.textViews["TerminalView"]
         
-        let contains = NSPredicate(format: "value contains[c] %@", text)
+        waitForTerminalToContain("GitHub Repository: https://github.com/\(username)/Atlas")
+
+        terminal.click()
+        terminal.typeText("touch /tmp/\(filename)\n")
+        terminal.typeText("stage -f /tmp/\(filename) -p \(projectName)\n")
         
-        let subsitutedContains = contains.withSubstitutionVariables(["text": text])
+        waitForTerminalToContain("Successfully staged files in \(projectName)")
         
-        expectation(for: subsitutedContains, evaluatedWith: terminalView, handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
+        terminal.typeText("rm /tmp/\(filename)\n")
     }
-    
+
 }
 

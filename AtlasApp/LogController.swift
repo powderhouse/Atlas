@@ -19,7 +19,7 @@ class LogController: NSViewController {
     var terminal: Terminal!
     
     override func viewDidLoad() {
-        terminal = Terminal(terminalView)
+        terminal = Terminal(terminalView, atlasCore: atlasCore)
 
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3A78CD1120727A4800E05444 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78CD1020727A4800E05444 /* Helper.swift */; };
+		3A78CD1320727E0400E05444 /* StageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78CD1220727E0400E05444 /* StageTest.swift */; };
 		3A8A75942058328C00FD679B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75932058328C00FD679B /* AppDelegate.swift */; };
 		3A8A75962058328C00FD679B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75952058328C00FD679B /* MainController.swift */; };
 		3A8A75982058328C00FD679B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A75972058328C00FD679B /* Assets.xcassets */; };
@@ -321,7 +321,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A78CD1020727A4800E05444 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		3A78CD1220727E0400E05444 /* StageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTest.swift; sourceTree = "<group>"; };
 		3A8A75912058328C00FD679B /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8A75932058328C00FD679B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A8A75952058328C00FD679B /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -609,10 +609,10 @@
 		3A8A75A52058328C00FD679B /* AtlasAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3A78CD1020727A4800E05444 /* Helper.swift */,
 				3A8A75A62058328D00FD679B /* LoginTest.swift */,
 				3A8A75A82058328D00FD679B /* Info.plist */,
 				3A8A75C020598DF100FD679B /* AtlasUITestCase.swift */,
+				3A78CD1220727E0400E05444 /* StageTest.swift */,
 			);
 			path = AtlasAppUITests;
 			sourceTree = "<group>";
@@ -1365,7 +1365,7 @@
 			files = (
 				3A8A75A72058328D00FD679B /* LoginTest.swift in Sources */,
 				3A8A75C120598DF100FD679B /* AtlasUITestCase.swift in Sources */,
-				3A78CD1120727A4800E05444 /* Helper.swift in Sources */,
+				3A78CD1320727E0400E05444 /* StageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

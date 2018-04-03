@@ -19,6 +19,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         // Do any additional setup after loading the view.
         
         configureProjectListView()
+        initObservers()
     }
 
     override var representedObject: Any? {
@@ -85,6 +86,17 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 height: CGFloat(atlasCore.projects().count) * (projectHeight + (bufferDim * CGFloat(2)))
             )
         )
+    }
+    
+    func initObservers() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "project-added"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            self.projectListView.reloadData()
+        }
     }
 
 }

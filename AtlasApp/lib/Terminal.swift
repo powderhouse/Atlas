@@ -6,9 +6,11 @@
 //
 
 import Cocoa
+import AtlasCore
 
 class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     
+    let atlasCore: AtlasCore!
     let view: NSTextView!
     let notificationCenter: AtlasNotificationCenter!
     var queue: [String] = []
@@ -17,9 +19,10 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     var logging = false
     var minCursorPosition = 0
     
-    init(_ view: NSTextView, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
+    init(_ view: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
         self.view = view
         self.notificationCenter = notificationCenter
+        self.atlasCore = atlasCore
         
         super.init()
         
@@ -39,7 +42,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func textViewDidChangeSelection(_ notification: Notification) {
-        view.isEditable = (view.selectedRange().lowerBound >= minCursorPosition)
+        if view.selectedRange().lowerBound >= minCursorPosition {
+            view.isEditable = true
+        } else if view.selectedRange().lowerBound - view.selectedRange().upperBound == 0 {
+            let range = NSMakeRange(minCursorPosition, 1)
+            view.setSelectedRange(range)
+        }
     }
     
     func textDidChange(_ notification: Notification) {
@@ -79,25 +87,45 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         
         switch command {
         case "status":
-            notificationCenter.post(
-                name: NSNotification.Name(rawValue: "git-status"),
-                object: self
-            )
+            Terminal.log(atlasCore.status() ?? "N/A")
         case "stage":
-            let path = allArgs.joined(separator: " ")
-            notificationCenter.post(
-                name: NSNotification.Name(rawValue: "git-stage"),
-                object: self,
-                userInfo: ["path": removeQuotes(path)]
-            )
+            if let projectFlagIndex = allArgs.index(where: { $0 == "-p" || $0 == "--project" }) {
+                let projectName = String(allArgs[projectFlagIndex + 1])
+                if let project = atlasCore.project(projectName) {
+                    if let filesFlagIndex = allArgs.index(where: { $0 == "-f" || $0 == "--files" }) {
+                        var filesIndex = filesFlagIndex + 1
+                        var files: [String] = []
+                        while filesIndex < allArgs.endIndex && !String(allArgs[filesIndex]).contains("-p") {
+                            files.append(String(allArgs[filesIndex]))
+                            filesIndex += 1
+                        }
+                        
+                        print("PROJECT:\(project.name) -- FILES: \(files)")
+                        if project.copyInto(files) {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "staged-file-added"),
+                                object: nil,
+                                userInfo: ["project": project.name!]
+                            )
+
+                            Terminal.log("Successfully staged files in \(project.name!)")
+                        } else {
+                            Terminal.log("There was an error.")
+                        }
+                    } else {
+                        Terminal.log("Please provide a list of files using the -f or --files flag")
+                    }
+                    
+                } else {
+                    Terminal.log("Project \"\(projectName)\" not found.")
+                }
+            } else {
+                Terminal.log("Please provide a project using the -p or --project flag")
+            }
+            
         case "commit":
             let message = allArgs.joined(separator: " ")
             
-            notificationCenter.post(
-                name: NSNotification.Name(rawValue: "git-commit"),
-                object: self,
-                userInfo: ["message": removeQuotes(message)]
-            )
         case "clear":
             self.clear()
         case "atlas":
@@ -106,18 +134,26 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
             switch atlasCommand {
             case "log":
                 notificationCenter.post(
-                    name: NSNotification.Name(rawValue: "git-log-name-only"),
+                    name: NSNotification.Name(rawValue: "atlas-log"),
                     object: self
                 )
             default:
                 Terminal.log("Unknown Atlas Command")
             }
         default:
-            notificationCenter.post(
-                name: NSNotification.Name(rawValue: "raw-command"),
-                object: self,
-                userInfo: ["command": fullCommand]
-            )
+//            notificationCenter.post(
+//                name: NSNotification.Name(rawValue: "raw-command"),
+//                object: self,
+//                userInfo: ["command": fullCommand]
+//            )
+            let arguments = allArgs.map { String($0) }
+            var result = Glue.runProcess(command, arguments: arguments, currentDirectory: self.atlasCore.atlasDirectory!)
+            if result.count == 0 {
+                Terminal.log("\n")
+            } else {
+                _ = result.removeLast()
+                Terminal.log(result)
+            }
         }
         
     }

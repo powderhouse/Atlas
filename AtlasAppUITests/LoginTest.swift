@@ -11,9 +11,9 @@ class LoginTest: AtlasUITestCase {
             
     func testLogin() {
         login(app)
-        
-        waitForTerminalToContain("Account: \(Helper.username)")
-        waitForTerminalToContain("GitHub Repository: https://github.com/\(Helper.username)/Atlas")
+
+        waitForTerminalToContain("Account: \(username)")
+        waitForTerminalToContain("GitHub Repository: https://github.com/\(username)/Atlas")
     }
     
 }

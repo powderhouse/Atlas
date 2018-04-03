@@ -33,6 +33,8 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             guard project != nil else { return }
             label.stringValue = project!.name
             dropView.project = project!
+            let identifier = NSUserInterfaceItemIdentifier(rawValue: "\(project!.name!)-staged")
+            stagedFilesView.identifier = identifier
             checkCommitButton()
         }
     }
