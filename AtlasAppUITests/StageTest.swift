@@ -15,7 +15,7 @@ class StageTest: AtlasUITestCase {
         let filename = "indexfile.html"
         stage(app, projectName: "General", filename: filename)
 
-        let projectStagingArea = app.collectionViews["General-staged"]
+        let projectStagingArea = app.collectionViews["General-staged-files"]
         XCTAssert(projectStagingArea.staticTexts[filename].exists, "Unable to find \(filename)")
     }
     
