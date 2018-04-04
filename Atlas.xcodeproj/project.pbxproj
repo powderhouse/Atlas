@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		3A78CD1320727E0400E05444 /* StageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78CD1220727E0400E05444 /* StageTest.swift */; };
 		3A78CD152073E10E00E05444 /* CommitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78CD142073E10E00E05444 /* CommitTest.swift */; };
+		3A78CD172074082D00E05444 /* AddProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78CD162074082D00E05444 /* AddProjectTest.swift */; };
+		3A78CD19207409E000E05444 /* NewProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78CD18207409E000E05444 /* NewProjectController.swift */; };
 		3A8A75942058328C00FD679B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75932058328C00FD679B /* AppDelegate.swift */; };
 		3A8A75962058328C00FD679B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A75952058328C00FD679B /* MainController.swift */; };
 		3A8A75982058328C00FD679B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A75972058328C00FD679B /* Assets.xcassets */; };
@@ -324,6 +326,8 @@
 /* Begin PBXFileReference section */
 		3A78CD1220727E0400E05444 /* StageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTest.swift; sourceTree = "<group>"; };
 		3A78CD142073E10E00E05444 /* CommitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTest.swift; sourceTree = "<group>"; };
+		3A78CD162074082D00E05444 /* AddProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTest.swift; sourceTree = "<group>"; };
+		3A78CD18207409E000E05444 /* NewProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectController.swift; sourceTree = "<group>"; };
 		3A8A75912058328C00FD679B /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8A75932058328C00FD679B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A8A75952058328C00FD679B /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -604,6 +608,7 @@
 				3A8A75CB205B2E9C00FD679B /* LogController.swift */,
 				3AAB4C23206D392700A74DF9 /* PanelController.swift */,
 				3AAB4C25206D5FD400A74DF9 /* CommitController.swift */,
+				3A78CD18207409E000E05444 /* NewProjectController.swift */,
 			);
 			path = AtlasApp;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				3A8A75A62058328D00FD679B /* LoginTest.swift */,
 				3A78CD1220727E0400E05444 /* StageTest.swift */,
 				3A78CD142073E10E00E05444 /* CommitTest.swift */,
+				3A78CD162074082D00E05444 /* AddProjectTest.swift */,
 			);
 			path = AtlasAppUITests;
 			sourceTree = "<group>";
@@ -1351,6 +1357,7 @@
 				3AAB4C21206C70D900A74DF9 /* StagedFileViewItem.swift in Sources */,
 				3AAB4C2C207019A300A74DF9 /* CommitViewItem.swift in Sources */,
 				3A8A75CC205B2E9C00FD679B /* LogController.swift in Sources */,
+				3A78CD19207409E000E05444 /* NewProjectController.swift in Sources */,
 				3A8A75C62059EF1000FD679B /* Terminal.swift in Sources */,
 				3AAB4C26206D5FD400A74DF9 /* CommitController.swift in Sources */,
 				3A8A75962058328C00FD679B /* MainController.swift in Sources */,
@@ -1366,6 +1373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A78CD172074082D00E05444 /* AddProjectTest.swift in Sources */,
 				3A78CD152073E10E00E05444 /* CommitTest.swift in Sources */,
 				3A8A75A72058328D00FD679B /* LoginTest.swift in Sources */,
 				3A8A75C120598DF100FD679B /* AtlasUITestCase.swift in Sources */,

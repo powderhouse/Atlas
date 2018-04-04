@@ -37,6 +37,13 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         }
     }
     
+    func addProject(_ projectName: String) {
+        _ = atlasCore.initProject(projectName)
+        _ = atlasCore.atlasCommit()
+        projectListView.reloadData()
+        Terminal.log("Added project: \(projectName)")
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         let projects = atlasCore.projects()
         if collectionView == projectListView {
@@ -95,7 +102,16 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             queue: nil
         ) {
             (notification) in
-            self.projectListView.reloadData()
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                self.addProject(projectName)
+            }
+        }
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier?.rawValue == "new-project-segue" {
+            let dvc = segue.destinationController as! NewProjectController
+            dvc.atlasCore = atlasCore
         }
     }
 

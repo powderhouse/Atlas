@@ -82,12 +82,10 @@ class MainController: NSViewController {
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
             
             if atlasCore.projects().count == 0 {
-                let projectName = "General"
-                _ = atlasCore.initProject(projectName)
-                _ = atlasCore.atlasCommit()
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "project-added"),
-                    object: nil
+                    object: nil,
+                    userInfo: ["projectName": "General"]
                 )
             }
         } else {

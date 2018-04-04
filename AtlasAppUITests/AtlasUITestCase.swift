@@ -97,6 +97,9 @@ class AtlasUITestCase: XCTestCase {
 
         terminal.click()
         terminal.typeText("touch /tmp/\(filename)\n")
+        
+        waitForTerminalToContain("\n\n>")
+
         terminal.typeText("stage -f /tmp/\(filename) -p \(projectName)\n")
         
         waitForTerminalToContain("Successfully staged files in \(projectName)")

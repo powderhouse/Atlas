@@ -901,12 +901,24 @@
                                     <action selector="resize:" target="nbE-NV-Jhj" id="egB-Hq-v5X"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zbF-9V-0OQ">
+                                <rect key="frame" x="395" y="5" width="49" height="32"/>
+                                <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zC5-Ee-I8S">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="dW1-Sp-S8k" kind="popover" identifier="new-project-segue" popoverAnchorView="zbF-9V-0OQ" popoverBehavior="t" preferredEdge="maxY" id="dU6-36-Pu0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="q2V-Ea-xTv" firstAttribute="top" secondItem="XBa-8l-vsP" secondAttribute="top" id="6j6-0p-8Py"/>
+                            <constraint firstAttribute="trailing" secondItem="zbF-9V-0OQ" secondAttribute="trailing" constant="12" id="LNN-EZ-scd"/>
                             <constraint firstItem="nsI-jg-KeW" firstAttribute="leading" secondItem="XBa-8l-vsP" secondAttribute="leading" id="Tgn-vS-0s1"/>
                             <constraint firstItem="nsI-jg-KeW" firstAttribute="leading" secondItem="XBa-8l-vsP" secondAttribute="leading" id="XJg-nE-TVA"/>
                             <constraint firstItem="nsI-jg-KeW" firstAttribute="centerX" secondItem="XBa-8l-vsP" secondAttribute="centerX" id="awz-rl-uzO"/>
+                            <constraint firstAttribute="bottom" secondItem="zbF-9V-0OQ" secondAttribute="bottom" constant="12" id="dFX-n3-Gwm"/>
                             <constraint firstItem="nsI-jg-KeW" firstAttribute="centerY" secondItem="XBa-8l-vsP" secondAttribute="centerY" id="hR7-Jp-nFV"/>
                             <constraint firstItem="nsI-jg-KeW" firstAttribute="width" secondItem="XBa-8l-vsP" secondAttribute="width" id="jA9-JG-UN2"/>
                             <constraint firstItem="nsI-jg-KeW" firstAttribute="height" secondItem="XBa-8l-vsP" secondAttribute="height" id="nL2-zq-RqY"/>
@@ -961,14 +973,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="90"/>
                                 <clipView key="contentView" id="nxK-Ai-kuu">
-                                    <rect key="frame" x="1" y="1" width="433" height="88"/>
+                                    <rect key="frame" x="1" y="1" width="448" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                            <rect key="frame" x="0.0" y="0.0" width="601" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="433" height="88"/>
+                                            <size key="minSize" width="448" height="88"/>
                                             <size key="maxSize" width="618" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
@@ -980,7 +992,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                    <rect key="frame" x="434" y="1" width="15" height="88"/>
+                                    <rect key="frame" x="433" y="1" width="16" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1087,7 +1099,58 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="815" y="1551"/>
+            <point key="canvasLocation" x="816" y="2085"/>
+        </scene>
+        <!--New Project Controller-->
+        <scene sceneID="0Eq-5Q-MZj">
+            <objects>
+                <viewController title="New Project Controller" id="dW1-Sp-S8k" customClass="NewProjectController" customModule="atlas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ycn-fp-u21">
+                        <rect key="frame" x="0.0" y="0.0" width="387" height="191"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bWg-rn-Idv">
+                                <rect key="frame" x="-2" y="146" width="391" height="25"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="New Project" id="JZ0-TM-p2b">
+                                    <font key="font" metaFont="system" size="21"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exm-qP-mkO">
+                                <rect key="frame" x="42" y="79" width="302" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="Project Name" placeholderString="Project Name" drawsBackground="YES" id="IbT-VP-WDb">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13p-3n-vMn">
+                                <rect key="frame" x="153" y="24" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sjC-uM-u6u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="createProject:" target="dW1-Sp-S8k" id="Mds-bO-25W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bWg-rn-Idv" firstAttribute="centerX" secondItem="Ycn-fp-u21" secondAttribute="centerX" id="D2H-jU-f7P"/>
+                            <constraint firstItem="bWg-rn-Idv" firstAttribute="width" secondItem="Ycn-fp-u21" secondAttribute="width" id="L27-Yr-7Ia"/>
+                            <constraint firstItem="bWg-rn-Idv" firstAttribute="top" secondItem="Ycn-fp-u21" secondAttribute="top" constant="20" id="eYu-zv-Qa7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="projectNameField" destination="exm-qP-mkO" id="AGn-aw-a29"/>
+                    </connections>
+                </viewController>
+                <customObject id="yPq-gl-dHa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="2605"/>
         </scene>
     </scenes>
 </document>
