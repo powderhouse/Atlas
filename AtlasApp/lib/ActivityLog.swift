@@ -15,6 +15,9 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     var atlasCore: AtlasCore!
     var commits: [Commit] = []
     
+    let commitHeight = CGFloat(200)
+    let bufferDim = CGFloat(12)
+    
     init(_ view: NSCollectionView, atlasCore: AtlasCore) {
         super.init()
         
@@ -34,6 +37,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         commits = atlasCore.log()
+        setFrameSize()
         return commits.count
     }
     
@@ -50,7 +54,8 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
 
         let commit = commits.reversed()[indexPath.item]
 
-        commitViewItem.project.stringValue = commit.projects.map {$0.name }.joined(separator: ", ")
+        let projectNames =  Array(Set(commit.projects.map {$0.name }))
+        commitViewItem.project.stringValue = projectNames.joined(separator: ", ")
         commitViewItem.subject.stringValue = commit.message
         
         if let filesField = commitViewItem.files {
@@ -93,18 +98,17 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         view.isSelectable = false
         let flowLayout = NSCollectionViewFlowLayout()
         
-        let commitHeight = CGFloat(200)
-        let commitWidth = CGFloat(view.frame.width - 100)
-        let bufferDim = CGFloat(12)
-        
-        flowLayout.itemSize = NSSize(width: commitWidth, height: commitHeight)
+        flowLayout.itemSize = NSSize(width:  CGFloat(view.frame.width - 100), height: commitHeight)
         flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
         flowLayout.minimumInteritemSpacing = bufferDim
         flowLayout.minimumLineSpacing = bufferDim
         view.collectionViewLayout = flowLayout
         
         view.wantsLayer = true
-        
+        setFrameSize()
+    }
+    
+    func setFrameSize() {
         view.setFrameSize(
             NSSize(
                 width: view.frame.width,
