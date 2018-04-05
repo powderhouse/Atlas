@@ -43,7 +43,8 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     }
     
     var stagedFiles: [String] = []
-    
+    var unstagedFiles: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureStagedFileView()
@@ -75,7 +76,8 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         guard project != nil else { return 0 }
         stagedFiles = project!.files("staged")
-        return stagedFiles.count
+        unstagedFiles = project!.files("unstaged")
+        return stagedFiles.count + unstagedFiles.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -87,8 +89,14 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             return item
         }
         
-        stagedFileViewItem.label.stringValue = stagedFiles[indexPath.item]
-        stagedFileViewItem.isSelected = true
+        if indexPath.item < stagedFiles.count {
+            stagedFileViewItem.label.stringValue = stagedFiles[indexPath.item]
+            stagedFileViewItem.isSelected = true
+        } else {
+            stagedFileViewItem.label.stringValue = unstagedFiles[indexPath.item - stagedFiles.count]
+            stagedFileViewItem.isSelected = false
+        }
+        stagedFileViewItem.project = project
         
         return stagedFileViewItem
     }

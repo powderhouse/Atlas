@@ -7,9 +7,12 @@
 //
 
 import Cocoa
+import AtlasCore
 
 class StagedFileViewItem: NSCollectionViewItem {
 
+    var project: Project!
+    
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var selectCheck: NSButton!
     
@@ -19,10 +22,6 @@ class StagedFileViewItem: NSCollectionViewItem {
         }
         set(newValue) {
             selectCheck.state = (newValue ? NSControl.StateValue.on : NSControl.StateValue.off)
-            NotificationCenter.default.post(
-                name: NSNotification.Name(rawValue: "staging-file-toggled"),
-                object: nil
-            )
         }
     }
 
@@ -33,10 +32,13 @@ class StagedFileViewItem: NSCollectionViewItem {
     }
     
     @IBAction func select(_ sender: NSButton) {
-        NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "staging-file-toggled"),
-            object: nil
-        )
+        let newState = selectCheck.state == NSControl.StateValue.off ? "unstaged" : "staged"
+        
+        if  project.changeState([label.stringValue], to: newState) {
+            Terminal.log("Successfully \(newState) file.")
+        } else {
+            Terminal.log("There was an error changing the state of the file.")
+        }
     }
     
     @IBAction func remove(_ sender: NSButton) {
