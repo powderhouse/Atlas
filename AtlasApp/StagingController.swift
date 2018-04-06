@@ -46,12 +46,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         let projects = atlasCore.projects()
-        if collectionView == projectListView {
-            return projects.count
-        }
-
-        let project = projects[section]
-        return project.files("staged").count
+        return projects.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
