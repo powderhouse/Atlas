@@ -88,7 +88,10 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         guard let stagedFileViewItem = item as? StagedFileViewItem else {
             return item
         }
-        
+
+        stagedFileViewItem.project = project
+        stagedFileViewItem.projectViewItem = self
+
         if indexPath.item < stagedFiles.count {
             stagedFileViewItem.label.stringValue = stagedFiles[indexPath.item]
             stagedFileViewItem.isSelected = true
@@ -96,7 +99,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             stagedFileViewItem.label.stringValue = unstagedFiles[indexPath.item - stagedFiles.count]
             stagedFileViewItem.isSelected = false
         }
-        stagedFileViewItem.project = project
         
         return stagedFileViewItem
     }

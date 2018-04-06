@@ -13,6 +13,8 @@ class StagedFileViewItem: NSCollectionViewItem {
 
     var project: Project!
     
+    var projectViewItem: ProjectViewItem!
+    
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var selectCheck: NSButton!
     
@@ -22,6 +24,7 @@ class StagedFileViewItem: NSCollectionViewItem {
         }
         set(newValue) {
             selectCheck.state = (newValue ? NSControl.StateValue.on : NSControl.StateValue.off)
+            projectViewItem.checkCommitButton()
         }
     }
 
@@ -32,13 +35,15 @@ class StagedFileViewItem: NSCollectionViewItem {
     }
     
     @IBAction func select(_ sender: NSButton) {
-        let newState = selectCheck.state == NSControl.StateValue.off ? "unstaged" : "staged"
+        let newState = isSelected ? "staged" : "unstaged"
         
-        if  project.changeState([label.stringValue], to: newState) {
+        if project.changeState([label.stringValue], to: newState) {
             Terminal.log("Successfully \(newState) file.")
         } else {
             Terminal.log("There was an error changing the state of the file.")
         }
+        
+        projectViewItem.checkCommitButton()
     }
     
     @IBAction func remove(_ sender: NSButton) {

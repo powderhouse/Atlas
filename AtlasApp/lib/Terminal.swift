@@ -100,7 +100,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                             filesIndex += 1
                         }
                         
-                        print("PROJECT:\(project.name) -- FILES: \(files)")
                         if project.copyInto(files) {
                             NotificationCenter.default.post(
                                 name: NSNotification.Name(rawValue: "staged-file-added"),
@@ -216,7 +215,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         
         guard ready else {
             Timer.scheduledTimer(
-                withTimeInterval: 0.2,
+                withTimeInterval: 0.1,
                 repeats: false,
                 block: { (timer) in
                     self.dequeueLog()
