@@ -14,6 +14,7 @@ cli.commands = [
     LogCommand(atlasCore),
     LoginCommand(atlasCore),
     LogoutCommand(atlasCore),
+    ProjectsCommand(atlasCore),
     PurgeCommand(atlasCore),
     StageCommand(atlasCore),
     StagedCommand(atlasCore),
