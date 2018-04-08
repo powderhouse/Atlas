@@ -74,14 +74,6 @@ class CommitCommandSpec: QuickSpec {
                 var commitFolder: URL!
                 
                 beforeEach {
-                    _ = commitCommand.message.setValue(commitMessage)
-                    _ = commitCommand.project.setValue(projectName)
-                    do {
-                        try commitCommand.execute()
-                    } catch {
-                        expect(false).to(beTrue(), description: "Commit command failed")
-                    }
-                    
                     project = atlasCore.project(projectName)
                     
                     guard project != nil else  {
@@ -91,8 +83,16 @@ class CommitCommandSpec: QuickSpec {
                     
                     commitUrl = project!.directory("committed")
                     slug = project!.commitSlug(commitMessage)
-                    commitFolder = commitUrl.appendingPathComponent(slug)
 
+                    _ = commitCommand.message.setValue(commitMessage)
+                    _ = commitCommand.project.setValue(projectName)
+                    do {
+                        try commitCommand.execute()
+                    } catch {
+                        expect(false).to(beTrue(), description: "Commit command failed")
+                    }
+                    
+                    commitFolder = commitUrl.appendingPathComponent(slug)
                 }
                 
                 it("should move the file out of the project's staged folder") {

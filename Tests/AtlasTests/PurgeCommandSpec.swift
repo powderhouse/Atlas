@@ -50,7 +50,14 @@ class PurgeCommandSpec: QuickSpec {
                 atlasCore = AtlasCore(directory)
                 expect(Helper.initAtlasCore(atlasCore)).to(beTrue())
                 _ = atlasCore.initProject(projectName)
+
+                project = atlasCore.project(projectName)
                 
+                guard project != nil else  {
+                    expect(false).to(beTrue(), description: "Project not found")
+                    return
+                }
+
                 let importCommand = ImportCommand(atlasCore)
                 importCommand.imports.value = [file1.path]
                 if !importCommand.project.setValue(projectName) {
@@ -61,6 +68,9 @@ class PurgeCommandSpec: QuickSpec {
                 } catch {
                     expect(false).to(beTrue(), description: "Import command failed")
                 }
+
+                commitUrl = project!.directory("committed")
+                slug = project!.commitSlug(commitMessage)
                 
                 let commitCommand = CommitCommand(atlasCore)
 
@@ -72,15 +82,6 @@ class PurgeCommandSpec: QuickSpec {
                     expect(false).to(beTrue(), description: "Commit command failed")
                 }
                 
-                project = atlasCore.project(projectName)
-                
-                guard project != nil else  {
-                    expect(false).to(beTrue(), description: "Project not found")
-                    return
-                }
-                
-                commitUrl = project!.directory("committed")
-                slug = project!.commitSlug(commitMessage)
                 commitFolder = commitUrl.appendingPathComponent(slug)
                 
                 purgeCommand = PurgeCommand(atlasCore)
