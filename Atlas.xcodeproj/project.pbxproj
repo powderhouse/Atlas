@@ -54,6 +54,8 @@
 		3AAB4C28207018E700A74DF9 /* ActivityLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB4C27207018E600A74DF9 /* ActivityLog.swift */; };
 		3AAB4C2B207019A300A74DF9 /* CommitViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAB4C29207019A300A74DF9 /* CommitViewItem.xib */; };
 		3AAB4C2C207019A300A74DF9 /* CommitViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB4C2A207019A300A74DF9 /* CommitViewItem.swift */; };
+		3AB8526D20828EC400CC093F /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8526B20828EC400CC093F /* ProjectButton.swift */; };
+		3AB8526E20828EC400CC093F /* ProjectButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AB8526C20828EC400CC093F /* ProjectButton.xib */; };
 		OBJ_184 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Package.swift */; };
 		OBJ_196 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Package.swift */; };
@@ -362,6 +364,8 @@
 		3AAB4C27207018E600A74DF9 /* ActivityLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityLog.swift; sourceTree = "<group>"; };
 		3AAB4C29207019A300A74DF9 /* CommitViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommitViewItem.xib; sourceTree = "<group>"; };
 		3AAB4C2A207019A300A74DF9 /* CommitViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitViewItem.swift; sourceTree = "<group>"; };
+		3AB8526B20828EC400CC093F /* ProjectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButton.swift; sourceTree = "<group>"; };
+		3AB8526C20828EC400CC093F /* ProjectButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectButton.xib; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -639,6 +643,8 @@
 				3AAB4C1D206C709000A74DF9 /* DropView.swift */,
 				3AAB4C1B206C665F00A74DF9 /* ProjectViewItem.swift */,
 				3AAB4C19206C660400A74DF9 /* ProjectViewItem.xib */,
+				3AB8526B20828EC400CC093F /* ProjectButton.swift */,
+				3AB8526C20828EC400CC093F /* ProjectButton.xib */,
 				3AAB4C1F206C70D900A74DF9 /* StagedFileViewItem.swift */,
 				3AAB4C20206C70D900A74DF9 /* StagedFileViewItem.xib */,
 				3A8A75C52059EF1000FD679B /* Terminal.swift */,
@@ -1340,6 +1346,7 @@
 				3AAB4C22206C70D900A74DF9 /* StagedFileViewItem.xib in Resources */,
 				3A8A75982058328C00FD679B /* Assets.xcassets in Resources */,
 				3A8A759B2058328C00FD679B /* Main.storyboard in Resources */,
+				3AB8526E20828EC400CC093F /* ProjectButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,6 +1365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8A75C320599E8C00FD679B /* AccountController.swift in Sources */,
+				3AB8526D20828EC400CC093F /* ProjectButton.swift in Sources */,
 				3AAB4C1C206C665F00A74DF9 /* ProjectViewItem.swift in Sources */,
 				3A8A75CA205B2E8D00FD679B /* StagingController.swift in Sources */,
 				3AAB4C21206C70D900A74DF9 /* StagedFileViewItem.swift in Sources */,

@@ -50,11 +50,26 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        
+        if projectListView.bounds.width < 300 {
+            let item = collectionView.makeItem(
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectButton"),
+                for: indexPath
+            )
+            
+            guard let projectButton = item as? ProjectButton else {
+                return item
+            }
+            
+            projectButton.project = atlasCore.projects()[indexPath.item]
+            return projectButton
+        }
+        
         let item = collectionView.makeItem(
             withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectViewItem"),
             for: indexPath
         )
-
+        
         guard let projectViewItem = item as? ProjectViewItem else {
             return item
         }
@@ -68,26 +83,10 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
 
     fileprivate func configureProjectListView() {
         projectListView.isSelectable = true
-        let flowLayout = NSCollectionViewFlowLayout()
         
-        let projectHeight: CGFloat = 240
-        let projectWidth: CGFloat = 240
-
-        let bufferDim: CGFloat = 18
-        
-        flowLayout.itemSize = NSSize(width: projectWidth, height: projectHeight)
-        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
-        flowLayout.minimumInteritemSpacing = bufferDim
-        flowLayout.minimumLineSpacing = bufferDim
-        projectListView.collectionViewLayout = flowLayout
+        resize()
 
         view.wantsLayer = true
-        projectListView.setFrameSize(
-            NSSize(
-                width: view.frame.width,
-                height: CGFloat(atlasCore.projects().count) * (projectHeight + (bufferDim * CGFloat(2)))
-            )
-        )
     }
     
     func initObservers() {
@@ -101,6 +100,36 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 self.addProject(projectName)
             }
         }
+    }
+    
+    func resize() {
+        let flowLayout = NSCollectionViewFlowLayout()
+        
+        let bufferDim: CGFloat = 15
+        
+        var projectHeight: CGFloat = 240
+        var projectWidth: CGFloat = projectListView.bounds.width - (bufferDim * 2.5)
+        
+        if projectListView.bounds.width > 300 {
+            projectWidth = 240
+        } else {
+            projectHeight = 50
+        }
+        
+        flowLayout.itemSize = NSSize(width: projectWidth, height: projectHeight)
+        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
+        flowLayout.minimumInteritemSpacing = bufferDim
+        flowLayout.minimumLineSpacing = bufferDim
+        projectListView.collectionViewLayout = flowLayout
+
+        projectListView.reloadData()
+        
+        projectListView.setFrameSize(
+            NSSize(
+                width: view.frame.width,
+                height: CGFloat(atlasCore.projects().count) * (projectHeight + (bufferDim * CGFloat(2)))
+            )
+        )
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {

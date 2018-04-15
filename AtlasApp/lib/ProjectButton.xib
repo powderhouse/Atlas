@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ProjectButton" customModule="AtlasApp" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="CRk-CG-09Z" id="NSP-bP-MDy"/>
+                <outlet property="dropView" destination="25L-jf-gtO" id="eZc-Zw-iR2"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="25L-jf-gtO" customClass="DropView" customModule="AtlasApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="333" height="21"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRk-CG-09Z">
+                            <rect key="frame" x="1" y="-7" width="331" height="32"/>
+                            <buttonCell key="cell" type="push" title="Project" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MwQ-Ww-1Ky">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="18"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="select:" target="-2" id="hhd-6X-8tM"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="CRk-CG-09Z" firstAttribute="centerY" secondItem="25L-jf-gtO" secondAttribute="centerY" id="gfr-m4-BXA"/>
+                        <constraint firstItem="CRk-CG-09Z" firstAttribute="centerX" secondItem="25L-jf-gtO" secondAttribute="centerX" id="iKy-P6-T6Y"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="CRk-CG-09Z" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="BOt-Ox-abd"/>
+                <constraint firstItem="25L-jf-gtO" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="JWT-H2-9Xq"/>
+                <constraint firstItem="CRk-CG-09Z" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.96" id="KB9-M7-qlp"/>
+                <constraint firstItem="25L-jf-gtO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="YDS-We-oM2"/>
+                <constraint firstAttribute="bottom" secondItem="25L-jf-gtO" secondAttribute="bottom" id="Yad-tw-kat"/>
+                <constraint firstAttribute="trailing" secondItem="25L-jf-gtO" secondAttribute="trailing" id="Zye-K6-XUv"/>
+                <constraint firstItem="25L-jf-gtO" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="nye-hT-5iS"/>
+                <constraint firstItem="25L-jf-gtO" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="wyV-7O-nsa"/>
+            </constraints>
+            <point key="canvasLocation" x="198.5" y="181.5"/>
+        </customView>
+        <customObject id="kmX-xJ-4vR" customClass="ProjectButton" customModule="AtlasApp" customModuleProvider="target"/>
+    </objects>
+</document>

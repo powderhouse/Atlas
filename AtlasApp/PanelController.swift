@@ -35,4 +35,10 @@ class PanelController: NSSplitViewController {
             // Update the view, if already loaded.
         }
     }
+    
+    override func splitViewDidResizeSubviews(_ notification: Notification) {
+        if let stagingController = stagingArea.viewController as? StagingController {
+            stagingController.resize()
+        }
+    }
 }
