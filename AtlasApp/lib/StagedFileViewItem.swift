@@ -11,12 +11,11 @@ import AtlasCore
 
 class StagedFileViewItem: NSCollectionViewItem {
 
-    var project: Project!
-    
     var projectViewItem: ProjectViewItem!
     
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var selectCheck: NSButton!
+    @IBOutlet weak var removeButton: NSButton!
     
     override var isSelected: Bool {
         get {
@@ -37,20 +36,40 @@ class StagedFileViewItem: NSCollectionViewItem {
     @IBAction func select(_ sender: NSButton) {
         let newState = isSelected ? "staged" : "unstaged"
         
-        if project.changeState([label.stringValue], to: newState) {
-            Terminal.log("Successfully \(newState) file.")
+        if let project = projectViewItem.project {
+            if project.changeState([label.stringValue], to: newState) {
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(rawValue: "staged-file-updated"),
+                    object: nil,
+                    userInfo: [
+                        "projectName": project.name!
+                    ]
+                )
+                
+                Terminal.log("Successfully \(newState) file.")
+            } else {
+                Terminal.log("There was an error changing the state of the file.")
+            }
         } else {
-            Terminal.log("There was an error changing the state of the file.")
+            Terminal.log("Project not found.")
         }
         
         projectViewItem.checkCommitButton()
     }
     
     @IBAction func remove(_ sender: NSButton) {
-        NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "remove-staged-file"),
-            object: nil,
-            userInfo: ["name": label.stringValue]
-        )
+        if let project = projectViewItem.project {
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "remove-staged-file"),
+                object: nil,
+                userInfo: [
+                    "projectName": project.name!,
+                    "state": isSelected ? "staged" : "unstaged",
+                    "fileName": label.stringValue
+                ]
+            )
+        } else {
+            Terminal.log("Project not found.")
+        }
     }
 }

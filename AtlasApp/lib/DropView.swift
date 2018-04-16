@@ -47,9 +47,9 @@ class DropView: NSView {
         if project!.copyInto(paths) {
             Terminal.log("Imported files into \(project!.name!)")
             NotificationCenter.default.post(
-                name: NSNotification.Name(rawValue: "staged-file-added"),
+                name: NSNotification.Name(rawValue: "staged-file-updated"),
                 object: nil,
-                userInfo: ["project": project!.name!]
+                userInfo: ["projectName": project!.name!]
             )
 
             return true

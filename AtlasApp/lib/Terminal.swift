@@ -102,9 +102,9 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
                         
                         if project.copyInto(files) {
                             NotificationCenter.default.post(
-                                name: NSNotification.Name(rawValue: "staged-file-added"),
+                                name: NSNotification.Name(rawValue: "staged-file-updated"),
                                 object: nil,
-                                userInfo: ["project": project.name!]
+                                userInfo: ["projectName": project.name!]
                             )
 
                             Terminal.log("Successfully staged files in \(project.name!)")

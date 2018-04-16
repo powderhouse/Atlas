@@ -56,7 +56,7 @@ class MainController: NSViewController {
     
     func initNotifications() {
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-added"),
+            forName: NSNotification.Name(rawValue: "staged-file-updated"),
             object: nil,
             queue: nil
         ) {
@@ -71,6 +71,39 @@ class MainController: NSViewController {
         ) {
             (notification) in
             self.atlasCore.commitChanges(notification.userInfo?["message"] as? String)
+        }
+
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "remove-staged-file"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                let project = self.atlasCore.project(projectName)
+                if let state = notification.userInfo?["state"] as? String {
+                    if let fileName = notification.userInfo?["fileName"] as? String {
+                        let filePath = "\(projectName)/\(state)/\(fileName)"
+                        if self.atlasCore.purge([filePath]) {
+                            Terminal.log("Successfully purged file from Atlas.")
+                            
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "staged-file-updated"),
+                                object: nil,
+                                userInfo: ["projectName": project!.name!]
+                            )
+                        } else {
+                            Terminal.log("File purge failed.")
+                        }
+                    } else {
+                        Terminal.log("No filename specified.")
+                    }
+                } else {
+                    Terminal.log("No file state specified.")
+                }
+            } else {
+                Terminal.log("Project name not specified.")
+            }
         }
     }
 

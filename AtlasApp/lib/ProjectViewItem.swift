@@ -89,7 +89,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             return item
         }
 
-        stagedFileViewItem.project = project
         stagedFileViewItem.projectViewItem = self
 
         if indexPath.item < stagedFiles.count {
@@ -105,12 +104,12 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     func initNotifications() {
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-added"),
+            forName: NSNotification.Name(rawValue: "staged-file-updated"),
             object: nil,
             queue: nil
         ) {
             (notification) in
-            if let projectName = notification.userInfo?["project"] as? String {
+            if let projectName = notification.userInfo?["projectName"] as? String {
                 if self.project?.name == projectName {
                     self.refresh()
                 }
@@ -127,28 +126,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
                 if self.project?.name == projectName {
                     self.refresh()
                 }
-            }
-        }
-
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-toggled"),
-            object: nil,
-            queue: nil
-        ) {
-            (notification) in
-            self.checkCommitButton()
-        }
-        
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-removed"),
-            object: nil,
-            queue: nil
-        ) {
-            (notification) in
-            if let stagedFileName = notification.userInfo?["name"] as? String {
-//                self.project?.removeStagedFile(stagedFileName)
-//                self.stagedFilesView.reloadData()
-                self.checkCommitButton()
             }
         }
     }

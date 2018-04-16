@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="StagedFileViewItem" customModule="atlas" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="StagedFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="label" destination="CfD-HV-RWf" id="tjU-dS-mOx"/>
+                <outlet property="removeButton" destination="h1W-a4-1al" id="seq-BE-Ove"/>
                 <outlet property="selectCheck" destination="pDV-q0-m5Z" id="sc6-b3-lkI"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -34,7 +35,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="remove:" target="-2" id="WK9-us-sDF"/>
+                        <action selector="remove:" target="iVj-bK-5KT" id="0Cg-u4-Gcq"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pDV-q0-m5Z">
@@ -59,9 +60,10 @@
             </constraints>
             <point key="canvasLocation" x="47" y="76"/>
         </customView>
-        <collectionViewItem nibName="StagedFileViewItem" id="iVj-bK-5KT" customClass="StagedFileViewItem" customModule="atlas" customModuleProvider="target">
+        <collectionViewItem nibName="StagedFileViewItem" id="iVj-bK-5KT" customClass="StagedFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="label" destination="CfD-HV-RWf" id="Lsj-J3-OSW"/>
+                <outlet property="removeButton" destination="h1W-a4-1al" id="WEC-El-2Fo"/>
                 <outlet property="selectCheck" destination="pDV-q0-m5Z" id="BJn-b8-OvK"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="oYR-Rk-otH"/>
             </connections>
