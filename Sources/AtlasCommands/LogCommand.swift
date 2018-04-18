@@ -22,7 +22,7 @@ public class LogCommand: Command {
     }
     
     public func execute() throws  {
-        let log = atlasCore.log(project.value)
+        let log = atlasCore.log(projectName: project.value)
     
         for commit in log {
             print("")
