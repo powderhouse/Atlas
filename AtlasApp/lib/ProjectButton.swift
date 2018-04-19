@@ -31,9 +31,28 @@ class ProjectButton: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        button.wantsLayer = true
     }
     
     @IBAction func select(_ sender: Any) {
+        if let projectName = project?.name {
+            var selectedProject: String? = projectName
+            if button.layer?.backgroundColor == NSColor.red.cgColor {
+                button.layer?.backgroundColor = NSColor.white.cgColor
+                Terminal.log("Removing filter for \(projectName)")
+                selectedProject = nil
+            } else {
+                button.layer?.backgroundColor = NSColor.red.cgColor
+                Terminal.log("Filtering for \(projectName)")
+            }
+            
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "filter-project"),
+                object: nil,
+                userInfo: ["projectName": selectedProject]
+            )
+        }
     }
     
     

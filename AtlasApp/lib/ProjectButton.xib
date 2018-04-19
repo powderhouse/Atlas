@@ -16,20 +16,20 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="333" height="21"/>
+            <rect key="frame" x="0.0" y="0.0" width="333" height="32"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="25L-jf-gtO" customClass="DropView" customModule="AtlasApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="333" height="21"/>
+                    <rect key="frame" x="0.0" y="0.0" width="333" height="32"/>
                     <subviews>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRk-CG-09Z">
-                            <rect key="frame" x="1" y="-7" width="331" height="32"/>
-                            <buttonCell key="cell" type="push" title="Project" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MwQ-Ww-1Ky">
+                            <rect key="frame" x="7" y="0.0" width="319" height="32"/>
+                            <buttonCell key="cell" type="bevel" title="Project" bezelStyle="rounded" alignment="center" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="MwQ-Ww-1Ky">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system" size="18"/>
+                                <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="select:" target="-2" id="hhd-6X-8tM"/>
+                                <action selector="select:" target="-2" id="fF7-iF-ELy"/>
                             </connections>
                         </button>
                     </subviews>

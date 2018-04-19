@@ -18,6 +18,12 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     let commitHeight = CGFloat(200)
     let bufferDim = CGFloat(12)
     
+    var selectedProject: String? {
+        didSet {
+            refresh()
+        }
+    }
+    
     init(_ view: NSCollectionView, atlasCore: AtlasCore) {
         super.init()
         
@@ -36,7 +42,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        commits = atlasCore.log()
+        commits = atlasCore.log(projectName: selectedProject)
         setFrameSize()
         return commits.count
     }
