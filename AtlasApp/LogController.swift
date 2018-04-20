@@ -57,7 +57,13 @@ class LogController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            self.selectedProject = notification.userInfo?["projectName"] as? String
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                if self.selectedProject == projectName {
+                    self.selectedProject = nil
+                } else {
+                    self.selectedProject = projectName
+                }
+            }
         }
     }
     

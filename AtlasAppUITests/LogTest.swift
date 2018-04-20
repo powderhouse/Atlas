@@ -12,6 +12,8 @@ class LogTest: AtlasUITestCase {
     func testProjectFilter() {
         login(app)
         
+        waitForTerminalToContain("Added project: General")
+        
         let projectName = "Project"
         app.buttons["+"].click()
         let projectTextField = app.popovers.textFields["Project Name"]
@@ -57,6 +59,12 @@ class LogTest: AtlasUITestCase {
         XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
+        
+        app.buttons["General"].click()
+        waitForTerminalToContain("Filtering for General")
+        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still found \(commitMessage)")
+        XCTAssertFalse(log.staticTexts[projectName].exists, "Still found \(projectName)")
+        XCTAssertFalse(log.links[filename].exists, "Still found \(filename) link")
     }
     
 }

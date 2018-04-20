@@ -105,7 +105,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     func resize() {
         let flowLayout = NSCollectionViewFlowLayout()
         
-        var verticalBuffer: CGFloat = 15
+        let verticalBuffer: CGFloat = 15
         var horizontalBuffer: CGFloat = 15
 
         var projectHeight: CGFloat = 240
