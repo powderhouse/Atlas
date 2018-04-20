@@ -28,32 +28,52 @@ class ProjectButton: NSCollectionViewItem {
         }
     }
     
+    override var isSelected: Bool {
+        get {
+            return dropView.layer?.backgroundColor == NSColor.black.cgColor
+        }
+        
+        set(newValue) {
+            dropView.layer?.backgroundColor = newValue ? NSColor.black.cgColor : NSColor.white.cgColor
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        button.wantsLayer = true
+        initNotifications() 
     }
     
-    @IBAction func select(_ sender: Any) {
-        if let projectName = project?.name {
-            var selectedProject: String? = projectName
-            if button.layer?.backgroundColor == NSColor.red.cgColor {
-                button.layer?.backgroundColor = NSColor.white.cgColor
-                Terminal.log("Removing filter for \(projectName)")
-                selectedProject = nil
-            } else {
-                button.layer?.backgroundColor = NSColor.red.cgColor
-                Terminal.log("Filtering for \(projectName)")
+    func initNotifications() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "filter-project"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                if projectName == self.project?.name {
+                    if self.isSelected {
+                        Terminal.log("Removing filter for \(projectName)")
+                    } else {
+                        Terminal.log("Filtering for \(projectName)")
+                    }
+                    self.isSelected = !self.isSelected
+                } else {
+                    self.isSelected = false
+                }
             }
-            
-            NotificationCenter.default.post(
-                name: NSNotification.Name(rawValue: "filter-project"),
-                object: nil,
-                userInfo: ["projectName": selectedProject]
-            )
         }
     }
     
-    
+    @IBAction func click(_ sender: Any) {
+        if let projectName = project?.name {
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "filter-project"),
+                object: nil,
+                userInfo: ["projectName": projectName]
+            )
+        }
+    }
 }
