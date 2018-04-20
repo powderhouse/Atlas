@@ -12,9 +12,9 @@ class AddProjectTest: AtlasUITestCase {
     func testAddProject() {
         login(app)
 
-        let projectName = "Project Name"
+        let projectName = "A Project"
         app.buttons["+"].click()
-        let projectTextField = app.popovers.textFields[projectName]
+        let projectTextField = app.popovers.textFields["Project Name"]
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
         
