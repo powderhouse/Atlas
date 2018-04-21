@@ -44,6 +44,22 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     var stagedFiles: [String] = []
     var unstagedFiles: [String] = []
+    
+    override var isSelected: Bool {
+        get {
+            return dropView.layer?.backgroundColor == NSColor.black.cgColor
+        }
+        
+        set(newValue) {
+            if newValue {
+                dropView.layer?.backgroundColor = NSColor.black.cgColor
+                label.textColor = NSColor.white
+            } else {
+                dropView.layer?.backgroundColor = NSColor.gray.cgColor
+                label.textColor = NSColor.black
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +144,26 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
                 }
             }
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "filter-project"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                if projectName == self.project?.name {
+                    if self.isSelected {
+                        Terminal.log("Removing filter for \(projectName)")
+                    } else {
+                        Terminal.log("Filtering for \(projectName)")
+                    }
+                    self.isSelected = !self.isSelected
+                } else {
+                    self.isSelected = false
+                }
+            }
+        }
     }
     
     @IBAction func commit(_ sender: NSButton) {
@@ -159,6 +195,16 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         vc.project = dropView.project
    }
 
+    @IBAction func click(_ sender: Any) {
+        if let projectName = dropView.project?.name {
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "filter-project"),
+                object: nil,
+                userInfo: ["projectName": projectName]
+            )
+        }
+    }
+    
     func checkCommitButton() {
         Timer.scheduledTimer(
             withTimeInterval: 0.2,

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
+                <outlet property="clickGesture" destination="QEI-1h-p8Z" id="CbZ-ME-40e"/>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="MMS-xY-kSu"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="APu-q9-Ec7"/>
                 <outlet property="label" destination="APv-lO-Rut" id="znK-Z1-MiB"/>
@@ -27,6 +28,13 @@
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
                             <rect key="frame" x="-2" y="320" width="410" height="22"/>
+                            <gestureRecognizers>
+                                <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="QEI-1h-p8Z">
+                                    <connections>
+                                        <action selector="click:" target="-2" id="tdT-5C-w2J"/>
+                                    </connections>
+                                </clickGestureRecognizer>
+                            </gestureRecognizers>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="n4K-Nh-VvD">
                                 <font key="font" metaFont="system" size="18"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -102,6 +110,7 @@
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="Gfl-oD-rlL"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="x2T-h1-4Yl"/>
                 <outlet property="label" destination="APv-lO-Rut" id="og8-xR-Kgn"/>
+                <outlet property="sourceItemView" destination="Hz6-mo-xeY" id="sZD-f3-tdv"/>
                 <outlet property="stagedFilesClipView" destination="KhU-fe-JT6" id="HQz-kB-SBV"/>
                 <outlet property="stagedFilesScrollView" destination="UjS-H1-JOy" id="gBb-AF-iEn"/>
                 <outlet property="stagedFilesView" destination="dj3-SC-bcY" id="MrE-2b-Dz8"/>
