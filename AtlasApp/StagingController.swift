@@ -14,6 +14,8 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     @IBOutlet weak var projectListView: NSCollectionView!
     
+    var filterByProject: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -50,7 +52,9 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
+
+        let project = atlasCore.projects()[indexPath.item]
+
         if projectListView.bounds.width < 300 {
             let item = collectionView.makeItem(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ProjectButton"),
@@ -61,7 +65,9 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 return item
             }
             
-            projectButton.project = atlasCore.projects()[indexPath.item]
+            projectButton.project = project
+            projectButton.filterBy = project.name == filterByProject
+            
             return projectButton
         }
         
@@ -74,7 +80,8 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             return item
         }
         
-        projectViewItem.project = atlasCore.projects()[indexPath.item]
+        projectViewItem.project = project
+        projectViewItem.filterBy = project.name == filterByProject
 
         projectViewItem.refresh()
 
@@ -100,6 +107,15 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 self.addProject(projectName)
             }
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "filter-project"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            self.filterByProject = notification.userInfo?["projectName"] as? String
+        }
     }
     
     func resize() {
@@ -115,7 +131,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             projectWidth = 240
         } else {
             horizontalBuffer = 0
-            projectHeight = 50
+            projectHeight = 60
             projectWidth = projectListView.bounds.width
         }
         

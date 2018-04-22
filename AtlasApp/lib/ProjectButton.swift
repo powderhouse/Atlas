@@ -30,7 +30,7 @@ class ProjectButton: NSCollectionViewItem {
         }
     }
     
-    override var isSelected: Bool {
+    var filterBy: Bool {
         get {
             return dropView.layer?.backgroundColor == NSColor.black.cgColor
         }
@@ -67,16 +67,20 @@ class ProjectButton: NSCollectionViewItem {
             queue: nil
         ) {
             (notification) in
+            guard self.collectionView?.indexPath(for: self) != nil else {
+                return
+            }
+            
             if let projectName = notification.userInfo?["projectName"] as? String {
                 if projectName == self.project?.name {
-                    if self.isSelected {
+                    if self.filterBy {
                         Terminal.log("Removing filter for \(projectName)")
                     } else {
                         Terminal.log("Filtering for \(projectName)")
                     }
-                    self.isSelected = !self.isSelected
+                    self.filterBy = !self.filterBy
                 } else {
-                    self.isSelected = false
+                    self.filterBy = false
                 }
             }
         }
