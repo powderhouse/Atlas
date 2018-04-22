@@ -10,20 +10,32 @@
             <connections>
                 <outlet property="button" destination="CRk-CG-09Z" id="NSP-bP-MDy"/>
                 <outlet property="dropView" destination="25L-jf-gtO" id="eZc-Zw-iR2"/>
+                <outlet property="fileCount" destination="3vD-kh-HNY" id="9ot-UN-axU"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="333" height="26"/>
+            <rect key="frame" x="0.0" y="0.0" width="293" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="25L-jf-gtO" customClass="DropView" customModule="AtlasApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="333" height="26"/>
+                    <rect key="frame" x="0.0" y="0.0" width="293" height="30"/>
                     <subviews>
+                        <textField canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3vD-kh-HNY">
+                            <rect key="frame" x="29" y="18" width="24" height="12"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="KJJ-wy-DET"/>
+                            </constraints>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2" drawsBackground="YES" usesSingleLineMode="YES" id="cl3-ud-b8a">
+                                <font key="font" metaFont="system" size="12"/>
+                                <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRk-CG-09Z">
-                            <rect key="frame" x="27" y="-4" width="279" height="32"/>
+                            <rect key="frame" x="23" y="-7" width="247" height="32"/>
                             <buttonCell key="cell" type="push" title="Project" bezelStyle="rounded" alignment="center" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="MwQ-Ww-1Ky">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -34,23 +46,32 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="CRk-CG-09Z" firstAttribute="centerY" secondItem="25L-jf-gtO" secondAttribute="centerY" id="gfr-m4-BXA"/>
+                        <constraint firstItem="3vD-kh-HNY" firstAttribute="leading" secondItem="CRk-CG-09Z" secondAttribute="leading" id="LZZ-rq-7Fl"/>
                         <constraint firstItem="CRk-CG-09Z" firstAttribute="centerX" secondItem="25L-jf-gtO" secondAttribute="centerX" id="iKy-P6-T6Y"/>
                     </constraints>
                 </customView>
             </subviews>
             <constraints>
-                <constraint firstItem="CRk-CG-09Z" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.8" id="BOt-Ox-abd"/>
+                <constraint firstItem="3vD-kh-HNY" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="3dq-10-PZS"/>
+                <constraint firstItem="3vD-kh-HNY" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.4" id="7Gd-hd-d8M"/>
+                <constraint firstItem="CRk-CG-09Z" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.7" id="BOt-Ox-abd"/>
                 <constraint firstItem="25L-jf-gtO" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="JWT-H2-9Xq"/>
                 <constraint firstItem="CRk-CG-09Z" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.8" id="KB9-M7-qlp"/>
                 <constraint firstItem="25L-jf-gtO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="YDS-We-oM2"/>
                 <constraint firstAttribute="bottom" secondItem="25L-jf-gtO" secondAttribute="bottom" id="Yad-tw-kat"/>
                 <constraint firstAttribute="trailing" secondItem="25L-jf-gtO" secondAttribute="trailing" id="Zye-K6-XUv"/>
                 <constraint firstItem="25L-jf-gtO" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="nye-hT-5iS"/>
+                <constraint firstAttribute="bottom" secondItem="CRk-CG-09Z" secondAttribute="bottom" id="q82-ct-Vt4"/>
                 <constraint firstItem="25L-jf-gtO" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="wyV-7O-nsa"/>
             </constraints>
-            <point key="canvasLocation" x="198.5" y="181.5"/>
+            <point key="canvasLocation" x="120.5" y="181"/>
         </customView>
-        <customObject id="kmX-xJ-4vR" customClass="ProjectButton" customModule="AtlasApp" customModuleProvider="target"/>
+        <customObject id="kmX-xJ-4vR" customClass="ProjectButton" customModule="AtlasApp" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="CRk-CG-09Z" id="HKM-dF-Bww"/>
+                <outlet property="dropView" destination="25L-jf-gtO" id="EKd-jn-VXn"/>
+                <outlet property="fileCount" destination="3vD-kh-HNY" id="eWE-Rn-0sE"/>
+            </connections>
+        </customObject>
     </objects>
 </document>

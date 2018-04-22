@@ -10,8 +10,9 @@ import AtlasCore
 
 class ProjectButton: NSCollectionViewItem {
 
+    @IBOutlet weak var fileCount: NSTextField!
     @IBOutlet weak var button: NSButton!
-    
+
     @IBOutlet weak var dropView: DropView! {
         didSet {
             guard project != nil else { return }
@@ -25,6 +26,7 @@ class ProjectButton: NSCollectionViewItem {
             guard project != nil else { return }
             button.title = project!.name
             dropView.project = project!
+            refresh()
         }
     }
     
@@ -42,10 +44,23 @@ class ProjectButton: NSCollectionViewItem {
         super.viewDidLoad()
         // Do view setup here.
         
-        initNotifications() 
+        initNotifications()
     }
     
     func initNotifications() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "staged-file-updated"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                if self.project?.name == projectName {
+                    self.refresh()
+                }
+            }
+        }
+        
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "filter-project"),
             object: nil,
@@ -64,6 +79,13 @@ class ProjectButton: NSCollectionViewItem {
                     self.isSelected = false
                 }
             }
+        }
+    }
+    
+    func refresh() {
+        if let stagedFiles = project?.files("staged") {
+            fileCount.isHidden = (stagedFiles.count == 0)
+            fileCount.stringValue = "\(stagedFiles.count)"
         }
     }
     
