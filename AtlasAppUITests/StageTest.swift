@@ -57,6 +57,17 @@ class StageTest: AtlasUITestCase {
         
         XCTAssertFalse(commitButton.isEnabled)
     }
+    
+    func testStagingUpdatesProjectButton() {
+        app.buttons["<"].click()
+
+        let stagedButton = app.groups["General-staged-button"]
+        XCTAssert(stagedButton.staticTexts["1"].exists)
+
+        stage(app, projectName: "General", filename: "indexfile2.html")
+
+        XCTAssert(stagedButton.staticTexts["2"].exists)
+    }
 
 }
 

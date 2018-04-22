@@ -26,6 +26,9 @@ class ProjectButton: NSCollectionViewItem {
             guard project != nil else { return }
             button.title = project!.name
             dropView.project = project!
+            
+            identifier = NSUserInterfaceItemIdentifier(rawValue: "\(project!.name!)-staged-button")
+            
             refresh()
         }
     }
