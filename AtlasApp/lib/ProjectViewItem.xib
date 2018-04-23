@@ -31,7 +31,7 @@
                             <gestureRecognizers>
                                 <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="QEI-1h-p8Z">
                                     <connections>
-                                        <action selector="click:" target="-2" id="tdT-5C-w2J"/>
+                                        <action selector="click:" target="-2" id="P8I-RW-co2"/>
                                     </connections>
                                 </clickGestureRecognizer>
                             </gestureRecognizers>
@@ -98,8 +98,12 @@
                 </customView>
             </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="46y-ZN-GYi" secondAttribute="bottom" id="7Ll-AK-rfc"/>
+                <constraint firstAttribute="trailing" secondItem="46y-ZN-GYi" secondAttribute="trailing" id="HyR-gE-szX"/>
+                <constraint firstItem="46y-ZN-GYi" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="MuN-Uf-RGL"/>
                 <constraint firstItem="46y-ZN-GYi" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="SOR-nD-nor"/>
                 <constraint firstItem="46y-ZN-GYi" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="fUF-Fe-ufg"/>
+                <constraint firstItem="46y-ZN-GYi" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="ihg-GS-MXk"/>
                 <constraint firstItem="46y-ZN-GYi" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="qZl-29-q39"/>
                 <constraint firstItem="46y-ZN-GYi" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="zHD-vA-9hJ"/>
             </constraints>

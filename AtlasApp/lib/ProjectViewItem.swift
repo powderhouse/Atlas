@@ -70,6 +70,11 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         
         stagedFilesView.delegate = self
         stagedFilesView.dataSource = self
+        
+    }
+    
+    override func mouseDown(with event: NSEvent) {
+        print("HI")
     }
     
     fileprivate func configureStagedFileView() {

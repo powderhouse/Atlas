@@ -12,7 +12,7 @@ class ProjectButton: NSCollectionViewItem {
 
     @IBOutlet weak var fileCount: NSTextField!
     @IBOutlet weak var button: NSButton!
-
+    
     @IBOutlet weak var dropView: DropView! {
         didSet {
             guard project != nil else { return }
