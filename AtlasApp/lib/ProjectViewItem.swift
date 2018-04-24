@@ -73,10 +73,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         
     }
     
-    override func mouseDown(with event: NSEvent) {
-        print("HI")
-    }
-    
     fileprivate func configureStagedFileView() {
         stagedFilesView.isSelectable = true
         let flowLayout = NSCollectionViewFlowLayout()
