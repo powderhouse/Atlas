@@ -26,8 +26,8 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="46y-ZN-GYi" userLabel="Drop View" customClass="DropView" customModule="AtlasApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="429" height="353"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-ti-vF9" userLabel="Filter Project">
-                            <rect key="frame" x="0.0" y="289" width="429" height="57"/>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-ti-vF9" userLabel="Filter Project">
+                            <rect key="frame" x="0.0" y="275" width="429" height="78"/>
                             <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="Q5K-af-sIJ">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -36,16 +36,29 @@
                                 <action selector="click:" target="-2" id="v1r-LJ-gel"/>
                             </connections>
                         </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
                             <rect key="frame" x="-2" y="331" width="433" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="NEi-iM-Sfc"/>
+                            </constraints>
+                            <gestureRecognizers>
+                                <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="Gii-3c-R7F">
+                                    <connections>
+                                        <action selector="click:" target="-2" id="Ekb-EX-T4U"/>
+                                    </connections>
+                                </clickGestureRecognizer>
+                            </gestureRecognizers>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="n4K-Nh-VvD">
                                 <font key="font" metaFont="system" size="18"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-6w-aJM">
-                            <rect key="frame" x="171" y="291" width="88" height="32"/>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-6w-aJM">
+                            <rect key="frame" x="171" y="280" width="88" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="djV-SA-5Wz"/>
+                            </constraints>
                             <buttonCell key="cell" type="push" title="Commit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UOO-yV-BWh">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -54,14 +67,14 @@
                                 <action selector="commit:" target="-2" id="tDV-3f-2aH"/>
                             </connections>
                         </button>
-                        <scrollView wantsLayer="YES" ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-H1-JOy" userLabel="Staged Files View">
-                            <rect key="frame" x="95" y="0.0" width="240" height="286"/>
-                            <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="KhU-fe-JT6">
-                                <rect key="frame" x="1" y="1" width="238" height="284"/>
+                        <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-H1-JOy" userLabel="Staged Files View">
+                            <rect key="frame" x="95" y="0.0" width="240" height="275"/>
+                            <clipView key="contentView" drawsBackground="NO" id="KhU-fe-JT6">
+                                <rect key="frame" x="1" y="1" width="238" height="273"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <collectionView id="dj3-SC-bcY" userLabel="Staged Files View">
-                                        <rect key="frame" x="0.0" y="0.0" width="238" height="284"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="238" height="273"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" id="2fO-tG-9Ck">
                                             <size key="itemSize" width="10" height="10"/>
@@ -83,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="mpJ-cc-ziV">
-                                <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                <rect key="frame" x="223" y="1" width="16" height="273"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>

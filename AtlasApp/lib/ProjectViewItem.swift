@@ -200,7 +200,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         vc.project = dropView.project
    }
 
-    @IBAction func click(_ sender: NSButton) {
+    @IBAction func click(_ sender: Any) {
         if let projectName = dropView.project?.name {
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "filter-project"),
