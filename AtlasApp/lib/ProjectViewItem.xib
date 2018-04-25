@@ -7,9 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
-                <outlet property="clickGesture" destination="QEI-1h-p8Z" id="CbZ-ME-40e"/>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="MMS-xY-kSu"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="APu-q9-Ec7"/>
+                <outlet property="filterProject" destination="1bl-ti-vF9" id="Uek-kc-fwd"/>
                 <outlet property="label" destination="APv-lO-Rut" id="znK-Z1-MiB"/>
                 <outlet property="stagedFilesClipView" destination="KhU-fe-JT6" id="kBp-8E-E8S"/>
                 <outlet property="stagedFilesScrollView" destination="UjS-H1-JOy" id="BwW-OX-45k"/>
@@ -20,29 +20,32 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="406" height="342"/>
+            <rect key="frame" x="0.0" y="0.0" width="429" height="353"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="46y-ZN-GYi" userLabel="Drop View" customClass="DropView" customModule="AtlasApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="406" height="342"/>
+                    <rect key="frame" x="0.0" y="0.0" width="429" height="353"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
-                            <rect key="frame" x="-2" y="320" width="410" height="22"/>
-                            <gestureRecognizers>
-                                <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="QEI-1h-p8Z">
-                                    <connections>
-                                        <action selector="click:" target="-2" id="P8I-RW-co2"/>
-                                    </connections>
-                                </clickGestureRecognizer>
-                            </gestureRecognizers>
+                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bl-ti-vF9" userLabel="Filter Project">
+                            <rect key="frame" x="0.0" y="289" width="429" height="57"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="Q5K-af-sIJ">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="click:" target="-2" id="v1r-LJ-gel"/>
+                            </connections>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APv-lO-Rut">
+                            <rect key="frame" x="-2" y="331" width="433" height="22"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="n4K-Nh-VvD">
                                 <font key="font" metaFont="system" size="18"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-6w-aJM">
-                            <rect key="frame" x="159" y="280" width="88" height="32"/>
+                        <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-6w-aJM">
+                            <rect key="frame" x="171" y="291" width="88" height="32"/>
                             <buttonCell key="cell" type="push" title="Commit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UOO-yV-BWh">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -51,14 +54,14 @@
                                 <action selector="commit:" target="-2" id="tDV-3f-2aH"/>
                             </connections>
                         </button>
-                        <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-H1-JOy" userLabel="Staged Files View">
-                            <rect key="frame" x="83" y="0.0" width="240" height="275"/>
-                            <clipView key="contentView" drawsBackground="NO" id="KhU-fe-JT6">
-                                <rect key="frame" x="1" y="1" width="238" height="273"/>
+                        <scrollView wantsLayer="YES" ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-H1-JOy" userLabel="Staged Files View">
+                            <rect key="frame" x="95" y="0.0" width="240" height="286"/>
+                            <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="KhU-fe-JT6">
+                                <rect key="frame" x="1" y="1" width="238" height="284"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <collectionView id="dj3-SC-bcY" userLabel="Staged Files View">
-                                        <rect key="frame" x="0.0" y="0.0" width="238" height="273"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="238" height="284"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" id="2fO-tG-9Ck">
                                             <size key="itemSize" width="10" height="10"/>
@@ -86,13 +89,17 @@
                         </scrollView>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="1bl-ti-vF9" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" id="00a-uq-qya"/>
+                        <constraint firstItem="1bl-ti-vF9" firstAttribute="width" secondItem="46y-ZN-GYi" secondAttribute="width" id="4aI-lj-yrE"/>
                         <constraint firstItem="hWM-6w-aJM" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="6P3-u8-nOM"/>
                         <constraint firstItem="UjS-H1-JOy" firstAttribute="top" secondItem="hWM-6w-aJM" secondAttribute="bottom" constant="12" id="Aeh-Ua-zns"/>
                         <constraint firstAttribute="bottom" secondItem="UjS-H1-JOy" secondAttribute="bottom" id="KyQ-wu-x5m"/>
+                        <constraint firstItem="1bl-ti-vF9" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="TI9-gy-x7o"/>
                         <constraint firstItem="APv-lO-Rut" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" id="cu2-R6-cSH"/>
                         <constraint firstItem="APv-lO-Rut" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="erD-IC-0UV"/>
                         <constraint firstItem="hWM-6w-aJM" firstAttribute="top" secondItem="APv-lO-Rut" secondAttribute="bottom" constant="12" id="flB-wh-tw9"/>
                         <constraint firstItem="UjS-H1-JOy" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="j3N-zD-yxj"/>
+                        <constraint firstItem="UjS-H1-JOy" firstAttribute="top" secondItem="1bl-ti-vF9" secondAttribute="bottom" id="lkn-Oc-oHx"/>
                         <constraint firstItem="APv-lO-Rut" firstAttribute="width" secondItem="46y-ZN-GYi" secondAttribute="width" id="mJ0-vD-Uxt"/>
                     </constraints>
                 </customView>
@@ -107,12 +114,13 @@
                 <constraint firstItem="46y-ZN-GYi" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="qZl-29-q39"/>
                 <constraint firstItem="46y-ZN-GYi" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="zHD-vA-9hJ"/>
             </constraints>
-            <point key="canvasLocation" x="176" y="203"/>
+            <point key="canvasLocation" x="194.5" y="344.5"/>
         </customView>
-        <collectionViewItem title="ProjectViewItem" nibName="ProjectViewItem" id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
+        <collectionViewItem title="ProjectViewItem" nibName="ProjectViewItem" identifier="ProjectViewItem" id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="Gfl-oD-rlL"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="x2T-h1-4Yl"/>
+                <outlet property="filterProject" destination="1bl-ti-vF9" id="BJx-ZU-nc1"/>
                 <outlet property="label" destination="APv-lO-Rut" id="og8-xR-Kgn"/>
                 <outlet property="sourceItemView" destination="Hz6-mo-xeY" id="sZD-f3-tdv"/>
                 <outlet property="stagedFilesClipView" destination="KhU-fe-JT6" id="HQz-kB-SBV"/>

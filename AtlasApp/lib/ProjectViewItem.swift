@@ -13,6 +13,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var commitButton: NSButton!
+    @IBOutlet weak var filterProject: NSButton!
     
     @IBOutlet weak var stagedFilesView: NSCollectionView!
     
@@ -70,7 +71,6 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         
         stagedFilesView.delegate = self
         stagedFilesView.dataSource = self
-        
     }
     
     fileprivate func configureStagedFileView() {
@@ -200,7 +200,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         vc.project = dropView.project
    }
 
-    @IBAction func click(_ sender: Any) {
+    @IBAction func click(_ sender: NSButton) {
         if let projectName = dropView.project?.name {
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "filter-project"),

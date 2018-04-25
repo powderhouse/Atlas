@@ -38,7 +38,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     func refresh() {
-        view.reloadData()
+        view.reloadSections(IndexSet(integer: 0))
     }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,7 +60,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
 
         let commit = commits.reversed()[indexPath.item]
 
-        let projectNames =  Array(Set(commit.projects.map {$0.name }))
+        let projectNames =  Array(Set(commit.projects.map { $0.name }))
         commitViewItem.project.stringValue = projectNames.joined(separator: ", ")
         commitViewItem.subject.stringValue = commit.message
         

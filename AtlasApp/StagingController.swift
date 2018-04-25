@@ -52,7 +52,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-
+        
         let project = atlasCore.projects()[indexPath.item]
 
         if projectListView.bounds.width < 300 {
@@ -114,7 +114,9 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             queue: nil
         ) {
             (notification) in
-            self.filterByProject = notification.userInfo?["projectName"] as? String
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                self.filterByProject = (self.filterByProject == projectName ? nil : projectName)
+            }
         }
     }
     
