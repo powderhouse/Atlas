@@ -67,12 +67,16 @@ class MainController: NSViewController {
         }
         
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-committed"),
+            forName: NSNotification.Name(rawValue: "staged-file-ready-for-commit"),
             object: nil,
             queue: nil
         ) {
             (notification) in
             self.atlasCore.commitChanges(notification.userInfo?["message"] as? String)
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "staged-file-committed"),
+                object: nil
+            )
         }
 
         NotificationCenter.default.addObserver(

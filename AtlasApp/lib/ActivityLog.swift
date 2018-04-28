@@ -40,6 +40,10 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     func refresh() {
         view.reloadSections(IndexSet(integer: 0))
     }
+    
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
+    }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         commits = atlasCore.log(projectName: selectedProject)
@@ -48,7 +52,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
+
         let item = view.makeItem(
             withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CommitViewItem"),
             for: indexPath
