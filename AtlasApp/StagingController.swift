@@ -37,13 +37,8 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     @IBAction func sync(_ sender: NSButton) {
-        statusTimer?.invalidate()
         atlasCore.sync()
-        syncButton.title = "Syncing..."
-        status.backgroundColor = NSColor.yellow
-        statusTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.showStatus()
-        }
+        syncing()
     }
     
     @IBAction func resize(_ sender: NSButton) {
@@ -146,7 +141,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 queue: nil
             ) {
                 (notification) in
-                self.showStatus()
+                self.syncing()
             }
         }
     }
@@ -189,7 +184,14 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         )
     }
     
-    
+    func syncing() {
+        statusTimer?.invalidate()
+        syncButton.title = "Syncing..."
+        status.backgroundColor = NSColor.yellow
+        statusTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            self.showStatus()
+        }
+    }
     
     func showStatus() {
         statusTimer?.invalidate()
