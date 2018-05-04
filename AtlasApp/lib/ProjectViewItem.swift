@@ -1,4 +1,4 @@
-//
+ //
 //  ProjectViewItem.swift
 //  atlas
 //
@@ -139,7 +139,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             queue: nil
         ) {
             (notification) in
-            if let projectName = notification.userInfo?["project"] as? String {
+            if let projectName = notification.userInfo?["projectName"] as? String {
                 if self.project?.name == projectName {
                     self.refresh()
                 }
