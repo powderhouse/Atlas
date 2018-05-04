@@ -955,6 +955,7 @@
                     <connections>
                         <outlet property="projectListView" destination="1aO-NR-zBR" id="w8T-k2-FOm"/>
                         <outlet property="status" destination="YqG-vs-I0c" id="BkX-xI-YNa"/>
+                        <outlet property="syncButton" destination="uyd-s1-esa" id="s2O-0x-Lps"/>
                     </connections>
                 </viewController>
                 <customObject id="4iC-87-8aW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -998,14 +999,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="90"/>
                                 <clipView key="contentView" id="nxK-Ai-kuu">
-                                    <rect key="frame" x="1" y="1" width="448" height="88"/>
+                                    <rect key="frame" x="1" y="1" width="433" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="601" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="448" height="88"/>
+                                            <size key="minSize" width="433" height="88"/>
                                             <size key="maxSize" width="618" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
@@ -1017,7 +1018,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                    <rect key="frame" x="433" y="1" width="16" height="88"/>
+                                    <rect key="frame" x="434" y="1" width="15" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>

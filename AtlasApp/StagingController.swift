@@ -16,7 +16,9 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     var filterByProject: String?
     
+    @IBOutlet weak var syncButton: NSButton!
     @IBOutlet weak var status: NSTextField!
+    var statusTimer: Timer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +37,13 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     @IBAction func sync(_ sender: NSButton) {
+        statusTimer?.invalidate()
         atlasCore.sync()
-        showStatus()
+        syncButton.title = "Syncing..."
+        status.backgroundColor = NSColor.yellow
+        statusTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            self.showStatus()
+        }
     }
     
     @IBAction func resize(_ sender: NSButton) {
@@ -185,21 +192,22 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     
     func showStatus() {
+        statusTimer?.invalidate()
+
         if let atlasStatus = atlasCore.status() {
             let entries = atlasCore.syncLogEntries()
             status.toolTip = atlasStatus +
                 "\n-----------------------\n\n<STARTENTRY>" +
                 (entries.last ?? "</ENDENTRY>")
 
-            if atlasStatus.contains("Untracked") {
-                status.backgroundColor = NSColor.yellow
-            } else if atlasStatus.contains("ahead") {
-                if let mostRecentEntry = entries.last {
-                    if !mostRecentEntry.contains("</ENDENTRY>") {
-                        status.backgroundColor = NSColor.yellow
-                    } else {
-                        status.backgroundColor = NSColor.red
-                    }
+            if let mostRecentEntry = entries.last {
+                if !mostRecentEntry.contains("</ENDENTRY>") {
+                    syncButton.title = "Syncing..."
+                    status.backgroundColor = NSColor.yellow
+                } else if atlasStatus.contains("up-to-date") {
+                    status.backgroundColor = NSColor.green
+                } else if atlasStatus.contains("Untracked") {
+                    status.backgroundColor = NSColor.yellow
                 } else {
                     status.backgroundColor = NSColor.red
                 }
@@ -210,8 +218,12 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             status.backgroundColor = NSColor.red
         }
 
+        if status.backgroundColor != NSColor.yellow {
+            syncButton.title = "Sync"
+        }
+        
         if status.backgroundColor != NSColor.green {
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            statusTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
                 self.showStatus()
             }
         }
