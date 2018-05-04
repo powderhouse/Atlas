@@ -16,18 +16,27 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     var filterByProject: String?
     
+    @IBOutlet weak var status: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         configureProjectListView()
         initObservers()
+        
+        self.showStatus()
     }
 
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
         }
+    }
+    
+    @IBAction func sync(_ sender: NSButton) {
+        atlasCore.sync()
+        showStatus()
     }
     
     @IBAction func resize(_ sender: NSButton) {
@@ -118,6 +127,21 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 self.filterByProject = (self.filterByProject == projectName ? nil : projectName)
             }
         }
+
+        for notification in [
+            "project-added",
+            "remove-staged-file",
+            "staged-file-updated",
+            "staged-file-committed"] {
+            NotificationCenter.default.addObserver(
+                forName: NSNotification.Name(rawValue: notification),
+                object: nil,
+                queue: nil
+            ) {
+                (notification) in
+                self.showStatus()
+            }
+        }
     }
     
     func resize() {
@@ -157,6 +181,42 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             )
         )
     }
+    
+    
+    
+    func showStatus() {
+        if let atlasStatus = atlasCore.status() {
+            let entries = atlasCore.syncLogEntries()
+            status.toolTip = atlasStatus +
+                "\n-----------------------\n\n<STARTENTRY>" +
+                (entries.last ?? "</ENDENTRY>")
+
+            if atlasStatus.contains("Untracked") {
+                status.backgroundColor = NSColor.yellow
+            } else if atlasStatus.contains("ahead") {
+                if let mostRecentEntry = entries.last {
+                    if !mostRecentEntry.contains("</ENDENTRY>") {
+                        status.backgroundColor = NSColor.yellow
+                    } else {
+                        status.backgroundColor = NSColor.red
+                    }
+                } else {
+                    status.backgroundColor = NSColor.red
+                }
+            } else {
+                status.backgroundColor = NSColor.green
+            }
+        } else {
+            status.backgroundColor = NSColor.red
+        }
+
+        if status.backgroundColor != NSColor.green {
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+                self.showStatus()
+            }
+        }
+    }
+
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier?.rawValue == "new-project-segue" {

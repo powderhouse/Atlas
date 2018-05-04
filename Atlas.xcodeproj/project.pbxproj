@@ -647,18 +647,18 @@
 		3A3C79F52094000900C4D933 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C79F62094000900C4D933 /* CommitViewItem.swift */,
-				3A3C79F72094000900C4D933 /* ProjectViewItem.swift */,
-				3A3C79F82094000900C4D933 /* AtlasNotificationCenter.swift */,
-				3A3C79F92094000900C4D933 /* CommitViewItem.xib */,
-				3A3C79FA2094000900C4D933 /* ProjectButton.xib */,
-				3A3C79FB2094000900C4D933 /* Terminal.swift */,
-				3A3C79FC2094000900C4D933 /* StagedFileViewItem.swift */,
-				3A3C79FD2094000900C4D933 /* StagedFileViewItem.xib */,
 				3A3C79FE2094000900C4D933 /* ActivityLog.swift */,
+				3A3C79F82094000900C4D933 /* AtlasNotificationCenter.swift */,
+				3A3C79F62094000900C4D933 /* CommitViewItem.swift */,
 				3A3C79FF2094000900C4D933 /* DropView.swift */,
 				3A3C7A002094000900C4D933 /* ProjectButton.swift */,
+				3A3C79F72094000900C4D933 /* ProjectViewItem.swift */,
+				3A3C79FC2094000900C4D933 /* StagedFileViewItem.swift */,
+				3A3C79FB2094000900C4D933 /* Terminal.swift */,
+				3A3C79F92094000900C4D933 /* CommitViewItem.xib */,
+				3A3C79FA2094000900C4D933 /* ProjectButton.xib */,
 				3A3C7A012094000900C4D933 /* ProjectViewItem.xib */,
+				3A3C79FD2094000900C4D933 /* StagedFileViewItem.xib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
