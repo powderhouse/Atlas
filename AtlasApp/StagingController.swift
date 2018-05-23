@@ -195,13 +195,13 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     func showStatus() {
         statusTimer?.invalidate()
-
+        
         if let atlasStatus = atlasCore.status() {
             let entries = atlasCore.syncLogEntries()
             status.toolTip = atlasStatus +
                 "\n-----------------------\n\n<STARTENTRY>" +
                 (entries.last ?? "</ENDENTRY>")
-
+            
             if let mostRecentEntry = entries.last {
                 if !mostRecentEntry.contains("</ENDENTRY>") {
                     syncButton.title = "Syncing..."
@@ -219,7 +219,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         } else {
             status.backgroundColor = NSColor.red
         }
-
+        
         if status.backgroundColor != NSColor.yellow {
             syncButton.title = "Sync"
         }
@@ -230,7 +230,6 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             }
         }
     }
-
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier?.rawValue == "new-project-segue" {

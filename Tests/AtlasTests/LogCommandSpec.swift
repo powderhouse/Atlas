@@ -17,7 +17,6 @@ class LogCommandSpec: QuickSpec {
     let inputPipe = Pipe()
     let outputPipe = Pipe()
     
-
     func handlePipeNotification(notification: Notification) {
         //note you have to continuously call this when you get a message
         //see this from documentation:

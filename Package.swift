@@ -35,3 +35,18 @@ let package = Package(
 // RUN: swift run -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13" Atlas
 // BUILD FOR DISTRIBUTION: swift build -c release -Xswiftc -static-stdlib -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
 
+
+// Rebuilding
+// swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
+// Add Target: AtlasApp
+// Move all files from AtlasApp (old) to AtlasApp (new)
+// Move all files from AtlasAppUITests (old) to AtlasAppUITests (new)
+// git status
+// git checkout AtlasApp
+// rm AtlasApp/ViewController.swift
+// rm AtlasAppUITests/AtlasAppUITests.swift
+// Delete old and "Remove Reference" for app and ui tests
+// Delete red files
+// Add AtlasCore as Embedded Binary
+// Assign all lib file to AtlasApp
+

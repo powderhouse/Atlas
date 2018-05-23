@@ -51,6 +51,9 @@
 		3AAC6EBF20B4A4DC00388922 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E9820B4A2AB00388922 /* DropView.swift */; };
 		3AAC6EC020B4A4DC00388922 /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E9920B4A2AB00388922 /* ProjectButton.swift */; };
 		3AAC6EC120B4A4DC00388922 /* ProjectViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAC6E9A20B4A2AB00388922 /* ProjectViewItem.xib */; };
+		3AAC6EC320B5002400388922 /* SearchCommandSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC220B5002400388922 /* SearchCommandSpec.swift */; };
+		3AAC6EC520B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
+		3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
 		OBJ_205 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
@@ -370,6 +373,8 @@
 		3AAC6EA220B4A2AC00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AAC6EA420B4A2AC00388922 /* StagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagingController.swift; sourceTree = "<group>"; };
 		3AAC6EA520B4A2AC00388922 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		3AAC6EC220B5002400388922 /* SearchCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommandSpec.swift; sourceTree = "<group>"; };
+		3AAC6EC420B5C88F00388922 /* SearchCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommand.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -617,6 +622,7 @@
 		3AAC6E5E20B4A24C00388922 /* AtlasApp */ = {
 			isa = PBXGroup;
 			children = (
+				3AAC6E8E20B4A2AB00388922 /* lib */,
 				3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */,
 				3AAC6EA420B4A2AC00388922 /* StagingController.swift */,
 				3AAC6E6320B4A24C00388922 /* Assets.xcassets */,
@@ -626,7 +632,6 @@
 				3AAC6E9D20B4A2AB00388922 /* Base.lproj */,
 				3AAC6EA020B4A2AB00388922 /* CommitController.swift */,
 				3AAC6EA220B4A2AC00388922 /* Info.plist */,
-				3AAC6E8E20B4A2AB00388922 /* lib */,
 				3AAC6E8A20B4A2AB00388922 /* LogController.swift */,
 				3AAC6EA520B4A2AC00388922 /* MainController.swift */,
 				3AAC6E8C20B4A2AB00388922 /* NewProjectController.swift */,
@@ -700,6 +705,7 @@
 				OBJ_18 /* LogoutCommand.swift */,
 				OBJ_19 /* ProjectsCommand.swift */,
 				OBJ_20 /* PurgeCommand.swift */,
+				3AAC6EC420B5C88F00388922 /* SearchCommand.swift */,
 				OBJ_21 /* StageCommand.swift */,
 				OBJ_22 /* StagedCommand.swift */,
 				OBJ_23 /* StartProjectCommand.swift */,
@@ -858,6 +864,7 @@
 				OBJ_37 /* LogoutCommandSpec.swift */,
 				OBJ_38 /* ProjectsCommandSpec.swift */,
 				OBJ_39 /* PurgeCommandSpec.swift */,
+				3AAC6EC220B5002400388922 /* SearchCommandSpec.swift */,
 				OBJ_40 /* StageCommandSpec.swift */,
 				OBJ_41 /* StartProjectCommandSpec.swift */,
 				OBJ_42 /* UnstageCommandSpec.swift */,
@@ -1481,9 +1488,11 @@
 				OBJ_227 /* LogCommandSpec.swift in Sources */,
 				OBJ_228 /* LoginCommandSpec.swift in Sources */,
 				OBJ_229 /* LogoutCommandSpec.swift in Sources */,
+				3AAC6EC320B5002400388922 /* SearchCommandSpec.swift in Sources */,
 				OBJ_230 /* ProjectsCommandSpec.swift in Sources */,
 				OBJ_231 /* PurgeCommandSpec.swift in Sources */,
 				OBJ_232 /* StageCommandSpec.swift in Sources */,
+				3AAC6EC520B5C88F00388922 /* SearchCommand.swift in Sources */,
 				OBJ_233 /* StartProjectCommandSpec.swift in Sources */,
 				OBJ_234 /* UnstageCommandSpec.swift in Sources */,
 			);
@@ -1590,6 +1599,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_351 /* main.swift in Sources */,
+				3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
