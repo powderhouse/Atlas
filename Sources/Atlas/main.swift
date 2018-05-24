@@ -5,6 +5,7 @@ import AtlasCommands
 let cli = CLI(name: "Atlas", version: "0.0.1", description: "Powderhouse Studios Atlas")
 
 let atlasCore: AtlasCore = AtlasCore()
+_ = atlasCore.initSearch()
 
 cli.commands = [
     CommitCommand(atlasCore),

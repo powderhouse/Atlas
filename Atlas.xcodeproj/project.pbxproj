@@ -1342,6 +1342,15 @@
 					"AtlasCore::AtlasCore" = {
 						DevelopmentTeam = 4B7L43K59M;
 					};
+					"Nimble::Nimble" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"Quick::Quick" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"Quick::QuickSpecBase" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
 				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Atlas" */;
@@ -2147,6 +2156,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2170,6 +2181,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2215,6 +2228,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2242,6 +2257,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2269,7 +2286,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2295,7 +2314,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
