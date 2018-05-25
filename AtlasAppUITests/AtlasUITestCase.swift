@@ -106,6 +106,18 @@ class AtlasUITestCase: XCTestCase {
         
         terminal.typeText("rm /tmp/\(filename)\n")
     }
-
+    
+    func commit(_ app: XCUIApplication, projectName: String, commitMessage: String) {
+        let projectStaged = app.groups["\(projectName)-staged"]
+        projectStaged.buttons["Commit"].click()
+        
+        let commitDialog = projectStaged.popovers.firstMatch
+        let commitMessageArea = commitDialog.textFields["Why are you submitting these files?"]
+        commitMessageArea.click()
+        commitMessageArea.typeText(commitMessage)
+        commitDialog.buttons["Commit"].click()
+        
+        waitForTerminalToContain("Files successfully committed.")
+    }
 }
 

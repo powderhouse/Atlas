@@ -15,6 +15,8 @@ class LogController: NSViewController {
     @IBOutlet weak var logView: NSCollectionView!
     var activityLog: ActivityLog!
     
+    @IBOutlet var searchText: NSTextField!
+    
     @IBOutlet var terminalView: NSTextView!
     var terminal: Terminal!
     
@@ -48,6 +50,26 @@ class LogController: NSViewController {
                 panels.splitView.setPosition(newPosition, ofDividerAt: 0)
             }
         }
+    }
+    
+    @IBAction func performSearch(_ sender: NSButton) {
+        var slugs: [String]?=nil
+        if searchText.stringValue.count > 0 {
+            let searchResults = atlasCore.search.search(searchText.stringValue)
+            
+            if searchResults.count > 0 {
+                slugs = []
+                for result in searchResults {
+                    if let slug = result.deletingLastPathComponent?.lastPathComponent {
+                        if !slugs!.contains(slug) {
+                            slugs!.append(slug)
+                        }
+                    }
+                }
+            }
+        }
+        activityLog.commitSlugFilter = slugs
+        activityLog.refresh()
     }
     
     func initNotifications() {

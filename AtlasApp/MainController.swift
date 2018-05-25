@@ -123,6 +123,10 @@ class MainController: NSViewController {
             Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
             
+            if !atlasCore.initSearch() {
+                Terminal.log("Failed to initialize search.")
+            }
+            
             if atlasCore.projects().count == 0 {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "project-added"),

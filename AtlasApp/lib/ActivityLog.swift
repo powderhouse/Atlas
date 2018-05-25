@@ -24,6 +24,8 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         }
     }
     
+    var commitSlugFilter: [String]? = nil
+    
     init(_ view: NSCollectionView, atlasCore: AtlasCore) {
         super.init()
         
@@ -46,7 +48,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        commits = atlasCore.log(projectName: selectedProject)
+        commits = atlasCore.log(projectName: selectedProject, commitSlugFilter: commitSlugFilter)
         setFrameSize()
         return commits.count
     }

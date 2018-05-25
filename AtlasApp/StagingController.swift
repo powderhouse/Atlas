@@ -193,6 +193,16 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         }
     }
     
+    @IBAction func clickStatus(_ sender: NSClickGestureRecognizer) {
+        showStatus()
+
+        let helpManager = NSHelpManager.shared
+        helpManager.setContextHelp(NSAttributedString(string: status.toolTip ?? ""), for: status)
+        helpManager.showContextHelp(for: status, locationHint: NSEvent.mouseLocation)
+        helpManager.removeContextHelp(for: status)
+    }
+    
+    
     func showStatus() {
         statusTimer?.invalidate()
         
