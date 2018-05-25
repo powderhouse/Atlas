@@ -8,7 +8,7 @@
 import Cocoa
 import AtlasCore
 
-class LogController: NSViewController {
+class LogController: NSViewController, NSTextFieldDelegate {
     
     var atlasCore: AtlasCore!
     
@@ -16,6 +16,7 @@ class LogController: NSViewController {
     var activityLog: ActivityLog!
     
     @IBOutlet var searchText: NSTextField!
+    @IBOutlet var searchButton: NSButton!
     
     @IBOutlet var terminalView: NSTextView!
     var terminal: Terminal!
@@ -33,6 +34,8 @@ class LogController: NSViewController {
         // Do any additional setup after loading the view.
         
         activityLog = ActivityLog(logView, atlasCore: atlasCore)
+        
+        searchText.delegate = self
         
         initNotifications()
     }
@@ -70,6 +73,12 @@ class LogController: NSViewController {
         }
         activityLog.commitSlugFilter = slugs
         activityLog.refresh()
+    }
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        if ((obj.userInfo?["NSTextMovement"] as? Int) ?? 0) == Int(NSReturnTextMovement) {
+            performSearch(searchButton)
+        }
     }
     
     func initNotifications() {
