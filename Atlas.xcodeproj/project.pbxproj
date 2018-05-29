@@ -55,6 +55,7 @@
 		3AAC6EC520B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED320B859A600388922 /* SearchTest.swift */; };
+		3AAC6ED620BCE59700388922 /* VersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* VersionCommand.swift */; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
 		OBJ_205 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
@@ -340,7 +341,6 @@
 		3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAC6E6320B4A24C00388922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AAC6E6620B4A24C00388922 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3AAC6E6820B4A24C00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AAC6E6920B4A24C00388922 /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
 		3AAC6E6E20B4A24D00388922 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAC6E7420B4A24D00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -370,13 +370,13 @@
 		3AAC6E9B20B4A2AB00388922 /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
 		3AAC6E9F20B4A2AB00388922 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		3AAC6EA020B4A2AB00388922 /* CommitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitController.swift; sourceTree = "<group>"; };
-		3AAC6EA120B4A2AB00388922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AAC6EA220B4A2AC00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AAC6EA420B4A2AC00388922 /* StagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagingController.swift; sourceTree = "<group>"; };
 		3AAC6EA520B4A2AC00388922 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		3AAC6EC220B5002400388922 /* SearchCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommandSpec.swift; sourceTree = "<group>"; };
 		3AAC6EC420B5C88F00388922 /* SearchCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommand.swift; sourceTree = "<group>"; };
 		3AAC6ED320B859A600388922 /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
+		3AAC6ED520BCE59700388922 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,7 +629,6 @@
 				3AAC6EA420B4A2AC00388922 /* StagingController.swift */,
 				3AAC6E6320B4A24C00388922 /* Assets.xcassets */,
 				3AAC6E8B20B4A2AB00388922 /* AccountController.swift */,
-				3AAC6EA120B4A2AB00388922 /* Assets.xcassets */,
 				3AAC6E8D20B4A2AB00388922 /* AtlasApp.entitlements */,
 				3AAC6E9D20B4A2AB00388922 /* Base.lproj */,
 				3AAC6EA020B4A2AB00388922 /* CommitController.swift */,
@@ -639,7 +638,6 @@
 				3AAC6E8C20B4A2AB00388922 /* NewProjectController.swift */,
 				3AAC6E9B20B4A2AB00388922 /* PanelController.swift */,
 				3AAC6E6520B4A24C00388922 /* Main.storyboard */,
-				3AAC6E6820B4A24C00388922 /* Info.plist */,
 				3AAC6E6920B4A24C00388922 /* AtlasApp.entitlements */,
 			);
 			path = AtlasApp;
@@ -715,6 +713,7 @@
 				OBJ_24 /* StatusCommand.swift */,
 				OBJ_25 /* UnstageCommand.swift */,
 				OBJ_26 /* UnstagedCommand.swift */,
+				3AAC6ED520BCE59700388922 /* VersionCommand.swift */,
 			);
 			name = AtlasCommands;
 			path = Sources/AtlasCommands;
@@ -1444,6 +1443,7 @@
 				3AAC6E8720B4A25E00388922 /* LogTest.swift in Sources */,
 				3AAC6E8420B4A25E00388922 /* CommitTest.swift in Sources */,
 				3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */,
+				3AAC6ED620BCE59700388922 /* VersionCommand.swift in Sources */,
 				3AAC6E8920B4A25E00388922 /* LoginTest.swift in Sources */,
 				3AAC6E8320B4A25E00388922 /* AddProjectTest.swift in Sources */,
 				3AAC6E8620B4A25E00388922 /* AtlasUITestCase.swift in Sources */,

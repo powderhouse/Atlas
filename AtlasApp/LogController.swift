@@ -58,15 +58,14 @@ class LogController: NSViewController, NSTextFieldDelegate {
     @IBAction func performSearch(_ sender: NSButton) {
         var slugs: [String]?=nil
         if searchText.stringValue.count > 0 {
+            print("HI1: \(searchText.stringValue)")
             let searchResults = atlasCore.search.search(searchText.stringValue)
             
-            if searchResults.count > 0 {
-                slugs = []
-                for result in searchResults {
-                    if let slug = result.deletingLastPathComponent?.lastPathComponent {
-                        if !slugs!.contains(slug) {
-                            slugs!.append(slug)
-                        }
+            slugs = []
+            for result in searchResults {
+                if let slug = result.deletingLastPathComponent?.lastPathComponent {
+                    if !slugs!.contains(slug) {
+                        slugs!.append(slug)
                     }
                 }
             }
@@ -75,10 +74,11 @@ class LogController: NSViewController, NSTextFieldDelegate {
         activityLog.refresh()
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        if ((obj.userInfo?["NSTextMovement"] as? Int) ?? 0) == Int(NSReturnTextMovement) {
-            performSearch(searchButton)
-        }
+    override func controlTextDidChange(_ obj: Notification) {
+        performSearch(searchButton)
+//        if ((obj.userInfo?["NSTextMovement"] as? Int) ?? 0) == Int(NSReturnTextMovement) {
+//            performSearch(searchButton)
+//        }
     }
     
     func initNotifications() {
