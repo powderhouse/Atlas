@@ -23,6 +23,6 @@ public class AtlasVersionCommand: Command {
     }
     
     public func execute() throws  {
-        print("Atlas CLI: \(version)  --  AtlasCore: \(atlasCore.version)")
+        print("Atlas CLI: \(version)  --  AtlasCore: \(AtlasCore.version)")
     }
 }

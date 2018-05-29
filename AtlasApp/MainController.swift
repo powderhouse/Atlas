@@ -15,6 +15,8 @@ class MainController: NSViewController {
     var selectedProject: String?
     
     override func viewDidLoad() {
+        
+        
         if atlasCore == nil {
             initAtlasCore()
         }
