@@ -24,7 +24,7 @@ cli.commands = [
     StatusCommand(atlasCore),
     UnstageCommand(atlasCore),
     UnstagedCommand(atlasCore),
-    VersionCommand(atlasCore, version: cli.version ?? "N/A")
+    AtlasVersionCommand(atlasCore, version: cli.version ?? "N/A")
 ]
 
 _ = cli.go()

@@ -1,5 +1,5 @@
 //
-//  VersionCommand.swift
+//  AtlasVersionCommand.swift
 //  AtlasAppUITests
 //
 //  Created by Jared Cosulich on 5/28/18.
@@ -9,7 +9,7 @@ import Cocoa
 import SwiftCLI
 import AtlasCore
 
-public class VersionCommand: Command {
+public class AtlasVersionCommand: Command {
     
     public var atlasCore: AtlasCore
     public var version: String

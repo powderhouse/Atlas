@@ -55,7 +55,8 @@
 		3AAC6EC520B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED320B859A600388922 /* SearchTest.swift */; };
-		3AAC6ED620BCE59700388922 /* VersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* VersionCommand.swift */; };
+		3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
+		3AAC6ED720BCEE3D00388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
 		OBJ_205 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
@@ -376,7 +377,7 @@
 		3AAC6EC220B5002400388922 /* SearchCommandSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommandSpec.swift; sourceTree = "<group>"; };
 		3AAC6EC420B5C88F00388922 /* SearchCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommand.swift; sourceTree = "<group>"; };
 		3AAC6ED320B859A600388922 /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
-		3AAC6ED520BCE59700388922 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
+		3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasVersionCommand.swift; sourceTree = "<group>"; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -713,7 +714,7 @@
 				OBJ_24 /* StatusCommand.swift */,
 				OBJ_25 /* UnstageCommand.swift */,
 				OBJ_26 /* UnstagedCommand.swift */,
-				3AAC6ED520BCE59700388922 /* VersionCommand.swift */,
+				3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */,
 			);
 			name = AtlasCommands;
 			path = Sources/AtlasCommands;
@@ -1443,7 +1444,7 @@
 				3AAC6E8720B4A25E00388922 /* LogTest.swift in Sources */,
 				3AAC6E8420B4A25E00388922 /* CommitTest.swift in Sources */,
 				3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */,
-				3AAC6ED620BCE59700388922 /* VersionCommand.swift in Sources */,
+				3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */,
 				3AAC6E8920B4A25E00388922 /* LoginTest.swift in Sources */,
 				3AAC6E8320B4A25E00388922 /* AddProjectTest.swift in Sources */,
 				3AAC6E8620B4A25E00388922 /* AtlasUITestCase.swift in Sources */,
@@ -1611,6 +1612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				3AAC6ED720BCEE3D00388922 /* AtlasVersionCommand.swift in Sources */,
 				OBJ_351 /* main.swift in Sources */,
 				3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */,
 			);
