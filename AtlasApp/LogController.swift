@@ -16,7 +16,6 @@ class LogController: NSViewController, NSTextFieldDelegate {
     var activityLog: ActivityLog!
     
     @IBOutlet var searchText: NSTextField!
-    @IBOutlet var searchButton: NSButton!
     
     @IBOutlet var terminalView: NSTextView!
     var terminal: Terminal!
@@ -55,10 +54,9 @@ class LogController: NSViewController, NSTextFieldDelegate {
         }
     }
     
-    @IBAction func performSearch(_ sender: NSButton) {
+    func performSearch() {
         var slugs: [String]?=nil
         if searchText.stringValue.count > 0 {
-            print("HI1: \(searchText.stringValue)")
             let searchResults = atlasCore.search.search(searchText.stringValue)
             
             slugs = []
@@ -75,10 +73,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
     }
     
     override func controlTextDidChange(_ obj: Notification) {
-        performSearch(searchButton)
-//        if ((obj.userInfo?["NSTextMovement"] as? Int) ?? 0) == Int(NSReturnTextMovement) {
-//            performSearch(searchButton)
-//        }
+        performSearch()
     }
     
     func initNotifications() {

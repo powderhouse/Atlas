@@ -1042,45 +1042,32 @@
                                 </connections>
                             </button>
                             <textField identifier="search_text" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j0N-fS-KLn">
-                                <rect key="frame" x="139" y="273" width="225" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Uhu-oy-1jh">
+                                <rect key="frame" x="175" y="273" width="270" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Search" drawsBackground="YES" id="Uhu-oy-1jh">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button identifier="search" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tdz-2w-mod">
-                                <rect key="frame" x="363" y="267" width="83" height="32"/>
-                                <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="51h-L9-5to">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="performSearch:" target="Nna-Al-Euo" id="Elw-IT-Wv9"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="KS0-ia-N3f" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" id="9Q0-EH-6a4"/>
-                            <constraint firstAttribute="trailing" secondItem="Tdz-2w-mod" secondAttribute="trailing" constant="10" id="Kty-GF-wVB"/>
                             <constraint firstAttribute="bottom" secondItem="gKO-V2-0gc" secondAttribute="bottom" id="Ns1-1I-cMH"/>
-                            <constraint firstItem="j0N-fS-KLn" firstAttribute="width" secondItem="ouU-2W-nVT" secondAttribute="width" multiplier="0.5" id="Py6-0V-tqv"/>
+                            <constraint firstItem="j0N-fS-KLn" firstAttribute="width" secondItem="ouU-2W-nVT" secondAttribute="width" multiplier="0.6" id="Py6-0V-tqv"/>
                             <constraint firstItem="mgq-RN-0tT" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="5" id="Srt-lT-BLQ"/>
                             <constraint firstAttribute="trailing" secondItem="KS0-ia-N3f" secondAttribute="trailing" id="UHl-hU-ffE"/>
+                            <constraint firstAttribute="trailing" secondItem="j0N-fS-KLn" secondAttribute="trailing" constant="5" id="Wp4-Fn-e7D"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" id="iOm-rU-Mp2"/>
                             <constraint firstItem="KS0-ia-N3f" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="30" id="m81-vA-aE8"/>
-                            <constraint firstItem="Tdz-2w-mod" firstAttribute="leading" secondItem="j0N-fS-KLn" secondAttribute="trailing" constant="5" id="nHe-w4-vML"/>
                             <constraint firstAttribute="trailing" secondItem="gKO-V2-0gc" secondAttribute="trailing" id="oHV-dX-21R"/>
                             <constraint firstItem="mgq-RN-0tT" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" constant="3" id="oml-Be-AnQ"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="top" secondItem="KS0-ia-N3f" secondAttribute="bottom" id="tx1-LA-mRP"/>
                             <constraint firstItem="j0N-fS-KLn" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="5" id="v86-jE-vmn"/>
-                            <constraint firstItem="Tdz-2w-mod" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="5" id="yHD-Ad-VoZ"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="height" secondItem="ouU-2W-nVT" secondAttribute="height" multiplier="0.3" id="zFL-RS-g8T"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="logView" destination="tdI-tY-huH" id="Xs2-r5-ga8"/>
-                        <outlet property="searchButton" destination="Tdz-2w-mod" id="u54-AE-AKk"/>
                         <outlet property="searchText" destination="j0N-fS-KLn" id="8Kj-Ya-OJa"/>
                         <outlet property="terminalView" destination="gHe-ED-165" id="Ug6-QO-crs"/>
                     </connections>

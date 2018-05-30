@@ -25,10 +25,8 @@ class SearchTest: AtlasUITestCase {
         commit(app, projectName: projectName, commitMessage: commitMessage2)
         
         let searchText = app.textFields["search_text"].firstMatch
-        let searchButton = app.buttons["search"].firstMatch
         searchText.click()
         searchText.typeText("another")
-        searchButton.click()
         
         let log = app.collectionViews["LogView"]
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
