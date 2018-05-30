@@ -1049,10 +1049,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-J4-9et" userLabel="NoSearch">
+                                <rect key="frame" x="48" y="163" width="354" height="85"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="6Ps-oQ-ybc">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">No Search Results
+
+Note: search only works for full words.  So "a" will not match "atlas app", but "atlas" or "app" will.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="KS0-ia-N3f" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" id="9Q0-EH-6a4"/>
                             <constraint firstAttribute="bottom" secondItem="gKO-V2-0gc" secondAttribute="bottom" id="Ns1-1I-cMH"/>
+                            <constraint firstItem="rlN-J4-9et" firstAttribute="centerX" secondItem="ouU-2W-nVT" secondAttribute="centerX" id="PjB-uE-kBd"/>
                             <constraint firstItem="j0N-fS-KLn" firstAttribute="width" secondItem="ouU-2W-nVT" secondAttribute="width" multiplier="0.6" id="Py6-0V-tqv"/>
                             <constraint firstItem="mgq-RN-0tT" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="5" id="Srt-lT-BLQ"/>
                             <constraint firstAttribute="trailing" secondItem="KS0-ia-N3f" secondAttribute="trailing" id="UHl-hU-ffE"/>
@@ -1061,6 +1073,7 @@
                             <constraint firstItem="KS0-ia-N3f" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="30" id="m81-vA-aE8"/>
                             <constraint firstAttribute="trailing" secondItem="gKO-V2-0gc" secondAttribute="trailing" id="oHV-dX-21R"/>
                             <constraint firstItem="mgq-RN-0tT" firstAttribute="leading" secondItem="ouU-2W-nVT" secondAttribute="leading" constant="3" id="oml-Be-AnQ"/>
+                            <constraint firstItem="rlN-J4-9et" firstAttribute="top" secondItem="j0N-fS-KLn" secondAttribute="bottom" constant="25" id="pbI-oI-FVg"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="top" secondItem="KS0-ia-N3f" secondAttribute="bottom" id="tx1-LA-mRP"/>
                             <constraint firstItem="j0N-fS-KLn" firstAttribute="top" secondItem="ouU-2W-nVT" secondAttribute="top" constant="5" id="v86-jE-vmn"/>
                             <constraint firstItem="gKO-V2-0gc" firstAttribute="height" secondItem="ouU-2W-nVT" secondAttribute="height" multiplier="0.3" id="zFL-RS-g8T"/>
@@ -1068,6 +1081,7 @@
                     </view>
                     <connections>
                         <outlet property="logView" destination="tdI-tY-huH" id="Xs2-r5-ga8"/>
+                        <outlet property="noSearch" destination="rlN-J4-9et" id="d8L-bS-md7"/>
                         <outlet property="searchText" destination="j0N-fS-KLn" id="8Kj-Ya-OJa"/>
                         <outlet property="terminalView" destination="gHe-ED-165" id="Ug6-QO-crs"/>
                     </connections>

@@ -16,6 +16,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
     var activityLog: ActivityLog!
     
     @IBOutlet var searchText: NSTextField!
+    @IBOutlet var noSearch: NSTextField!
     
     @IBOutlet var terminalView: NSTextView!
     var terminal: Terminal!
@@ -70,6 +71,8 @@ class LogController: NSViewController, NSTextFieldDelegate {
         }
         activityLog.commitSlugFilter = slugs
         activityLog.refresh()
+        
+        noSearch.isHidden = (slugs == nil || slugs!.count > 0)
     }
     
     override func controlTextDidChange(_ obj: Notification) {

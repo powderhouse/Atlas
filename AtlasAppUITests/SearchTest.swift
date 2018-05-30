@@ -36,9 +36,8 @@ class SearchTest: AtlasUITestCase {
 
         XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still see \(commitMessage2)")
         XCTAssertFalse(log.links[filename].exists, "Still see \(filename2) link")
+        
     }
-    
-    
     
 }
 
