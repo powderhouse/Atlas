@@ -343,7 +343,6 @@
 		3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAC6E6320B4A24C00388922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AAC6E6620B4A24C00388922 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3AAC6E6920B4A24C00388922 /* AtlasApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtlasApp.entitlements; sourceTree = "<group>"; };
 		3AAC6E6E20B4A24D00388922 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAC6E7420B4A24D00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AAC6E7B20B4A25D00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -628,21 +627,20 @@
 			isa = PBXGroup;
 			children = (
 				3AAC6E8E20B4A2AB00388922 /* lib */,
-				3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */,
-				3AAC6EA420B4A2AC00388922 /* StagingController.swift */,
+				3AAC6E6520B4A24C00388922 /* Main.storyboard */,
 				3AAC6E6320B4A24C00388922 /* Assets.xcassets */,
-				3AAC6E8B20B4A2AB00388922 /* AccountController.swift */,
 				3AAC6E8D20B4A2AB00388922 /* AtlasApp.entitlements */,
-				3AAC6E9D20B4A2AB00388922 /* Base.lproj */,
-				3AAC6EA020B4A2AB00388922 /* CommitController.swift */,
 				3AAC6EA220B4A2AC00388922 /* Info.plist */,
+				3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */,
+				3AAC6E8B20B4A2AB00388922 /* AccountController.swift */,
+				3AAC6EA020B4A2AB00388922 /* CommitController.swift */,
 				3AAC6E8A20B4A2AB00388922 /* LogController.swift */,
 				3AAC6EA520B4A2AC00388922 /* MainController.swift */,
 				3AAC6E8C20B4A2AB00388922 /* NewProjectController.swift */,
 				3AAC6E9B20B4A2AB00388922 /* PanelController.swift */,
-				3AAC6E6520B4A24C00388922 /* Main.storyboard */,
-				3AAC6E6920B4A24C00388922 /* AtlasApp.entitlements */,
+				3AAC6EA420B4A2AC00388922 /* StagingController.swift */,
 				3AAC6ED820BD9B0200388922 /* WindowController.swift */,
+				3AAC6E9D20B4A2AB00388922 /* Base.lproj */,
 			);
 			path = AtlasApp;
 			sourceTree = "<group>";
@@ -666,18 +664,18 @@
 		3AAC6E8E20B4A2AB00388922 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				3AAC6E8F20B4A2AB00388922 /* CommitViewItem.swift */,
-				3AAC6E9020B4A2AB00388922 /* ProjectViewItem.swift */,
-				3AAC6E9120B4A2AB00388922 /* AtlasNotificationCenter.swift */,
-				3AAC6E9220B4A2AB00388922 /* CommitViewItem.xib */,
-				3AAC6E9320B4A2AB00388922 /* ProjectButton.xib */,
-				3AAC6E9420B4A2AB00388922 /* Terminal.swift */,
-				3AAC6E9520B4A2AB00388922 /* StagedFileViewItem.swift */,
-				3AAC6E9620B4A2AB00388922 /* StagedFileViewItem.xib */,
 				3AAC6E9720B4A2AB00388922 /* ActivityLog.swift */,
+				3AAC6E9120B4A2AB00388922 /* AtlasNotificationCenter.swift */,
+				3AAC6E8F20B4A2AB00388922 /* CommitViewItem.swift */,
+				3AAC6E9220B4A2AB00388922 /* CommitViewItem.xib */,
 				3AAC6E9820B4A2AB00388922 /* DropView.swift */,
 				3AAC6E9920B4A2AB00388922 /* ProjectButton.swift */,
+				3AAC6E9320B4A2AB00388922 /* ProjectButton.xib */,
+				3AAC6E9020B4A2AB00388922 /* ProjectViewItem.swift */,
 				3AAC6E9A20B4A2AB00388922 /* ProjectViewItem.xib */,
+				3AAC6E9520B4A2AB00388922 /* StagedFileViewItem.swift */,
+				3AAC6E9620B4A2AB00388922 /* StagedFileViewItem.xib */,
+				3AAC6E9420B4A2AB00388922 /* Terminal.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
