@@ -70,7 +70,7 @@ class SearchTest: AtlasUITestCase {
         XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
 
         XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still see \(commitMessage)")
-        XCTAssertFalse(log.links[filename].exists, "Still see \(filename) link")`
+        XCTAssertFalse(log.links[filename].exists, "Still see \(filename) link")
     }
     
 }

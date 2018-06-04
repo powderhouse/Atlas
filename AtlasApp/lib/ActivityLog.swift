@@ -25,7 +25,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     var searchTerms: [String] = []
-    var commitSlugFilter: [String]? = nil
+    var searchResults: [NSURL]? = nil
     
     init(_ view: NSCollectionView, atlasCore: AtlasCore) {
         super.init()
@@ -47,9 +47,23 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
         return 1
     }
+    
+    func commitSlugFilter() -> [String]? {
+        guard searchResults != nil else { return nil }
+        
+        var slugs: [String] = []
+        for result in searchResults! {
+            if let slug = result.deletingLastPathComponent?.lastPathComponent {
+                if !slugs.contains(slug) {
+                    slugs.append(slug)
+                }
+            }
+        }
+        return slugs
+    }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        commits = atlasCore.log(projectName: selectedProject, commitSlugFilter: commitSlugFilter)
+        commits = atlasCore.log(projectName: selectedProject, commitSlugFilter: commitSlugFilter())
         setFrameSize()
         return commits.count
     }
@@ -94,6 +108,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         }
         
         commitViewItem.highlight(self.searchTerms)
+//        commitViewItem.highlightFiles(self.searchResults)
         
         return commitViewItem
     }

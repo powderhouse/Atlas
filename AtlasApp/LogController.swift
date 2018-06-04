@@ -57,18 +57,10 @@ class LogController: NSViewController, NSTextFieldDelegate {
     
     func performSearch() {
         let searchString = searchText.stringValue
-        var slugs: [String]?=nil
+        var searchResults: [NSURL]? = []
         if searchString.count > 0 {
-            let searchResults = atlasCore.search.search(searchString)
-            
-            slugs = []
-            for result in searchResults {
-                if let slug = result.deletingLastPathComponent?.lastPathComponent {
-                    if !slugs!.contains(slug) {
-                        slugs!.append(slug)
-                    }
-                }
-            }
+            searchResults = atlasCore.search.search(searchString)
+            activityLog.searchResults = searchResults
         }
 
         var terms: [String] = []
@@ -85,10 +77,9 @@ class LogController: NSViewController, NSTextFieldDelegate {
         }
         
         activityLog.searchTerms = terms
-        activityLog.commitSlugFilter = slugs
         activityLog.refresh()
         
-        noSearch.isHidden = (slugs == nil || slugs!.count > 0)
+        noSearch.isHidden = (searchResults == nil || searchResults!.count > 0)
     }
     
     override func controlTextDidChange(_ obj: Notification) {
