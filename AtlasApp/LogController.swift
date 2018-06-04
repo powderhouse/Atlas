@@ -56,9 +56,10 @@ class LogController: NSViewController, NSTextFieldDelegate {
     }
     
     func performSearch() {
+        let searchString = searchText.stringValue
         var slugs: [String]?=nil
-        if searchText.stringValue.count > 0 {
-            let searchResults = atlasCore.search.search(searchText.stringValue)
+        if searchString.count > 0 {
+            let searchResults = atlasCore.search.search(searchString)
             
             slugs = []
             for result in searchResults {
@@ -69,6 +70,21 @@ class LogController: NSViewController, NSTextFieldDelegate {
                 }
             }
         }
+
+        var terms: [String] = []
+        let unquotedSections = searchString.components(separatedBy: "\"")
+        for (index, section) in unquotedSections.enumerated() {
+            if index % 2 == 1 && index + 1 < unquotedSections.count {
+                terms.append(section)
+            } else if index % 2 == 1 {
+                let newSection = "\"" + section
+                terms += newSection.components(separatedBy: " ")
+            } else {
+                terms += section.components(separatedBy: " ")
+            }
+        }
+        
+        activityLog.searchTerms = terms
         activityLog.commitSlugFilter = slugs
         activityLog.refresh()
         
@@ -77,6 +93,10 @@ class LogController: NSViewController, NSTextFieldDelegate {
     
     override func controlTextDidChange(_ obj: Notification) {
         performSearch()
+    }
+    
+    @IBAction func clickSearch(_ sender: NSClickGestureRecognizer) {
+        searchText.selectText(searchText)
     }
     
     func initNotifications() {

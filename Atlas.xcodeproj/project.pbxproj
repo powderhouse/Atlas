@@ -58,6 +58,8 @@
 		3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		3AAC6ED720BCEE3D00388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		3AAC6ED920BD9B0200388922 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED820BD9B0200388922 /* WindowController.swift */; };
+		3AAC6EDA20C06E0500388922 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::Quick::Product" /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AAC6EDB20C06E0500388922 /* QuickSpecBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
 		OBJ_205 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
@@ -331,6 +333,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3AAC6EDA20C06E0500388922 /* Quick.framework in Embed Frameworks */,
+				3AAC6EDB20C06E0500388922 /* QuickSpecBase.framework in Embed Frameworks */,
 				3AAC6EB020B4A34800388922 /* AtlasCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";

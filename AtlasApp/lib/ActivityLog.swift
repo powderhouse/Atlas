@@ -24,6 +24,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         }
     }
     
+    var searchTerms: [String] = []
     var commitSlugFilter: [String]? = nil
     
     init(_ view: NSCollectionView, atlasCore: AtlasCore) {
@@ -91,6 +92,8 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
             
             filesField.isEditable = false
         }
+        
+        commitViewItem.highlight(self.searchTerms)
         
         return commitViewItem
     }
