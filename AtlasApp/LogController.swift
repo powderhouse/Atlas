@@ -57,10 +57,12 @@ class LogController: NSViewController, NSTextFieldDelegate {
     
     func performSearch() {
         let searchString = searchText.stringValue
-        var searchResults: [NSURL]? = []
+        var searchResults: [NSURL]? = nil
         if searchString.count > 0 {
             searchResults = atlasCore.search.search(searchString)
             activityLog.searchResults = searchResults
+        } else {
+            activityLog.searchResults = nil
         }
 
         var terms: [String] = []

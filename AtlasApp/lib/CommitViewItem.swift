@@ -25,21 +25,47 @@ class CommitViewItem: NSCollectionViewItem {
     }
     
     func highlight(_ terms: [String]) {
-        let attributes = [NSAttributedStringKey.backgroundColor: NSColor.yellow]
-        let attrString = NSMutableAttributedString(string: subject.stringValue)
+        let subjectText = subject.stringValue
+        let lowerSubjectText = subjectText.lowercased()
+        
+        let filesText = files.textStorage!.string
+        let lowerFilesText = filesText.lowercased()
+        
+        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.backgroundColor: NSColor.yellow]
 
-        let text = subject.stringValue
-        let lowerText = text.lowercased()
+        let attrSubject = NSMutableAttributedString(string: subjectText)
+        
         for term in terms {
             let lowerTerm = term.lowercased()
-            var r = Range(text.startIndex..<text.endIndex)
-            while let range = lowerText.range(of: lowerTerm, range: r) {
-                attrString.setAttributes(attributes, range: NSRange(range, in: text))
-                r = Range(range.upperBound..<text.endIndex)
+            
+            var r = Range(subjectText.startIndex..<subjectText.endIndex)
+            while let range = lowerSubjectText.range(of: lowerTerm, range: r) {
+                attrSubject.setAttributes(attributes, range: NSRange(range, in: subjectText))
+                r = Range(range.upperBound..<subjectText.endIndex)
+            }
+
+            var r2 = Range(filesText.startIndex..<filesText.endIndex)
+            while let range = lowerFilesText.range(of: lowerTerm, range: r2) {
+                let nsRange = NSRange(range, in: filesText)
+                files.textStorage?.addAttributes(attributes, range: nsRange)
+                r2 = Range(range.upperBound..<filesText.endIndex)
             }
         }
         
-        subject.attributedStringValue = attrString
+        subject.attributedStringValue = attrSubject
+    }
+    
+    func highlightFiles(_ fileNames: [String]) {
+        let filesText = files.textStorage!.string
+        let attributes = [NSAttributedStringKey.backgroundColor: NSColor.green]
+        
+        for fileName in fileNames {
+            var r = Range(filesText.startIndex..<filesText.endIndex)
+            while let range = filesText.range(of: fileName, range: r) {
+                files.textStorage?.addAttributes(attributes, range: NSRange(range, in: filesText))
+                r = Range(range.upperBound..<filesText.endIndex)
+            }
+        }
     }
     
 }
