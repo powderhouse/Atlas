@@ -1092,6 +1092,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAC6E7520B4A24D00388922 /* Build configuration list for PBXNativeTarget "AtlasApp" */;
 			buildPhases = (
+				3A3C959A20C817E0001BA526 /* ShellScript */,
 				3AAC6E5920B4A24C00388922 /* Sources */,
 				3AAC6E5A20B4A24C00388922 /* Frameworks */,
 				3AAC6E5B20B4A24C00388922 /* Resources */,
@@ -1425,6 +1426,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A3C959A20C817E0001BA526 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "swift build -Xswiftc \"-target\" -Xswiftc \"x86_64-apple-macosx10.13\" --chdir \"$SRCROOT\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3AAC6E5920B4A24C00388922 /* Sources */ = {
