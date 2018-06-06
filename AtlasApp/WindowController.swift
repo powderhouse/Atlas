@@ -10,7 +10,7 @@ import AtlasCore
 
 class WindowController: NSWindowController {
     
-    let version = "0.1.7"
+    let version = "0.1.8"
     
     @IBOutlet var atlasWindow: NSWindow!
     

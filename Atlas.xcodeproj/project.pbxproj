@@ -60,6 +60,7 @@
 		3AAC6ED920BD9B0200388922 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED820BD9B0200388922 /* WindowController.swift */; };
 		3AAC6EDA20C06E0500388922 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::Quick::Product" /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AAC6EDB20C06E0500388922 /* QuickSpecBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AFC5E7520C7194B00C37B2B /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Nimble::Nimble::Product" /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
 		OBJ_205 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
@@ -324,6 +325,13 @@
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
+		3AFC5E7620C7194B00C37B2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Nimble::Nimble";
+			remoteInfo = Nimble;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -336,6 +344,7 @@
 				3AAC6EDA20C06E0500388922 /* Quick.framework in Embed Frameworks */,
 				3AAC6EDB20C06E0500388922 /* QuickSpecBase.framework in Embed Frameworks */,
 				3AAC6EB020B4A34800388922 /* AtlasCore.framework in Embed Frameworks */,
+				3AFC5E7520C7194B00C37B2B /* Nimble.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -919,7 +928,7 @@
 			path = ".build/checkouts/AtlasCore.git-6262522149726209995/Sources/AtlasCore";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -932,7 +941,6 @@
 				OBJ_179 /* Products */,
 				3AAC6EB420B4A46E00388922 /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_59 /* Quick 1.3.0 */ = {
@@ -1093,6 +1101,7 @@
 			);
 			dependencies = (
 				3AAC6EB220B4A34800388922 /* PBXTargetDependency */,
+				3AFC5E7720C7194B00C37B2B /* PBXTargetDependency */,
 			);
 			name = AtlasApp;
 			productName = AtlasApp;
@@ -1369,7 +1378,7 @@
 				en,
 				Base,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_179 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1708,6 +1717,11 @@
 			isa = PBXTargetDependency;
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
 			targetProxy = 3AAC6EB120B4A34800388922 /* PBXContainerItemProxy */;
+		};
+		3AFC5E7720C7194B00C37B2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Nimble::Nimble" /* Nimble */;
+			targetProxy = 3AFC5E7620C7194B00C37B2B /* PBXContainerItemProxy */;
 		};
 		OBJ_242 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
