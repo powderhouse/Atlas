@@ -100,12 +100,24 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
+                        <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbs-eo-wB2" userLabel="Delete">
+                            <rect key="frame" x="393" y="320" width="37" height="32"/>
+                            <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4xA-Iv-sRn">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="delete:" target="-2" id="f5E-dK-uMo"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="1bl-ti-vF9" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" id="00a-uq-qya"/>
                         <constraint firstItem="1bl-ti-vF9" firstAttribute="width" secondItem="46y-ZN-GYi" secondAttribute="width" id="4aI-lj-yrE"/>
                         <constraint firstItem="hWM-6w-aJM" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="6P3-u8-nOM"/>
                         <constraint firstItem="UjS-H1-JOy" firstAttribute="top" secondItem="hWM-6w-aJM" secondAttribute="bottom" constant="12" id="Aeh-Ua-zns"/>
+                        <constraint firstItem="Qbs-eo-wB2" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" constant="5" id="Dgj-Ue-Bhn"/>
+                        <constraint firstAttribute="trailing" secondItem="Qbs-eo-wB2" secondAttribute="trailing" constant="5" id="GQr-em-8r0"/>
                         <constraint firstAttribute="bottom" secondItem="UjS-H1-JOy" secondAttribute="bottom" id="KyQ-wu-x5m"/>
                         <constraint firstItem="1bl-ti-vF9" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="TI9-gy-x7o"/>
                         <constraint firstItem="APv-lO-Rut" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" id="cu2-R6-cSH"/>

@@ -7,7 +7,7 @@
 
 import XCTest
 
-class AddProjectTest: AtlasUITestCase {
+class ProjectTest: AtlasUITestCase {
     
     func testAddProject() {
         login(app)
@@ -41,8 +41,30 @@ class AddProjectTest: AtlasUITestCase {
         XCTAssert(app.collectionViews.buttons[projectName].exists)
 
         app.buttons[">"].click()
-
+        
         XCTAssert(app.groups["\(projectName)-staged"].staticTexts[projectName].exists)
+    }
+    
+    func testDeleteProject() {
+        login(app)
+        
+        let projectName = "General"
+        let filename = "indexfile.html"
+        let commitMessage = "A commit message"
+        stage(app, projectName: projectName, filename: filename)
+        
+        commit(app, projectName: projectName, commitMessage: commitMessage)
+        
+        let log = app.collectionViews["LogView"]
+        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+
+        let projectStagingArea = app.groups["\(projectName)-staged"]
+        projectStagingArea.buttons["x"].click()
+        app.buttons["Yes, Delete"].firstMatch.click()
+
+        waitForElementToDisappear(projectStagingArea)
+        XCTAssertFalse(projectStagingArea.exists, "Can still find project staging area")
+        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Can still find commit message")
     }
     
 }

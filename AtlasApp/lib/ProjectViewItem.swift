@@ -210,6 +210,28 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         }
     }
     
+    @IBAction func delete(_ sender: NSButton) {
+        let a = NSAlert()
+        a.messageText = "Delete this project?"
+        a.informativeText = "Are you sure you would like to delete the project?"
+        a.addButton(withTitle: "Yes, Delete")
+        a.addButton(withTitle: "Cancel")
+        
+        a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                if let projectName = self.dropView.project?.name {
+                    NotificationCenter.default.post(
+                        name: NSNotification.Name(rawValue: "delete-project"),
+                        object: nil,
+                        userInfo: ["projectName": projectName]
+                    )
+                } else {
+                    Terminal.log("Unable to delete project.")
+                }
+            }
+        })
+    }
+    
     func checkCommitButton() {
         Timer.scheduledTimer(
             withTimeInterval: 0.2,

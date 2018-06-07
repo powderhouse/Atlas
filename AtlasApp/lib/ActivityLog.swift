@@ -115,14 +115,19 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     func initObservers() {
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-committed"),
-            object: nil,
-            queue: nil
-        ) {
-            (notification) in
-            self.refresh()
-        }
+        
+        for notification in [
+            "staged-file-committed",
+            "project-deleted"] {
+                NotificationCenter.default.addObserver(
+                    forName: NSNotification.Name(rawValue: notification),
+                    object: nil,
+                    queue: nil
+                ) {
+                    (notification) in
+                    self.refresh()
+                }
+        }        
     }
     
     func configure() {

@@ -57,6 +57,25 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         Terminal.log("Added project: \(projectName)")
     }
     
+    func deleteProject(_ projectName: String) {
+        if let projectDirectoryPath = atlasCore.project(projectName)?.directory().path {
+            if self.atlasCore.purge([projectDirectoryPath]) {
+                _ = atlasCore.atlasCommit()
+                projectListView.reloadData()
+                
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(rawValue: "project-deleted"),
+                    object: nil
+                )
+                
+                Terminal.log("Deleted project: \(projectName)")
+            }
+        } else {
+            Terminal.log("Unable to delete \(projectName). Project not found.")
+        }
+
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         let projects = atlasCore.projects()
         return projects.count
@@ -120,6 +139,19 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         }
         
         NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "delete-project"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            if let projectName = notification.userInfo?["projectName"] as? String {
+                self.deleteProject(projectName)
+            } else {
+                Terminal.log("Unable to delete project. Project name not valid.")
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "filter-project"),
             object: nil,
             queue: nil
@@ -132,6 +164,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
 
         for notification in [
             "project-added",
+            "project-deleted",
             "remove-staged-file",
             "staged-file-updated",
             "staged-file-committed"] {

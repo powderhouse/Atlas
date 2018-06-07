@@ -24,7 +24,7 @@
 		3AAC6E6020B4A24C00388922 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */; };
 		3AAC6E6420B4A24C00388922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAC6E6320B4A24C00388922 /* Assets.xcassets */; };
 		3AAC6E6720B4A24C00388922 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAC6E6520B4A24C00388922 /* Main.storyboard */; };
-		3AAC6E8320B4A25E00388922 /* AddProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E7C20B4A25D00388922 /* AddProjectTest.swift */; };
+		3AAC6E8320B4A25E00388922 /* ProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E7C20B4A25D00388922 /* ProjectTest.swift */; };
 		3AAC6E8420B4A25E00388922 /* CommitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E7D20B4A25D00388922 /* CommitTest.swift */; };
 		3AAC6E8620B4A25E00388922 /* AtlasUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E7F20B4A25D00388922 /* AtlasUITestCase.swift */; };
 		3AAC6E8720B4A25E00388922 /* LogTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E8020B4A25D00388922 /* LogTest.swift */; };
@@ -58,9 +58,6 @@
 		3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		3AAC6ED720BCEE3D00388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		3AAC6ED920BD9B0200388922 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED820BD9B0200388922 /* WindowController.swift */; };
-		3AAC6EDA20C06E0500388922 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::Quick::Product" /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3AAC6EDB20C06E0500388922 /* QuickSpecBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3AFC5E7520C7194B00C37B2B /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Nimble::Nimble::Product" /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
 		OBJ_205 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
@@ -325,13 +322,6 @@
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
-		3AFC5E7620C7194B00C37B2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Nimble::Nimble";
-			remoteInfo = Nimble;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -341,10 +331,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3AAC6EDA20C06E0500388922 /* Quick.framework in Embed Frameworks */,
-				3AAC6EDB20C06E0500388922 /* QuickSpecBase.framework in Embed Frameworks */,
 				3AAC6EB020B4A34800388922 /* AtlasCore.framework in Embed Frameworks */,
-				3AFC5E7520C7194B00C37B2B /* Nimble.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +346,7 @@
 		3AAC6E6E20B4A24D00388922 /* AtlasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAC6E7420B4A24D00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AAC6E7B20B4A25D00388922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AAC6E7C20B4A25D00388922 /* AddProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTest.swift; sourceTree = "<group>"; };
+		3AAC6E7C20B4A25D00388922 /* ProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTest.swift; sourceTree = "<group>"; };
 		3AAC6E7D20B4A25D00388922 /* CommitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTest.swift; sourceTree = "<group>"; };
 		3AAC6E7F20B4A25D00388922 /* AtlasUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasUITestCase.swift; sourceTree = "<group>"; };
 		3AAC6E8020B4A25D00388922 /* LogTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTest.swift; sourceTree = "<group>"; };
@@ -661,7 +648,7 @@
 		3AAC6E7120B4A24D00388922 /* AtlasAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3AAC6E7C20B4A25D00388922 /* AddProjectTest.swift */,
+				3AAC6E7C20B4A25D00388922 /* ProjectTest.swift */,
 				3AAC6E7F20B4A25D00388922 /* AtlasUITestCase.swift */,
 				3AAC6E7D20B4A25D00388922 /* CommitTest.swift */,
 				3AAC6E7B20B4A25D00388922 /* Info.plist */,
@@ -1102,7 +1089,6 @@
 			);
 			dependencies = (
 				3AAC6EB220B4A34800388922 /* PBXTargetDependency */,
-				3AFC5E7720C7194B00C37B2B /* PBXTargetDependency */,
 			);
 			name = AtlasApp;
 			productName = AtlasApp;
@@ -1478,7 +1464,7 @@
 				3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */,
 				3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */,
 				3AAC6E8920B4A25E00388922 /* LoginTest.swift in Sources */,
-				3AAC6E8320B4A25E00388922 /* AddProjectTest.swift in Sources */,
+				3AAC6E8320B4A25E00388922 /* ProjectTest.swift in Sources */,
 				3AAC6E8620B4A25E00388922 /* AtlasUITestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1734,11 +1720,6 @@
 			isa = PBXTargetDependency;
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
 			targetProxy = 3AAC6EB120B4A34800388922 /* PBXContainerItemProxy */;
-		};
-		3AFC5E7720C7194B00C37B2B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Nimble::Nimble" /* Nimble */;
-			targetProxy = 3AFC5E7620C7194B00C37B2B /* PBXContainerItemProxy */;
 		};
 		OBJ_242 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

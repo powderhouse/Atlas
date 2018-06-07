@@ -47,7 +47,15 @@ class AtlasUITestCase: XCTestCase {
         let result = XCTWaiter().wait(for: [expectation], timeout: 5)
         return result == .completed
     }
-    
+
+    func waitForElementToDisappear(_ element: XCUIElement) -> Bool {
+        let predicate = NSPredicate(format: "exists == false")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
+        
+        let result = XCTWaiter().wait(for: [expectation], timeout: 5)
+        return result == .completed
+    }
+
     func assertTerminalContains(_ text: String) {
         let terminal = app.textViews["TerminalView"]
         let terminalText = terminal.value as? String ?? ""
