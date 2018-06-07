@@ -1425,7 +1425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swift build -Xswiftc \"-target\" -Xswiftc \"x86_64-apple-macosx10.13\" --chdir \"$SRCROOT\"";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
