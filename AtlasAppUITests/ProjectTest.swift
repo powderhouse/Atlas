@@ -17,44 +17,44 @@ class ProjectTest: AtlasUITestCase {
         let projectTextField = app.popovers.textFields["Project Name"]
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
-        
+
         let newProject = app.groups["\(projectName)-staged"]
         waitForTerminalToContain("Added project: \(projectName)")
         XCTAssert(waitForElementToAppear(newProject), "Unable to find new project")
     }
-    
+
     func testFunkyProjectName() {
         login(app)
-        
+
         let projectName = "\\\"\\\"\"A Project\\\"\\\"\""
         app.buttons["+"].click()
         let projectTextField = app.popovers.textFields["Project Name"]
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
-        
+
         let newProject = app.groups["\(projectName)-staged"]
         waitForTerminalToContain("Added project: \(projectName)")
         XCTAssert(waitForElementToAppear(newProject), "Unable to find new project")
-        
+
         app.buttons["<"].click()
-        
+
         XCTAssert(app.collectionViews.buttons[projectName].exists)
 
         app.buttons[">"].click()
-        
+
         XCTAssert(app.groups["\(projectName)-staged"].staticTexts[projectName].exists)
     }
     
     func testDeleteProject() {
         login(app)
-        
+
         let projectName = "General"
         let filename = "indexfile.html"
         let commitMessage = "A commit message"
         stage(app, projectName: projectName, filename: filename)
-        
+
         commit(app, projectName: projectName, commitMessage: commitMessage)
-        
+
         let log = app.collectionViews["LogView"]
         XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
 

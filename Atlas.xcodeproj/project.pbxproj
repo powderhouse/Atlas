@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3A0271CA20C9C14400CF4A8A /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		3AAC6E6020B4A24C00388922 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6E5F20B4A24C00388922 /* AppDelegate.swift */; };
 		3AAC6E6420B4A24C00388922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAC6E6320B4A24C00388922 /* Assets.xcassets */; };
 		3AAC6E6720B4A24C00388922 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAC6E6520B4A24C00388922 /* Main.storyboard */; };
@@ -55,8 +56,6 @@
 		3AAC6EC520B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6EC420B5C88F00388922 /* SearchCommand.swift */; };
 		3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED320B859A600388922 /* SearchTest.swift */; };
-		3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
-		3AAC6ED720BCEE3D00388922 /* AtlasVersionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED520BCE59700388922 /* AtlasVersionCommand.swift */; };
 		3AAC6ED920BD9B0200388922 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC6ED820BD9B0200388922 /* WindowController.swift */; };
 		OBJ_193 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_199 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Package.swift */; };
@@ -1462,7 +1461,6 @@
 				3AAC6E8720B4A25E00388922 /* LogTest.swift in Sources */,
 				3AAC6E8420B4A25E00388922 /* CommitTest.swift in Sources */,
 				3AAC6ED420B859A600388922 /* SearchTest.swift in Sources */,
-				3AAC6ED620BCE59700388922 /* AtlasVersionCommand.swift in Sources */,
 				3AAC6E8920B4A25E00388922 /* LoginTest.swift in Sources */,
 				3AAC6E8320B4A25E00388922 /* ProjectTest.swift in Sources */,
 				3AAC6E8620B4A25E00388922 /* AtlasUITestCase.swift in Sources */,
@@ -1630,7 +1628,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				3AAC6ED720BCEE3D00388922 /* AtlasVersionCommand.swift in Sources */,
 				OBJ_351 /* main.swift in Sources */,
 				3AAC6EC620B5C88F00388922 /* SearchCommand.swift in Sources */,
 			);
@@ -1641,6 +1638,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_363 /* AtlasInput.swift in Sources */,
+				3A0271CA20C9C14400CF4A8A /* AtlasVersionCommand.swift in Sources */,
 				OBJ_364 /* CommitCommand.swift in Sources */,
 				OBJ_365 /* CommitMessageCommand.swift in Sources */,
 				OBJ_366 /* ImportCommand.swift in Sources */,
