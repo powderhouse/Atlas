@@ -214,7 +214,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         let a = NSAlert()
         a.messageText = "Delete this project?"
         a.informativeText = "Are you sure you would like to delete the project?"
-        a.addButton(withTitle: "Yes, Delete")
+        a.addButton(withTitle: "Delete")
         a.addButton(withTitle: "Cancel")
         
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
