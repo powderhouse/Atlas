@@ -29,6 +29,12 @@ let package = Package(
 
 
 
+//xcodebuild \
+//-workspace Atlas.xcodeproj/project.xcworkspace \
+//-scheme AtlasAppUITests \
+//-destination 'platform=OS X,arch=x86_64' \
+//clean test
+
 
 // GENERATE: swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
 // BUILD: swift build -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
