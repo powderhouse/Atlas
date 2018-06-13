@@ -107,7 +107,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
             filesField.isEditable = false
         }
         
-        let fileNames = self.searchResults?.flatMap({ $0.lastPathComponent })
+        let fileNames = self.searchResults?.compactMap({ $0.lastPathComponent })
         commitViewItem.highlightFiles(fileNames ?? [])
         commitViewItem.highlight(self.searchTerms)
 

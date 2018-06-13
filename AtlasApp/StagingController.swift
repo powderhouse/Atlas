@@ -249,7 +249,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 if !mostRecentEntry.contains("</ENDENTRY>") {
                     syncButton.title = "Syncing..."
                     status.backgroundColor = NSColor.yellow
-                } else if atlasStatus.contains("up-to-date") {
+                } else if atlasStatus.contains("up to date") {
                     status.backgroundColor = NSColor.green
                 } else if atlasStatus.contains("Untracked") {
                     status.backgroundColor = NSColor.yellow
