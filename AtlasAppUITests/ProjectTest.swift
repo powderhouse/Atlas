@@ -48,7 +48,14 @@ class ProjectTest: AtlasUITestCase {
     func testDeleteProject() {
         login(app)
 
-        let projectName = "General"
+        let projectName = "Project"
+        app.buttons["+"].click()
+        let projectTextField = app.popovers.textFields["Project Name"]
+        projectTextField.typeText(projectName)
+        app.popovers.buttons["Save"].click()
+        
+        waitForTerminalToContain("Added project: \(projectName)")
+
         let filename = "indexfile.html"
         let commitMessage = "A commit message"
         stage(app, projectName: projectName, filename: filename)
