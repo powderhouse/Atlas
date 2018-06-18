@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="MMS-xY-kSu"/>
+                <outlet property="deleteButton" destination="Qbs-eo-wB2" id="5Uy-Af-g0G"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="APu-q9-Ec7"/>
                 <outlet property="filterProject" destination="1bl-ti-vF9" id="Uek-kc-fwd"/>
                 <outlet property="label" destination="APv-lO-Rut" id="znK-Z1-MiB"/>
@@ -100,7 +102,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
-                        <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbs-eo-wB2" userLabel="Delete">
+                        <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbs-eo-wB2" userLabel="Delete Button">
                             <rect key="frame" x="393" y="320" width="37" height="32"/>
                             <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4xA-Iv-sRn">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -144,6 +146,7 @@
         <collectionViewItem title="ProjectViewItem" nibName="ProjectViewItem" identifier="ProjectViewItem" id="Yu6-Lv-5aE" customClass="ProjectViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="commitButton" destination="hWM-6w-aJM" id="Gfl-oD-rlL"/>
+                <outlet property="deleteButton" destination="Qbs-eo-wB2" id="sKR-iX-5jo"/>
                 <outlet property="dropView" destination="46y-ZN-GYi" id="x2T-h1-4Yl"/>
                 <outlet property="filterProject" destination="1bl-ti-vF9" id="BJx-ZU-nc1"/>
                 <outlet property="label" destination="APv-lO-Rut" id="og8-xR-Kgn"/>

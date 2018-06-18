@@ -14,6 +14,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var commitButton: NSButton!
     @IBOutlet weak var filterProject: NSButton!
+    @IBOutlet weak var deleteButton: NSButton!
     
     @IBOutlet weak var stagedFilesView: NSCollectionView!
     
@@ -40,6 +41,10 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             let filesViewIdentifier = NSUserInterfaceItemIdentifier(rawValue: "\(project!.name!)-staged-files")
             stagedFilesView.identifier = filesViewIdentifier
             checkCommitButton()
+            
+            if project?.name == AtlasCore.defaultProjectName {
+                deleteButton.isHidden = true
+            }
         }
     }
     
@@ -220,11 +225,18 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
             if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 if let projectName = self.dropView.project?.name {
-                    NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "delete-project"),
-                        object: nil,
-                        userInfo: ["projectName": projectName]
-                    )
+                    self.label.stringValue = "Deleting..."
+                    self.deleteButton.isHidden = true
+                    Timer.scheduledTimer(
+                        withTimeInterval: 0.1,
+                        repeats: false,
+                        block: { (timer) in
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "delete-project"),
+                                object: nil,
+                                userInfo: ["projectName": projectName]
+                            )
+                    })
                 } else {
                     Terminal.log("Unable to delete project.")
                 }

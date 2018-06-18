@@ -133,7 +133,7 @@ class MainController: NSViewController {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "project-added"),
                     object: nil,
-                    userInfo: ["projectName": "General"]
+                    userInfo: ["projectName": AtlasCore.defaultProjectName]
                 )
             }
         } else {

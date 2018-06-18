@@ -110,7 +110,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             return item
         }
         
-        projectViewItem.project = project
+        projectViewItem.project = project        
         projectViewItem.filterBy = project.name == filterByProject
 
         projectViewItem.refresh()
