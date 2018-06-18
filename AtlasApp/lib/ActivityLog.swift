@@ -81,7 +81,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
 
         let commit = commits.reversed()[indexPath.item]
 
-        let projectNames =  Array(Set(commit.projects.map { $0.name }))
+        let projectNames: Array<String> = Array(Set(commit.projects.map { $0.name }))
         commitViewItem.project.stringValue = projectNames.joined(separator: ", ")
         commitViewItem.subject.stringValue = commit.message
         

@@ -38,17 +38,17 @@ class CommitViewItem: NSCollectionViewItem {
         for term in terms {
             let lowerTerm = term.lowercased()
             
-            var r = Range(subjectText.startIndex..<subjectText.endIndex)
+            var r = Range(uncheckedBounds: (lower: subjectText.startIndex, upper: subjectText.endIndex))
             while let range = lowerSubjectText.range(of: lowerTerm, range: r) {
                 attrSubject.setAttributes(attributes, range: NSRange(range, in: subjectText))
-                r = Range(range.upperBound..<subjectText.endIndex)
+                r = Range(uncheckedBounds: (lower: range.upperBound, upper: subjectText.endIndex))
             }
 
-            var r2 = Range(filesText.startIndex..<filesText.endIndex)
+            var r2 = Range(uncheckedBounds: (lower: filesText.startIndex, upper:  filesText.endIndex))
             while let range = lowerFilesText.range(of: lowerTerm, range: r2) {
                 let nsRange = NSRange(range, in: filesText)
                 files.textStorage?.addAttributes(attributes, range: nsRange)
-                r2 = Range(range.upperBound..<filesText.endIndex)
+                r2 = Range(uncheckedBounds: (lower: range.upperBound, upper: filesText.endIndex))
             }
         }
         
@@ -60,10 +60,10 @@ class CommitViewItem: NSCollectionViewItem {
         let attributes = [NSAttributedStringKey.backgroundColor: NSColor.green]
         
         for fileName in fileNames {
-            var r = Range(filesText.startIndex..<filesText.endIndex)
+            var r = Range(uncheckedBounds: (lower: filesText.startIndex, upper: filesText.endIndex))
             while let range = filesText.range(of: fileName, range: r) {
                 files.textStorage?.addAttributes(attributes, range: NSRange(range, in: filesText))
-                r = Range(range.upperBound..<filesText.endIndex)
+                r = Range(uncheckedBounds: (lower: range.upperBound, upper: filesText.endIndex))
             }
         }
     }
