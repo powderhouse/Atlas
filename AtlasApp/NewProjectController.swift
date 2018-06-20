@@ -25,7 +25,7 @@ class NewProjectController: NSViewController, NSTextFieldDelegate {
     @IBAction func createProject(_ sender: NSButton) {
         let projectName = projectNameField.stringValue
         
-        if let mc = self.presentingViewController as? StagingController {
+        if let mc = self.presenting as? StagingController {
             mc.addProject(projectName)
         }
         

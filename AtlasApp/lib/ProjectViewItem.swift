@@ -185,16 +185,16 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         }
 
         performSegue(
-            withIdentifier: "commit-project-segue",
+            withIdentifier: NSStoryboardSegue.Identifier(rawValue: "commit-project-segue"),
             sender: self
         )
         
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         let vc = storyboard.instantiateController(
-            withIdentifier: "CommitController"
+            withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "CommitController")
         ) as! CommitController
         
-        self.present(vc,
+        self.presentViewController(vc,
            asPopoverRelativeTo: commitButton.frame,
            of: self.view,
            preferredEdge: NSRectEdge.minY,

@@ -31,7 +31,7 @@ class CommitViewItem: NSCollectionViewItem {
         let filesText = files.textStorage!.string
         let lowerFilesText = filesText.lowercased()
         
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: NSColor.yellow]
+        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.backgroundColor: NSColor.yellow]
 
         let attrSubject = NSMutableAttributedString(string: subjectText)
         
@@ -57,7 +57,7 @@ class CommitViewItem: NSCollectionViewItem {
     
     func highlightFiles(_ fileNames: [String]) {
         let filesText = files.textStorage!.string
-        let attributes = [NSAttributedString.Key.backgroundColor: NSColor.green]
+        let attributes = [NSAttributedStringKey.backgroundColor: NSColor.green]
         
         for fileName in fileNames {
             var r = Range(uncheckedBounds: (lower: filesText.startIndex, upper: filesText.endIndex))

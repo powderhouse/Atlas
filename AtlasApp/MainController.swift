@@ -35,7 +35,7 @@ class MainController: NSViewController {
             initializeAtlas(credentials)
         } else {
             performSegue(
-                withIdentifier: "account-segue",
+                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
                 sender: self
             )
         }
@@ -155,13 +155,13 @@ class MainController: NSViewController {
             initAtlasCore()
         }
         
-        if segue.identifier == "account-segue" {
+        if segue.identifier?.rawValue == "account-segue" {
             let dvc = segue.destinationController as! AccountController
             if let currentCredentials = atlasCore.getCredentials() {
                 dvc.usernameField.stringValue = currentCredentials.username
             }
             dvc.mainController = self
-        } else if segue.identifier == "panel-embed" {
+        } else if segue.identifier?.rawValue == "panel-embed" {
             let dvc = segue.destinationController as! PanelController
             dvc.atlasCore = atlasCore
         }

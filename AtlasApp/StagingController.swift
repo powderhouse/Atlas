@@ -275,7 +275,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "new-project-segue" {
+        if segue.identifier!.rawValue == "new-project-segue" {
             let dvc = segue.destinationController as! NewProjectController
             dvc.atlasCore = atlasCore
         }
