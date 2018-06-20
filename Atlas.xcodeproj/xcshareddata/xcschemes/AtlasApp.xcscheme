@@ -10,12 +10,12 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "swift build -Xswiftc &quot;-target&quot; -Xswiftc &quot;x86_64-apple-macosx10.13&quot; --chdir &quot;$SRCROOT&quot;"
+               scriptText = "swift build -Xswiftc &quot;-target&quot; -Xswiftc &quot;x86_64-apple-macosx10.13&quot; --chdir &quot;$SRCROOT&quot;&#10;"
                shellToInvoke = "/bin/sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "3AAC6E5C20B4A24C00388922"
+                     BlueprintIdentifier = "3A7B4CCE20D952D9000C8266"
                      BuildableName = "AtlasApp.app"
                      BlueprintName = "AtlasApp"
                      ReferencedContainer = "container:Atlas.xcodeproj">
@@ -33,7 +33,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3AAC6E5C20B4A24C00388922"
+               BlueprintIdentifier = "3A7B4CCE20D952D9000C8266"
                BuildableName = "AtlasApp.app"
                BlueprintName = "AtlasApp"
                ReferencedContainer = "container:Atlas.xcodeproj">
@@ -51,7 +51,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3AAC6E6D20B4A24D00388922"
+               BlueprintIdentifier = "3A7B4CDF20D952DD000C8266"
                BuildableName = "AtlasAppUITests.xctest"
                BlueprintName = "AtlasAppUITests"
                ReferencedContainer = "container:Atlas.xcodeproj">
@@ -61,7 +61,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AAC6E5C20B4A24C00388922"
+            BlueprintIdentifier = "3A7B4CCE20D952D9000C8266"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
@@ -84,7 +84,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AAC6E5C20B4A24C00388922"
+            BlueprintIdentifier = "3A7B4CCE20D952D9000C8266"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
@@ -103,7 +103,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AAC6E5C20B4A24C00388922"
+            BlueprintIdentifier = "3A7B4CCE20D952D9000C8266"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
