@@ -9,11 +9,25 @@ import Cocoa
 import AtlasCore
 
 class AccountController: NSViewController, NSTextFieldDelegate {
-    
+
     @IBOutlet weak var usernameField: NSTextField!
-    
+    var username: String?  {
+        didSet {
+            if usernameField != nil {
+                usernameField.stringValue = username!
+            }
+        }
+    }
+
     @IBOutlet weak var passwordField: NSSecureTextField!
-    
+    var password: String?  {
+        didSet {
+            if passwordField != nil {
+                passwordField.stringValue = password!
+            }
+        }
+    }
+
     weak var mainController: MainController!
     
     override func viewDidLoad() {
@@ -23,7 +37,17 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         usernameField.delegate = self
         passwordField.delegate = self
         
-        usernameField.becomeFirstResponder()
+        if usernameField != nil {
+            if username != nil {
+                usernameField.stringValue = username!
+            } else {
+                usernameField.becomeFirstResponder()
+            }
+        }
+
+        if passwordField != nil && password != nil {
+            passwordField.stringValue = password!
+        }
     }
     
     override var representedObject: Any? {
