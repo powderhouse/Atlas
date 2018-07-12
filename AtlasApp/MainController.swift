@@ -159,9 +159,7 @@ class MainController: NSViewController {
         
         if segue.identifier?.rawValue == "account-segue" {
             let dvc = segue.destinationController as! AccountController
-            if let currentCredentials = atlasCore.getCredentials() {
-                dvc.username = currentCredentials.username
-            }
+            dvc.credentials = atlasCore.getCredentials()
             dvc.mainController = self
         } else if segue.identifier?.rawValue == "panel-embed" {
             let dvc = segue.destinationController as! PanelController

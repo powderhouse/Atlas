@@ -55,4 +55,3 @@ let package = Package(
 // Delete red files
 // Add AtlasCore as Embedded Binary
 // Assign all lib file to AtlasApp
-

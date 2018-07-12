@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -686,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="AtlasApp" sceneMemberID="viewController">
-                    <window key="window" identifier="MainWindow" title="Atlas" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingIdentifier="MainWindow" id="IQv-IB-iLA">
+                    <window key="window" identifier="MainWindow" title="Atlas" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingIdentifier="MainWindow" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="800" height="600"/>
@@ -710,11 +708,11 @@
             <objects>
                 <viewController title="Account Controller" id="amK-yh-WYg" customClass="AccountController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="5W2-1i-BXL">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="308"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2K-Jd-TDr">
-                                <rect key="frame" x="157" y="244" width="137" height="36"/>
+                                <rect key="frame" x="158" y="252" width="135" height="36"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Welcome!" id="Bbe-qu-ogb">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -722,10 +720,10 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lES-EU-1CX" userLabel="Github Form">
-                                <rect key="frame" x="23" y="121" width="404" height="103"/>
+                                <rect key="frame" x="23" y="155" width="405" height="77"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Dc-0E-gXO">
-                                        <rect key="frame" x="-2" y="86" width="230" height="17"/>
+                                        <rect key="frame" x="-2" y="60" width="230" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please enter your GitHub credentials:" id="G6b-au-4d5">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -733,34 +731,24 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jkK-LV-0qn" userLabel="Username">
-                                        <rect key="frame" x="0.0" y="56" width="404" height="22"/>
+                                        <rect key="frame" x="0.0" y="30" width="405" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Username" drawsBackground="YES" id="gZY-Lp-iHV">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qxY-iS-gkw" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="26" width="404" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="405" height="22"/>
                                         <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="GitHub Password" drawsBackground="YES" usesSingleLineMode="YES" id="26J-Se-YaR">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <allowedInputSourceLocales>
                                                 <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                             </allowedInputSourceLocales>
                                         </secureTextFieldCell>
                                     </secureTextField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-2M-A3a">
-                                        <rect key="frame" x="0.0" y="-1" width="42" height="19"/>
-                                        <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JNQ-e6-FAs">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
-                                            <connections>
-                                                <action selector="save:" target="amK-yh-WYg" id="4Vp-ay-sec"/>
-                                            </connections>
-                                        </buttonCell>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jkK-LV-0qn" firstAttribute="width" secondItem="lES-EU-1CX" secondAttribute="width" id="DhF-Ws-Qy6"/>
@@ -771,32 +759,93 @@
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-xT-FA2" userLabel="S3 Form">
+                                <rect key="frame" x="23" y="58" width="405" height="77"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V0C-Ms-mfU">
+                                        <rect key="frame" x="-2" y="60" width="204" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please enter your S3 credentials:" id="zrD-dI-kLx">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IIP-N7-vbQ" userLabel="Access Key">
+                                        <rect key="frame" x="0.0" y="30" width="405" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="S3 Access Key" drawsBackground="YES" id="hQT-GR-HV2">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uan-1h-GOf" userLabel="Secret">
+                                        <rect key="frame" x="0.0" y="0.0" width="405" height="22"/>
+                                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="S3 Secret Access Key" drawsBackground="YES" usesSingleLineMode="YES" id="B3t-vm-ECZ">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
+                                        </secureTextFieldCell>
+                                    </secureTextField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uan-1h-GOf" firstAttribute="centerX" secondItem="CQE-xT-FA2" secondAttribute="centerX" id="4Lh-45-zfo"/>
+                                    <constraint firstItem="IIP-N7-vbQ" firstAttribute="centerX" secondItem="CQE-xT-FA2" secondAttribute="centerX" id="CZh-Hy-PWW"/>
+                                    <constraint firstItem="IIP-N7-vbQ" firstAttribute="width" secondItem="CQE-xT-FA2" secondAttribute="width" id="hVu-xC-ceg"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-2M-A3a">
+                                <rect key="frame" x="204" y="19" width="42" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JNQ-e6-FAs">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                    <connections>
+                                        <action selector="save:" target="amK-yh-WYg" id="4Vp-ay-sec"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="35y-eW-YiZ"/>
+                            <constraint firstItem="CQE-xT-FA2" firstAttribute="width" secondItem="lES-EU-1CX" secondAttribute="width" id="4s2-rF-LVB"/>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="top" secondItem="Y2K-Jd-TDr" secondAttribute="bottom" constant="20" id="9AD-m0-M0v"/>
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="9ke-Jz-xSQ"/>
+                            <constraint firstAttribute="bottom" secondItem="ITH-2M-A3a" secondAttribute="bottom" constant="20" id="La8-Xz-pKO"/>
+                            <constraint firstItem="ITH-2M-A3a" firstAttribute="top" secondItem="CQE-xT-FA2" secondAttribute="bottom" constant="20" id="RDf-2m-m4k"/>
+                            <constraint firstItem="CQE-xT-FA2" firstAttribute="top" secondItem="lES-EU-1CX" secondAttribute="bottom" constant="20" id="RNp-sf-hvm"/>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="width" secondItem="5W2-1i-BXL" secondAttribute="width" multiplier="0.9" id="cyq-WT-hC6"/>
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="top" secondItem="5W2-1i-BXL" secondAttribute="top" constant="20" id="y6I-d8-35x"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="qxY-iS-gkw" id="ETe-y5-hsv"/>
+                        <outlet property="s3AccessKeyField" destination="IIP-N7-vbQ" id="fF2-ad-Gz5"/>
+                        <outlet property="s3SecretField" destination="uan-1h-GOf" id="I6c-gt-ZbM"/>
                         <outlet property="usernameField" destination="jkK-LV-0qn" id="upd-RO-eo7"/>
                     </connections>
                 </viewController>
                 <customObject id="LWh-2P-ErR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-672" y="1640"/>
+            <point key="canvasLocation" x="-672" y="1655.5"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -1007,27 +1056,27 @@
                             </scrollView>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="90"/>
-                                <clipView key="contentView" id="nxK-Ai-kuu">
-                                    <rect key="frame" x="1" y="1" width="433" height="88"/>
+                                <clipView key="contentView" drawsBackground="NO" id="nxK-Ai-kuu">
+                                    <rect key="frame" x="1" y="1" width="448" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                            <rect key="frame" x="0.0" y="0.0" width="601" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="433" height="88"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="448" height="88"/>
                                             <size key="maxSize" width="618" height="10000000"/>
-                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="8f9-fy-OFk">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                    <rect key="frame" x="434" y="1" width="15" height="88"/>
+                                    <rect key="frame" x="433" y="1" width="16" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1052,7 +1101,7 @@
                                 </gestureRecognizers>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Search" drawsBackground="YES" id="Uhu-oy-1jh">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1114,7 +1163,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Why are you submitting these files?" drawsBackground="YES" id="9On-Lw-lv4">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1190,7 +1239,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="Project Name" placeholderString="Project Name" drawsBackground="YES" id="IbT-VP-WDb">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
