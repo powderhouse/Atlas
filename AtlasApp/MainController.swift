@@ -20,10 +20,6 @@ class MainController: NSViewController {
             initAtlasCore()
         }
         
-//        if ProcessInfo.processInfo.environment["TESTING"] != nil {
-//            reset()
-//        }
-
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
