@@ -16,14 +16,13 @@ class MainController: NSViewController {
     
     override func viewDidLoad() {
         
-        
         if atlasCore == nil {
             initAtlasCore()
         }
         
-        if ProcessInfo.processInfo.environment["TESTING"] != nil {
-            reset()
-        }
+//        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+//            reset()
+//        }
 
         super.viewDidLoad()
         

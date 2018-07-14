@@ -7,11 +7,13 @@
 
 import Cocoa
 import XCTest
+import AtlasCore
 
 class AtlasUITestCase: XCTestCase {
 
     let username = "atlasapptests"
     let password = "1a2b3c4d"
+    let repository = "AtlasTests"
     
     var app: XCUIApplication!
     var testDirectory: URL!
@@ -23,7 +25,7 @@ class AtlasUITestCase: XCTestCase {
         
         app = XCUIApplication()
 
-        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("AtlasTests")
+        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(repository)
         app.launchEnvironment["atlasDirectory"] = testDirectory.path
         app.launchEnvironment["TESTING"] = "true"
 
@@ -39,7 +41,37 @@ class AtlasUITestCase: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        try? FileManager.default.removeItem(at: testDirectory)
+        let credentials = testDirectory.appendingPathComponent("credentials.json")
+        let json = try? String(contentsOf: credentials, encoding: .utf8)
+        if let data = json?.data(using: .utf8) {
+            do {
+                if let credentialsDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String] {
+                    if let username = credentialsDict["username"] {
+                        if let token = credentialsDict["token"] {
+                            _ = Glue.runProcess("curl", arguments: [
+                                "-u", "\(username):\(token)",
+                                "-X", "DELETE",
+                                "https://api.github.com/repos/\(username)/\(AtlasCore.repositoryName)"
+                            ])
+                        }
+                    }
+                }
+            } catch {
+            }
+        }
+
+        let fileManager = FileManager.default
+        do {
+            _ = Glue.runProcess(
+                "chmod",
+                arguments: ["-R", "u+w", testDirectory.path]
+            )
+            
+            try fileManager.removeItem(at: testDirectory)
+        } catch {
+        }
+//        try? FileManager.default.removeItem(at: testDirectory)
+        
         super.tearDown()
     }
 
