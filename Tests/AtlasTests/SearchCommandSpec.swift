@@ -80,9 +80,7 @@ class SearchCommandSpec: QuickSpec {
             
             afterEach {
                 atlasCore.closeSearch()
-                atlasCore.deleteGitHubRepository()
-                FileSystem.deleteDirectory(fileDirectory)
-                FileSystem.deleteDirectory(directory)
+                Helper.deleteTestDirectory(directory)
             }
             
             context("running") {

@@ -34,8 +34,7 @@ class LogoutCommandSpec: QuickSpec {
             }
             
             afterEach {
-                FileSystem.deleteDirectory(directory)
-                atlasCore.deleteGitHubRepository()
+                Helper.deleteTestDirectory(directory)
             }
             
             context("running") {

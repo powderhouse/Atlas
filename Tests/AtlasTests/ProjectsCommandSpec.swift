@@ -76,8 +76,7 @@ class ProjectsCommandSpec: QuickSpec {
             }
             
             afterEach {
-                atlasCore.deleteGitHubRepository()
-                FileSystem.deleteDirectory(directory)
+                Helper.deleteTestDirectory(directory)
             }
             
             

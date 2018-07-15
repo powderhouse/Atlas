@@ -70,7 +70,6 @@ class AtlasUITestCase: XCTestCase {
             try fileManager.removeItem(at: testDirectory)
         } catch {
         }
-//        try? FileManager.default.removeItem(at: testDirectory)
         
         super.tearDown()
     }
