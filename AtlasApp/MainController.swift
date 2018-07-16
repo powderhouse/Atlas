@@ -36,6 +36,10 @@ class MainController: NSViewController {
                 sender: self
             )
         }
+        
+        Timer.init(timeInterval: 3, repeats: false) { (t) in
+            super.view.setNeedsDisplay(super.view.bounds)
+        }
     }
     
     override func viewDidDisappear() {

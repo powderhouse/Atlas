@@ -32,6 +32,8 @@ class AtlasUITestCase: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        
+        reset()
         app.launch()
         
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -41,6 +43,11 @@ class AtlasUITestCase: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        reset()
+        super.tearDown()
+    }
+    
+    func reset() {
         let credentials = testDirectory.appendingPathComponent("credentials.json")
         let json = try? String(contentsOf: credentials, encoding: .utf8)
         if let data = json?.data(using: .utf8) {
@@ -52,14 +59,14 @@ class AtlasUITestCase: XCTestCase {
                                 "-u", "\(username):\(token)",
                                 "-X", "DELETE",
                                 "https://api.github.com/repos/\(username)/\(AtlasCore.repositoryName)"
-                            ])
+                                ])
                         }
                     }
                 }
             } catch {
             }
         }
-
+        
         let fileManager = FileManager.default
         do {
             _ = Glue.runProcess(
@@ -70,8 +77,7 @@ class AtlasUITestCase: XCTestCase {
             try fileManager.removeItem(at: testDirectory)
         } catch {
         }
-        
-        super.tearDown()
+
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {

@@ -38,6 +38,7 @@ class StageTest: AtlasUITestCase {
         app.collectionViews["General-staged-files"].buttons["-"].click()
         waitForTerminalToContain("Successfully purged file from Atlas.")
 
+        sleep(1)
         let commitButton = app.groups["General-staged"].buttons["Commit"]
         XCTAssertFalse(commitButton.isEnabled)
     }
