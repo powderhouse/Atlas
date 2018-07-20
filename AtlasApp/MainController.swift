@@ -37,9 +37,9 @@ class MainController: NSViewController {
             )
         }
         
-        Timer.init(timeInterval: 3, repeats: false) { (t) in
-            super.view.setNeedsDisplay(super.view.bounds)
-        }
+//        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (t) in
+//            super.view.setNeedsDisplay(super.view.bounds)
+//        }
     }
     
     override func viewDidDisappear() {
