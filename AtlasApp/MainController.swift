@@ -37,9 +37,9 @@ class MainController: NSViewController {
             )
         }
         
-//        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (t) in
-//            super.view.setNeedsDisplay(super.view.bounds)
-//        }
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (t) in
+            super.view.setNeedsDisplay(super.view.bounds)
+        }
     }
     
     override func viewDidDisappear() {
@@ -125,7 +125,8 @@ class MainController: NSViewController {
             Terminal.log("Account: \(credentials.username)")
             Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
-            
+            Terminal.log("S3 Repository: \(atlasCore.s3Repository() ?? "N/A")")
+
             if !atlasCore.initSearch() {
                 Terminal.log("Failed to initialize search.")
             }
