@@ -141,7 +141,7 @@ class AtlasUITestCase: XCTestCase {
     func stage(_ app: XCUIApplication, projectName: String, filename: String) {
         let terminal = app.textViews["TerminalView"]
         
-        waitForTerminalToContain("GitHub Repository: https://github.com/\(username)/Atlas")
+        waitForTerminalToContain("S3 Repository")
 
         terminal.click()
         terminal.typeText("touch /tmp/\(filename)\n")
