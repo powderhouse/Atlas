@@ -37,7 +37,7 @@ class MainController: NSViewController {
             )
         }
         
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (t) in
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (t) in
             super.view.setNeedsDisplay(super.view.bounds)
         }
     }
@@ -123,7 +123,7 @@ class MainController: NSViewController {
         if atlasCore.initGitAndGitHub(credentials) {
             Terminal.log("Logged in to Atlas.")
             Terminal.log("Account: \(credentials.username)")
-            Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
+            Terminal.log("Local Repository: \(atlasCore.appDirectory?.path ?? "N/A")")
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
             Terminal.log("S3 Repository: \(atlasCore.s3Repository() ?? "N/A")")
 
