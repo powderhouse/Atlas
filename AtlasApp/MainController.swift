@@ -36,10 +36,6 @@ class MainController: NSViewController {
                 sender: self
             )
         }
-        
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (t) in
-            super.view.setNeedsDisplay(super.view.bounds)
-        }
     }
     
     override func viewDidDisappear() {
@@ -121,6 +117,13 @@ class MainController: NSViewController {
 
     func initializeAtlas(_ credentials: Credentials) {
         if atlasCore.initGitAndGitHub(credentials) {
+            super.view.setNeedsDisplay(super.view.bounds)
+            
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "refresh"),
+                object: nil
+            )
+
             Terminal.log("Logged in to Atlas.")
             Terminal.log("Account: \(credentials.username)")
             Terminal.log("Local Repository: \(atlasCore.appDirectory?.path ?? "N/A")")

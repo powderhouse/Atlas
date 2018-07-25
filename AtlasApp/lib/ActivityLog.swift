@@ -118,7 +118,8 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         
         for notification in [
             "staged-file-committed",
-            "project-deleted"] {
+            "project-deleted",
+            "refresh"] {
                 NotificationCenter.default.addObserver(
                     forName: NSNotification.Name(rawValue: notification),
                     object: nil,
