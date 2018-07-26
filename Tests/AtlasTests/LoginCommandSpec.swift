@@ -65,7 +65,7 @@ class LoginCommandSpec: QuickSpec {
                 }
                 
                 it("saves a readme to the filesystem") {
-                    if let readmeFile = atlasCore.atlasDirectory?.appendingPathComponent(Project.readme) {
+                    if let readmeFile = atlasCore.appDirectory?.appendingPathComponent(Project.readme) {
                         let exists = fileManager.fileExists(atPath: readmeFile.path, isDirectory: &isFile)
                         expect(exists).to(beTrue(), description: "No readme.md found")
                     } else {
@@ -74,7 +74,7 @@ class LoginCommandSpec: QuickSpec {
                 }
                 
                 it("sets atlasDirectory and creates the directory") {
-                    if let atlasDirectory = atlasCore.atlasDirectory {
+                    if let atlasDirectory = atlasCore.appDirectory {
                         let exists = fileManager.fileExists(atPath: atlasDirectory.path, isDirectory: &isDirectory)
                         expect(exists).to(beTrue(), description: "atlasDirectory not found")
                     } else {

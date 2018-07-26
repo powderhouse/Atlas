@@ -32,7 +32,7 @@ public class StageCommand: Command {
                 if project.changeState(files.value, to: "staged") {
                     atlasCore.atlasCommit("Staging files in \(projectName)")
                 } else {
-                    print("Faield to stage files")
+                    print("Failed to stage files")
                 }
             }
         } else {

@@ -47,8 +47,8 @@ class ProjectsCommandSpec: QuickSpec {
             
             var projectsCommand: ProjectsCommand!
             
-            var projectName1 = "Test Project 1"
-            var projectName2 = "Test Project 1"
+            let projectName1 = "Test Project 1"
+            let projectName2 = "Test Project 2"
 
             beforeEach {
                 let temp = URL(fileURLWithPath: NSTemporaryDirectory())
