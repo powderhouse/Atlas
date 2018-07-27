@@ -11,7 +11,7 @@ import AtlasCore
 class Helper {
     
     static let username = "atlasapptests"
-    static let password = "1a2b3c4d"
+//    static let password = "1a2b3c4d"
     
     class func addFile(_ name: String, directory: URL) -> URL {
         let filePath = "\(directory.path)/\(name)"
@@ -21,9 +21,10 @@ class Helper {
     
     class func initAtlasCore(_ atlasCore: AtlasCore) -> Bool {
         let username = "atlasapptests"
-        let password = "1a2b3c4d"
+//        let password = "1a2b3c4d"
         
-        let credentials = Credentials(username, password: password)
+//        let credentials = Credentials(username, password: password)
+        let credentials = Credentials(username)
         if atlasCore.initGitAndGitHub(credentials) {
             _ = atlasCore.initProject("General")
             atlasCore.atlasCommit("Atlas Initialization")
@@ -54,15 +55,13 @@ class Helper {
             }
         }
         
-        let fileManager = FileManager.default
-        do {
+        while FileSystem.fileExists(testDirectory, isDirectory: true) {
             _ = Glue.runProcess(
                 "chmod",
-                arguments: ["-R", "u+w", testDirectory.path]
+                arguments: ["-R", "u+w", testDirectory.path],
+                currentDirectory: testDirectory.deletingLastPathComponent()
             )
-            
-            try fileManager.removeItem(at: testDirectory)
-        } catch {
+            FileSystem.deleteDirectory(testDirectory)
         }
     }
 }

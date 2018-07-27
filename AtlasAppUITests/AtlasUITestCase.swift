@@ -12,7 +12,7 @@ import AtlasCore
 class AtlasUITestCase: XCTestCase {
 
     let username = "atlasapptests"
-    let password = "1a2b3c4d"
+//    let password = "1a2b3c4d"
     let repository = "AtlasTests"
     
     var app: XCUIApplication!
@@ -67,17 +67,14 @@ class AtlasUITestCase: XCTestCase {
             }
         }
         
-        let fileManager = FileManager.default
-        do {
+        while FileSystem.fileExists(testDirectory, isDirectory: true) {
             _ = Glue.runProcess(
                 "chmod",
-                arguments: ["-R", "u+w", testDirectory.path]
+                arguments: ["-R", "u+w", testDirectory.path],
+                currentDirectory: testDirectory.deletingLastPathComponent()
             )
-            
-            try fileManager.removeItem(at: testDirectory)
-        } catch {
+            FileSystem.deleteDirectory(testDirectory)
         }
-
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
@@ -131,9 +128,9 @@ class AtlasUITestCase: XCTestCase {
         usernameField.click()
         usernameField.typeText(username)
         
-        let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
-        passwordSecureTextField.click()
-        passwordSecureTextField.typeText(password)
+//        let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
+//        passwordSecureTextField.click()
+//        passwordSecureTextField.typeText(password)
         
         accountModal.buttons["Save"].click()
     }

@@ -45,10 +45,10 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         mainController.initializeAtlas(
             Credentials(
                 usernameField.stringValue,
-                password: passwordField.stringValue,
+                password: passwordField.stringValue.count > 0 ? passwordField.stringValue : nil,
                 token: credentials?.token,
-                s3AccessKey: s3AccessKeyField.stringValue,
-                s3SecretAccessKey: s3SecretField.stringValue
+                s3AccessKey: s3AccessKeyField.stringValue.count > 0 ? s3AccessKeyField.stringValue : nil,
+                s3SecretAccessKey: s3SecretField.stringValue.count > 0 ? s3SecretField.stringValue : nil
             )
         )
         
