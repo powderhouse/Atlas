@@ -60,7 +60,6 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     func deleteProject(_ projectName: String) {
         if let projectDirectoryPath = atlasCore.project(projectName)?.directory().path {
             if self.atlasCore.purge([projectDirectoryPath]) {
-                _ = atlasCore.atlasCommit()
                 projectListView.reloadData()
                 
                 NotificationCenter.default.post(
