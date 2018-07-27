@@ -114,16 +114,19 @@ class MainController: NSViewController {
             }
         }
     }
+    
+    func refresh() {
+        super.view.setNeedsDisplay(super.view.bounds)
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "refresh"),
+            object: nil
+        )
+    }
 
     func initializeAtlas(_ credentials: Credentials) {
         if atlasCore.initGitAndGitHub(credentials) {
-            super.view.setNeedsDisplay(super.view.bounds)
-            
-            NotificationCenter.default.post(
-                name: NSNotification.Name(rawValue: "refresh"),
-                object: nil
-            )
-
+            refresh()
             Terminal.log("Logged in to Atlas.")
             Terminal.log("Account: \(credentials.username)")
             Terminal.log("Local Repository: \(atlasCore.appDirectory?.path ?? "N/A")")
@@ -144,6 +147,8 @@ class MainController: NSViewController {
         } else {
             Terminal.log("ERROR: Failed to initialize github")
         }
+        
+        refresh()
     }
     
     func initAtlasCore() {
