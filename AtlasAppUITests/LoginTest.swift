@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import AtlasCore
 
 class LoginTest: AtlasUITestCase {
             
@@ -13,7 +14,7 @@ class LoginTest: AtlasUITestCase {
         login(app)
 
         waitForTerminalToContain("Account: \(username)")
-        waitForTerminalToContain("GitHub Repository: https://github.com/\(username)/Atlas")
+        waitForTerminalToContain("\(username)/\(AtlasCore.originName)")
     }
     
 }

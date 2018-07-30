@@ -55,7 +55,7 @@ class StageCommandSpec: QuickSpec {
                 }
                 
                 let unstageCommand = UnstageCommand(atlasCore)
-                unstageCommand.files.value = [file1.path]
+                unstageCommand.files.value = [file1.lastPathComponent]
                 if !unstageCommand.projectInput.setValue(projectName) {
                     expect(false).to(beTrue(), description: "Failed to set project key value")
                 }
@@ -69,9 +69,7 @@ class StageCommandSpec: QuickSpec {
             }
             
             afterEach {
-                atlasCore.deleteGitHubRepository()
-                FileSystem.deleteDirectory(fileDirectory)
-                FileSystem.deleteDirectory(directory)
+                Helper.deleteTestDirectory(directory)
             }
             
             context("running") {

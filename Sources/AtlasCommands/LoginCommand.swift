@@ -60,7 +60,7 @@ public class LoginCommand: Command {
             if let repository = atlasCore.gitHubRepository() {
                 print("GitHub Repository: \(repository)")
             }
-            if let localRepository = atlasCore.atlasDirectory {
+            if let localRepository = atlasCore.appDirectory {
                 print("Local repository: \(localRepository.path)")
             }
             

@@ -16,23 +16,20 @@ class MainController: NSViewController {
     
     override func viewDidLoad() {
         
-        
         if atlasCore == nil {
             initAtlasCore()
         }
         
-        if ProcessInfo.processInfo.environment["TESTING"] != nil {
-            reset()
-        }
-
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
         initNotifications()
         
-        if let credentials = atlasCore.getCredentials() {
-            initializeAtlas(credentials)
+        let credentials = atlasCore.getCredentials()
+        
+        if credentials != nil && credentials!.complete() {
+            initializeAtlas(credentials!)
         } else {
             performSegue(
                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
@@ -117,14 +114,25 @@ class MainController: NSViewController {
             }
         }
     }
+    
+    func refresh() {
+        super.view.setNeedsDisplay(super.view.bounds)
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "refresh"),
+            object: nil
+        )
+    }
 
     func initializeAtlas(_ credentials: Credentials) {
         if atlasCore.initGitAndGitHub(credentials) {
+            refresh()
             Terminal.log("Logged in to Atlas.")
             Terminal.log("Account: \(credentials.username)")
-            Terminal.log("Local Repository: \(atlasCore.atlasDirectory?.path ?? "N/A")")
+            Terminal.log("Local Repository: \(atlasCore.appDirectory?.path ?? "N/A")")
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
-            
+            Terminal.log("S3 Repository: \(atlasCore.s3Repository() ?? "N/A")")
+
             if !atlasCore.initSearch() {
                 Terminal.log("Failed to initialize search.")
             }
@@ -139,6 +147,8 @@ class MainController: NSViewController {
         } else {
             Terminal.log("ERROR: Failed to initialize github")
         }
+        
+        refresh()
     }
     
     func initAtlasCore() {
@@ -157,9 +167,7 @@ class MainController: NSViewController {
         
         if segue.identifier?.rawValue == "account-segue" {
             let dvc = segue.destinationController as! AccountController
-            if let currentCredentials = atlasCore.getCredentials() {
-                dvc.usernameField.stringValue = currentCredentials.username
-            }
+            dvc.credentials = atlasCore.getCredentials()
             dvc.mainController = self
         } else if segue.identifier?.rawValue == "panel-embed" {
             let dvc = segue.destinationController as! PanelController

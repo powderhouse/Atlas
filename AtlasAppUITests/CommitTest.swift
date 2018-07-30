@@ -27,7 +27,6 @@ class CommitTest: AtlasUITestCase {
         XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
-
     }
     
 }

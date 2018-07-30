@@ -679,18 +679,18 @@
 		3AF6440920D954860083E1D7 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				3AF6440A20D954860083E1D7 /* CommitViewItem.swift */,
-				3AF6440B20D954860083E1D7 /* ProjectViewItem.swift */,
-				3AF6440C20D954860083E1D7 /* AtlasNotificationCenter.swift */,
 				3AF6440D20D954860083E1D7 /* CommitViewItem.xib */,
 				3AF6440E20D954860083E1D7 /* ProjectButton.xib */,
-				3AF6440F20D954860083E1D7 /* Terminal.swift */,
-				3AF6441020D954860083E1D7 /* StagedFileViewItem.swift */,
-				3AF6441120D954860083E1D7 /* StagedFileViewItem.xib */,
-				3AF6441220D954860083E1D7 /* ActivityLog.swift */,
-				3AF6441320D954860083E1D7 /* DropView.swift */,
-				3AF6441420D954860083E1D7 /* ProjectButton.swift */,
 				3AF6441520D954860083E1D7 /* ProjectViewItem.xib */,
+				3AF6441120D954860083E1D7 /* StagedFileViewItem.xib */,
+				3AF6440A20D954860083E1D7 /* CommitViewItem.swift */,
+				3AF6441420D954860083E1D7 /* ProjectButton.swift */,
+				3AF6440B20D954860083E1D7 /* ProjectViewItem.swift */,
+				3AF6441020D954860083E1D7 /* StagedFileViewItem.swift */,
+				3AF6441220D954860083E1D7 /* ActivityLog.swift */,
+				3AF6440C20D954860083E1D7 /* AtlasNotificationCenter.swift */,
+				3AF6441320D954860083E1D7 /* DropView.swift */,
+				3AF6440F20D954860083E1D7 /* Terminal.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -1337,6 +1337,11 @@
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					3A7B4CDF20D952DD000C8266 = {
 						CreatedOnToolsVersion = 10.0;
@@ -1816,7 +1821,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = AtlasApp/AtlasApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1880,7 +1884,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = AtlasApp/AtlasApp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

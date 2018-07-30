@@ -88,9 +88,7 @@ class PurgeCommandSpec: QuickSpec {
             }
             
             afterEach {
-                atlasCore.deleteGitHubRepository()
-                FileSystem.deleteDirectory(fileDirectory)
-                FileSystem.deleteDirectory(directory)
+                Helper.deleteTestDirectory(directory)
             }
             
             context("running") {
@@ -117,12 +115,12 @@ class PurgeCommandSpec: QuickSpec {
                     expect(exists).to(beFalse(), description: "Committed file still found")
                 }
                 
-                it("should should remove the commit from the log") {
+                it("should remove the commit from the log") {
                     let log = atlasCore.log()
                     expect(log.count).to(equal(0))
                 }
 
-                it("should should remove the commit folder") {
+                it("should remove the commit folder") {
                     let exists = fileManager.fileExists(atPath: commitFolder.path, isDirectory: &isDirectory)
                     expect(exists).to(beFalse(), description: "Commit folder still found")
                 }

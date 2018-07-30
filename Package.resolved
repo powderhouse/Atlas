@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/powderhouse/AtlasCore.git",
         "state": {
           "branch": null,
-          "revision": "f6d0f6c2f24ac90b7a55f3b8e15e084ff0aa5261",
-          "version": "1.0.5"
+          "revision": "860181ec884fad06e992b5e1843d884c6434ef43",
+          "version": "1.2.9"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
-          "revision": "8023e3980d91b470ad073d6da843b73f2eeb1844",
-          "version": "7.1.2"
+          "revision": "9c1379fdcd58c4f2278aea5e029394ba9a2b8f07",
+          "version": "7.1.3"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {
           "branch": null,
-          "revision": "3e3023569c8d4c4a0d000f58db765df53041117f",
-          "version": "1.3.0"
+          "revision": "b060679e70d13c3c7dcd124201b5b1b34ce6f340",
+          "version": "1.3.1"
         }
       },
       {

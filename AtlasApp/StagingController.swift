@@ -60,7 +60,6 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     func deleteProject(_ projectName: String) {
         if let projectDirectoryPath = atlasCore.project(projectName)?.directory().path {
             if self.atlasCore.purge([projectDirectoryPath]) {
-                _ = atlasCore.atlasCommit()
                 projectListView.reloadData()
                 
                 NotificationCenter.default.post(
@@ -161,6 +160,16 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 self.filterByProject = (self.filterByProject == projectName ? nil : projectName)
             }
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: "refresh"),
+            object: nil,
+            queue: nil
+        ) {
+            (notification) in
+            self.resize()
+        }
+        
 
         for notification in [
             "project-added",
@@ -249,7 +258,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 if !mostRecentEntry.contains("</ENDENTRY>") {
                     syncButton.title = "Syncing..."
                     status.backgroundColor = NSColor.yellow
-                } else if atlasStatus.contains("up to date") || atlasStatus.contains("up-to-date") {
+                } else if atlasStatus.contains("up to date") || atlasStatus.contains("up-to-date") || atlasStatus.contains("nothing to commit, working tree clean") {
                     status.backgroundColor = NSColor.green
                 } else if atlasStatus.contains("Untracked") {
                     status.backgroundColor = NSColor.yellow

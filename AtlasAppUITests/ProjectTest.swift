@@ -33,7 +33,7 @@ class ProjectTest: AtlasUITestCase {
         app.popovers.buttons["Save"].click()
 
         let newProject = app.groups["\(projectName)-staged"]
-        waitForTerminalToContain("Added project: \\”\\””A Project\\”\\””")
+        waitForTerminalToContain("A Project")
         XCTAssert(waitForElementToAppear(newProject), "Unable to find new project")
 
         app.buttons["<"].click()

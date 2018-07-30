@@ -11,9 +11,16 @@ import AtlasCore
 class AccountController: NSViewController, NSTextFieldDelegate {
     
     @IBOutlet weak var usernameField: NSTextField!
-    
     @IBOutlet weak var passwordField: NSSecureTextField!
-    
+    @IBOutlet var s3AccessKeyField: NSTextField!
+    @IBOutlet var s3SecretField: NSSecureTextField!
+
+    var credentials: Credentials? {
+        didSet {
+            loadCredentials()
+        }
+    }
+
     weak var mainController: MainController!
     
     override func viewDidLoad() {
@@ -22,8 +29,10 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         
         usernameField.delegate = self
         passwordField.delegate = self
-        
-        usernameField.becomeFirstResponder()
+        s3AccessKeyField.delegate = self
+        s3SecretField.delegate = self
+
+        loadCredentials()
     }
     
     override var representedObject: Any? {
@@ -36,12 +45,39 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         mainController.initializeAtlas(
             Credentials(
                 usernameField.stringValue,
-                password: passwordField.stringValue,
-                token: nil
+                password: passwordField.stringValue.count > 0 ? passwordField.stringValue : nil,
+                token: credentials?.token,
+                s3AccessKey: s3AccessKeyField.stringValue.count > 0 ? s3AccessKeyField.stringValue : nil,
+                s3SecretAccessKey: s3SecretField.stringValue.count > 0 ? s3SecretField.stringValue : nil
             )
         )
         
         self.dismiss(nil)
+    }
+    
+    func loadCredentials() {
+        guard credentials != nil else { return }
+        
+        if usernameField != nil {
+            usernameField.stringValue = credentials!.username
+        }
+        
+        if passwordField != nil {
+            if credentials!.token != nil {
+                passwordField.placeholderString = "GitHub Password Already Set"
+                passwordField.isEnabled = false
+            } else {
+                passwordField.stringValue = credentials!.password ?? ""
+            }
+        }
+        
+        if s3AccessKeyField != nil {
+            s3AccessKeyField.stringValue = credentials!.s3AccessKey ?? ""
+        }
+        
+        if s3SecretField != nil {
+            s3SecretField.stringValue = credentials!.s3SecretAccessKey ?? ""
+        }
     }
     
 }

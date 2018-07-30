@@ -11,7 +11,7 @@ import AtlasCore
 class Helper {
     
     static let username = "atlasapptests"
-    static let password = "1a2b3c4d"
+//    static let password = "1a2b3c4d"
     
     class func addFile(_ name: String, directory: URL) -> URL {
         let filePath = "\(directory.path)/\(name)"
@@ -21,9 +21,10 @@ class Helper {
     
     class func initAtlasCore(_ atlasCore: AtlasCore) -> Bool {
         let username = "atlasapptests"
-        let password = "1a2b3c4d"
+//        let password = "1a2b3c4d"
         
-        let credentials = Credentials(username, password: password)
+//        let credentials = Credentials(username, password: password)
+        let credentials = Credentials(username)
         if atlasCore.initGitAndGitHub(credentials) {
             _ = atlasCore.initProject("General")
             atlasCore.atlasCommit("Atlas Initialization")
@@ -31,6 +32,37 @@ class Helper {
             return false
         }
         return true
+    }
+    
+    class func deleteTestDirectory(_ testDirectory: URL) {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        let credentials = testDirectory.appendingPathComponent("credentials.json")
+        let json = try? String(contentsOf: credentials, encoding: .utf8)
+        if let data = json?.data(using: .utf8) {
+            do {
+                if let credentialsDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String] {
+                    if let username = credentialsDict["username"] {
+                        if let token = credentialsDict["token"] {
+                            _ = Glue.runProcess("curl", arguments: [
+                                "-u", "\(username):\(token)",
+                                "-X", "DELETE",
+                                "https://api.github.com/repos/\(username)/\(AtlasCore.repositoryName)"
+                                ])
+                        }
+                    }
+                }
+            } catch {
+            }
+        }
+        
+        while FileSystem.fileExists(testDirectory, isDirectory: true) {
+            _ = Glue.runProcess(
+                "chmod",
+                arguments: ["-R", "u+w", testDirectory.path],
+                currentDirectory: testDirectory.deletingLastPathComponent()
+            )
+            FileSystem.deleteDirectory(testDirectory)
+        }
     }
 }
 

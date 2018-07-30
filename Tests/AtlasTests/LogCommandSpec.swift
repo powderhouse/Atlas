@@ -99,9 +99,7 @@ class LogCommandSpec: QuickSpec {
             }
             
             afterEach {
-                atlasCore.deleteGitHubRepository()
-                FileSystem.deleteDirectory(fileDirectory)
-                FileSystem.deleteDirectory(directory)
+                Helper.deleteTestDirectory(directory)
             }
             
             context("running") {

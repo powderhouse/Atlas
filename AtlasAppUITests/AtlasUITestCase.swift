@@ -7,11 +7,13 @@
 
 import Cocoa
 import XCTest
+import AtlasCore
 
 class AtlasUITestCase: XCTestCase {
 
     let username = "atlasapptests"
-    let password = "1a2b3c4d"
+//    let password = "1a2b3c4d"
+    let repository = "AtlasTests"
     
     var app: XCUIApplication!
     var testDirectory: URL!
@@ -23,13 +25,15 @@ class AtlasUITestCase: XCTestCase {
         
         app = XCUIApplication()
 
-        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("AtlasTests")
+        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(repository)
         app.launchEnvironment["atlasDirectory"] = testDirectory.path
         app.launchEnvironment["TESTING"] = "true"
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        
+        reset()
         app.launch()
         
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -39,8 +43,38 @@ class AtlasUITestCase: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        try? FileManager.default.removeItem(at: testDirectory)
+        reset()
         super.tearDown()
+    }
+    
+    func reset() {
+        let credentials = testDirectory.appendingPathComponent("credentials.json")
+        let json = try? String(contentsOf: credentials, encoding: .utf8)
+        if let data = json?.data(using: .utf8) {
+            do {
+                if let credentialsDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String] {
+                    if let username = credentialsDict["username"] {
+                        if let token = credentialsDict["token"] {
+                            _ = Glue.runProcess("curl", arguments: [
+                                "-u", "\(username):\(token)",
+                                "-X", "DELETE",
+                                "https://api.github.com/repos/\(username)/\(AtlasCore.repositoryName)"
+                                ])
+                        }
+                    }
+                }
+            } catch {
+            }
+        }
+        
+        while FileSystem.fileExists(testDirectory, isDirectory: true) {
+            _ = Glue.runProcess(
+                "chmod",
+                arguments: ["-R", "u+w", testDirectory.path],
+                currentDirectory: testDirectory.deletingLastPathComponent()
+            )
+            FileSystem.deleteDirectory(testDirectory)
+        }
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
@@ -94,9 +128,9 @@ class AtlasUITestCase: XCTestCase {
         usernameField.click()
         usernameField.typeText(username)
         
-        let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
-        passwordSecureTextField.click()
-        passwordSecureTextField.typeText(password)
+//        let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
+//        passwordSecureTextField.click()
+//        passwordSecureTextField.typeText(password)
         
         accountModal.buttons["Save"].click()
     }
@@ -104,7 +138,7 @@ class AtlasUITestCase: XCTestCase {
     func stage(_ app: XCUIApplication, projectName: String, filename: String) {
         let terminal = app.textViews["TerminalView"]
         
-        waitForTerminalToContain("GitHub Repository: https://github.com/\(username)/Atlas")
+        waitForTerminalToContain("S3 Repository")
 
         terminal.click()
         terminal.typeText("touch /tmp/\(filename)\n")

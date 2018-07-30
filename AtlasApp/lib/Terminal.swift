@@ -146,7 +146,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
 //                userInfo: ["command": fullCommand]
 //            )
             let arguments = allArgs.map { String($0) }
-            var result = Glue.runProcess(command, arguments: arguments, currentDirectory: self.atlasCore.atlasDirectory!)
+            var result = Glue.runProcess(command, arguments: arguments, currentDirectory: self.atlasCore.appDirectory!)
             if result.count == 0 {
                 Terminal.log("\n")
             } else {
