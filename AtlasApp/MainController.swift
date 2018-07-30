@@ -149,6 +149,12 @@ class MainController: NSViewController {
         }
         
         refresh()
+        Timer.scheduledTimer(
+            withTimeInterval: 1,
+            repeats: false,
+            block: { (timer) in
+                self.refresh()
+        })
     }
     
     func initAtlasCore() {
