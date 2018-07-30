@@ -36,6 +36,13 @@ class StageTest: AtlasUITestCase {
     
     func testRemovingStagedFile() {
         app.collectionViews["General-staged-files"].buttons["-"].click()
+        
+        let button = app.buttons["Remove"].firstMatch
+        XCTAssert(waitForElementToAppear(button))
+        if button.exists {
+            button.tap()
+        }
+        
         waitForTerminalToContain("Successfully purged file from Atlas.")
 
         sleep(1)
@@ -54,6 +61,13 @@ class StageTest: AtlasUITestCase {
         XCTAssertFalse(commitButton.isEnabled)
         
         projectStagingArea.buttons["-"].click()
+        
+        let button = app.buttons["Remove"].firstMatch
+        XCTAssert(waitForElementToAppear(button))
+        if button.exists {
+            button.tap()
+        }
+        
         waitForTerminalToContain("Successfully purged file from Atlas.")
         
         XCTAssertFalse(commitButton.isEnabled)

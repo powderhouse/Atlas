@@ -58,18 +58,28 @@ class StagedFileViewItem: NSCollectionViewItem {
     }
     
     @IBAction func remove(_ sender: NSButton) {
-        if let project = projectViewItem.project {
-            NotificationCenter.default.post(
-                name: NSNotification.Name(rawValue: "remove-staged-file"),
-                object: nil,
-                userInfo: [
-                    "projectName": project.name!,
-                    "state": isSelected ? "staged" : "unstaged",
-                    "fileName": label.stringValue
-                ]
-            )
-        } else {
-            Terminal.log("Project not found.")
-        }
+        let a = NSAlert()
+        a.messageText = "Remove this file?"
+        a.informativeText = "Are you sure you would like to remove this file?"
+        a.addButton(withTitle: "Remove")
+        a.addButton(withTitle: "Cancel")
+        
+        a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                if let project = self.projectViewItem.project {
+                    NotificationCenter.default.post(
+                        name: NSNotification.Name(rawValue: "remove-staged-file"),
+                        object: nil,
+                        userInfo: [
+                            "projectName": project.name!,
+                            "state": self.isSelected ? "staged" : "unstaged",
+                            "fileName": self.label.stringValue
+                        ]
+                    )
+                } else {
+                    Terminal.log("Project not found.")
+                }
+            }
+        })
     }
 }
