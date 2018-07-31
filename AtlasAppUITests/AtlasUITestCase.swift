@@ -133,6 +133,7 @@ class AtlasUITestCase: XCTestCase {
 //        passwordSecureTextField.typeText(password)
         
         accountModal.buttons["Save"].click()
+        waitForTerminalToContain("S3 Repository")
     }
     
     func stage(_ app: XCUIApplication, projectName: String, filename: String) {
