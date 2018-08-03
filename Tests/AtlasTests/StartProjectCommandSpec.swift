@@ -30,6 +30,7 @@ class StartProjectCommandSpec: QuickSpec {
                 let temp = URL(fileURLWithPath: NSTemporaryDirectory())
                 directory = temp.appendingPathComponent("ATLAS_CORE")
                 
+                Helper.deleteTestDirectory(directory)
                 FileSystem.createDirectory(directory)
                 
                 atlasCore = AtlasCore(directory)

@@ -25,6 +25,7 @@ class LogoutCommandSpec: QuickSpec {
             
             beforeEach {
                 directory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("ATLAS_CORE")
+                Helper.deleteTestDirectory(directory)
                 FileSystem.createDirectory(directory)
 
                 atlasCore = AtlasCore(directory)

@@ -42,6 +42,7 @@ class PurgeCommandSpec: QuickSpec {
                 fileDirectory = temp.appendingPathComponent("FILE_DIRECTORY")
                 directory = temp.appendingPathComponent("ATLAS_CORE")
                 
+                Helper.deleteTestDirectory(directory)
                 FileSystem.createDirectory(fileDirectory)
                 FileSystem.createDirectory(directory)
                 
