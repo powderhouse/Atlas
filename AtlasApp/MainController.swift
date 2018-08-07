@@ -62,20 +62,7 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            if !self.atlasCore.atlasCommit() {
-                Terminal.log("There was an issue commiting. Trying again in a moment.")
-                
-                Timer.scheduledTimer(
-                    withTimeInterval: 2,
-                    repeats: false,
-                    block: { (timer) in
-                        NotificationCenter.default.post(
-                            name: NSNotification.Name(rawValue: "staged-file-updated"),
-                            object: nil
-                        )
-                })
-                
-            }
+            Terminal.log(self.atlasCore.atlasCommit())
         }
         
         NotificationCenter.default.addObserver(
