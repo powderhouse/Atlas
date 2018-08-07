@@ -42,6 +42,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func save(_ sender: NSButtonCell) {
+        Terminal.log("Initializing Atlas")
+        
         Timer.scheduledTimer(
             withTimeInterval: 0.1,
             repeats: false,
