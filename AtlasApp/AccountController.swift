@@ -42,15 +42,21 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func save(_ sender: NSButtonCell) {
-        mainController.initializeAtlas(
-            Credentials(
-                usernameField.stringValue,
-                password: passwordField.stringValue.count > 0 ? passwordField.stringValue : nil,
-                token: credentials?.token,
-                s3AccessKey: s3AccessKeyField.stringValue.count > 0 ? s3AccessKeyField.stringValue : nil,
-                s3SecretAccessKey: s3SecretField.stringValue.count > 0 ? s3SecretField.stringValue : nil
-            )
-        )
+        Timer.scheduledTimer(
+            withTimeInterval: 0.1,
+            repeats: false,
+            block: { (timer) in
+                self.mainController.initializeAtlas(
+                    Credentials(
+                        self.usernameField.stringValue,
+                        password: self.passwordField.stringValue.count > 0 ?
+                            self.passwordField.stringValue : nil,
+                        token: self.credentials?.token,
+                        s3AccessKey: self.s3AccessKeyField.stringValue.count > 0 ? self.s3AccessKeyField.stringValue : nil,
+                        s3SecretAccessKey: self.s3SecretField.stringValue.count > 0 ? self.s3SecretField.stringValue : nil
+                    )
+                )
+        })
         
         self.dismiss(nil)
     }

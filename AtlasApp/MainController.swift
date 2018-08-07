@@ -125,36 +125,42 @@ class MainController: NSViewController {
     }
 
     func initializeAtlas(_ credentials: Credentials) {
-        if atlasCore.initGitAndGitHub(credentials) {
-            refresh()
-            Terminal.log("Logged in to Atlas.")
-            Terminal.log("Account: \(credentials.username)")
-            Terminal.log("Local Repository: \(atlasCore.appDirectory?.path ?? "N/A")")
-            Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
-            Terminal.log("S3 Repository: \(atlasCore.s3Repository() ?? "N/A")")
-
-            if !atlasCore.initSearch() {
-                Terminal.log("Failed to initialize search.")
-            }
-            
-            if atlasCore.projects().count == 0 {
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "project-added"),
-                    object: nil,
-                    userInfo: ["projectName": AtlasCore.defaultProjectName]
-                )
-            }
-        } else {
-            Terminal.log("ERROR: Failed to initialize github")
-        }
-        
-        refresh()
+        Terminal.log("Initializing Atlas...")
         Timer.scheduledTimer(
-            withTimeInterval: 1,
+            withTimeInterval: 0.1,
             repeats: false,
             block: { (timer) in
-                self.refresh()
-        })
+                if self.atlasCore.initGitAndGitHub(credentials) {
+                    Terminal.log("Logged in to Atlas.")
+                    Terminal.log("Account: \(credentials.username)")
+                    Terminal.log("Local Repository: \(self.atlasCore.appDirectory?.path ?? "N/A")")
+                    Terminal.log("GitHub Repository: \(self.atlasCore.gitHubRepository() ?? "N/A")")
+                    Terminal.log("S3 Repository: \(self.atlasCore.s3Repository() ?? "N/A")")
+
+                    if !self.atlasCore.initSearch() {
+                        Terminal.log("Failed to initialize search.")
+                    }
+                    
+                    if self.atlasCore.projects().count == 0 {
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "project-added"),
+                            object: nil,
+                            userInfo: ["projectName": AtlasCore.defaultProjectName]
+                        )
+                    }
+                } else {
+                    Terminal.log("ERROR: Failed to initialize github")
+                }
+                
+                Timer.scheduledTimer(
+                    withTimeInterval: 1,
+                    repeats: false,
+                    block: { (timer) in
+                        self.refresh()
+                    }
+                )
+            }
+        )
     }
     
     func initAtlasCore() {
