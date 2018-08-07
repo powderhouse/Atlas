@@ -52,9 +52,18 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     func addProject(_ projectName: String) {
         _ = atlasCore.initProject(projectName)
-        _ = atlasCore.atlasCommit()
-        projectListView.reloadData()
-        Terminal.log("Added project: \(projectName)")
+        if atlasCore.atlasCommit() {
+            projectListView.reloadData()
+            Terminal.log("Added project: \(projectName)")
+        } else {
+            Terminal.log("Unable to commit files. Trying again in a moment.")
+            Timer.scheduledTimer(
+                withTimeInterval: 2,
+                repeats: false,
+                block: { (timer) in
+                    self.addProject(projectName)
+            })            
+        }
     }
     
     func deleteProject(_ projectName: String) {
