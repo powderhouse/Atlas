@@ -62,7 +62,8 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            Terminal.log(self.atlasCore.atlasCommit())
+//            Terminal.log(self.atlasCore.atlasCommit())
+            _ = self.atlasCore.atlasCommit()
         }
         
         NotificationCenter.default.addObserver(

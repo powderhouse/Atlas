@@ -52,7 +52,8 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     func addProject(_ projectName: String) {
         _ = atlasCore.initProject(projectName)
-        Terminal.log(atlasCore.atlasCommit())
+//        Terminal.log(atlasCore.atlasCommit())
+        _ = atlasCore.atlasCommit()
         projectListView.reloadData()
         Terminal.log("Added project: \(projectName)")
     }
