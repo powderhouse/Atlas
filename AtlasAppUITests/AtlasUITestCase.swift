@@ -103,7 +103,7 @@ class AtlasUITestCase: XCTestCase {
     func login(_ app: XCUIApplication) {
         let accountModal = app.dialogs["Account Controller"]
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
-        XCTAssert(accountModal.staticTexts["Please enter your GitHub credentials:"].exists)
+//        XCTAssert(accountModal.staticTexts["Please enter your GitHub credentials:"].exists)
         
         let usernameField = accountModal.textFields["GitHub Username"]
         usernameField.click()
