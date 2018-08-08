@@ -113,13 +113,13 @@ class AtlasUITestCase: XCTestCase {
 //        passwordSecureTextField.typeText(password)
         
         accountModal.buttons["Save"].click()
-        waitForTerminalToContain("S3 Repository")
+        waitForTerminalToContain("Added project: General")
     }
     
     func stage(_ app: XCUIApplication, projectName: String, filename: String) {
         let terminal = app.textViews["TerminalView"]
         
-        waitForTerminalToContain("S3 Repository")
+        waitForTerminalToContain("Added project: General")
 
         terminal.click()
         terminal.typeText("touch /tmp/\(filename)\n")
