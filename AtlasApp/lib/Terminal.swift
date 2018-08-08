@@ -8,75 +8,46 @@
 import Cocoa
 import AtlasCore
 
-class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
+class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegate {
     
     let atlasCore: AtlasCore!
-    let view: NSTextView!
+    let output: NSTextView!
+    let input: NSTextField!
     let notificationCenter: AtlasNotificationCenter!
     var queue: [String] = []
     var queueTimer: Timer?
-    var ready = false
     var logging = false
     var minCursorPosition = 0
     
-    init(_ view: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
-        self.view = view
+    init(input: NSTextField, output: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
+        self.input = input
+        self.output = output
         self.notificationCenter = notificationCenter
         self.atlasCore = atlasCore
         
         super.init()
         
-        view.delegate = self
-        view.isEditable = false
+        output.delegate = self
+        output.isEditable = false
+        
+        input.delegate = self
+        
         clear()
         
         initObservers()
 
-        Timer.scheduledTimer(
-            withTimeInterval: 3,
-            repeats: false
-        ) { (timer) in
-            view.isEditable = true
-            self.ready = true
-        }
+        output.isEditable = false
     }
     
-    func textViewDidChangeSelection(_ notification: Notification) {
-        guard !logging else {
-            return
+    func control(_ control: NSControl,
+                 textView: NSTextView,
+                 doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector.description == "insertNewline:" {
+            runCommand(input.stringValue)
+            input.stringValue = ""
+            return true
         }
-        
-        if view.selectedRange().lowerBound >= minCursorPosition {
-            view.isEditable = true
-        } else if view.selectedRange().lowerBound - view.selectedRange().upperBound == 0 {
-            let range = NSMakeRange(minCursorPosition, 1)
-            view.setSelectedRange(range)
-        }
-    }
-    
-    func textDidChange(_ notification: Notification) {
-        guard !logging else {
-            return
-        }
-        
-        if var text = view.textStorage?.string {
-            if text.count < minCursorPosition {
-                var range = self.view.selectedRange()
-                range.location = range.location - 1
-                range.length = 1
-                view.isEditable = true
-                view.insertText("> ", replacementRange: range)
-                return
-            }
-            
-            let lastCharacter = text.removeLast()
-            if lastCharacter == "\n" {
-                if let commandStart = text.range(of: "> ", options: .backwards)?.upperBound {
-                    let command = String(text.suffix(from: commandStart))
-                    runCommand(command)
-                }
-            }
-        }
+        return false
     }
     
     func runCommand(_ fullCommand: String) {
@@ -185,10 +156,9 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     
     func clear() {
         minCursorPosition = 0
-        view.selectAll(self)
-        let range = view.selectedRange()
-        view.insertText("> ", replacementRange: range)
-        minCursorPosition = 2
+        output.selectAll(self)
+        let range = output.selectedRange()
+        output.insertText("", replacementRange: range)
     }
     
     class func log(_ text: String) {
@@ -207,7 +177,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
     }
     
     func dequeueLog() {
-        let hasFocus = view.isAccessibilityFocused()
+        let hasFocus = output.isAccessibilityFocused()
         
         guard !queue.isEmpty else {
             return
@@ -216,48 +186,28 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         guard queueTimer == nil else {
             return
         }
-        
-        guard ready else {
-            Timer.scheduledTimer(
-                withTimeInterval: 0.1,
-                repeats: false,
-                block: { (timer) in
-                    self.dequeueLog()
-            })
-            return
-        }
-        
-        var text = self.queue.removeFirst()
-        
-        guard text.count != 0 else {
-            return
-        }
-        
+
         logging = true
+
+        output.isEditable = true
+
+        let text = "\n\n\(self.queue.removeFirst())"
         
-        var range = view.selectedRange()
-        if view.textStorage?.string.suffix(2) == "> " {
-            range.location = range.location - 2
-            range.length = 2
-        } else {
-            text = "\n\(text)"
-        }
+        let range = output.selectedRange()
         
-        text = "\(text)\n\n> ".replacingOccurrences(of: "\n\n\n", with: "\n", options: .literal, range: nil)
+        self.output.insertText(text, replacementRange: range)
         
-        view.isEditable = true
+        output.scroll(NSPoint(x: 0, y: output.visibleRect.maxY))
         
-        self.view.insertText(text, replacementRange: range)
+        output.isEditable = false
         
-        view.isEditable = false
-        
-        minCursorPosition = (self.view.textStorage?.string ?? "").count
+        minCursorPosition = (self.output.textStorage?.string ?? "").count
         
         logging = false
         
         if hasFocus {
-            let range = view.selectedRange()
-            view.setSelectedRange(range)
+            let range = output.selectedRange()
+            output.setSelectedRange(range)
         }
         
         queueTimer = Timer.scheduledTimer(
