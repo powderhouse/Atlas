@@ -45,7 +45,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate {
         if view.selectedRange().lowerBound >= minCursorPosition {
             view.isEditable = true
         } else if view.selectedRange().lowerBound - view.selectedRange().upperBound == 0 {
-            let range = NSMakeRange(minCursorPosition, 1)
+            var range = NSMakeRange(minCursorPosition, 1)
+            
+            if range.lowerBound >= view.rangeForUserTextChange.upperBound {
+                range = NSMakeRange(view.rangeForUserTextChange.upperBound - 1, 1)
+            }
+            
             view.setSelectedRange(range)
         }
     }
