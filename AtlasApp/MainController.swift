@@ -62,8 +62,7 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-//            Terminal.log(self.atlasCore.atlasCommit())
-            _ = self.atlasCore.atlasCommit()
+            Terminal.log(self.atlasCore.atlasCommit().appending("\n"))
         }
         
         NotificationCenter.default.addObserver(
@@ -72,7 +71,7 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            self.atlasCore.commitChanges(notification.userInfo?["message"] as? String)
+            Terminal.log(self.atlasCore.commitChanges(notification.userInfo?["message"] as? String).appending("\n"))
             if let projectName = notification.userInfo?["projectName"] as? String {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "staged-file-committed"),
