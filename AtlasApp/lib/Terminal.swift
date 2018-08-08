@@ -99,7 +99,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             
         case "commit":
             let message = allArgs.joined(separator: " ")
-            
+            Terminal.log(atlasCore.commitChanges(message))
         case "clear":
             self.clear()
         case "atlas":
