@@ -19,6 +19,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var noSearch: NSTextField!
     
     @IBOutlet var terminalView: NSTextView!
+    @IBOutlet weak var terminalInput: NSTextField!
     var terminal: Terminal!
     
     var selectedProject: String? {
@@ -28,7 +29,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        terminal = Terminal(terminalView, atlasCore: atlasCore)
+        terminal = Terminal(input: terminalInput, output: terminalView, atlasCore: atlasCore)
 
         super.viewDidLoad()
         // Do any additional setup after loading the view.

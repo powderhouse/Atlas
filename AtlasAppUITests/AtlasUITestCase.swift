@@ -117,15 +117,13 @@ class AtlasUITestCase: XCTestCase {
     }
     
     func stage(_ app: XCUIApplication, projectName: String, filename: String) {
-        let terminal = app.textViews["TerminalView"]
+        let terminal = app.textFields["TerminalInput"]        
         
         waitForTerminalToContain("Added project: General")
 
         terminal.click()
         terminal.typeText("touch /tmp/\(filename)\n")
         
-        waitForTerminalToContain("\n\n>")
-
         terminal.typeText("stage -f /tmp/\(filename) -p \(projectName)\n")
         
         waitForTerminalToContain("Successfully staged files in \(projectName)")
