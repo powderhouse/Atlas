@@ -55,7 +55,7 @@ public class LoginCommand: Command {
         }
         
         let credentials = Credentials(username!, password: password!)
-        if atlasCore.initGitAndGitHub(credentials) {
+        if atlasCore.initGitAndGitHub(credentials).success {
             print("Logged into Atlas as \(credentials.username)")
             if let repository = atlasCore.gitHubRepository() {
                 print("GitHub Repository: \(repository)")

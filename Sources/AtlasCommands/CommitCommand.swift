@@ -30,7 +30,7 @@ public class CommitCommand: Command {
             if let project = atlasCore.project(projectName) {
                 if let message = message.value {
                     if project.commitMessage(message) {
-                        if project.commitStaged() {
+                        if project.commitStaged().success {
                             print("Files committed!")
                             atlasCore.commitChanges(message)
                         } else {
@@ -41,7 +41,7 @@ public class CommitCommand: Command {
                     }
                 } else {
                     if let commitMessage = project.currentCommitMessage() {
-                        if project.commitStaged() {
+                        if project.commitStaged().success {
                             print("Files committed!")
                             atlasCore.commitChanges(commitMessage.text)
                         } else {

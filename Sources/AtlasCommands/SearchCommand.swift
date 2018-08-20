@@ -23,7 +23,7 @@ public class SearchCommand: Command {
     
     public init(_ atlasCore: AtlasCore) {
         self.atlasCore = atlasCore
-        if atlasCore.initSearch() {
+        if atlasCore.initSearch().success {
             search = atlasCore.search
         }
     }

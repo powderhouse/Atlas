@@ -27,7 +27,7 @@ public class PurgeCommand: Command {
     }
     
     public func execute() throws  {
-        if atlasCore.purge(files.value) {
+        if atlasCore.purge(files.value).success {
             print("Files successfully purged.")
         } else {
             print("There was an error purging this file. Please ensure it exists.")

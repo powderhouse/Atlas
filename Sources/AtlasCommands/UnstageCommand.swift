@@ -29,7 +29,7 @@ public class UnstageCommand: Command {
     public func execute() throws  {
         if let projectName = projectInput.value {
             if let project = atlasCore.project(projectName) {
-                if project.changeState(files.value, to: "unstaged") {
+                if project.changeState(files.value, to: "unstaged").success {
                     atlasCore.atlasCommit("Unstaging files in \(projectName)")
                 } else {
                     print("Faield to unstage files")

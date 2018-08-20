@@ -29,7 +29,7 @@ public class StageCommand: Command {
     public func execute() throws  {
         if let projectName = projectInput.value {
             if let project = atlasCore.project(projectName) {
-                if project.changeState(files.value, to: "staged") {
+                if project.changeState(files.value, to: "staged").success {
                     atlasCore.atlasCommit("Staging files in \(projectName)")
                 } else {
                     print("Failed to stage files")
