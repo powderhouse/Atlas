@@ -44,7 +44,9 @@ class DropView: NSView {
         
         guard project != nil else { return false }
         
-        if project!.copyInto(paths) {
+        let result = project!.copyInto(paths)
+        Terminal.log(result.allMessages)
+        if result.success {
             Terminal.log("Imported files into \(project!.name!)")
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "staged-file-updated"),

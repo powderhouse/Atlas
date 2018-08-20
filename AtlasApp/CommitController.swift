@@ -45,7 +45,7 @@ class CommitController: NSViewController, NSTextFieldDelegate {
         guard project != nil else { return }
         self.dismiss(self)
         if project!.commitMessage(commitMessage.stringValue) {
-            if project!.commitStaged() {
+            if project!.commitStaged().success {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "staged-file-ready-for-commit"),
                     object: nil,

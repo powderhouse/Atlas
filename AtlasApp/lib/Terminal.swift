@@ -75,7 +75,9 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                             filesIndex += 1
                         }
                         
-                        if project.copyInto(files) {
+                        let result = project.copyInto(files)
+                        Terminal.log(result.allMessages)
+                        if result.success {
                             NotificationCenter.default.post(
                                 name: NSNotification.Name(rawValue: "staged-file-updated"),
                                 object: nil,
@@ -99,7 +101,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             
         case "commit":
             let message = allArgs.joined(separator: " ")
-            Terminal.log(atlasCore.commitChanges(message))
+            Terminal.log(atlasCore.commitChanges(message).allMessages)
         case "clear":
             self.clear()
         case "atlas":

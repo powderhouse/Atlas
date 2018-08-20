@@ -51,7 +51,7 @@ class MainController: NSViewController {
     }
     
     func reset() {
-        atlasCore.deleteBaseDirectory()
+        _ = atlasCore.deleteBaseDirectory()
         atlasCore.deleteGitHubRepository()
     }
     
@@ -62,7 +62,7 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            Terminal.log(self.atlasCore.atlasCommit())
+            Terminal.log(self.atlasCore.atlasCommit().allMessages)
         }
         
         NotificationCenter.default.addObserver(
@@ -71,7 +71,9 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            Terminal.log(self.atlasCore.commitChanges(notification.userInfo?["message"] as? String))
+            let message = notification.userInfo?["message"] as? String
+            let result = self.atlasCore.commitChanges(message ?? "Commit (no message provided)")
+            Terminal.log(result.allMessages)
             if let projectName = notification.userInfo?["projectName"] as? String {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "staged-file-committed"),
@@ -92,7 +94,9 @@ class MainController: NSViewController {
                 if let state = notification.userInfo?["state"] as? String {
                     if let fileName = notification.userInfo?["fileName"] as? String {
                         let filePath = "\(projectName)/\(state)/\(fileName)"
-                        if self.atlasCore.purge([filePath]) {
+                        let result = self.atlasCore.purge([filePath])
+                        Terminal.log(result.allMessages)
+                        if result.success {
                             Terminal.log("Successfully purged file from Atlas.")
                             
                             NotificationCenter.default.post(
@@ -125,7 +129,9 @@ class MainController: NSViewController {
     }
 
     func initializeAtlas(_ credentials: Credentials) {
-        if atlasCore.initGitAndGitHub(credentials) {
+        let result = atlasCore.initGitAndGitHub(credentials)
+        Terminal.log(result.allMessages)
+        if result.success {
             refresh()
             Terminal.log("Logged in to Atlas.")
             Terminal.log("Account: \(credentials.username)")
@@ -133,8 +139,10 @@ class MainController: NSViewController {
             Terminal.log("GitHub Repository: \(atlasCore.gitHubRepository() ?? "N/A")")
             Terminal.log("S3 Repository: \(atlasCore.s3Repository() ?? "N/A")")
 
-            if !atlasCore.initSearch() {
+            let searchResult = atlasCore.initSearch()
+            if !searchResult.success {
                 Terminal.log("Failed to initialize search.")
+                Terminal.log(searchResult.allMessages)
             }
             
             if atlasCore.projects().count == 0 {

@@ -51,15 +51,21 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func addProject(_ projectName: String) {
-        _ = atlasCore.initProject(projectName)
-        Terminal.log(atlasCore.atlasCommit())
-        projectListView.reloadData()
-        Terminal.log("Added project: \(projectName)")
+        if atlasCore.initProject(projectName) {
+            let result = atlasCore.atlasCommit()
+            Terminal.log(result.allMessages)
+            if result.success {
+                projectListView.reloadData()
+                Terminal.log("Added project: \(projectName)")
+            }
+        }
     }
     
     func deleteProject(_ projectName: String) {
         if let projectDirectoryPath = atlasCore.project(projectName)?.directory().path {
-            if self.atlasCore.purge([projectDirectoryPath]) {
+            let result = self.atlasCore.purge([projectDirectoryPath])
+            Terminal.log(result.allMessages)
+            if result.success {
                 projectListView.reloadData()
                 
                 NotificationCenter.default.post(

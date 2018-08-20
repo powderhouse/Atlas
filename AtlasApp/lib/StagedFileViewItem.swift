@@ -37,7 +37,9 @@ class StagedFileViewItem: NSCollectionViewItem {
         let newState = isSelected ? "staged" : "unstaged"
         
         if let project = projectViewItem.project {
-            if project.changeState([label.stringValue], to: newState) {
+            let result = project.changeState([label.stringValue], to: newState)
+            Terminal.log(result.allMessages)
+            if result.success {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "staged-file-updated"),
                     object: nil,
