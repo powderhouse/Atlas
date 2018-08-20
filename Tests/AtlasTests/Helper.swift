@@ -25,7 +25,7 @@ class Helper {
         
 //        let credentials = Credentials(username, password: password)
         let credentials = Credentials(username)
-        if atlasCore.initGitAndGitHub(credentials) {
+        if atlasCore.initGitAndGitHub(credentials).success {
             _ = atlasCore.initProject("General")
             atlasCore.atlasCommit("Atlas Initialization")
         } else {
