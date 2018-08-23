@@ -14,6 +14,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var passwordField: NSSecureTextField!
     @IBOutlet var s3AccessKeyField: NSTextField!
     @IBOutlet var s3SecretField: NSSecureTextField!
+    
+    var userDirectory: URL!
 
     var credentials: Credentials? {
         didSet {
