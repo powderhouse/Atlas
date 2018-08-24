@@ -175,10 +175,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         if let text = notification.userInfo?["text"] as? String {
             queue.append(text)
         }
-        dequeueLog()
+        DispatchQueue.main.async(execute: {
+             self.dequeueLog()
+        })
     }
     
-    func dequeueLog() {
+    private func dequeueLog() {
         let hasFocus = output.isAccessibilityFocused()
         
         guard !queue.isEmpty else {
@@ -217,7 +219,9 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             repeats: false
         ) { (timer) in
             self.queueTimer = nil
-            self.dequeueLog()
+            DispatchQueue.main.async(execute: {
+                self.dequeueLog()
+            })
         }
     }
 }
