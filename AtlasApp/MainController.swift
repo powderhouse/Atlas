@@ -120,12 +120,14 @@ class MainController: NSViewController {
     }
     
     func refresh() {
-        super.view.setNeedsDisplay(super.view.bounds)
-        
-        NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "refresh"),
-            object: nil
-        )
+        DispatchQueue.main.async(execute: {
+            super.view.setNeedsDisplay(super.view.bounds)
+            
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "refresh"),
+                object: nil
+            )
+        })
     }
 
     func initializeAtlas(_ credentials: Credentials) {
@@ -147,11 +149,13 @@ class MainController: NSViewController {
                     }
                     
                     if core.projects().count == 0 {
-                        NotificationCenter.default.post(
-                            name: NSNotification.Name(rawValue: "project-added"),
-                            object: nil,
-                            userInfo: ["projectName": AtlasCore.defaultProjectName]
-                        )
+                        DispatchQueue.main.async(execute: {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "project-added"),
+                                object: nil,
+                                userInfo: ["projectName": AtlasCore.defaultProjectName]
+                            )
+                        })
                     }
                 } else {
                     Terminal.log("ERROR: Failed to initialize github")

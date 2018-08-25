@@ -55,7 +55,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             let result = atlasCore.atlasCommit()
             Terminal.log(result.allMessages)
             if result.success {
-                projectListView.reloadData()
+                self.projectListView.reloadData()
                 Terminal.log("Added project: \(projectName)")
             }
         }
