@@ -215,7 +215,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         }
         
         queueTimer = Timer.scheduledTimer(
-            withTimeInterval: 1,
+            withTimeInterval: 0.25,
             repeats: false
         ) { (timer) in
             self.queueTimer = nil
