@@ -179,9 +179,9 @@ class MainController: NSViewController {
         
         if let directoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
             let directory = URL(fileURLWithPath: directoryPath)
-            atlasCore = AtlasCore(directory, log: log)
+            atlasCore = AtlasCore(directory, externalLog: log)
         } else {
-            atlasCore = AtlasCore(log: log)
+            atlasCore = AtlasCore(externalLog: log)
         }
     }
     
