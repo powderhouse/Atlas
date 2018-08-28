@@ -37,7 +37,9 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     @IBAction func sync(_ sender: NSButton) {
-        atlasCore.sync()
+        DispatchQueue.global(qos: .background).async {
+            self.atlasCore.sync()
+        }
         syncing()
     }
     
@@ -51,29 +53,35 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func addProject(_ projectName: String) {
-        if atlasCore.initProject(projectName) {
-            let result = atlasCore.atlasCommit()
-            Terminal.log(result.allMessages)
-            if result.success {
-                self.projectListView.reloadData()
-                Terminal.log("Added project: \(projectName)")
+        DispatchQueue.global(qos: .background).async {
+            if self.atlasCore.initProject(projectName) {
+                let result = self.atlasCore.atlasCommit()
+                if result.success {
+                    DispatchQueue.main.async(execute: {
+                        self.projectListView.reloadData()
+                        Terminal.log("Added project: \(projectName)")
+                    })
+                }
             }
         }
     }
     
     func deleteProject(_ projectName: String) {
         if let projectDirectoryPath = atlasCore.project(projectName)?.directory().path {
-            let result = self.atlasCore.purge([projectDirectoryPath])
-            Terminal.log(result.allMessages)
-            if result.success {
-                projectListView.reloadData()
-                
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "project-deleted"),
-                    object: nil
-                )
-                
-                Terminal.log("Deleted project: \(projectName)")
+            DispatchQueue.global(qos: .background).async {
+                let result = self.atlasCore.purge([projectDirectoryPath])
+                if result.success {
+                    DispatchQueue.main.async(execute: {
+                        self.projectListView.reloadData()
+                        
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "project-deleted"),
+                            object: nil
+                        )
+                        
+                        Terminal.log("Deleted project: \(projectName)")
+                    })
+                }
             }
         } else {
             Terminal.log("Unable to delete \(projectName). Project not found.")

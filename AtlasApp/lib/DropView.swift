@@ -44,18 +44,19 @@ class DropView: NSView {
         
         guard project != nil else { return false }
         
-        let result = project!.copyInto(paths)
-        Terminal.log(result.allMessages)
-        if result.success {
-            Terminal.log("Imported files into \(project!.name!)")
-            NotificationCenter.default.post(
-                name: NSNotification.Name(rawValue: "staged-file-updated"),
-                object: nil,
-                userInfo: ["projectName": project!.name!]
-            )
-
-            return true
+        DispatchQueue.global(qos: .background).async {
+            let result = self.project!.copyInto(paths)
+            if result.success {
+                DispatchQueue.main.async(execute: {
+                    Terminal.log("Imported files into \(self.project!.name!)")
+                    NotificationCenter.default.post(
+                        name: NSNotification.Name(rawValue: "staged-file-updated"),
+                        object: nil,
+                        userInfo: ["projectName": self.project!.name!]
+                    )
+                })
+            }
         }
-        return false
+        return true
     }
 }

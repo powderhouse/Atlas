@@ -62,7 +62,9 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            Terminal.log(self.atlasCore.atlasCommit().allMessages)
+            DispatchQueue.global(qos: .background).async {
+                _ = self.atlasCore.atlasCommit()
+            }
         }
         
         NotificationCenter.default.addObserver(
@@ -94,18 +96,21 @@ class MainController: NSViewController {
                 if let state = notification.userInfo?["state"] as? String {
                     if let fileName = notification.userInfo?["fileName"] as? String {
                         let filePath = "\(projectName)/\(state)/\(fileName)"
-                        let result = self.atlasCore.purge([filePath])
-                        Terminal.log(result.allMessages)
-                        if result.success {
-                            Terminal.log("Successfully purged file from Atlas.")
-                            
-                            NotificationCenter.default.post(
-                                name: NSNotification.Name(rawValue: "staged-file-updated"),
-                                object: nil,
-                                userInfo: ["projectName": project!.name!]
-                            )
-                        } else {
-                            Terminal.log("File purge failed.")
+                        DispatchQueue.global(qos: .background).async {
+                            let result = self.atlasCore.purge([filePath])
+                            if result.success {
+                                DispatchQueue.main.async(execute: {
+                                    Terminal.log("Successfully purged file from Atlas.")
+                                    
+                                    NotificationCenter.default.post(
+                                        name: NSNotification.Name(rawValue: "staged-file-updated"),
+                                        object: nil,
+                                        userInfo: ["projectName": project!.name!]
+                                    )
+                                })
+                            } else {
+                                Terminal.log("File purge failed.")
+                            }
                         }
                     } else {
                         Terminal.log("No filename specified.")

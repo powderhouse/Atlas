@@ -45,19 +45,23 @@ class CommitController: NSViewController, NSTextFieldDelegate {
         guard project != nil else { return }
         self.dismiss(self)
         if project!.commitMessage(commitMessage.stringValue) {
-            if project!.commitStaged().success {
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "staged-file-ready-for-commit"),
-                    object: nil,
-                    userInfo: [
-                        "projectName": project!.name!,
-                        "message": commitMessage.stringValue
-                    ]
-                )
-                
-                Terminal.log("Files successfully committed.")
-            } else {
-                Terminal.log("Failed to commit files.")
+            DispatchQueue.global(qos: .background).async {
+                if self.project!.commitStaged().success {
+                    DispatchQueue.main.async(execute: {
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "staged-file-ready-for-commit"),
+                            object: nil,
+                            userInfo: [
+                                "projectName": self.project!.name!,
+                                "message": self.commitMessage.stringValue
+                            ]
+                        )
+                        
+                        Terminal.log("Files successfully committed.")
+                    })
+                } else {
+                    Terminal.log("Failed to commit files.")
+                }
             }
         } else {
             Terminal.log("Failed to set commit message.")
