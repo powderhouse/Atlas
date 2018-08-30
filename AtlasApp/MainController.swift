@@ -74,14 +74,41 @@ class MainController: NSViewController {
         ) {
             (notification) in
             let message = notification.userInfo?["message"] as? String
-            let result = self.atlasCore.commitChanges(message ?? "Commit (no message provided)")
-            Terminal.log(result.allMessages)
+            
             if let projectName = notification.userInfo?["projectName"] as? String {
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "staged-file-committed"),
-                    object: nil,
-                    userInfo: ["projectName": projectName]
-                )
+                DispatchQueue.global(qos: .background).async {
+                    let result = self.atlasCore.commitChanges(message ?? "Commit (no message provided)")
+                    DispatchQueue.main.async(execute: {
+                        if result.success {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "staged-file-commit-complete"),
+                                object: nil,
+                                userInfo: ["projectName": projectName]
+                            )
+                        } else {
+                            Terminal.log("Failed to commit staged files.")
+                        }
+                    })
+                }
+
+                var gitCommitComplete = false
+                DispatchQueue.global(qos: .background).async {
+                    while !gitCommitComplete {
+                        if let status = self.atlasCore.status() {
+                            if !status.contains(projectName) {
+                                DispatchQueue.main.async(execute: {
+                                    NotificationCenter.default.post(
+                                        name: NSNotification.Name(rawValue: "staged-file-committed"),
+                                        object: nil,
+                                        userInfo: ["projectName": projectName]
+                                    )
+                                })
+                                gitCommitComplete = true
+                            }
+                        }
+                        sleep(1)
+                    }
+                }
             }
         }
 

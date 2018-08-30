@@ -115,9 +115,9 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     func initObservers() {
-        
         for notification in [
             "staged-file-committed",
+            "staged-file-commit-complete",
             "project-deleted",
             "refresh"] {
                 NotificationCenter.default.addObserver(
@@ -126,6 +126,9 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
                     queue: nil
                 ) {
                     (notification) in
+                    if notification.name.rawValue == "staged-file-committed" {
+                        Terminal.log("Syncing with S3. Depending on the size of the file this could take a while...")
+                    }
                     self.refresh()
                 }
         }        
