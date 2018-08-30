@@ -21,6 +21,7 @@ class CommitTest: AtlasUITestCase {
         commit(app, projectName: projectName, commitMessage: commitMessage)
         
         let projectStagingArea = app.collectionViews["General-staged-files"]
+        _ = waitForElementToDisappear(projectStagingArea.staticTexts[filename])
         XCTAssertFalse(projectStagingArea.staticTexts[filename].exists, "\(filename) still exists in staging area")
         
         let log = app.collectionViews["LogView"]
