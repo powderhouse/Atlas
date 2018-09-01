@@ -85,8 +85,9 @@ class MainController: NSViewController {
                                 object: nil,
                                 userInfo: ["projectName": projectName]
                             )
+                            Terminal.log("Files synced to S3.")
                         } else {
-                            Terminal.log("Failed to commit staged files.")
+                            Terminal.log("Failed to commit staged files and sync with S3.")
                         }
                     })
                 }
