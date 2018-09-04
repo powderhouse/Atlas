@@ -39,7 +39,7 @@ class DropView: NSView {
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        guard let paths = sender.draggingPasteboard().propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? [String]
+        guard let paths = sender.draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? [String]
             else { return false }
         
         guard project != nil else { return false }

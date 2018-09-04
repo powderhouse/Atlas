@@ -6,8 +6,53 @@
         "repositoryURL": "https://github.com/powderhouse/AtlasCore.git",
         "state": {
           "branch": null,
-          "revision": "e15d736677dc940f3f65df3bf5d3075a2937cc14",
-          "version": "1.6.9"
+          "revision": "dc7515de7e264e3ed794eda75092f12584a7376e",
+          "version": "1.7.0"
+        }
+      },
+      {
+        "package": "AWSSDKSwiftCore",
+        "repositoryURL": "https://github.com/noppoMan/aws-sdk-swift-core.git",
+        "state": {
+          "branch": null,
+          "revision": "48298a7bec6c838553f314cb48c81f2a363e8253",
+          "version": "1.0.10"
+        }
+      },
+      {
+        "package": "CHTTPParser",
+        "repositoryURL": "https://github.com/Zewo/CHTTPParser.git",
+        "state": {
+          "branch": null,
+          "revision": "88306ab33bb316b2eedd39c90f4be8f4ebf65a11",
+          "version": "0.14.0"
+        }
+      },
+      {
+        "package": "CLibreSSL",
+        "repositoryURL": "https://github.com/vapor/clibressl.git",
+        "state": {
+          "branch": null,
+          "revision": "9ebe7fffd3f7d3cd3377696aeaa867a77f2418dd",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "HypertextApplicationLanguage",
+        "repositoryURL": "https://github.com/noppoMan/HypertextApplicationLanguage.git",
+        "state": {
+          "branch": null,
+          "revision": "e6216c13fd510e31e70e6f409936f1a656db1f33",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "SwiftAWSIam",
+        "repositoryURL": "https://github.com/swift-aws/iam.git",
+        "state": {
+          "branch": null,
+          "revision": "7f0ce270eb8f856561b3097dad1d980f9b202213",
+          "version": "1.1.6"
         }
       },
       {
@@ -15,8 +60,26 @@
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
-          "revision": "d91327fda5b609b12ea2247260b3680449954d32",
-          "version": "7.2.0"
+          "revision": "7c61d8e7e830dd37f7161ce2b894be178532163c",
+          "version": "7.3.0"
+        }
+      },
+      {
+        "package": "Prorsum",
+        "repositoryURL": "https://github.com/noppoMan/Prorsum.git",
+        "state": {
+          "branch": null,
+          "revision": "b278e88142a3b5a87feabc44b6522dabfcda8f99",
+          "version": "0.3.3"
+        }
+      },
+      {
+        "package": "ProrsumNet",
+        "repositoryURL": "https://github.com/noppoman/ProrsumNet.git",
+        "state": {
+          "branch": null,
+          "revision": "941e0c65df620467130e9eb2496a3c1275c1d307",
+          "version": "0.1.3"
         }
       },
       {
