@@ -4663,6 +4663,14 @@
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					3A6C2C8C213F0385000E312F = {
 						CreatedOnToolsVersion = 10.0;

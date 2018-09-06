@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+(cd "${DIR}" && ./atlas-sync.sh) | grep -v 'Bad file descriptor' >> /Users/jcosulich/Library/Containers/powderhs.AtlasApp/Data/Library/Application\ Support/Atlas/atlastest/Atlas/../log.txt 2>&1 &
+
