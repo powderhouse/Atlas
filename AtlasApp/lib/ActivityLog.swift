@@ -96,7 +96,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
                 
                 let link = NSAttributedString(
                     string: file.name,
-                    attributes: [NSAttributedString.Key.link: file.url]
+                    attributes: [NSAttributedStringKey.link: file.url]
                 )
 
                 filesField.insertText("\n", replacementRange: range)

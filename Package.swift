@@ -49,7 +49,7 @@ let package = Package(
 // Add Target: AtlasApp
 // In AtlasApp Target find "Swift Language Version" and set to "Swift 4"
 // In AtlasApp Target find "Import Paths" and add:
-//  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL 
+//  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL
 //  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser
 // Move all files from AtlasApp (old) to AtlasApp (new)
 // Move all files from AtlasAppUITests (old) to AtlasAppUITests (new)
@@ -62,3 +62,7 @@ let package = Package(
 // Add AtlasCore as Embedded Binary to AtlasApp
 // Assign all lib file (within AtlasApp) to AtlasApp
 // In AtlasCore target add a "Copy Bundle Resources" item to "Build Phases" and select "git"
+// Set Swift to 4.0
+// Embed SwiftAWSIAM
+// Embed AWSSDKSwiftCore
+// Embed HypertextApplicationLanguage
