@@ -17,6 +17,7 @@ public class LoginCommand: Command {
     public let shortDescription = "Login to Atlas using your GitHub credentials."
     
     public let usernameOption = Key<String>("-u", "--username", description: "Your GitHub username")
+    public let emailOption = Key<String>("-e", "--email", description: "Your GitHub email")
     public let passwordOption = Key<String>("-p", "--password", description: "Your GitHub password")
     
     public var input: AtlasInput!
@@ -38,6 +39,11 @@ public class LoginCommand: Command {
         if username == nil {
             username = input.awaitInput(message: "GitHub Username:")
         }
+        
+        var email = emailOption.value
+        if email == nil {
+            email = input.awaitInput(message: "GitHub Email:")
+        }
 
         var password = passwordOption.value
         if password == nil {
@@ -49,12 +55,17 @@ public class LoginCommand: Command {
             return
         }
 
+        guard email != nil else {
+            print("Please provide an email using -e or --email (e.g. -e you@example.com)")
+            return
+        }
+
         guard password != nil else {
             print("Please provide a username using -p or --password (e.g. -p github_password)")
             return
         }
         
-        let credentials = Credentials(username!, password: password!)
+        let credentials = Credentials(username!, email: email!, password: password!)
         if atlasCore.initGitAndGitHub(credentials).success {
             print("Logged into Atlas as \(credentials.username)")
             if let repository = atlasCore.gitHubRepository() {
