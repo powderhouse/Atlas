@@ -51,7 +51,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     }
     
     func runCommand(_ fullCommand: String) {
-        var allArgs = fullCommand.split(separator: " ")
+        var allArgs = fullCommand.components(separatedBy: " ")
         
         guard allArgs.count != 0 else {
             Terminal.log("Please enter a command")

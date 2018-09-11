@@ -1,4 +1,4 @@
 module QuickSpecBase {
-    umbrella header "/Users/jcosulich/workspace/Atlas/.build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase/include/QuickSpecBase.h"
+    umbrella header "../../../.build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase/include/QuickSpecBase.h"
     export *
 }

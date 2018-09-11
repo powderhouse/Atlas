@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.3.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -709,22 +708,22 @@
             <objects>
                 <viewController title="Account Controller" id="amK-yh-WYg" customClass="AccountController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="5W2-1i-BXL">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="308"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="335"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2K-Jd-TDr">
-                                <rect key="frame" x="158" y="252" width="135" height="36"/>
+                                <rect key="frame" x="158" y="279" width="135" height="36"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Welcome!" id="Bbe-qu-ogb">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lES-EU-1CX" userLabel="Github Form">
-                                <rect key="frame" x="23" y="155" width="405" height="77"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lES-EU-1CX" userLabel="Github Form">
+                                <rect key="frame" x="23" y="155" width="405" height="104"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Dc-0E-gXO">
-                                        <rect key="frame" x="-2" y="60" width="230" height="17"/>
+                                        <rect key="frame" x="-2" y="87" width="230" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please enter your GitHub credentials:" id="G6b-au-4d5">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -732,8 +731,16 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jkK-LV-0qn" userLabel="Username">
-                                        <rect key="frame" x="0.0" y="30" width="405" height="22"/>
+                                        <rect key="frame" x="0.0" y="58" width="405" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Username" drawsBackground="YES" id="gZY-Lp-iHV">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A0Y-WC-4i2" userLabel="Email">
+                                        <rect key="frame" x="0.0" y="29" width="405" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Email" drawsBackground="YES" id="0Lv-sM-fO8">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -760,8 +767,10 @@
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -838,15 +847,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="A0Y-WC-4i2" id="Vlc-9y-aTY"/>
                         <outlet property="passwordField" destination="qxY-iS-gkw" id="ETe-y5-hsv"/>
                         <outlet property="s3AccessKeyField" destination="IIP-N7-vbQ" id="fF2-ad-Gz5"/>
                         <outlet property="s3SecretField" destination="uan-1h-GOf" id="I6c-gt-ZbM"/>
-                        <outlet property="usernameField" destination="jkK-LV-0qn" id="upd-RO-eo7"/>
+                        <outlet property="usernameField" destination="jkK-LV-0qn" id="ned-yL-G8S"/>
                     </connections>
                 </viewController>
                 <customObject id="LWh-2P-ErR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-672" y="1655.5"/>
+            <point key="canvasLocation" x="-672" y="1655"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -1067,7 +1077,7 @@
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="448" height="73"/>
-                                            <size key="maxSize" width="616" height="10000000"/>
+                                            <size key="maxSize" width="618" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>

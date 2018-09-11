@@ -1,0 +1,52 @@
+.TH git-annex-adjust 1
+.SH NAME
+git-annex-adjust \- enter an adjusted branch
+.PP
+.SH SYNOPSIS
+git annex adjust \fB\-\-unlock|\-\-fix\fP
+.PP
+.SH DESCRIPTION
+Enters an adjusted form of the current branch. The annexed files will
+be treated differently. For example with \-\-unlock all annexed files will
+be unlocked.
+.PP
+The adjusted branch will have a name like "adjusted/master(unlocked)".
+Since it's a regular git branch, you can use \fBgit checkout\fP to switch
+back to the original branch at any time.
+.PP
+While in the adjusted branch, you can use git-annex and git commands as
+usual. Any commits that you make will initially only be made to the
+adjusted branch. 
+.PP
+To propagate changes from the adjusted branch back to the original branch,
+and to other repositories, as well as to merge in changes from other
+repositories, use \fBgit annex sync\fP.
+.PP
+This command can only be used in a v6 git-annex repository.
+.PP
+.SH OPTIONS
+.IP "\fB\-\-unlock\fP"
+.IP
+Unlock all annexed files in the adjusted branch. This allows
+annexed files to be modified.
+.IP
+.IP "\fB\-\-fix\fP"
+Fix the symlinks to annexed files to point to the local git annex
+object directory. This can be useful if a repository is checked out in an
+unusual way that prevents the symlinks committed to git from pointing at
+the annex objects.
+.IP
+.SH SEE ALSO
+git-annex(1)
+.PP
+git-annex\-unlock(1)
+.PP
+git-annex\-upgrade(1)
+.PP
+git-annex\-sync(1)
+.PP
+.SH AUTHOR
+Joey Hess <id@joeyh.name>
+.PP
+.PP
+

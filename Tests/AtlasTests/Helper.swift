@@ -11,6 +11,7 @@ import AtlasCore
 class Helper {
     
     static let username = "atlasapptests"
+    static let email = "atlasapptests@puzzleschool.com"
 //    static let password = "1a2b3c4d"
     
     class func addFile(_ name: String, directory: URL) -> URL {
@@ -20,11 +21,8 @@ class Helper {
     }
     
     class func initAtlasCore(_ atlasCore: AtlasCore) -> Bool {
-        let username = "atlasapptests"
-//        let password = "1a2b3c4d"
-        
 //        let credentials = Credentials(username, password: password)
-        let credentials = Credentials(username)
+        let credentials = Credentials(Helper.username, email: Helper.email)
         if atlasCore.initGitAndGitHub(credentials).success {
             _ = atlasCore.initProject("General")
             atlasCore.atlasCommit("Atlas Initialization")

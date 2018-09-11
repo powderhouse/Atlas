@@ -44,8 +44,13 @@ let package = Package(
 
 
 // Rebuilding
+// swift package update
 // swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
 // Add Target: AtlasApp
+// In AtlasApp Target find "Swift Language Version" and set to "Swift 4"
+// In AtlasApp Target find "Import Paths" and add:
+//  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL
+//  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser
 // Move all files from AtlasApp (old) to AtlasApp (new)
 // Move all files from AtlasAppUITests (old) to AtlasAppUITests (new)
 // git status
@@ -54,5 +59,10 @@ let package = Package(
 // rm AtlasAppUITests/AtlasAppUITests.swift
 // Delete old and "Remove Reference" for app and ui tests
 // Delete red files
-// Add AtlasCore as Embedded Binary
-// Assign all lib file to AtlasApp
+// Add AtlasCore as Embedded Binary to AtlasApp
+// Assign all lib file (within AtlasApp) to AtlasApp
+// In AtlasCore target add a "Copy Bundle Resources" item to "Build Phases" and select "git"
+// Set Swift to 4.0
+// Embed SwiftAWSIAM
+// Embed AWSSDKSwiftCore
+// Embed HypertextApplicationLanguage

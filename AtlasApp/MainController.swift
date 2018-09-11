@@ -209,9 +209,11 @@ class MainController: NSViewController {
         let log: (_ message: String) -> Void = { (message) in
             Terminal.log(message)
         }
-        
-        if let directoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
-            let directory = URL(fileURLWithPath: directoryPath)
+
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            let tempDir = NSTemporaryDirectory()
+            let directory = URL(fileURLWithPath: tempDir).appendingPathComponent("ATLASTEST")
+            _ = FileSystem.deleteDirectory(directory)
             atlasCore = AtlasCore(directory, externalLog: log)
         } else {
             atlasCore = AtlasCore(externalLog: log)
@@ -223,12 +225,12 @@ class MainController: NSViewController {
             initAtlasCore()
         }
         
-        if segue.identifier?.rawValue == "account-segue" {
+        if segue.identifier!.rawValue == "account-segue" {
             let dvc = segue.destinationController as! AccountController
             dvc.userDirectory = atlasCore.userDirectory
             dvc.credentials = atlasCore.getCredentials()
             dvc.mainController = self
-        } else if segue.identifier?.rawValue == "panel-embed" {
+        } else if segue.identifier!.rawValue == "panel-embed" {
             let dvc = segue.destinationController as! PanelController
             dvc.atlasCore = atlasCore
         }
