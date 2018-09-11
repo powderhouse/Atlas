@@ -209,9 +209,11 @@ class MainController: NSViewController {
         let log: (_ message: String) -> Void = { (message) in
             Terminal.log(message)
         }
-        
-        if let directoryPath = ProcessInfo.processInfo.environment["atlasDirectory"] {
-            let directory = URL(fileURLWithPath: directoryPath)
+
+        if ProcessInfo.processInfo.environment["TESTING"] != nil {
+            let tempDir = NSTemporaryDirectory()
+            let directory = URL(fileURLWithPath: tempDir).appendingPathComponent("ATLASTEST")
+            _ = FileSystem.deleteDirectory(directory)
             atlasCore = AtlasCore(directory, externalLog: log)
         } else {
             atlasCore = AtlasCore(externalLog: log)

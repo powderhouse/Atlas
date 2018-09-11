@@ -45,6 +45,13 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func save(_ sender: NSButtonCell) {
+        let username = self.usernameField.stringValue
+        let email = self.emailField.stringValue
+        
+        guard username.count > 0 && email.count > 0 else {
+            return
+        }
+        
         Terminal.log("Initializing Atlas")
         
         Timer.scheduledTimer(
@@ -53,8 +60,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
             block: { (timer) in
                 self.mainController.initializeAtlas(
                     Credentials(
-                        self.usernameField.stringValue,
-                        email: self.emailField.stringValue,
+                        username,
+                        email: email,
                         password: self.passwordField.stringValue.count > 0 ?
                             self.passwordField.stringValue : nil,
                         token: self.credentials?.token,

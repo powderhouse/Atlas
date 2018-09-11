@@ -12,6 +12,7 @@ import AtlasCore
 class AtlasUITestCase: XCTestCase {
 
     let username = "atlasapptests"
+    let email = "atlasapptests@puzzleschool.com"
 //    let password = "1a2b3c4d"
     let repository = "AtlasTests"
     
@@ -25,15 +26,23 @@ class AtlasUITestCase: XCTestCase {
         
         app = XCUIApplication()
 
-        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(repository)
-        app.launchEnvironment["atlasDirectory"] = testDirectory.path
+        
+//        let testDirectoryPath = NSSearchPathForDirectoriesInDomains(
+//            .documentDirectory,
+//            .userDomainMask,
+//            true
+//        )[0]
+//        testDirectory = URL(fileURLWithPath: testDirectoryPath).appendingPathComponent(repository)
+
+//        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(repository)
+//        app.launchEnvironment["atlasDirectory"] = testDirectory.path
         app.launchEnvironment["TESTING"] = "true"
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         
-        reset()
+//        reset()
         app.launch()
         
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -48,14 +57,14 @@ class AtlasUITestCase: XCTestCase {
     }
     
     func reset() {
-        while FileSystem.fileExists(testDirectory, isDirectory: true) {
-            _ = Glue.runProcess(
-                "chmod",
-                arguments: ["-R", "u+w", testDirectory.path],
-                currentDirectory: testDirectory.deletingLastPathComponent()
-            )
-            FileSystem.deleteDirectory(testDirectory)
-        }
+//        while FileSystem.fileExists(testDirectory, isDirectory: true) {
+//            _ = Glue.runProcess(
+//                "chmod",
+//                arguments: ["-R", "u+w", testDirectory.path],
+//                currentDirectory: testDirectory.deletingLastPathComponent()
+//            )
+//            _ = FileSystem.deleteDirectory(testDirectory)
+//        }
     }
 
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
@@ -107,7 +116,11 @@ class AtlasUITestCase: XCTestCase {
         let usernameField = accountModal.textFields["GitHub Username"]
         usernameField.click()
         usernameField.typeText(username)
-        
+
+        let emailField = accountModal.textFields["GitHub Email"]
+        emailField.click()
+        emailField.typeText(email)
+
 //        let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
 //        passwordSecureTextField.click()
 //        passwordSecureTextField.typeText(password)
@@ -122,13 +135,17 @@ class AtlasUITestCase: XCTestCase {
         waitForTerminalToContain("Added project: General")
 
         terminal.click()
-        terminal.typeText("touch /tmp/\(filename)\n")
-        
-        terminal.typeText("stage -f /tmp/\(filename) -p \(projectName)\n")
+        terminal.typeText("pwd\n")
+        if let output = app.textViews["TerminalView"].value as? String {
+            if let dir = output.components(separatedBy: "\n").last {
+                terminal.typeText("touch ../\(filename)\n")
+                terminal.typeText("stage -f \(dir)/../\(filename) -p \(projectName)\n")
+            }
+        }
         
         waitForTerminalToContain("Successfully staged files in \(projectName)")
         
-        terminal.typeText("rm /tmp/\(filename)\n")
+        terminal.typeText("rm \(filename)\n")
     }
     
     func commit(_ app: XCUIApplication, projectName: String, commitMessage: String) {
