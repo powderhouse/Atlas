@@ -62,6 +62,10 @@
 		3A734DB32146BC0500613FE3 /* ProrsumNet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "ProrsumNet::ProrsumNet::Product" /* ProrsumNet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A734DB62146BC0500613FE3 /* Prorsum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; };
 		3A734DB72146BC0500613FE3 /* Prorsum.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A734DBA214837B900613FE3 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD376BD213F03F300122D10 /* LoginTest.swift */; };
+		3A734DBB214837B900613FE3 /* ProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD376C0213F03F300122D10 /* ProjectTest.swift */; };
+		3A734DBC214837B900613FE3 /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD376C1213F03F400122D10 /* SearchTest.swift */; };
+		3A734DBD214837B900613FE3 /* StageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD376BE213F03F300122D10 /* StageTest.swift */; };
 		3AD376BA213F03D100122D10 /* LogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD376B9213F03D100122D10 /* LogController.swift */; };
 		3AD376BC213F03E500122D10 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD376BB213F03E500122D10 /* WindowController.swift */; };
 		OBJ_1041 /* AWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_164 /* AWSClient.swift */; };
@@ -4895,6 +4899,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A734DBA214837B900613FE3 /* LoginTest.swift in Sources */,
+				3A734DBB214837B900613FE3 /* ProjectTest.swift in Sources */,
+				3A734DBC214837B900613FE3 /* SearchTest.swift in Sources */,
+				3A734DBD214837B900613FE3 /* StageTest.swift in Sources */,
 				3A2B77C7213F040400760CA2 /* CommitTest.swift in Sources */,
 				3A2B77CB213F041900760CA2 /* LogTest.swift in Sources */,
 				3A2B77C9213F040C00760CA2 /* AtlasUITestCase.swift in Sources */,
