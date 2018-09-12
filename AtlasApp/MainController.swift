@@ -189,6 +189,8 @@ class MainController: NSViewController {
                                 userInfo: ["projectName": AtlasCore.defaultProjectName]
                             )
                         })
+                    } else {
+                        self.atlasCore.sync()
                     }
                 } else {
                     Terminal.log("ERROR: Failed to initialize github")
