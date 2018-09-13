@@ -207,6 +207,11 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         
         minCursorPosition = (self.output.textStorage?.string ?? "").count
         
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "sync"),
+            object: nil
+        )
+        
         logging = false
         
         if hasFocus {

@@ -186,6 +186,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         
 
         for notification in [
+            "sync",
             "project-added",
             "project-deleted",
             "remove-staged-file",
