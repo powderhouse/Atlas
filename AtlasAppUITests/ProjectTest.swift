@@ -61,7 +61,8 @@ class ProjectTest: AtlasUITestCase {
         stage(app, projectName: projectName, filename: filename)
 
         commit(app, projectName: projectName, commitMessage: commitMessage)
-
+        waitForTerminalToContain("Files synced to S3.")
+        
         let log = app.collectionViews["LogView"]
         XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
 
