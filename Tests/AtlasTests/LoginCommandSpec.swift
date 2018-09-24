@@ -33,7 +33,7 @@ class LoginCommandSpec: QuickSpec {
                 directory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("ATLAS_CORE")
                 
                 Helper.deleteTestDirectory(directory)
-                FileSystem.createDirectory(directory)
+                _ = FileSystem.createDirectory(directory)
                 
                 //                let filePath = directory.path
                 //                let exists = fileManager.fileExists(atPath: filePath, isDirectory: &isDirectory)
