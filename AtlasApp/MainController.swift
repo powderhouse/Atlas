@@ -211,7 +211,7 @@ class MainController: NSViewController {
         let log: (_ message: String) -> Void = { (message) in
             Terminal.log(message)
         }
-
+        
         if ProcessInfo.processInfo.environment["TESTING"] != nil {
             let tempDir = NSTemporaryDirectory()
             let directory = URL(fileURLWithPath: tempDir).appendingPathComponent("ATLASTEST")
