@@ -193,17 +193,14 @@ class MainController: NSViewController {
                         self.atlasCore.sync()
                     }
                 } else {
-                    if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") {
-                        
+                    if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") {
+                        DispatchQueue.main.async(execute: {
+                            self.performSegue(
+                                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
+                                sender: self
+                            )
+                        })
                     }
-                    Terminal.log("ERROR: Failed to initialize GitHub. Please check your credentials.")
-
-                    DispatchQueue.main.async(execute: {
-                        self.performSegue(
-                            withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
-                            sender: self
-                        )
-                    })
                 }
                 
                 self.refresh()

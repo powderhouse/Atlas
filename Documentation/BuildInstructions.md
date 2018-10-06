@@ -31,7 +31,7 @@ Delete red files
 Add AtlasCore as Embedded Binary to AtlasApp
 Assign all lib file (within AtlasApp) to AtlasApp
 In AtlasCore target add a "Copy Bundle Resources" item to "Build Phases" and select "git"
-Set Swift to 4.0
 Embed SwiftAWSIAM
 Embed AWSSDKSwiftCore
 Embed HypertextApplicationLanguage
+Embed all frameworks

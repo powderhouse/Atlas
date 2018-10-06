@@ -31,6 +31,7 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         // Do any additional setup after loading the view.
         
         usernameField.delegate = self
+        emailField.delegate = self
         passwordField.delegate = self
         s3AccessKeyField.delegate = self
         s3SecretField.delegate = self
@@ -62,9 +63,9 @@ class AccountController: NSViewController, NSTextFieldDelegate {
                     Credentials(
                         username,
                         email: email,
-                        password: self.passwordField.stringValue.count > 0 ?
+                        token: self.passwordField.stringValue.count > 0 ?
                             self.passwordField.stringValue : nil,
-                        token: self.credentials?.token,
+                        //token: self.credentials?.token,
                         s3AccessKey: self.s3AccessKeyField.stringValue.count > 0 ? self.s3AccessKeyField.stringValue : nil,
                         s3SecretAccessKey: self.s3SecretField.stringValue.count > 0 ? self.s3SecretField.stringValue : nil
                     )
@@ -80,7 +81,11 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         if usernameField != nil {
             usernameField.stringValue = credentials!.username
         }
-        
+
+        if emailField != nil {
+            emailField.stringValue = credentials!.email
+        }
+
         if passwordField != nil {
             if credentials!.token != nil {
                 passwordField.placeholderString = "GitHub Password Already Set"
