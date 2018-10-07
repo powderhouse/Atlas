@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/powderhouse/AtlasCore.git",
         "state": {
           "branch": null,
-          "revision": "ff30d83651b173ddc56d4ad0d14db59dfabfeb9d",
-          "version": "1.9.7"
+          "revision": "bc13d17018022726af433db7520641e45fe58255",
+          "version": "2.0.1"
         }
       },
       {
         "package": "AWSSDKSwiftCore",
-        "repositoryURL": "https://github.com/noppoMan/aws-sdk-swift-core.git",
+        "repositoryURL": "https://github.com/powderhouse/aws-sdk-swift-core.git",
         "state": {
           "branch": null,
-          "revision": "48298a7bec6c838553f314cb48c81f2a363e8253",
-          "version": "1.0.10"
+          "revision": "48ebc3cc6dbadfbc1b48beff9d16eb17feba5b86",
+          "version": "0.0.2"
         }
       },
       {
@@ -48,11 +48,11 @@
       },
       {
         "package": "SwiftAWSIam",
-        "repositoryURL": "https://github.com/swift-aws/iam.git",
+        "repositoryURL": "https://github.com/powderhouse/iam.git",
         "state": {
           "branch": null,
-          "revision": "7f0ce270eb8f856561b3097dad1d980f9b202213",
-          "version": "1.1.6"
+          "revision": "46655c85540ff196bd958603567dae1351fb930b",
+          "version": "0.0.3"
         }
       },
       {
@@ -66,11 +66,11 @@
       },
       {
         "package": "Prorsum",
-        "repositoryURL": "https://github.com/noppoMan/Prorsum.git",
+        "repositoryURL": "https://github.com/powderhouse/Prorsum.git",
         "state": {
           "branch": null,
-          "revision": "b278e88142a3b5a87feabc44b6522dabfcda8f99",
-          "version": "0.3.3"
+          "revision": "f616f1cde281c7031b9d0e5e97debd241c27d2b9",
+          "version": "0.0.2"
         }
       },
       {
