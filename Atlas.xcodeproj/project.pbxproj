@@ -1513,7 +1513,7 @@
 		3AD0359E216AA421005B1E24 /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
 		3AD035A0216AA423005B1E24 /* StageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTest.swift; sourceTree = "<group>"; };
 		"AWSSDKSwiftCore::AWSSDKSwiftCore::Product" /* AWSSDKSwiftCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSSDKSwiftCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4762,6 +4762,10 @@
 					"AWSSDKSwiftCore::AWSSDKSwiftCore" = {
 						DevelopmentTeam = 4B7L43K59M;
 					};
+					"Atlas::Atlas" = {
+						DevelopmentTeam = 4B7L43K59M;
+						ProvisioningStyle = Automatic;
+					};
 					"AtlasCore::AtlasCore" = {
 						DevelopmentTeam = 4B7L43K59M;
 					};
@@ -6650,6 +6654,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -6666,6 +6673,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser/module.modulemap";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.0;
@@ -6677,6 +6685,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -6693,6 +6704,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL/module.modulemap -Xcc -fmodule-map-file=$(SRCROOT)/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser/module.modulemap";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.0;
