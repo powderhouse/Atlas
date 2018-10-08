@@ -54,6 +54,20 @@
 		3AD035B1216AA46F005B1E24 /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD03586216AA3C4005B1E24 /* ProjectButton.swift */; };
 		3AD035B2216AA46F005B1E24 /* ProjectViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD03587216AA3C4005B1E24 /* ProjectViewItem.xib */; };
 		3AD035B4216AA489005B1E24 /* git in Resources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* git */; };
+		3AD035B5216B7433005B1E24 /* CHTTPParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */; };
+		3AD035B6216B7433005B1E24 /* CHTTPParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AD035B9216B7433005B1E24 /* AWSSDKSwiftCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AWSSDKSwiftCore::AWSSDKSwiftCore::Product" /* AWSSDKSwiftCore.framework */; };
+		3AD035BA216B7433005B1E24 /* AWSSDKSwiftCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "AWSSDKSwiftCore::AWSSDKSwiftCore::Product" /* AWSSDKSwiftCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AD035BD216B7433005B1E24 /* SwiftAWSIam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftAWSIam::SwiftAWSIam::Product" /* SwiftAWSIam.framework */; };
+		3AD035BE216B7433005B1E24 /* SwiftAWSIam.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftAWSIam::SwiftAWSIam::Product" /* SwiftAWSIam.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AD035C1216B7433005B1E24 /* HypertextApplicationLanguage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "HypertextApplicationLanguage::HypertextApplicationLanguage::Product" /* HypertextApplicationLanguage.framework */; };
+		3AD035C2216B7433005B1E24 /* HypertextApplicationLanguage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "HypertextApplicationLanguage::HypertextApplicationLanguage::Product" /* HypertextApplicationLanguage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AD035C5216B7433005B1E24 /* CLibreSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CLibreSSL::CLibreSSL::Product" /* CLibreSSL.framework */; };
+		3AD035C6216B7433005B1E24 /* CLibreSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "CLibreSSL::CLibreSSL::Product" /* CLibreSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AD035C9216B7434005B1E24 /* ProrsumNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProrsumNet::ProrsumNet::Product" /* ProrsumNet.framework */; };
+		3AD035CA216B7434005B1E24 /* ProrsumNet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "ProrsumNet::ProrsumNet::Product" /* ProrsumNet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AD035CD216B7434005B1E24 /* Prorsum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; };
+		3AD035CE216B7434005B1E24 /* Prorsum.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		OBJ_1042 /* AWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_165 /* AWSClient.swift */; };
 		OBJ_1043 /* TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_167 /* TimeStamp.swift */; };
 		OBJ_1044 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_168 /* Bytes.swift */; };
@@ -1389,6 +1403,55 @@
 			remoteGlobalIDString = "AtlasCore::AtlasCore";
 			remoteInfo = AtlasCore;
 		};
+		3AD035B7216B7433005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CHTTPParser::CHTTPParser";
+			remoteInfo = CHTTPParser;
+		};
+		3AD035BB216B7433005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "AWSSDKSwiftCore::AWSSDKSwiftCore";
+			remoteInfo = AWSSDKSwiftCore;
+		};
+		3AD035BF216B7433005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftAWSIam::SwiftAWSIam";
+			remoteInfo = SwiftAWSIam;
+		};
+		3AD035C3216B7433005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "HypertextApplicationLanguage::HypertextApplicationLanguage";
+			remoteInfo = HypertextApplicationLanguage;
+		};
+		3AD035C7216B7433005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CLibreSSL::CLibreSSL";
+			remoteInfo = CLibreSSL;
+		};
+		3AD035CB216B7434005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "ProrsumNet::ProrsumNet";
+			remoteInfo = ProrsumNet;
+		};
+		3AD035CF216B7434005B1E24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Prorsum::Prorsum";
+			remoteInfo = Prorsum;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1398,7 +1461,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3AD035CA216B7434005B1E24 /* ProrsumNet.framework in Embed Frameworks */,
+				3AD035C6216B7433005B1E24 /* CLibreSSL.framework in Embed Frameworks */,
+				3AD035C2216B7433005B1E24 /* HypertextApplicationLanguage.framework in Embed Frameworks */,
+				3AD035BE216B7433005B1E24 /* SwiftAWSIam.framework in Embed Frameworks */,
 				3AD035A3216AA462005B1E24 /* AtlasCore.framework in Embed Frameworks */,
+				3AD035CE216B7434005B1E24 /* Prorsum.framework in Embed Frameworks */,
+				3AD035B6216B7433005B1E24 /* CHTTPParser.framework in Embed Frameworks */,
+				3AD035BA216B7433005B1E24 /* AWSSDKSwiftCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1442,14 +1512,14 @@
 		3AD0359C216AA41D005B1E24 /* ProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTest.swift; sourceTree = "<group>"; };
 		3AD0359E216AA421005B1E24 /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
 		3AD035A0216AA423005B1E24 /* StageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTest.swift; sourceTree = "<group>"; };
-		"AWSSDKSwiftCore::AWSSDKSwiftCore::Product" /* AWSSDKSwiftCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSSDKSwiftCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"AWSSDKSwiftCore::AWSSDKSwiftCore::Product" /* AWSSDKSwiftCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSSDKSwiftCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasTests::Product" /* AtlasTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"AtlasCore::AtlasCore::Product" /* AtlasCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AtlasCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHTTPParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"CLibreSSL::CLibreSSL::Product" /* CLibreSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CLibreSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"HypertextApplicationLanguage::HypertextApplicationLanguage::Product" /* HypertextApplicationLanguage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HypertextApplicationLanguage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CHTTPParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"CLibreSSL::CLibreSSL::Product" /* CLibreSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CLibreSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"HypertextApplicationLanguage::HypertextApplicationLanguage::Product" /* HypertextApplicationLanguage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HypertextApplicationLanguage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_1000 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		OBJ_1001 /* CommandSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSignature.swift; sourceTree = "<group>"; };
@@ -2402,11 +2472,11 @@
 		OBJ_997 /* CLI-deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLI-deprecated.swift"; sourceTree = "<group>"; };
 		OBJ_998 /* CLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
 		OBJ_999 /* ChainableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainableCommand.swift; sourceTree = "<group>"; };
-		"Prorsum::Prorsum::Product" /* Prorsum.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Prorsum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"ProrsumNet::ProrsumNet::Product" /* ProrsumNet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ProrsumNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Prorsum::Prorsum::Product" /* Prorsum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Prorsum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ProrsumNet::ProrsumNet::Product" /* ProrsumNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProrsumNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Quick::Quick::Product" /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuickSpecBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"SwiftAWSIam::SwiftAWSIam::Product" /* SwiftAWSIam.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftAWSIam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftAWSIam::SwiftAWSIam::Product" /* SwiftAWSIam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftAWSIam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCLI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2415,7 +2485,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD035C9216B7434005B1E24 /* ProrsumNet.framework in Frameworks */,
+				3AD035C5216B7433005B1E24 /* CLibreSSL.framework in Frameworks */,
+				3AD035C1216B7433005B1E24 /* HypertextApplicationLanguage.framework in Frameworks */,
+				3AD035BD216B7433005B1E24 /* SwiftAWSIam.framework in Frameworks */,
 				3AD035A2216AA462005B1E24 /* AtlasCore.framework in Frameworks */,
+				3AD035CD216B7434005B1E24 /* Prorsum.framework in Frameworks */,
+				3AD035B5216B7433005B1E24 /* CHTTPParser.framework in Frameworks */,
+				3AD035B9216B7433005B1E24 /* AWSSDKSwiftCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4166,6 +4243,13 @@
 			);
 			dependencies = (
 				3AD035A5216AA462005B1E24 /* PBXTargetDependency */,
+				3AD035B8216B7433005B1E24 /* PBXTargetDependency */,
+				3AD035BC216B7433005B1E24 /* PBXTargetDependency */,
+				3AD035C0216B7433005B1E24 /* PBXTargetDependency */,
+				3AD035C4216B7433005B1E24 /* PBXTargetDependency */,
+				3AD035C8216B7433005B1E24 /* PBXTargetDependency */,
+				3AD035CC216B7434005B1E24 /* PBXTargetDependency */,
+				3AD035D0216B7434005B1E24 /* PBXTargetDependency */,
 			);
 			name = AtlasApp;
 			productName = AtlasApp;
@@ -4675,7 +4759,28 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3AD03554216AA359005B1E24;
 					};
+					"AWSSDKSwiftCore::AWSSDKSwiftCore" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
 					"AtlasCore::AtlasCore" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"CHTTPParser::CHTTPParser" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"CLibreSSL::CLibreSSL" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"HypertextApplicationLanguage::HypertextApplicationLanguage" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"Prorsum::Prorsum" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"ProrsumNet::ProrsumNet" = {
+						DevelopmentTeam = 4B7L43K59M;
+					};
+					"SwiftAWSIam::SwiftAWSIam" = {
 						DevelopmentTeam = 4B7L43K59M;
 					};
 				};
@@ -5870,6 +5975,41 @@
 			target = "AtlasCore::AtlasCore" /* AtlasCore */;
 			targetProxy = 3AD035A4216AA462005B1E24 /* PBXContainerItemProxy */;
 		};
+		3AD035B8216B7433005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CHTTPParser::CHTTPParser" /* CHTTPParser */;
+			targetProxy = 3AD035B7216B7433005B1E24 /* PBXContainerItemProxy */;
+		};
+		3AD035BC216B7433005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "AWSSDKSwiftCore::AWSSDKSwiftCore" /* AWSSDKSwiftCore */;
+			targetProxy = 3AD035BB216B7433005B1E24 /* PBXContainerItemProxy */;
+		};
+		3AD035C0216B7433005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftAWSIam::SwiftAWSIam" /* SwiftAWSIam */;
+			targetProxy = 3AD035BF216B7433005B1E24 /* PBXContainerItemProxy */;
+		};
+		3AD035C4216B7433005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "HypertextApplicationLanguage::HypertextApplicationLanguage" /* HypertextApplicationLanguage */;
+			targetProxy = 3AD035C3216B7433005B1E24 /* PBXContainerItemProxy */;
+		};
+		3AD035C8216B7433005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CLibreSSL::CLibreSSL" /* CLibreSSL */;
+			targetProxy = 3AD035C7216B7433005B1E24 /* PBXContainerItemProxy */;
+		};
+		3AD035CC216B7434005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "ProrsumNet::ProrsumNet" /* ProrsumNet */;
+			targetProxy = 3AD035CB216B7434005B1E24 /* PBXContainerItemProxy */;
+		};
+		3AD035D0216B7434005B1E24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Prorsum::Prorsum" /* Prorsum */;
+			targetProxy = 3AD035CF216B7434005B1E24 /* PBXContainerItemProxy */;
+		};
 		OBJ_1076 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "HypertextApplicationLanguage::HypertextApplicationLanguage" /* HypertextApplicationLanguage */;
@@ -6358,6 +6498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = powderhs.AtlasAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = AtlasApp;
 			};
@@ -6417,6 +6558,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = powderhs.AtlasAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser";
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = AtlasApp;
 			};
@@ -6426,6 +6568,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6456,6 +6600,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6786,7 +6932,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6813,7 +6961,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6858,7 +7008,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6885,7 +7037,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6930,6 +7084,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6954,6 +7110,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7062,6 +7220,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7092,6 +7252,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7122,6 +7284,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7150,6 +7314,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7342,6 +7508,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7372,6 +7540,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = OBJ_8 /* settings.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 4B7L43K59M;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
