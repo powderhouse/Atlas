@@ -112,6 +112,7 @@ class AtlasUITestCase: XCTestCase {
     
     func login(_ app: XCUIApplication) {
         let accountModal = app.dialogs["Account Controller"]
+        app.activate()
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         
         let usernameField = accountModal.textFields["GitHub Username"]
