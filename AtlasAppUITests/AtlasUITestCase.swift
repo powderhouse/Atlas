@@ -20,39 +20,19 @@ class AtlasUITestCase: XCTestCase {
     var testDirectory: URL!
 
     override func setUp() {
+        app = XCUIApplication()
+        
+        app.terminate()
+
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        app = XCUIApplication()
-
-        
-//        let testDirectoryPath = NSSearchPathForDirectoriesInDomains(
-//            .documentDirectory,
-//            .userDomainMask,
-//            true
-//        )[0]
-//        testDirectory = URL(fileURLWithPath: testDirectoryPath).appendingPathComponent(repository)
-
-//        testDirectory = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(repository)
-//        app.launchEnvironment["atlasDirectory"] = testDirectory.path
         app.launchEnvironment["TESTING"] = "true"
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        
-//        reset()
-        app.launch()
         app.activate()
-        
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
-        
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         reset()
         super.tearDown()
     }
@@ -112,7 +92,6 @@ class AtlasUITestCase: XCTestCase {
     
     func login(_ app: XCUIApplication) {
         let accountModal = app.dialogs["Account Controller"]
-        app.activate()
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         
         let usernameField = accountModal.textFields["GitHub Username"]
