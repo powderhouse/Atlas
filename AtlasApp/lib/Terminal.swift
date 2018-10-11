@@ -188,10 +188,10 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         }
         
         var item: String
-        if queue.isEmpty {
-            return
-        } else {
+        if !self.queue.isEmpty {
             item = self.queue.removeFirst()
+        } else {
+            return
         }
 
         logging = true

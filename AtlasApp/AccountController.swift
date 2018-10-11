@@ -13,6 +13,7 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var usernameField: NSTextField!
     @IBOutlet var emailField: NSTextField!
     @IBOutlet weak var passwordField: NSSecureTextField!
+    @IBOutlet var tokenField: NSTextField!
     @IBOutlet var s3AccessKeyField: NSTextField!
     @IBOutlet var s3SecretField: NSSecureTextField!
     
@@ -32,6 +33,7 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         
         usernameField.delegate = self
         passwordField.delegate = self
+        tokenField.delegate = self
         s3AccessKeyField.delegate = self
         s3SecretField.delegate = self
 
@@ -64,7 +66,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
                         email: email,
                         password: self.passwordField.stringValue.count > 0 ?
                             self.passwordField.stringValue : nil,
-                        token: self.credentials?.token,
+                        token: self.tokenField.stringValue.count > 0 ?
+                            self.tokenField.stringValue : nil,
                         s3AccessKey: self.s3AccessKeyField.stringValue.count > 0 ? self.s3AccessKeyField.stringValue : nil,
                         s3SecretAccessKey: self.s3SecretField.stringValue.count > 0 ? self.s3SecretField.stringValue : nil
                     )
@@ -82,14 +85,13 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         }
         
         if passwordField != nil {
-            if credentials!.token != nil {
-                passwordField.placeholderString = "GitHub Password Already Set"
-                passwordField.isEnabled = false
-            } else {
-                passwordField.stringValue = credentials!.password ?? ""
-            }
+            passwordField.stringValue = credentials!.password ?? ""
         }
-        
+
+        if tokenField != nil {
+            tokenField.stringValue = credentials!.token ?? ""
+        }
+
         if s3AccessKeyField != nil {
             s3AccessKeyField.stringValue = credentials!.s3AccessKey ?? ""
         }
