@@ -37,6 +37,13 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     @IBAction func sync(_ sender: NSButton) {
+        let completed = {
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: "refresh"),
+                object: nil
+            )
+        }
+        
         DispatchQueue.global(qos: .background).async {
             self.atlasCore.sync()
         }
@@ -67,26 +74,21 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func deleteProject(_ projectName: String) {
-        if let projectDirectoryPath = atlasCore.project(projectName)?.directory().path {
-            DispatchQueue.global(qos: .background).async {
-                let result = self.atlasCore.purge([projectDirectoryPath])
-                if result.success {
-                    DispatchQueue.main.async(execute: {
-                        self.projectListView.reloadData()
-                        
-                        NotificationCenter.default.post(
-                            name: NSNotification.Name(rawValue: "project-deleted"),
-                            object: nil
-                        )
-                        
-                        Terminal.log("Deleted project: \(projectName)")
-                    })
-                }
+        DispatchQueue.global(qos: .background).async {
+            let result = self.atlasCore.purge([projectName])
+            if result.success {
+                DispatchQueue.main.async(execute: {
+                    self.projectListView.reloadData()
+                    
+                    NotificationCenter.default.post(
+                        name: NSNotification.Name(rawValue: "project-deleted"),
+                        object: nil
+                    )
+                    
+                    Terminal.log("Deleted project: \(projectName)")
+                })
             }
-        } else {
-            Terminal.log("Unable to delete \(projectName). Project not found.")
         }
-
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
