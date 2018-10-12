@@ -183,11 +183,14 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     private func dequeueLog() {
         let hasFocus = output.isAccessibilityFocused()
         
-        guard !queue.isEmpty else {
+        guard queueTimer == nil else {
             return
         }
         
-        guard queueTimer == nil else {
+        var item: String
+        if !self.queue.isEmpty {
+            item = self.queue.removeFirst()
+        } else {
             return
         }
 
@@ -195,7 +198,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
 
         output.isEditable = true
 
-        let text = "\n\n\(self.queue.removeFirst())"
+        let text = "\n\n\(item)"
         
         let range = output.selectedRange()
         

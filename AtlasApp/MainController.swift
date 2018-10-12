@@ -9,7 +9,7 @@ import Cocoa
 import AtlasCore
 
 class MainController: NSViewController {
-
+    
     var atlasCore: AtlasCore!
     
     var selectedProject: String?
@@ -31,10 +31,16 @@ class MainController: NSViewController {
         if credentials != nil && credentials!.complete() {
             initializeAtlas(credentials!)
         } else {
-            performSegue(
-                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
-                sender: self
-            )
+            Timer.scheduledTimer(
+                withTimeInterval: 0,
+                repeats: false,
+                block: { (timer) in
+                    self.performSegue(
+                        withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
+                        sender: self
+                    )
+                    
+            })
         }
     }
     
@@ -43,10 +49,10 @@ class MainController: NSViewController {
             reset()
         }
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
     
@@ -91,7 +97,7 @@ class MainController: NSViewController {
                         }
                     })
                 }
-
+                
                 var gitCommitComplete = false
                 DispatchQueue.global(qos: .background).async {
                     while !gitCommitComplete {
@@ -112,7 +118,7 @@ class MainController: NSViewController {
                 }
             }
         }
-
+        
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: "remove-staged-file"),
             object: nil,
@@ -162,7 +168,7 @@ class MainController: NSViewController {
             )
         })
     }
-
+    
     func initializeAtlas(_ credentials: Credentials) {
         if let core = atlasCore {
             DispatchQueue.global(qos: .background).async {

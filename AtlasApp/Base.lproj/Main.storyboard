@@ -708,11 +708,11 @@
             <objects>
                 <viewController title="Account Controller" id="amK-yh-WYg" customClass="AccountController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="5W2-1i-BXL">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="335"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="364"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2K-Jd-TDr">
-                                <rect key="frame" x="158" y="279" width="135" height="36"/>
+                                <rect key="frame" x="158" y="308" width="135" height="36"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Welcome!" id="Bbe-qu-ogb">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -720,10 +720,10 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lES-EU-1CX" userLabel="Github Form">
-                                <rect key="frame" x="23" y="155" width="405" height="104"/>
+                                <rect key="frame" x="23" y="155" width="405" height="133"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Dc-0E-gXO">
-                                        <rect key="frame" x="-2" y="87" width="230" height="17"/>
+                                        <rect key="frame" x="-2" y="116" width="230" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please enter your GitHub credentials:" id="G6b-au-4d5">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -731,7 +731,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jkK-LV-0qn" userLabel="Username">
-                                        <rect key="frame" x="0.0" y="58" width="405" height="22"/>
+                                        <rect key="frame" x="0.0" y="87" width="405" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Username" drawsBackground="YES" id="gZY-Lp-iHV">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -739,7 +739,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A0Y-WC-4i2" userLabel="Email">
-                                        <rect key="frame" x="0.0" y="29" width="405" height="22"/>
+                                        <rect key="frame" x="0.0" y="58" width="405" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="GitHub Email" drawsBackground="YES" id="0Lv-sM-fO8">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -747,7 +747,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qxY-iS-gkw" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="0.0" width="405" height="22"/>
+                                        <rect key="frame" x="0.0" y="29" width="405" height="22"/>
                                         <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="GitHub Password" drawsBackground="YES" usesSingleLineMode="YES" id="26J-Se-YaR">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -757,19 +757,30 @@
                                             </allowedInputSourceLocales>
                                         </secureTextFieldCell>
                                     </secureTextField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iMf-8h-Bfw" userLabel="Token">
+                                        <rect key="frame" x="0.0" y="0.0" width="405" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="GitHub Token" drawsBackground="YES" id="vjc-6Z-BeQ">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jkK-LV-0qn" firstAttribute="width" secondItem="lES-EU-1CX" secondAttribute="width" id="DhF-Ws-Qy6"/>
                                     <constraint firstItem="jkK-LV-0qn" firstAttribute="centerX" secondItem="lES-EU-1CX" secondAttribute="centerX" id="Fur-kR-DvX"/>
                                     <constraint firstItem="qxY-iS-gkw" firstAttribute="centerX" secondItem="lES-EU-1CX" secondAttribute="centerX" id="V83-LF-qQN"/>
+                                    <constraint firstItem="iMf-8h-Bfw" firstAttribute="centerX" secondItem="lES-EU-1CX" secondAttribute="centerX" id="nJm-Zc-R8E"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -851,6 +862,7 @@
                         <outlet property="passwordField" destination="qxY-iS-gkw" id="ETe-y5-hsv"/>
                         <outlet property="s3AccessKeyField" destination="IIP-N7-vbQ" id="fF2-ad-Gz5"/>
                         <outlet property="s3SecretField" destination="uan-1h-GOf" id="I6c-gt-ZbM"/>
+                        <outlet property="tokenField" destination="iMf-8h-Bfw" id="7eB-6X-E8e"/>
                         <outlet property="usernameField" destination="jkK-LV-0qn" id="ned-yL-G8S"/>
                     </connections>
                 </viewController>
