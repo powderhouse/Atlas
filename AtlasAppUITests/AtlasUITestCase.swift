@@ -26,6 +26,7 @@ class AtlasUITestCase: XCTestCase {
 
         super.setUp()
         
+        app.launchEnvironment["UITEST_DISABLE_ANIMATIONS"] = "YES"
         app.launchEnvironment["TESTING"] = "true"
 
         continueAfterFailure = false
