@@ -199,7 +199,9 @@ class MainController: NSViewController {
                         self.atlasCore.sync()
                     }
                 } else {
-                    if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") {
+                    if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") ||
+                        result.messages.contains("Unable to sync with S3. Please check credentials.") ||
+                        result.messages.contains("Invalid AWS credentials") {
                         DispatchQueue.main.async(execute: {
                             self.performSegue(
                                 withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
