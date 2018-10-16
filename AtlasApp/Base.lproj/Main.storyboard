@@ -844,26 +844,39 @@
                                     </connections>
                                 </buttonCell>
                             </button>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a6b-XH-eVO" userLabel="Error">
+                                <rect key="frame" x="1" y="317" width="450" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" drawsBackground="YES" id="Y5v-m0-q5K">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="a6b-XH-eVO" firstAttribute="width" secondItem="5W2-1i-BXL" secondAttribute="width" id="2wz-4Z-UQq"/>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="35y-eW-YiZ"/>
                             <constraint firstItem="CQE-xT-FA2" firstAttribute="width" secondItem="lES-EU-1CX" secondAttribute="width" id="4s2-rF-LVB"/>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="top" secondItem="Y2K-Jd-TDr" secondAttribute="bottom" constant="20" id="9AD-m0-M0v"/>
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="9ke-Jz-xSQ"/>
+                            <constraint firstItem="a6b-XH-eVO" firstAttribute="centerX" secondItem="Y2K-Jd-TDr" secondAttribute="centerX" id="ABd-Ov-sLd"/>
                             <constraint firstAttribute="bottom" secondItem="ITH-2M-A3a" secondAttribute="bottom" constant="20" id="La8-Xz-pKO"/>
                             <constraint firstItem="ITH-2M-A3a" firstAttribute="top" secondItem="CQE-xT-FA2" secondAttribute="bottom" constant="20" id="RDf-2m-m4k"/>
                             <constraint firstItem="CQE-xT-FA2" firstAttribute="top" secondItem="lES-EU-1CX" secondAttribute="bottom" constant="20" id="RNp-sf-hvm"/>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="width" secondItem="5W2-1i-BXL" secondAttribute="width" multiplier="0.9" id="cyq-WT-hC6"/>
+                            <constraint firstItem="a6b-XH-eVO" firstAttribute="centerY" secondItem="Y2K-Jd-TDr" secondAttribute="centerY" id="qFv-Co-ORk"/>
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="top" secondItem="5W2-1i-BXL" secondAttribute="top" constant="20" id="y6I-d8-35x"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="A0Y-WC-4i2" id="Vlc-9y-aTY"/>
+                        <outlet property="errorMessage" destination="a6b-XH-eVO" id="P5t-wF-HvT"/>
                         <outlet property="passwordField" destination="qxY-iS-gkw" id="ETe-y5-hsv"/>
                         <outlet property="s3AccessKeyField" destination="IIP-N7-vbQ" id="fF2-ad-Gz5"/>
                         <outlet property="s3SecretField" destination="uan-1h-GOf" id="I6c-gt-ZbM"/>
                         <outlet property="tokenField" destination="iMf-8h-Bfw" id="7eB-6X-E8e"/>
                         <outlet property="usernameField" destination="jkK-LV-0qn" id="ned-yL-G8S"/>
+                        <outlet property="welcomeMessage" destination="Y2K-Jd-TDr" id="LEd-Qw-Owq"/>
                     </connections>
                 </viewController>
                 <customObject id="LWh-2P-ErR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1080,15 +1093,15 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
                                 <rect key="frame" x="0.0" y="30" width="450" height="75"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="nxK-Ai-kuu">
-                                    <rect key="frame" x="1" y="1" width="448" height="73"/>
+                                    <rect key="frame" x="1" y="1" width="433" height="73"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="601" height="73"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="448" height="73"/>
+                                            <size key="minSize" width="433" height="73"/>
                                             <size key="maxSize" width="618" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -1099,7 +1112,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                    <rect key="frame" x="433" y="1" width="16" height="73"/>
+                                    <rect key="frame" x="434" y="1" width="15" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>

@@ -16,6 +16,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var tokenField: NSTextField!
     @IBOutlet var s3AccessKeyField: NSTextField!
     @IBOutlet var s3SecretField: NSSecureTextField!
+    @IBOutlet var errorMessage: NSTextField!
+    @IBOutlet var welcomeMessage: NSTextField!
     
     var userDirectory: URL!
 
@@ -103,6 +105,17 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         
         if s3SecretField != nil {
             s3SecretField.stringValue = credentials!.s3SecretAccessKey ?? ""
+        }
+
+        if let authenticationError = credentials?.authenticationError {
+            if welcomeMessage != nil {
+                welcomeMessage.isHidden = true
+            }
+            
+            if errorMessage != nil {
+                errorMessage.isHidden = false
+                errorMessage.stringValue = "Authentication Error\n\(authenticationError)"
+            }
         }
     }
     

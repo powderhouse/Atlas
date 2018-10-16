@@ -13,7 +13,7 @@ class AtlasUITestCase: XCTestCase {
 
     let username = "atlasapptests"
     let email = "atlasapptests@puzzleschool.com"
-//    let password = "1a2b3c4d"
+    let password = "1a2b3c4d"
     let repository = "AtlasTests"
     
     var app: XCUIApplication!
@@ -34,21 +34,9 @@ class AtlasUITestCase: XCTestCase {
     }
     
     override func tearDown() {
-        reset()
         super.tearDown()
     }
     
-    func reset() {
-//        while FileSystem.fileExists(testDirectory, isDirectory: true) {
-//            _ = Glue.runProcess(
-//                "chmod",
-//                arguments: ["-R", "u+w", testDirectory.path],
-//                currentDirectory: testDirectory.deletingLastPathComponent()
-//            )
-//            _ = FileSystem.deleteDirectory(testDirectory)
-//        }
-    }
-
     func waitForElementToAppear(_ element: XCUIElement) -> Bool {
         let predicate = NSPredicate(format: "exists == true")
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
@@ -79,15 +67,22 @@ class AtlasUITestCase: XCTestCase {
     
     func waitForTerminalToContain(_ text: String) {
         let terminalView = app.textViews["TerminalView"]
-        waitForElementToContain(terminalView, text: text)
+        waitForElementValueToContain(terminalView, text: text)
     }
     
-    func waitForElementToContain(_ element: XCUIElement, text: String) {
+    func waitForElementValueToContain(_ element: XCUIElement, text: String) {
         let contains = NSPredicate(format: "value contains[c] %@", text)
         
         let subsitutedContains = contains.withSubstitutionVariables(["text": text])
         
         expectation(for: subsitutedContains, evaluatedWith: element, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
+    }
+    
+    func waitForStaticText(_ element: XCUIElement, text: String) {
+        let exists = NSPredicate(format: "exists == 1")
+        
+        expectation(for: exists, evaluatedWith: element.staticTexts[text], handler: nil)
         waitForExpectations(timeout: 30, handler: nil)
     }
     

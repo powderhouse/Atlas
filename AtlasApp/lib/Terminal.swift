@@ -194,8 +194,9 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         }
         
         var item: String
-        if !self.queue.isEmpty {
-            item = self.queue.removeFirst()
+        if let possibleItem = self.queue.first {
+            item = possibleItem
+            self.queue.removeAll(where: { $0 == possibleItem })
         } else {
             logging = false
             return
