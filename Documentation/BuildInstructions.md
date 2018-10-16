@@ -35,6 +35,7 @@ Embed all other libraries
 Assign all lib file (within AtlasApp) to AtlasApp
 Assign main.storyboard in Base.lproj
 In AtlasCore target add a "Copy Bundle Resources" item to "Build Phases" and select "git"
+Embed all frameworks
 git checkout AtlasApp.xcodeproj/GeneratedModuleMap
 ensure all AtlasApp.xcodeproj/GeneratedModuleMap are pointing to the right .build/checkouts
 For testing may need to create copies of .build/checkouts to match version numbers (how to fix this?)

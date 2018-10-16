@@ -32,6 +32,7 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         // Do any additional setup after loading the view.
         
         usernameField.delegate = self
+        emailField.delegate = self
         passwordField.delegate = self
         tokenField.delegate = self
         s3AccessKeyField.delegate = self
@@ -83,7 +84,11 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         if usernameField != nil {
             usernameField.stringValue = credentials!.username
         }
-        
+
+        if emailField != nil {
+            emailField.stringValue = credentials!.email
+        }
+
         if passwordField != nil {
             passwordField.stringValue = credentials!.password ?? ""
         }

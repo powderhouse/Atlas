@@ -198,17 +198,26 @@ class MainController: NSViewController {
                     } else {
                         self.atlasCore.sync()
                     }
+                    
+                    self.refresh()
+                    Timer.scheduledTimer(
+                        withTimeInterval: 1,
+                        repeats: false,
+                        block: { (timer) in
+                            self.refresh()
+                    })
                 } else {
-                    Terminal.log("ERROR: Failed to initialize github")
+                    if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") ||
+                        result.messages.contains("Unable to sync with S3. Please check credentials.") ||
+                        result.messages.contains("Invalid AWS credentials") {
+                        DispatchQueue.main.async(execute: {
+                            self.performSegue(
+                                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
+                                sender: self
+                            )
+                        })
+                    }
                 }
-                
-                self.refresh()
-                Timer.scheduledTimer(
-                    withTimeInterval: 1,
-                    repeats: false,
-                    block: { (timer) in
-                        self.refresh()
-                })
             }
         }
     }
