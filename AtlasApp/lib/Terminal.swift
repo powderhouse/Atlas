@@ -17,7 +17,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     var queue: [String] = []
     var queueTimer: Timer?
     var logging = false
-    var minCursorPosition = 0
     
     init(input: NSTextField, output: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
         self.input = input
@@ -157,7 +156,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     }
     
     func clear() {
-        minCursorPosition = 0
         output.selectAll(self)
         let range = output.selectedRange()
         output.insertText("", replacementRange: range)
@@ -202,19 +200,15 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             return
         }
 
-        output.isEditable = true
+        let text = NSAttributedString(string: "\n\n\(item)")
+        
+        let shouldScroll = (NSMaxY(self.output.visibleRect) >= NSMaxY(self.output.bounds) - 30)
+        
+        self.output.textStorage?.append(text)
 
-        let text = "\n\n\(item)"
-        
-        let range = output.selectedRange()
-        
-        self.output.insertText(text, replacementRange: range)
-        
-        output.scroll(NSPoint(x: 0, y: output.visibleRect.maxY))
-        
-        output.isEditable = false
-        
-        minCursorPosition = (self.output.textStorage?.string ?? "").count
+        if shouldScroll {
+            output.scrollToEndOfDocument(nil)
+        }
         
         NotificationCenter.default.post(
             name: NSNotification.Name(rawValue: "sync"),
