@@ -198,6 +198,14 @@ class MainController: NSViewController {
                     } else {
                         self.atlasCore.sync()
                     }
+                    
+                    self.refresh()
+                    Timer.scheduledTimer(
+                        withTimeInterval: 1,
+                        repeats: false,
+                        block: { (timer) in
+                            self.refresh()
+                    })
                 } else {
                     if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") ||
                         result.messages.contains("Unable to sync with S3. Please check credentials.") ||
@@ -210,14 +218,6 @@ class MainController: NSViewController {
                         })
                     }
                 }
-                
-                self.refresh()
-                Timer.scheduledTimer(
-                    withTimeInterval: 1,
-                    repeats: false,
-                    block: { (timer) in
-                        self.refresh()
-                })
             }
         }
     }
