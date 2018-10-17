@@ -86,6 +86,17 @@ class AtlasUITestCase: XCTestCase {
         waitForExpectations(timeout: 30, handler: nil)
     }
     
+    func clickAlertButton(_ text: String) {
+        let buttons = app.buttons.matching(identifier: text)
+        let touchbarButton = app.touchBars.buttons.matching(identifier: text).firstMatch
+        for i in 0..<buttons.count {
+            let button = buttons.element(boundBy: i)
+            if button.frame != touchbarButton.frame {
+                button.click()
+            }
+        }
+    }
+    
     func login(_ app: XCUIApplication) {
         let accountModal = app.dialogs["Account Controller"]
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
@@ -137,5 +148,7 @@ class AtlasUITestCase: XCTestCase {
         
         waitForTerminalToContain("Files successfully committed.")
     }
+    
+    
 }
 
