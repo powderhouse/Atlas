@@ -51,6 +51,7 @@ class ProjectTest: AtlasUITestCase {
         let projectName = "Project"
         app.buttons["+"].click()
         let projectTextField = app.popovers.textFields["Project Name"]
+        XCTAssert(waitForElementToAppear(projectTextField))
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
         
