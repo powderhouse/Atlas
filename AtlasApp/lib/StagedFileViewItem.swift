@@ -63,7 +63,7 @@ class StagedFileViewItem: NSCollectionViewItem {
         let a = NSAlert()
         a.messageText = "Remove this file?"
         a.informativeText = "Are you sure you would like to remove this file?"
-        a.addButton(withTitle: "Remove")
+        a.addButton(withTitle: "Remove File")
         a.addButton(withTitle: "Cancel")
         
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in

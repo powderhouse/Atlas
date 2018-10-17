@@ -71,10 +71,7 @@ class ProjectTest: AtlasUITestCase {
         projectStagingArea.buttons["x"].click()
 
         let button = app.buttons["Delete"].firstMatch
-        XCTAssert(waitForElementToAppear(button))
-        if button.exists {
-            button.tap()
-        }
+        button.tap()
         
         XCTAssert(waitForElementToDisappear(projectStagingArea))
         XCTAssertFalse(projectStagingArea.exists, "Can still find project staging area")

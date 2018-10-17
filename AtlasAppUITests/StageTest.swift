@@ -37,13 +37,8 @@ class StageTest: AtlasUITestCase {
     func testRemovingStagedFile() {
         app.collectionViews["General-staged-files"].buttons["-"].click()
         
-        let buttons = app.buttons.matching(identifier: "Remove")
-        for i in 0..<buttons.count {
-            let button = buttons.element(boundBy: i)
-            if button.exists && button.isHittable {
-                button.tap()
-            }
-        }
+        let button = app.buttons["Remove File"].firstMatch
+        button.tap()
         
         waitForTerminalToContain("Successfully purged file from Atlas.")
 
@@ -64,13 +59,8 @@ class StageTest: AtlasUITestCase {
         
         projectStagingArea.buttons["-"].click()
         
-        let buttons = app.buttons.matching(identifier: "Remove")
-        for i in 0..<buttons.count {
-            let button = buttons.element(boundBy: i)
-            if button.exists && button.isHittable {
-                button.tap()
-            }
-        }
+        let button = app.buttons["Remove File"]
+        button.tap()
         
         waitForTerminalToContain("Successfully purged file from Atlas.")
         
