@@ -34,7 +34,6 @@ class LoginTest: AtlasUITestCase {
         passwordSecureTextField.typeText("BAD PASSWORD")
         
         accountModal.buttons["Save"].click()
-        waitForTerminalToContain("Failed to authenticate")
 
         let accountModal2 = app.dialogs["Account Controller"]
         waitForStaticText(accountModal2, text: "Authentication Error\nPlease check your GitHub credentials.")
