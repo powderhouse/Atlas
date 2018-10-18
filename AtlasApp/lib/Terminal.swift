@@ -36,6 +36,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         initObservers()
 
         output.isEditable = false
+        
+        if let scrollSize = output.enclosingScrollView?.contentSize {
+            output.frame = CGRect(x: 0, y: 0, width: scrollSize.width, height: 0)
+            output.textContainer!.containerSize = CGSize(width: scrollSize.width, height: CGFloat.greatestFiniteMagnitude)
+            output.textContainer!.widthTracksTextView = true
+        }
     }
     
     func control(_ control: NSControl,
@@ -173,64 +179,56 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         if let text = notification.userInfo?["text"] as? String {
             queue.append(text)
         }
+        
         DispatchQueue.main.async(execute: {
              self.dequeueLog()
         })
     }
     
     private func dequeueLog() {
-        if logging {
-            return
-        }
-        logging = true
+        objc_sync_enter(self.queue)
+        if !logging && queueTimer == nil {
+            logging = true
 
-        let hasFocus = output.isAccessibilityFocused()
+            let hasFocus = output.isAccessibilityFocused()
         
-        guard queueTimer == nil else {
+            var item: String
+            if !self.queue.isEmpty {
+                item = self.queue.removeFirst()
+        
+                let text = NSAttributedString(string: "\n\n\(item)")
+        
+                let shouldScroll = (NSMaxY(self.output.visibleRect) >= NSMaxY(self.output.bounds) - 30)
+        
+                self.output.textStorage?.append(text)
+
+                if shouldScroll {
+                    output.scrollToEndOfDocument(nil)
+                }
+        
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(rawValue: "sync"),
+                    object: nil
+                )
+        
+                if hasFocus {
+                    let range = output.selectedRange()
+                    output.setSelectedRange(range)
+                }
+                
+                queueTimer = Timer.scheduledTimer(
+                    withTimeInterval: 0.01,
+                    repeats: false
+                ) { (timer) in
+                    self.queueTimer = nil
+                    DispatchQueue.main.async(execute: {
+                        self.dequeueLog()
+                    })
+                }
+            }
             logging = false
-            return
         }
-        
-        var item: String
-        if let possibleItem = self.queue.first {
-            item = possibleItem
-            self.queue.removeAll(where: { $0 == possibleItem })
-        } else {
-            logging = false
-            return
-        }
-
-        let text = NSAttributedString(string: "\n\n\(item)")
-        
-        let shouldScroll = (NSMaxY(self.output.visibleRect) >= NSMaxY(self.output.bounds) - 30)
-        
-        self.output.textStorage?.append(text)
-
-        if shouldScroll {
-            output.scrollToEndOfDocument(nil)
-        }
-        
-        NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "sync"),
-            object: nil
-        )
-        
-        logging = false
-        
-        if hasFocus {
-            let range = output.selectedRange()
-            output.setSelectedRange(range)
-        }
-        
-        queueTimer = Timer.scheduledTimer(
-            withTimeInterval: 0.01,
-            repeats: false
-        ) { (timer) in
-            self.queueTimer = nil
-            DispatchQueue.main.async(execute: {
-                self.dequeueLog()
-            })
-        }
+        objc_sync_exit(self.queue)
     }
 }
 
