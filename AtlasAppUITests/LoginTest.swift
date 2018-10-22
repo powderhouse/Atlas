@@ -55,7 +55,7 @@ class LoginTest: AtlasUITestCase {
         
         let passwordSecureTextField2 = accountModal2.secureTextFields["GitHub Password"]
         passwordSecureTextField2.doubleClick()
-        passwordSecureTextField2.typeText(password)
+        passwordSecureTextField2.typeText(password!)
 
         accountModal2.buttons["Save"].click()
         waitForTerminalToContain("https://github.com/atlasapptests/Atlas")
