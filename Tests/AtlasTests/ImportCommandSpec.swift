@@ -38,8 +38,8 @@ class ImportCommandSpec: QuickSpec {
                 
                 Helper.deleteTestDirectory(directory)
 
-                FileSystem.createDirectory(fileDirectory)
-                FileSystem.createDirectory(directory)
+                _ = FileSystem.createDirectory(fileDirectory)
+                _ = FileSystem.createDirectory(directory)
                 
                 file1 = Helper.addFile("index1.html", directory: fileDirectory)
                 file2 = Helper.addFile("index2.html", directory: fileDirectory)

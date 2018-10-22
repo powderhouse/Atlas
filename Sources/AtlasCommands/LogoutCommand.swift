@@ -21,7 +21,7 @@ public class LogoutCommand: Command {
     }
     
     public func execute() throws  {
-        atlasCore.deleteCredentials()        
+        print(atlasCore.deleteCredentials().allMessages)
         print("You have been logged out of Atlas.")
     }
     

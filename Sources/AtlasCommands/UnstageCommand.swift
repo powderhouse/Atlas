@@ -30,7 +30,7 @@ public class UnstageCommand: Command {
         if let projectName = projectInput.value {
             if let project = atlasCore.project(projectName) {
                 if project.changeState(files.value, to: "unstaged").success {
-                    atlasCore.atlasCommit("Unstaging files in \(projectName)")
+                    print(atlasCore.atlasCommit("Unstaging files in \(projectName)").allMessages)
                 } else {
                     print("Faield to unstage files")
                 }

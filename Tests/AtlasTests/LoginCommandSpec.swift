@@ -18,7 +18,7 @@ class LoginCommandSpec: QuickSpec {
             
             let gitHubUser = "atlastest"
             let gitHubEmail = "atlastest@puzzleschool.com"
-            let gitHubPassword = "1a2b3c4d"
+            let gitHubPassword = ProcessInfo.processInfo.environment["GITHUBPASSWORD"]
             
             let fileManager = FileManager.default
             var isFile : ObjCBool = false
@@ -43,7 +43,7 @@ class LoginCommandSpec: QuickSpec {
                 loginCommand = LoginCommand(atlasCore)
                 loginCommand.input.setDefaultInput(message: "GitHub Username:", response: gitHubUser)
                 loginCommand.input.setDefaultInput(message: "GitHub Email:", response: gitHubEmail)
-                loginCommand.input.setDefaultInput(message: "GitHub Password:", response: gitHubPassword)
+                loginCommand.input.setDefaultInput(message: "GitHub Password:", response: gitHubPassword!)
             }
             
             afterEach {

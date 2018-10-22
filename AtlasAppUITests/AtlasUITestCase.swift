@@ -13,7 +13,8 @@ class AtlasUITestCase: XCTestCase {
 
     let username = "atlasapptests"
     let email = "atlasapptests@puzzleschool.com"
-    let password = "1a2b3c4d"
+    let password = ProcessInfo.processInfo.environment["GITHUBPASSWORD"]
+
     let repository = "AtlasTests"
     
     var app: XCUIApplication!

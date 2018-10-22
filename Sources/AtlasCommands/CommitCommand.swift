@@ -32,7 +32,7 @@ public class CommitCommand: Command {
                     if project.commitMessage(message) {
                         if project.commitStaged().success {
                             print("Files committed!")
-                            atlasCore.commitChanges(message)
+                            print(atlasCore.commitChanges(message).allMessages)
                         } else {
                             print("Failed to commit files.")
                         }

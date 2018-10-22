@@ -31,7 +31,7 @@ class StartProjectCommandSpec: QuickSpec {
                 directory = temp.appendingPathComponent("ATLAS_CORE")
                 
                 Helper.deleteTestDirectory(directory)
-                FileSystem.createDirectory(directory)
+                _ = FileSystem.createDirectory(directory)
                 
                 atlasCore = AtlasCore(directory)
                 expect(Helper.initAtlasCore(atlasCore)).to(beTrue())

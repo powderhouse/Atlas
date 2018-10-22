@@ -12,7 +12,6 @@ class Helper {
     
     static let username = "atlasapptests"
     static let email = "atlasapptests@puzzleschool.com"
-//    static let password = "1a2b3c4d"
     
     class func addFile(_ name: String, directory: URL) -> URL {
         let filePath = "\(directory.path)/\(name)"
@@ -25,7 +24,7 @@ class Helper {
         let credentials = Credentials(Helper.username, email: Helper.email)
         if atlasCore.initGitAndGitHub(credentials).success {
             _ = atlasCore.initProject("General")
-            atlasCore.atlasCommit("Atlas Initialization")
+            print(atlasCore.atlasCommit("Atlas Initialization").allMessages)
         } else {
             return false
         }
@@ -59,7 +58,7 @@ class Helper {
                 arguments: ["-R", "u+w", testDirectory.path],
                 currentDirectory: testDirectory.deletingLastPathComponent()
             )
-            FileSystem.deleteDirectory(testDirectory)
+            _ = FileSystem.deleteDirectory(testDirectory)
         }
     }
 }

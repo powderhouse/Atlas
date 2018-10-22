@@ -33,7 +33,7 @@ class CommitMessageCommandSpec: QuickSpec {
                 
                 Helper.deleteTestDirectory(directory)
                 
-                FileSystem.createDirectory(directory)
+                _ = FileSystem.createDirectory(directory)
                 
                 atlasCore = AtlasCore(directory)
                 expect(Helper.initAtlasCore(atlasCore)).to(beTrue())

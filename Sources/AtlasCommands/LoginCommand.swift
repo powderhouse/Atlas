@@ -77,7 +77,7 @@ public class LoginCommand: Command {
             
             _ = atlasCore.initProject("General")
             
-            atlasCore.atlasCommit("Atlas Initialization")
+            print(atlasCore.atlasCommit("Atlas Initialization").allMessages)
         } else {
             print("Error logging in.")
         }
