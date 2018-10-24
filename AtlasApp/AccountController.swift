@@ -40,6 +40,8 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         s3AccessKeyField.delegate = self
         s3SecretField.delegate = self
 
+        tokenField.isHidden = true
+        
         loadCredentials()
     }
     
