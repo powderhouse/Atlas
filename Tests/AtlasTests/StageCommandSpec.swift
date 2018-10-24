@@ -11,7 +11,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class StageCommandSpec: QuickSpec {
+class StageCommandSpec: CliSpec {
     override func spec() {
         
         describe("Unstage") {

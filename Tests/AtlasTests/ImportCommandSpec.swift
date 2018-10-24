@@ -12,7 +12,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class ImportCommandSpec: QuickSpec {
+class ImportCommandSpec: CliSpec {
     override func spec() {
         
         describe("Import") {

@@ -11,7 +11,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class StartProjectCommandSpec: QuickSpec {
+class StartProjectCommandSpec: CliSpec {
     override func spec() {
         
         describe("Start Project") {

@@ -11,7 +11,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class CommitMessageCommandSpec: QuickSpec {
+class CommitMessageCommandSpec: CliSpec {
     override func spec() {
         
         describe("CommitMessage") {

@@ -11,7 +11,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class PurgeCommandSpec: QuickSpec {
+class PurgeCommandSpec: CliSpec {
     override func spec() {
 
         describe("Purge") {

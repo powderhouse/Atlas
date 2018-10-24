@@ -11,7 +11,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class SearchCommandSpec: QuickSpec {
+class SearchCommandSpec: CliSpec {
     
     var output = ""
     let inputPipe = Pipe()

@@ -21,9 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3A591B142178F23400330F2E /* AtlasAutomator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A591B132178F23400330F2E /* AtlasAutomator.m */; };
-		3A591B172178F23500330F2E /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A591B152178F23400330F2E /* main.xib */; };
-		3A591B1B2178F23500330F2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A591B192178F23500330F2E /* InfoPlist.strings */; };
+		3AA7F991217FF96B0029A664 /* CliSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F990217FF96B0029A664 /* CliSpec.swift */; };
 		3AD03558216AA359005B1E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD03557216AA359005B1E24 /* AppDelegate.swift */; };
 		3AD0355C216AA35A005B1E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD0355B216AA35A005B1E24 /* Assets.xcassets */; };
 		3AD0355F216AA35A005B1E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD0355D216AA35A005B1E24 /* Main.storyboard */; };
@@ -1480,11 +1478,7 @@
 
 /* Begin PBXFileReference section */
 		3A591B102178F23400330F2E /* AtlasAutomator.action */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasAutomator.action; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A591B122178F23400330F2E /* AtlasAutomator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtlasAutomator.h; sourceTree = "<group>"; };
-		3A591B132178F23400330F2E /* AtlasAutomator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtlasAutomator.m; sourceTree = "<group>"; };
-		3A591B162178F23500330F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/main.xib; sourceTree = "<group>"; };
-		3A591B182178F23500330F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A591B1A2178F23500330F2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3AA7F990217FF96B0029A664 /* CliSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliSpec.swift; sourceTree = "<group>"; };
 		3AD03555216AA359005B1E24 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD03557216AA359005B1E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD0355B216AA35A005B1E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2682,18 +2676,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A591B112178F23400330F2E /* AtlasAutomator */ = {
-			isa = PBXGroup;
-			children = (
-				3A591B122178F23400330F2E /* AtlasAutomator.h */,
-				3A591B132178F23400330F2E /* AtlasAutomator.m */,
-				3A591B152178F23400330F2E /* main.xib */,
-				3A591B182178F23500330F2E /* Info.plist */,
-				3A591B192178F23500330F2E /* InfoPlist.strings */,
-			);
-			path = AtlasAutomator;
-			sourceTree = "<group>";
-		};
 		3AD03556216AA359005B1E24 /* AtlasApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -3936,6 +3918,7 @@
 				OBJ_43 /* StageCommandSpec.swift */,
 				OBJ_44 /* StartProjectCommandSpec.swift */,
 				OBJ_45 /* UnstageCommandSpec.swift */,
+				3AA7F990217FF96B0029A664 /* CliSpec.swift */,
 			);
 			name = AtlasTests;
 			path = Tests/AtlasTests;
@@ -3953,7 +3936,6 @@
 				OBJ_50 /* Dependencies */,
 				3AD03556216AA359005B1E24 /* AtlasApp */,
 				3AD03569216AA35B005B1E24 /* AtlasAppUITests */,
-				3A591B112178F23400330F2E /* AtlasAutomator */,
 				OBJ_1021 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -4894,8 +4876,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A591B172178F23500330F2E /* main.xib in Resources */,
-				3A591B1B2178F23500330F2E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4954,7 +4934,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A591B142178F23400330F2E /* AtlasAutomator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5115,6 +5094,7 @@
 				OBJ_1218 /* Helper.swift in Sources */,
 				OBJ_1219 /* ImportCommandSpec.swift in Sources */,
 				OBJ_1220 /* LogCommandSpec.swift in Sources */,
+				3AA7F991217FF96B0029A664 /* CliSpec.swift in Sources */,
 				OBJ_1221 /* LoginCommandSpec.swift in Sources */,
 				OBJ_1222 /* LogoutCommandSpec.swift in Sources */,
 				OBJ_1223 /* ProjectsCommandSpec.swift in Sources */,
@@ -6387,22 +6367,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A591B152178F23400330F2E /* main.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A591B162178F23500330F2E /* Base */,
-			);
-			name = main.xib;
-			sourceTree = "<group>";
-		};
-		3A591B192178F23500330F2E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A591B1A2178F23500330F2E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		3AD0355D216AA35A005B1E24 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

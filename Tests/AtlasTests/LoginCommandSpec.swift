@@ -11,14 +11,14 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class LoginCommandSpec: QuickSpec {
+class LoginCommandSpec: CliSpec {
     override func spec() {
         
         describe("Login") {
             
-            let gitHubUser = "atlastest"
-            let gitHubEmail = "atlastest@puzzleschool.com"
-            let gitHubPassword = ProcessInfo.processInfo.environment["GITHUBPASSWORD"]
+            let gitHubUser = "atlasapptests"
+            let gitHubEmail = "atlasapptests@puzzleschool.com"
+            let gitHubPassword = self.githubPassword
             
             let fileManager = FileManager.default
             var isFile : ObjCBool = false

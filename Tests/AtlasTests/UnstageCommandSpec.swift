@@ -12,7 +12,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class UnstageCommandSpec: QuickSpec {
+class UnstageCommandSpec: CliSpec {
     override func spec() {
         
         describe("Unstage") {

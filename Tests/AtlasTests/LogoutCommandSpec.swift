@@ -11,7 +11,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class LogoutCommandSpec: QuickSpec {
+class LogoutCommandSpec: CliSpec {
     override func spec() {
         
         describe("Logout") {

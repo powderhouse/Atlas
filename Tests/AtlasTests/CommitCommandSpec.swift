@@ -12,7 +12,7 @@ import Nimble
 import AtlasCore
 import AtlasCommands
 
-class CommitCommandSpec: QuickSpec {
+class CommitCommandSpec: CliSpec {
     override func spec() {
         
         describe("Commit") {
