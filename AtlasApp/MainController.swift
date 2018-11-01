@@ -196,7 +196,7 @@ class MainController: NSViewController {
                             )
                         })
                     } else {
-                        self.atlasCore.sync()
+                        self.atlasCore.sync(completed: { Terminal.log("Sync Complete") })
                     }
                     
                     self.refresh()

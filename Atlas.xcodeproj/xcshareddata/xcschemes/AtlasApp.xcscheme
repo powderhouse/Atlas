@@ -15,7 +15,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "3AD03554216AA359005B1E24"
+                     BlueprintIdentifier = "3AA07CD82183841200F12279"
                      BuildableName = "AtlasApp.app"
                      BlueprintName = "AtlasApp"
                      ReferencedContainer = "container:Atlas.xcodeproj">
@@ -33,7 +33,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3AD03554216AA359005B1E24"
+               BlueprintIdentifier = "3AA07CD82183841200F12279"
                BuildableName = "AtlasApp.app"
                BlueprintName = "AtlasApp"
                ReferencedContainer = "container:Atlas.xcodeproj">
@@ -51,7 +51,7 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AD03554216AA359005B1E24"
+            BlueprintIdentifier = "3AA07CD82183841200F12279"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
@@ -59,10 +59,11 @@
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3AD03565216AA35A005B1E24"
+               BlueprintIdentifier = "3AA07CE92183841500F12279"
                BuildableName = "AtlasAppUITests.xctest"
                BlueprintName = "AtlasAppUITests"
                ReferencedContainer = "container:Atlas.xcodeproj">
@@ -72,19 +73,12 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AD03554216AA359005B1E24"
+            BlueprintIdentifier = "3AA07CD82183841200F12279"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "GITHUBPASSWORD"
-            value = "1aaa2bbb3ccc4ddd"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -102,7 +96,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AD03554216AA359005B1E24"
+            BlueprintIdentifier = "3AA07CD82183841200F12279"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
@@ -121,7 +115,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3AD03554216AA359005B1E24"
+            BlueprintIdentifier = "3AA07CD82183841200F12279"
             BuildableName = "AtlasApp.app"
             BlueprintName = "AtlasApp"
             ReferencedContainer = "container:Atlas.xcodeproj">
