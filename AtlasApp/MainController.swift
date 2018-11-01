@@ -170,6 +170,12 @@ class MainController: NSViewController {
     }
     
     func initializeAtlas(_ credentials: Credentials) {
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "sync"),
+            object: nil,
+            userInfo: ["name": "initialization"]
+        )
+        
         if let core = atlasCore {
             DispatchQueue.global(qos: .background).async {
                 let result = core.initGitAndGitHub(credentials)
@@ -195,17 +201,27 @@ class MainController: NSViewController {
                                 userInfo: ["projectName": AtlasCore.defaultProjectName]
                             )
                         })
+                        
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "sync-completed"),
+                            object: nil,
+                            userInfo: ["name": "initialization"]
+                        )
+                        
+                        Terminal.log("Sync Complete")
+                        self.refresh()
                     } else {
-                        self.atlasCore.sync(completed: { Terminal.log("Sync Complete") })
-                    }
-                    
-                    self.refresh()
-                    Timer.scheduledTimer(
-                        withTimeInterval: 1,
-                        repeats: false,
-                        block: { (timer) in
+                        self.atlasCore.sync(completed: {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "sync-completed"),
+                                object: nil,
+                                userInfo: ["name": "initialization"]
+                            )
+
+                            Terminal.log("Sync Complete")
                             self.refresh()
-                    })
+                        })
+                    }
                 } else {
                     if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") ||
                         result.messages.contains("Unable to sync with S3. Please check credentials.") ||
