@@ -16,10 +16,10 @@ Rebuilding
 swift package update
 swift package generate-xcodeproj --xcconfig-overrides settings.xcconfig
 Add Target: AtlasApp
-Set "Product Name" to "Atlas App"
+Set "Product Name" to "AtlasApp"
 Set "Organization Identifier" to "powderhs"
 In AtlasApp Target find "Swift Language Version" and set to "Swift 4"
-In AtlasApp Target find "Import Paths" and add:
+In AtlasApp Target && AtlasAppUITests Target find "Import Paths" and add:
  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CLibreSSL
  ${SRCROOT}/Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser
 Move all files from AtlasApp (old) to AtlasApp (new)
@@ -30,12 +30,10 @@ rm AtlasApp/ViewController.swift
 rm AtlasAppUITests/AtlasAppUITests.swift
 Delete old and "Remove Reference" for app and ui tests
 Delete red files
-Add AtlasCore as Embedded Binary to AtlasApp
-Embed all other libraries
+Add AtlasCore and all non-testing libraries as Embedded Binary to AtlasApp
 Assign all lib file (within AtlasApp) to AtlasApp
 Assign main.storyboard in Base.lproj
 In AtlasCore target add a "Copy Bundle Resources" item to "Build Phases" and select "git"
-Embed all frameworks
 git checkout AtlasApp.xcodeproj/GeneratedModuleMap
 ensure all AtlasApp.xcodeproj/GeneratedModuleMap are pointing to the right .build/checkouts
 For testing may need to create copies of .build/checkouts to match version numbers (how to fix this?)

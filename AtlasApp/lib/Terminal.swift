@@ -192,9 +192,12 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
 
             let hasFocus = output.isAccessibilityFocused()
         
-            var item: String
-            if !self.queue.isEmpty {
-                item = self.queue.removeFirst()
+            if let item = self.queue.first {
+                if self.queue.count == 1 {
+                    self.queue = []
+                } else {
+                    self.queue.removeFirst()
+                }
         
                 let text = NSAttributedString(string: "\n\n\(item)")
         

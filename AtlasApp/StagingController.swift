@@ -38,6 +38,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
     @IBAction func sync(_ sender: NSButton) {
         let completed = {
+            Terminal.log("Sync Complete")
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "refresh"),
                 object: nil
@@ -45,7 +46,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         }
         
         DispatchQueue.global(qos: .background).async {
-            self.atlasCore.sync()
+            self.atlasCore.sync(completed: completed)
         }
         syncing()
     }
