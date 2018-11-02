@@ -115,6 +115,9 @@ class AtlasUITestCase: XCTestCase {
 //        passwordSecureTextField.typeText(password)
         
         accountModal.buttons["Save"].click()
+        
+        app/*@START_MENU_TOKEN@*/.buttons["∧"]/*[[".splitGroups.buttons[\"∧\"]",".buttons[\"∧\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        
         waitForTerminalToContain("Added project: General")
     }
     
