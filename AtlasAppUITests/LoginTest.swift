@@ -58,6 +58,9 @@ class LoginTest: AtlasUITestCase {
         passwordSecureTextField2.typeText(password!)
 
         accountModal2.buttons["Save"].click()
+        
+        app/*@START_MENU_TOKEN@*/.buttons["∧"]/*[[".splitGroups.buttons[\"∧\"]",".buttons[\"∧\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+
         waitForTerminalToContain("https://github.com/atlasapptests/Atlas")
     }
     
