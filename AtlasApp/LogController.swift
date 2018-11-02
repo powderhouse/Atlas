@@ -18,9 +18,11 @@ class LogController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var searchText: NSTextField!
     @IBOutlet var noSearch: NSTextField!
     
+    @IBOutlet weak var terminalGroup: NSView!
     @IBOutlet var terminalView: NSTextView!
     @IBOutlet weak var terminalInput: NSTextField!
     var terminal: Terminal!
+    @IBOutlet weak var showTerminalButton: NSButton!
     
     var selectedProject: String? {
         didSet {
@@ -38,6 +40,8 @@ class LogController: NSViewController, NSTextFieldDelegate {
         
         searchText.delegate = self
         
+        terminalGroup.isHidden = true
+        
         initNotifications()
     }
     
@@ -54,6 +58,23 @@ class LogController: NSViewController, NSTextFieldDelegate {
                 panels.splitView.setPosition(newPosition, ofDividerAt: 0)
             }
         }
+    }
+    
+    @IBAction func hideTerminal(_ sender: NSButton) {
+        terminalGroup.isHidden = true
+        showTerminalButton.isHidden = false
+    }
+    
+    @IBAction func showTerminal(_ sender: NSButtonCell) {
+        terminalGroup.isHidden = false
+        showTerminalButton.isHidden = true
+        Timer.scheduledTimer(
+            withTimeInterval: 0.1,
+            repeats: false,
+            block: { (timer) in
+                self.terminal.scrollToEnd()
+            }
+        )
     }
     
     func performSearch() {

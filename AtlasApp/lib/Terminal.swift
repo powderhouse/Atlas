@@ -167,6 +167,10 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         output.insertText("", replacementRange: range)
     }
     
+    func scrollToEnd() {
+        output.scrollToEndOfDocument(nil)
+    }
+    
     class func log(_ text: String) {
         NotificationCenter.default.post(
             name: NSNotification.Name(rawValue: "log"),
@@ -206,7 +210,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                 self.output.textStorage?.append(text)
 
                 if shouldScroll {
-                    output.scrollToEndOfDocument(nil)
+                    scrollToEnd()
                 }
         
                 NotificationCenter.default.post(
