@@ -17,6 +17,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     var queue: [String] = []
     var queueTimer: Timer?
     var logging = false
+    var active = false
     
     init(input: NSTextField, output: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
         self.input = input
@@ -53,6 +54,20 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             return true
         }
         return false
+    }
+    
+    func activate() {
+        active = true
+        
+        let messages = queue.joined(separator: "\n\n")
+        queue = []
+        writeOutput(NSAttributedString(string: messages))
+        
+        scrollToEnd()
+    }
+    
+    func deactivate() {
+        active = false
     }
     
     func runCommand(_ fullCommand: String) {
@@ -191,7 +206,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     
     private func dequeueLog() {
         objc_sync_enter(self.queue)
-        if !logging && queueTimer == nil {
+        if active && !logging && queueTimer == nil {
             logging = true
 
             let hasFocus = output.isAccessibilityFocused()
@@ -205,13 +220,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
         
                 let text = NSAttributedString(string: "\n\n\(item)")
         
-                let shouldScroll = (NSMaxY(self.output.visibleRect) >= NSMaxY(self.output.bounds) - 30)
-        
-                self.output.textStorage?.append(text)
-
-                if shouldScroll {
-                    scrollToEnd()
-                }
+                writeOutput(text)
         
                 NotificationCenter.default.post(
                     name: NSNotification.Name(rawValue: "sync"),
@@ -236,6 +245,16 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             logging = false
         }
         objc_sync_exit(self.queue)
+    }
+    
+    private func writeOutput(_ text: NSAttributedString) {
+        let shouldScroll = (NSMaxY(self.output.visibleRect) >= NSMaxY(self.output.bounds) - 30)
+        
+        self.output.textStorage?.append(text)
+        
+        if shouldScroll {
+            scrollToEnd()
+        }
     }
 }
 

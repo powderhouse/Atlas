@@ -61,6 +61,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func hideTerminal(_ sender: NSButton) {
+        terminal.deactivate()
         terminalGroup.isHidden = true
         showTerminalButton.isHidden = false
     }
@@ -72,7 +73,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
             withTimeInterval: 0.1,
             repeats: false,
             block: { (timer) in
-                self.terminal.scrollToEnd()
+                self.terminal.activate()
             }
         )
     }
