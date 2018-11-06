@@ -20,6 +20,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     var active = false
     
     init(input: NSTextField, output: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
+        print("TERMINAL: HI!")
         self.input = input
         self.output = output
         self.notificationCenter = notificationCenter
@@ -95,6 +96,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                             filesIndex += 1
                         }
                         
+                        print("COPYING: \(files)")
                         let result = project.copyInto(files)
                         Terminal.log(result.allMessages)
                         if result.success {
@@ -195,12 +197,14 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     }
     
     @objc func log(notification: Notification) {
-        if let text = notification.userInfo?["text"] as? String {
-            queue.append(text)
-        }
+        DispatchQueue.global().async(execute: {
+            DispatchQueue.main.sync(execute: {
+                if let text = notification.userInfo?["text"] as? String {
+                    self.queue.append(text)
+                }
         
-        DispatchQueue.main.async(execute: {
-             self.dequeueLog()
+                 self.dequeueLog()
+            })
         })
     }
     
@@ -218,6 +222,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                     self.queue.removeFirst()
                 }
         
+                print("TERMINAL: \(item)")
                 let text = NSAttributedString(string: "\n\n\(item)")
         
                 writeOutput(text)

@@ -64,13 +64,12 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     func addProject(_ projectName: String) {
         DispatchQueue.global(qos: .background).async {
             if self.atlasCore.initProject(projectName) {
-                let result = self.atlasCore.atlasCommit()
-                if result.success {
-                    DispatchQueue.main.async(execute: {
-                        self.projectListView.reloadData()
-                        Terminal.log("Added project: \(projectName)")
-                    })
-                }
+                DispatchQueue.main.async(execute: {
+                    self.projectListView.reloadData()
+                    Terminal.log("Added project: \(projectName)")
+                })
+                
+                _ = self.atlasCore.atlasCommit()
             }
         }
     }

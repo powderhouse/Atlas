@@ -70,6 +70,7 @@
 		3AA07D5A2183870300F12279 /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07D0C2183849D00F12279 /* ProjectButton.swift */; };
 		3AA07D5B2183870300F12279 /* ProjectViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA07D0D2183849D00F12279 /* ProjectViewItem.xib */; };
 		3AA07D5D2183876600F12279 /* git in Resources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* git */; };
+		3AB171ED218F20350029173B /* StressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB171EC218F20350029173B /* StressTest.swift */; };
 		OBJ_1049 /* AWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_172 /* AWSClient.swift */; };
 		OBJ_1050 /* TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_174 /* TimeStamp.swift */; };
 		OBJ_1051 /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_175 /* Bytes.swift */; };
@@ -1685,6 +1686,7 @@
 		3AA07D252183853300F12279 /* ProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTest.swift; sourceTree = "<group>"; };
 		3AA07D272183853800F12279 /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
 		3AA07D292183854600F12279 /* StageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTest.swift; sourceTree = "<group>"; };
+		3AB171EC218F20350029173B /* StressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressTest.swift; sourceTree = "<group>"; };
 		"AWSSDKSwiftCore::AWSSDKSwiftCore::Product" /* AWSSDKSwiftCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSSDKSwiftCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::Atlas::Product" /* Atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = Atlas; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Atlas::AtlasCommands::Product" /* AtlasCommands.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AtlasCommands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2899,6 +2901,7 @@
 				3AA07D1E2183851100F12279 /* LoginTest.swift */,
 				3AA07D202183851400F12279 /* LogTest.swift */,
 				3AA07CF02183841500F12279 /* Info.plist */,
+				3AB171EC218F20350029173B /* StressTest.swift */,
 			);
 			path = AtlasAppUITests;
 			sourceTree = "<group>";
@@ -4168,7 +4171,7 @@
 			path = Tests/AtlasTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -4182,7 +4185,6 @@
 				3AA07CED2183841500F12279 /* AtlasAppUITests */,
 				OBJ_1027 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* Dependencies */ = {
@@ -5150,7 +5152,7 @@
 				en,
 				Base,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_1027 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -5258,6 +5260,7 @@
 				3AA07D1F2183851100F12279 /* LoginTest.swift in Sources */,
 				3AA07D2A2183854600F12279 /* StageTest.swift in Sources */,
 				3AA07D212183851400F12279 /* LogTest.swift in Sources */,
+				3AB171ED218F20350029173B /* StressTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
