@@ -20,7 +20,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     var active = false
     
     init(input: NSTextField, output: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
-        print("TERMINAL: HI!")
         self.input = input
         self.output = output
         self.notificationCenter = notificationCenter
@@ -222,7 +221,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                     self.queue.removeFirst()
                 }
         
-                print("TERMINAL: \(item)")
                 let text = NSAttributedString(string: "\n\n\(item)")
         
                 writeOutput(text)
