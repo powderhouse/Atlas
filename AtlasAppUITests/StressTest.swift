@@ -27,7 +27,7 @@ class StressTest: AtlasUITestCase {
         }
         
         if let path = path {
-            _ = terminalOutput("touch ../\(filename)")
+            _ = terminalOutput("mkfile -n 10m ../\(filename)")
             _ = terminalOutput("stage -f \(path)/../\(filename) -p \(projectName)")
         }
     }
