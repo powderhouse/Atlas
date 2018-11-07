@@ -95,7 +95,6 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                             filesIndex += 1
                         }
                         
-                        print("COPYING: \(files)")
                         let result = project.copyInto(files)
                         Terminal.log(result.allMessages)
                         if result.success {
@@ -125,6 +124,8 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             Terminal.log(atlasCore.commitChanges(message).allMessages)
         case "clear":
             self.clear()
+        case "s3":
+            Terminal.log("Files synced with S3: \(atlasCore.filesSyncedWithAnnex())")
         case "atlas":
             let atlasCommand = allArgs.removeFirst().lowercased()
             

@@ -26,28 +26,15 @@ class StressTest: AtlasUITestCase {
     }
     
     func stageNoWait(_ filename: String, in projectName: String) {
-        let terminal = app.textFields["TerminalInput"]
-        
-        terminal.click()
-        
-        terminal.typeText("ls \(projectName)/staged\n")
-        if let output = app.textViews["TerminalView"].value as? String {
-            if let message = output.components(separatedBy: "\n").last {
-                if message.contains("No such file or directory") {
-                    sleep(1)
-                    stageNoWait(filename, in: projectName)
-                    return
-                }
-            }
+        var tries = 0
+        while tries < 10 && terminalOutput("ls \(projectName)/staged").contains("No such file or directory") {
+            sleep(1)
+            tries += 1
         }
 
-        terminal.typeText("pwd\n")
-        if let output = app.textViews["TerminalView"].value as? String {
-            if let dir = output.components(separatedBy: "\n").last {
-                terminal.typeText("touch ../\(filename)\n")
-                terminal.typeText("stage -f \(dir)/../\(filename) -p \(projectName)\n")
-            }
-        }
+        let dir = terminalOutput("pwd")
+        _ = terminalOutput("touch ../\(filename)")
+        _ = terminalOutput("stage -f \(dir)/../\(filename) -p \(projectName)")
     }
     
     func commitNoWait(_ projectName: String, commitMessage: String) {
@@ -68,6 +55,18 @@ class StressTest: AtlasUITestCase {
         let projectTextField = app.popovers.textFields["Project Name"]
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
+    }
+    
+    func terminalOutput(_ command: String) -> String {
+        let terminal = app.textFields["TerminalInput"]
+        terminal.click()
+        terminal.typeText("\(command)\n")
+        if let output = app.textViews["TerminalView"].value as? String {
+            if let message = output.components(separatedBy: "\n").last {
+                return message
+            }
+        }
+        return ""
     }
     
     func testInAStressfulManner() {
@@ -112,6 +111,8 @@ class StressTest: AtlasUITestCase {
         XCTAssert(!log.staticTexts["\(commitMessage2)\n"].exists, "Still found \(commitMessage2)")
         XCTAssert(!log.staticTexts[project2].exists, "Still found \(project2) Project in log")
         XCTAssert(!log.links[filename5].exists, "Still found \(filename5) link in log")
+        
+        XCTAssert(terminalOutput("s3").contains("Files synced with S3: true"))
     }
 }
 
