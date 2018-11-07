@@ -8,16 +8,12 @@
 import XCTest
 
 class StressTest: AtlasUITestCase {
+    let project = "General"
     let project1 = "Test"
     let project2 = "AnotherTest"
-    let filename1 = "indexfile1.html"
-    let filename2 = "indexfile2.html"
-    let filename3 = "indexfile3.html"
-    let filename4 = "indexfile4.html"
-    let filename5 = "indexfile5.html"
-    let filename6 = "indexfile6.html"
     let commitMessage1 = "This is a stress test commit"
     let commitMessage2 = "This is another stress test commit"
+    var path: String?
 
     override func setUp() {
         super.setUp()
@@ -26,15 +22,14 @@ class StressTest: AtlasUITestCase {
     }
     
     func stageNoWait(_ filename: String, in projectName: String) {
-        var tries = 0
-        while tries < 10 && terminalOutput("ls \(projectName)/staged").contains("No such file or directory") {
-            sleep(1)
-            tries += 1
+        if path == nil {
+            path = terminalOutput("pwd")
         }
-
-        let dir = terminalOutput("pwd")
-        _ = terminalOutput("touch ../\(filename)")
-        _ = terminalOutput("stage -f \(dir)/../\(filename) -p \(projectName)")
+        
+        if let path = path {
+            _ = terminalOutput("touch ../\(filename)")
+            _ = terminalOutput("stage -f \(path)/../\(filename) -p \(projectName)")
+        }
     }
     
     func commitNoWait(_ projectName: String, commitMessage: String) {
@@ -55,6 +50,12 @@ class StressTest: AtlasUITestCase {
         let projectTextField = app.popovers.textFields["Project Name"]
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
+        
+        var tries = 0
+        while tries < 10 && terminalOutput("ls \(projectName)/staged").contains("No such file or directory") {
+            sleep(1)
+            tries += 1
+        }
     }
     
     func terminalOutput(_ command: String) -> String {
@@ -69,48 +70,63 @@ class StressTest: AtlasUITestCase {
         return ""
     }
     
+    func filename(_ projectName: String, index: Int) -> String {
+        return "index\(index)\(projectName).html"
+    }
+    
     func testInAStressfulManner() {
         let log = app.collectionViews["LogView"]
 
-        stageNoWait(filename1, in: "General")
-        stageNoWait(filename2, in: "General")
-        stageNoWait(filename3, in: "General")
+        for i in 0..<5 {
+            stageNoWait(filename(project, index: i), in: project)
+        }
         
-        app.collectionViews["General-staged-files"].buttons["-"].firstMatch.click()
+        app.collectionViews["\(project)-staged-files"].buttons["-"].firstMatch.click()
         clickAlertButton("Remove")
 
         addProjectNoWait(project1)
         
-        stageNoWait(filename4, in: project1)
+        for i in 0..<5 {
+            stageNoWait(filename(project1, index: i), in: project1)
+        }
         commitNoWait(project1, commitMessage: commitMessage1)
 
         addProjectNoWait(project2)
 
-        stageNoWait(filename5, in: project2)
+        for i in 0..<5 {
+            stageNoWait(filename(project2, index: i), in: project2)
+        }
         commitNoWait(project2, commitMessage: commitMessage2)
 
-        stageNoWait(filename6, in: project2)
+        for i in 5..<10 {
+            stageNoWait(filename(project2, index: i), in: project2)
+        }
 
         app.groups["\(project2)-staged"].buttons["x"].click()
         clickAlertButton("Delete")
         
         XCTAssert(waitForElementToDisappear(app.collectionViews["\(project2)-staged-files"]))
 
-        let generalStagingArea = app.collectionViews["General-staged-files"]
-        XCTAssert(generalStagingArea.staticTexts[filename1].exists, "Unable to find \(filename1)")
-        XCTAssert(!generalStagingArea.staticTexts[filename2].exists, "Still found \(filename2)")
-        XCTAssert(generalStagingArea.staticTexts[filename3].exists, "Unable to find \(filename3)")
+        let generalStagingArea = app.collectionViews["\(project)-staged-files"]
+        XCTAssert(!generalStagingArea.staticTexts[filename(project, index: 3)].exists)
+        XCTAssert(generalStagingArea.staticTexts[filename(project, index: 1)].exists)
 
-        let testStagingArea = app.collectionViews["Test-staged-files"]
-        XCTAssert(!testStagingArea.staticTexts[filename4].exists, "Still found \(filename4)")
+        let testStagingArea = app.collectionViews["\(project1)-staged-files"]
+        for i in 0..<5 {
+            XCTAssert(!testStagingArea.staticTexts[filename(project1, index: i)].exists)
+        }
         
         XCTAssert(log.staticTexts["\(commitMessage1)\n"].exists, "Unable to find \(commitMessage1)")
-        XCTAssert(log.staticTexts[project1].exists, "Unable to find \(project1) Project in log")
-        XCTAssert(log.links[filename4].exists, "Unable to find \(filename4) link in log")
+        XCTAssert(log.staticTexts[project1].exists)
+        for i in 0..<5 {
+            XCTAssert(log.links[filename(project1, index: i)].exists)
+        }
         
         XCTAssert(!log.staticTexts["\(commitMessage2)\n"].exists, "Still found \(commitMessage2)")
-        XCTAssert(!log.staticTexts[project2].exists, "Still found \(project2) Project in log")
-        XCTAssert(!log.links[filename5].exists, "Still found \(filename5) link in log")
+        XCTAssert(!log.staticTexts[project2].exists)
+        for i in 0..<5 {
+            XCTAssert(!log.links[filename(project2, index: i)].exists)
+        }
         
         XCTAssert(terminalOutput("s3").contains("Files synced with S3: true"))
     }
