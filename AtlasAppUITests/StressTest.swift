@@ -81,14 +81,23 @@ class StressTest: AtlasUITestCase {
             stageNoWait(filename(project, index: i), in: project)
         }
         
-        app.collectionViews["\(project)-staged-files"].buttons["-"].firstMatch.click()
+        let stagingArea = app.collectionViews["\(project)-staged-files"]
+        stagingArea.buttons["-"].firstMatch.click()
         clickAlertButton("Remove")
-
+        
         addProjectNoWait(project1)
         
         for i in 0..<5 {
             stageNoWait(filename(project1, index: i), in: project1)
         }
+        
+        let stagingArea1 = app.collectionViews["\(project1)-staged-files"]
+        stagingArea1.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
+        stagingArea1.buttons["-"].firstMatch.click()
+        clickAlertButton("Remove")
+        
+        stagingArea1.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
+        
         commitNoWait(project1, commitMessage: commitMessage1)
 
         addProjectNoWait(project2)
@@ -112,13 +121,14 @@ class StressTest: AtlasUITestCase {
         XCTAssert(generalStagingArea.staticTexts[filename(project, index: 1)].exists)
 
         let testStagingArea = app.collectionViews["\(project1)-staged-files"]
-        for i in 0..<5 {
+        XCTAssert(testStagingArea.staticTexts[filename(project1, index: 0)].exists)
+        for i in 2..<4 {
             XCTAssert(!testStagingArea.staticTexts[filename(project1, index: i)].exists)
         }
         
         XCTAssert(log.staticTexts["\(commitMessage1)\n"].exists, "Unable to find \(commitMessage1)")
         XCTAssert(log.staticTexts[project1].exists)
-        for i in 0..<5 {
+        for i in 2..<4 {
             XCTAssert(log.links[filename(project1, index: i)].exists)
         }
         
