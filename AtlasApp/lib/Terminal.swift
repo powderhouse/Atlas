@@ -126,6 +126,17 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             self.clear()
         case "s3":
             Terminal.log("Files synced with S3: \(atlasCore.filesSyncedWithAnnex())")
+        case "s3files":
+            let missing = atlasCore.missingFilesBetweenLocalAndS3()
+            if missing["remote"]?.count ?? 0 > 0 {
+                Terminal.log("Files missing from S3:\n\(missing["remote"]!.joined(separator: "\n"))")
+            }
+            if missing["local"]?.count ?? 0 > 0 {
+                Terminal.log("Files missing from local:\n\(missing["local"]!.joined(separator: "\n"))")
+            }
+            if missing["remote"]?.count ?? 0 == 0 && missing["local"]?.count ?? 0 == 0 {
+                Terminal.log("None, all files are synced")
+            }
         case "atlas":
             let atlasCommand = allArgs.removeFirst().lowercased()
             
