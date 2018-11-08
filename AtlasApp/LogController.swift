@@ -40,7 +40,7 @@ class LogController: NSViewController, NSTextFieldDelegate {
         
         searchText.delegate = self
         
-        terminalGroup.isHidden = true
+        showTerminalButton.isHidden = true
         
         initNotifications()
     }

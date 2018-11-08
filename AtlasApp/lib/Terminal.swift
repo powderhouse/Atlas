@@ -17,7 +17,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
     var queue: [String] = []
     var queueTimer: Timer?
     var logging = false
-    var active = false
+    var active = true
     
     init(input: NSTextField, output: NSTextView, atlasCore: AtlasCore, notificationCenter: AtlasNotificationCenter?=NotificationCenter.default) {
         self.input = input

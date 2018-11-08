@@ -1062,23 +1062,23 @@
             <objects>
                 <viewController title="Log Controller" id="Nna-Al-Euo" customClass="LogController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ouU-2W-nVT">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="477"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="484"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8V-tl-JJS">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
-                                <subviews>
+                            <stackView orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8V-tl-JJS">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="457"/>
+                                <beginningViews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Cp6-yX-lW7" userLabel="Log Group">
-                                        <rect key="frame" x="0.0" y="226" width="450" height="224"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="457"/>
                                         <subviews>
-                                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KS0-ia-N3f" userLabel="Log Scroll View">
-                                                <rect key="frame" x="0.0" y="0.0" width="450" height="224"/>
+                                            <scrollView wantsLayer="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KS0-ia-N3f" userLabel="Log Scroll View">
+                                                <rect key="frame" x="0.0" y="22" width="450" height="435"/>
                                                 <clipView key="contentView" drawsBackground="NO" id="d2o-VN-CUU">
-                                                    <rect key="frame" x="1" y="1" width="448" height="222"/>
+                                                    <rect key="frame" x="1" y="1" width="448" height="433"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <collectionView identifier="LogView" id="tdI-tY-huH" userLabel="Log View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="448" height="222"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="448" height="433"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="8Jj-Mo-UYD">
                                                                 <size key="itemSize" width="50" height="50"/>
@@ -1093,12 +1093,12 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ffR-Nz-4Cj">
-                                                    <rect key="frame" x="146" y="1" width="16" height="211"/>
+                                                    <rect key="frame" x="433" y="1" width="16" height="433"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Seh-Eg-P9D">
-                                                <rect key="frame" x="401" y="-1" width="49" height="32"/>
+                                                <rect key="frame" x="401" y="15" width="49" height="32"/>
                                                 <buttonCell key="cell" type="push" title="∧" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oA9-Iz-sYC">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="systemBold" size="15"/>
@@ -1108,7 +1108,7 @@
                                                 </buttonCell>
                                             </button>
                                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-J4-9et" userLabel="NoSearch">
-                                                <rect key="frame" x="48" y="94" width="354" height="85"/>
+                                                <rect key="frame" x="48" y="327" width="354" height="85"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="6Ps-oQ-ybc">
                                                     <font key="font" metaFont="system"/>
                                                     <string key="title">No Search Results
@@ -1134,37 +1134,42 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                             <constraint firstAttribute="trailing" secondItem="Seh-Eg-P9D" secondAttribute="trailing" constant="6" id="w44-Xj-bVY"/>
                                         </constraints>
                                     </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="BHO-8Y-NUO" userLabel="Terminal Group">
-                                        <rect key="frame" x="0.0" y="0.0" width="450" height="225"/>
+                                </beginningViews>
+                                <endViews>
+                                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHO-8Y-NUO" userLabel="Terminal Group">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="0.0"/>
                                         <subviews>
                                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
-                                                <rect key="frame" x="0.0" y="30" width="450" height="195"/>
+                                                <rect key="frame" x="0.0" y="-285" width="450" height="285"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="nxK-Ai-kuu">
-                                                    <rect key="frame" x="1" y="1" width="448" height="193"/>
+                                                    <rect key="frame" x="1" y="1" width="448" height="283"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="616" height="193"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="616" height="283"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <size key="minSize" width="448" height="193"/>
+                                                            <size key="minSize" width="448" height="283"/>
                                                             <size key="maxSize" width="618" height="10000000"/>
                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         </textView>
                                                     </subviews>
                                                 </clipView>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="1jk-i2-3Z0"/>
+                                                </constraints>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="8f9-fy-OFk">
                                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                                    <rect key="frame" x="433" y="1" width="16" height="193"/>
+                                                    <rect key="frame" x="433" y="1" width="16" height="283"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
                                             <textField identifier="TerminalInput" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-gm-fo4" userLabel="Terminal Input">
-                                                <rect key="frame" x="0.0" y="0.0" width="450" height="30"/>
+                                                <rect key="frame" x="0.0" y="-315" width="450" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="kN2-qZ-0T6"/>
                                                 </constraints>
@@ -1175,7 +1180,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ks6-hq-YOn">
-                                                <rect key="frame" x="401" y="191" width="49" height="32"/>
+                                                <rect key="frame" x="401" y="-34" width="49" height="32"/>
                                                 <buttonCell key="cell" type="push" title="∨" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fNs-Mz-q3Q">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="systemBold" size="15"/>
@@ -1197,13 +1202,13 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                             <constraint firstItem="Ks6-hq-YOn" firstAttribute="top" secondItem="BHO-8Y-NUO" secondAttribute="top" constant="6" id="wgY-VR-acz"/>
                                         </constraints>
                                     </customView>
-                                </subviews>
+                                </endViews>
                                 <constraints>
                                     <constraint firstItem="Cp6-yX-lW7" firstAttribute="width" secondItem="S8V-tl-JJS" secondAttribute="width" id="YWw-CJ-ecT"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
-                                    <real value="500"/>
+                                    <real value="830"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
@@ -1211,7 +1216,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mgq-RN-0tT">
-                                <rect key="frame" x="-3" y="444" width="49" height="32"/>
+                                <rect key="frame" x="-3" y="451" width="49" height="32"/>
                                 <buttonCell key="cell" type="push" title="&lt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qHk-me-dgx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1221,7 +1226,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                 </connections>
                             </button>
                             <textField identifier="search_text" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j0N-fS-KLn">
-                                <rect key="frame" x="175" y="450" width="270" height="22"/>
+                                <rect key="frame" x="175" y="457" width="270" height="22"/>
                                 <gestureRecognizers>
                                     <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="RYc-1f-exL">
                                         <connections>
@@ -1260,7 +1265,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                 </viewController>
                 <customObject id="24j-6h-gPj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360" y="2222.5"/>
+            <point key="canvasLocation" x="361" y="2307"/>
         </scene>
         <!--Commit Controller-->
         <scene sceneID="b5z-c9-DBW">
