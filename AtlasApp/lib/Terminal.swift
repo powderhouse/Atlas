@@ -135,7 +135,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                 Terminal.log("Files missing from local:\n\(missing["local"]!.joined(separator: "\n"))")
             }
             if missing["remote"]?.count ?? 0 == 0 && missing["local"]?.count ?? 0 == 0 {
-                Terminal.log("None, all files are synced")
+                Terminal.log("All files are synced")
             }
         case "atlas":
             let atlasCommand = allArgs.removeFirst().lowercased()
