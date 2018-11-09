@@ -121,7 +121,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
             
         case "commit":
             let message = allArgs.joined(separator: " ")
-            Terminal.log(atlasCore.commitChanges(message).allMessages)
+            Terminal.log(atlasCore.commitChanges().allMessages)
         case "clear":
             self.clear()
         case "s3":

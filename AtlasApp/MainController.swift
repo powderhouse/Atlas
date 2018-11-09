@@ -83,7 +83,7 @@ class MainController: NSViewController {
             
             if let projectName = notification.userInfo?["projectName"] as? String {
                 DispatchQueue.global(qos: .background).async {
-                    let result = self.atlasCore.commitChanges(message ?? "Commit (no message provided)")
+                    let result = self.atlasCore.commitChanges()
                     DispatchQueue.main.async(execute: {
                         if result.success {
                             NotificationCenter.default.post(
