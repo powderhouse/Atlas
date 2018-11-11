@@ -52,8 +52,7 @@ class CommitController: NSViewController, NSTextFieldDelegate {
                             name: NSNotification.Name(rawValue: "staged-file-ready-for-commit"),
                             object: nil,
                             userInfo: [
-                                "projectName": self.project!.name!,
-                                "message": self.commitMessage.stringValue
+                                "projectName": self.project!.name!
                             ]
                         )
                         

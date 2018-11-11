@@ -79,8 +79,6 @@ class MainController: NSViewController {
             queue: nil
         ) {
             (notification) in
-            let message = notification.userInfo?["message"] as? String
-            
             if let projectName = notification.userInfo?["projectName"] as? String {
                 DispatchQueue.global(qos: .background).async {
                     let result = self.atlasCore.commitChanges()
@@ -102,7 +100,7 @@ class MainController: NSViewController {
                 DispatchQueue.global(qos: .background).async {
                     while !gitCommitComplete {
                         if let status = self.atlasCore.status() {
-                            if !status.contains(projectName) {
+                            if !status.contains("\(projectName)/\(Project.committed)") {
                                 DispatchQueue.main.async(execute: {
                                     NotificationCenter.default.post(
                                         name: NSNotification.Name(rawValue: "staged-file-committed"),
