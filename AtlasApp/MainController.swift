@@ -99,18 +99,20 @@ class MainController: NSViewController {
                 var gitCommitComplete = false
                 DispatchQueue.global(qos: .background).async {
                     while !gitCommitComplete {
+                        DispatchQueue.main.async(execute: {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "staged-file-committed"),
+                                object: nil,
+                                userInfo: ["projectName": projectName]
+                            )
+                        })
+                        
                         if let status = self.atlasCore.status() {
                             if !status.contains("\(projectName)/\(Project.committed)") {
-                                DispatchQueue.main.async(execute: {
-                                    NotificationCenter.default.post(
-                                        name: NSNotification.Name(rawValue: "staged-file-committed"),
-                                        object: nil,
-                                        userInfo: ["projectName": projectName]
-                                    )
-                                })
                                 gitCommitComplete = true
                             }
                         }
+                        
                         sleep(1)
                     }
                 }
