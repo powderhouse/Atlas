@@ -38,7 +38,8 @@ class LogTest: AtlasUITestCase {
         app.buttons["<"].click()
         
         let log = app.collectionViews["LogView"]
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        
+        waitForStaticText(log, text: "\(commitMessage)\n")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
      
