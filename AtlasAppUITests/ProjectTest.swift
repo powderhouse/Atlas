@@ -13,10 +13,7 @@ class ProjectTest: AtlasUITestCase {
         login(app)
 
         let projectName = "A Project"
-        app.buttons["+"].click()
-        let projectTextField = app.popovers.textFields["Project Name"]
-        projectTextField.typeText(projectName)
-        app.popovers.buttons["Save"].click()
+        addProject(app, name: projectName)
 
         let newProject = app.groups["\(projectName)-staged"]
         waitForTerminalToContain("Added project: \(projectName)")
@@ -27,10 +24,7 @@ class ProjectTest: AtlasUITestCase {
         login(app)
 
         let projectName = "\\\"\\\"\"A Project\\\"\\\"\""
-        app.buttons["+"].click()
-        let projectTextField = app.popovers.textFields["Project Name"]
-        projectTextField.typeText(projectName)
-        app.popovers.buttons["Save"].click()
+        addProject(app, name: projectName)
 
         let newProject = app.groups["\(projectName)-staged"]
         waitForTerminalToContain("A Project")
@@ -49,14 +43,8 @@ class ProjectTest: AtlasUITestCase {
         login(app)
 
         let projectName = "Project"
-        app.buttons["+"].click()
-        let projectTextField = app.popovers.textFields["Project Name"]
-        XCTAssert(waitForElementToAppear(projectTextField))
-        projectTextField.typeText(projectName)
-        app.popovers.buttons["Save"].click()
+        addProject(app, name: projectName)
         
-        waitForTerminalToContain("Added project: \(projectName)")
-
         let filename = "indexfile.html"
         let commitMessage = "A commit message"
         stage(app, projectName: projectName, filename: filename)

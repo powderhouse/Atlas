@@ -121,6 +121,15 @@ class AtlasUITestCase: XCTestCase {
         waitForTerminalToContain("Added project: General")
     }
     
+    func addProject(_ app: XCUIApplication, name: String) {
+        app.buttons["+"].click()
+        let projectTextField = app.popovers.textFields["Project Name"]
+        XCTAssert(waitForElementToAppear(projectTextField))
+        projectTextField.typeText(name)
+        app.popovers.buttons["Save"].click()
+        waitForTerminalToContain("Added project: \(name)")
+    }
+    
     func stage(_ app: XCUIApplication, projectName: String, filename: String) {
         let terminal = app.textFields["TerminalInput"]        
         
