@@ -227,13 +227,13 @@ class MainController: NSViewController {
                         result.messages.contains("Unable to sync with S3. Please check credentials.") ||
                         result.messages.contains("Invalid AWS credentials") {
                         
-                        NotificationCenter.default.post(
-                            name: NSNotification.Name(rawValue: "sync-completed"),
-                            object: nil,
-                            userInfo: ["name": "initialization"]
-                        )
-
                         DispatchQueue.main.async(execute: {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "sync-completed"),
+                                object: nil,
+                                userInfo: ["name": "initialization"]
+                            )
+
                             Timer.scheduledTimer(
                                 withTimeInterval: 1,
                                 repeats: false,

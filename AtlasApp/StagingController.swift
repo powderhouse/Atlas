@@ -268,15 +268,17 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func syncing(_ processName: String?=nil) {
-        statusTimer?.invalidate()
-        syncButton.title = "Syncing..."
-        if let processName = processName {
-            syncProcesses[processName] = true
-        }
-        status.backgroundColor = NSColor.yellow
-        statusTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.showStatus()
-        }
+        DispatchQueue.main.async(execute: {
+            self.statusTimer?.invalidate()
+            self.syncButton.title = "Syncing..."
+            if let processName = processName {
+                self.syncProcesses[processName] = true
+            }
+            self.status.backgroundColor = NSColor.yellow
+            self.statusTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+                self.showStatus()
+            }
+        })
     }
     
     @IBAction func clickStatus(_ sender: NSClickGestureRecognizer) {
