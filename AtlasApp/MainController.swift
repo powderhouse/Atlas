@@ -170,12 +170,6 @@ class MainController: NSViewController {
     }
     
     func initializeAtlas(_ credentials: Credentials) {
-        NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "sync"),
-            object: nil,
-            userInfo: ["name": "initialization"]
-        )
-        
         if let core = atlasCore {
             DispatchQueue.global(qos: .background).async {
                 let result = core.initGitAndGitHub(credentials)
@@ -192,6 +186,12 @@ class MainController: NSViewController {
                         Terminal.log("Failed to initialize search.")
                         Terminal.log(searchResult.allMessages)
                     }
+
+                    NotificationCenter.default.post(
+                        name: NSNotification.Name(rawValue: "sync"),
+                        object: nil,
+                        userInfo: ["name": "initialization"]
+                    )
                     
                     if core.projects().count == 0 {
                         DispatchQueue.main.async(execute: {
@@ -226,11 +226,23 @@ class MainController: NSViewController {
                     if result.messages.contains("Failed to authenticate with GitHub and no local repository provided.") || result.messages.contains("Unable to access these remotes: \(GitAnnex.remoteName)") ||
                         result.messages.contains("Unable to sync with S3. Please check credentials.") ||
                         result.messages.contains("Invalid AWS credentials") {
+                        
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "sync-completed"),
+                            object: nil,
+                            userInfo: ["name": "initialization"]
+                        )
+
                         DispatchQueue.main.async(execute: {
-                            self.performSegue(
-                                withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
-                                sender: self
-                            )
+                            Timer.scheduledTimer(
+                                withTimeInterval: 1,
+                                repeats: false,
+                                block: { (timer) in
+                                    self.performSegue(
+                                        withIdentifier: NSStoryboardSegue.Identifier(rawValue: "account-segue"),
+                                        sender: self
+                                    )
+                            })
                         })
                     }
                 }
