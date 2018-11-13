@@ -42,12 +42,13 @@ class StressTest: AtlasUITestCase {
         commitMessageArea.typeText(commitMessage)
         commitDialog.buttons["Commit"].click()
         
-        waitForTerminalToContain("Files successfully committed.")
+//        waitForTerminalToContain("Files successfully committed.")
     }
     
     func addProjectNoWait(_ projectName: String) {
         app.buttons["+"].click()
         let projectTextField = app.popovers.textFields["Project Name"]
+        XCTAssert(waitForElementToAppear(projectTextField))
         projectTextField.typeText(projectName)
         app.popovers.buttons["Save"].click()
         
