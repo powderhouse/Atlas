@@ -159,7 +159,7 @@ class AtlasUITestCase: XCTestCase {
         commitMessageArea.typeText(commitMessage)
         commitDialog.buttons["Commit"].click()
         
-        waitForTerminalToContain("Files successfully committed.")
+        waitForTerminalToContain("Changes Successfully Pushed To GitHub")
     }
     
     
