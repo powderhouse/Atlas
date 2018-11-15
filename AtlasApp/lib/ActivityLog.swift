@@ -41,7 +41,9 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     func refresh() {
-        view.reloadSections(IndexSet(integer: 0))
+        DispatchQueue.main.async(execute: {
+            self.view.reloadSections(IndexSet(integer: 0))
+        })
     }
     
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
@@ -149,12 +151,14 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     }
     
     func setFrameSize() {
-        view.setFrameSize(
-            NSSize(
-                width: view.frame.width,
-                height: CGFloat(commits.count) * (commitHeight + (bufferDim * CGFloat(2)))
+        DispatchQueue.main.async(execute: {
+            self.view.setFrameSize(
+                NSSize(
+                    width: self.view.frame.width,
+                    height: CGFloat(self.commits.count) * (self.commitHeight + (self.bufferDim * CGFloat(2)))
+                )
             )
-        )
+        })
     }
     
 }
