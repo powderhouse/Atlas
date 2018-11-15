@@ -230,41 +230,43 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     func resize() {
-        let flowLayout = NSCollectionViewFlowLayout()
-        
-        let verticalBuffer: CGFloat = 15
-        var horizontalBuffer: CGFloat = 15
+        DispatchQueue.main.async(execute: {
+            let flowLayout = NSCollectionViewFlowLayout()
+            
+            let verticalBuffer: CGFloat = 15
+            var horizontalBuffer: CGFloat = 15
 
-        var projectHeight: CGFloat = 240
-        var projectWidth: CGFloat = projectListView.bounds.width - (horizontalBuffer * 2.5)
-        
-        if projectListView.bounds.width > 300 {
-            projectWidth = 240
-        } else {
-            horizontalBuffer = 0
-            projectHeight = 60
-            projectWidth = projectListView.bounds.width
-        }
-        
-        flowLayout.itemSize = NSSize(width: projectWidth, height: projectHeight)
-        flowLayout.sectionInset = NSEdgeInsets(
-            top: verticalBuffer,
-            left: horizontalBuffer,
-            bottom: verticalBuffer,
-            right: horizontalBuffer
-        )
-        flowLayout.minimumInteritemSpacing = horizontalBuffer
-        flowLayout.minimumLineSpacing = verticalBuffer
-        projectListView.collectionViewLayout = flowLayout
-
-        projectListView.reloadData()
-        
-        projectListView.setFrameSize(
-            NSSize(
-                width: view.frame.width,
-                height: CGFloat(atlasCore.projects().count) * (projectHeight + (verticalBuffer * 2))
+            var projectHeight: CGFloat = 240
+            var projectWidth: CGFloat = self.projectListView.bounds.width - (horizontalBuffer * 2.5)
+            
+            if self.projectListView.bounds.width > 300 {
+                projectWidth = 240
+            } else {
+                horizontalBuffer = 0
+                projectHeight = 60
+                projectWidth = self.projectListView.bounds.width
+            }
+            
+            flowLayout.itemSize = NSSize(width: projectWidth, height: projectHeight)
+            flowLayout.sectionInset = NSEdgeInsets(
+                top: verticalBuffer,
+                left: horizontalBuffer,
+                bottom: verticalBuffer,
+                right: horizontalBuffer
             )
-        )
+            flowLayout.minimumInteritemSpacing = horizontalBuffer
+            flowLayout.minimumLineSpacing = verticalBuffer
+            self.projectListView.collectionViewLayout = flowLayout
+
+            self.projectListView.reloadData()
+            
+            self.projectListView.setFrameSize(
+                NSSize(
+                    width: self.view.frame.width,
+                    height: CGFloat(self.atlasCore.projects().count) * (projectHeight + (verticalBuffer * 2))
+                )
+            )
+        })
     }
     
     func syncing(_ processName: String?=nil) {
