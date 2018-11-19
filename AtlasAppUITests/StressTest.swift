@@ -97,7 +97,7 @@ class StressTest: AtlasUITestCase {
         stagingArea1.buttons["-"].firstMatch.click()
         clickAlertButton("Remove")
         
-        stagingArea1.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
+        stagingArea1.groups["StagedFileViewItem"].children(matching: .checkBox).element(boundBy: 4).click()
         
         commitNoWait(project1, commitMessage: commitMessage1)
 
@@ -118,18 +118,18 @@ class StressTest: AtlasUITestCase {
         XCTAssert(waitForElementToDisappear(app.collectionViews["\(project2)-staged-files"]))
 
         let generalStagingArea = app.collectionViews["\(project)-staged-files"]
-        XCTAssert(!generalStagingArea.staticTexts[filename(project, index: 3)].exists)
+        XCTAssert(!generalStagingArea.staticTexts[filename(project, index: 0)].exists)
         XCTAssert(generalStagingArea.staticTexts[filename(project, index: 1)].exists)
 
         let testStagingArea = app.collectionViews["\(project1)-staged-files"]
-        XCTAssert(testStagingArea.staticTexts[filename(project1, index: 0)].exists)
-        for i in 2..<4 {
+        XCTAssert(testStagingArea.staticTexts[filename(project1, index: 4)].exists)
+        for i in 1..<3 {
             XCTAssert(!testStagingArea.staticTexts[filename(project1, index: i)].exists)
         }
         
         XCTAssert(log.staticTexts["\(commitMessage1)\n"].exists, "Unable to find \(commitMessage1)")
         XCTAssert(log.staticTexts[project1].exists)
-        for i in 2..<4 {
+        for i in 1..<4 {
             XCTAssert(log.links[filename(project1, index: i)].exists)
         }
         
