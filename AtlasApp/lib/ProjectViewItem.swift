@@ -8,6 +8,11 @@
 
 import Cocoa
 import AtlasCore
+ 
+public struct ProjectFile {
+    public var name: String
+    public var staged: Bool
+}
 
 class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollectionViewDataSource {
     
@@ -48,8 +53,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         }
     }
     
-    var stagedFiles: [String] = []
-    var unstagedFiles: [String] = []
+    var files: [ProjectFile] = []
     
     var filterBy: Bool {
         get {
@@ -97,9 +101,20 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         guard project != nil else { return 0 }
-        stagedFiles = project!.files("staged")
-        unstagedFiles = project!.files("unstaged")
-        return stagedFiles.count + unstagedFiles.count
+        
+        files.removeAll()
+        
+        for fileName in project!.files("staged") {
+            files.append(ProjectFile(name: fileName, staged: true))
+        }
+        
+        for fileName in project!.files("unstaged") {
+            files.append(ProjectFile(name: fileName, staged: false))
+        }
+
+        files.sort { $0.name < $1.name }
+        
+        return files.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -113,13 +128,9 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
 
         stagedFileViewItem.projectViewItem = self
 
-        if indexPath.item < stagedFiles.count {
-            stagedFileViewItem.label.stringValue = stagedFiles[indexPath.item]
-            stagedFileViewItem.isSelected = true
-        } else {
-            stagedFileViewItem.label.stringValue = unstagedFiles[indexPath.item - stagedFiles.count]
-            stagedFileViewItem.isSelected = false
-        }
+        let file = files[indexPath.item]
+        stagedFileViewItem.label.stringValue = file.name
+        stagedFileViewItem.isSelected = file.staged
         
         return stagedFileViewItem
     }
