@@ -61,6 +61,18 @@ class AccountController: NSViewController, NSTextFieldDelegate {
         
         Terminal.log("Initializing Atlas")
         
+        let password = self.passwordField.stringValue.count > 0 ?
+            self.passwordField.stringValue : nil
+        
+        var token = self.tokenField.stringValue.count > 0 ?
+            self.tokenField.stringValue : nil
+        
+        if let credentials = credentials {
+            if credentials.username != username || credentials.password != password {
+                token = nil
+            }
+        }
+        
         Timer.scheduledTimer(
             withTimeInterval: 0.1,
             repeats: false,
@@ -69,12 +81,12 @@ class AccountController: NSViewController, NSTextFieldDelegate {
                     Credentials(
                         username,
                         email: email,
-                        password: self.passwordField.stringValue.count > 0 ?
-                            self.passwordField.stringValue : nil,
-                        token: self.tokenField.stringValue.count > 0 ?
-                            self.tokenField.stringValue : nil,
-                        s3AccessKey: self.s3AccessKeyField.stringValue.count > 0 ? self.s3AccessKeyField.stringValue : nil,
-                        s3SecretAccessKey: self.s3SecretField.stringValue.count > 0 ? self.s3SecretField.stringValue : nil
+                        password: password,
+                        token: token,
+                        s3AccessKey: self.s3AccessKeyField.stringValue.count > 0 ?
+                            self.s3AccessKeyField.stringValue : nil,
+                        s3SecretAccessKey: self.s3SecretField.stringValue.count > 0 ?
+                            self.s3SecretField.stringValue : nil
                     )
                 )
         })
