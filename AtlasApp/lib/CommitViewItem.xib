@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.3.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,20 +30,20 @@
                 </textField>
                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sel-hL-m6s" userLabel="Files">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="183"/>
-                    <clipView key="contentView" id="in8-9Q-a9T">
+                    <clipView key="contentView" drawsBackground="NO" id="in8-9Q-a9T">
                         <rect key="frame" x="1" y="1" width="463" height="181"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="tt2-IK-V5w" userLabel="Files">
                                 <rect key="frame" x="0.0" y="0.0" width="463" height="181"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <size key="minSize" width="463" height="181"/>
                                 <size key="maxSize" width="488" height="10000000"/>
-                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="bbP-bg-NgT">
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
@@ -62,6 +62,16 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1pF-fm-W2x">
+                    <rect key="frame" x="431" y="207" width="49" height="32"/>
+                    <buttonCell key="cell" type="push" title="X" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yEQ-Gm-vPm">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="deleteCommit:" target="-2" id="u1K-O0-lxf"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.94" id="3VI-3B-hhy"/>
@@ -69,9 +79,11 @@
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="top" secondItem="qW9-Er-zMW" secondAttribute="bottom" constant="12" id="KYK-ub-5tf"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Mee-DC-baK"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PWt-qn-TJD"/>
+                <constraint firstItem="1pF-fm-W2x" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="6" id="Vba-5e-Dvl"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="dIJ-9w-uTL"/>
                 <constraint firstItem="Sel-hL-m6s" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="fs3-mX-7mV"/>
                 <constraint firstAttribute="bottom" secondItem="Sel-hL-m6s" secondAttribute="bottom" id="grX-sV-OuZ"/>
+                <constraint firstAttribute="trailing" secondItem="1pF-fm-W2x" secondAttribute="trailing" constant="6" id="hrg-YN-ITL"/>
                 <constraint firstItem="Sel-hL-m6s" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="12" id="xWy-W4-ojK"/>
                 <constraint firstItem="Sel-hL-m6s" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="zsg-o7-CWa"/>
             </constraints>
@@ -79,6 +91,7 @@
         </customView>
         <customObject id="y1E-2e-kiF" customClass="CommitViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
+                <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="BHB-Jl-W21"/>
                 <outlet property="files" destination="tt2-IK-V5w" id="33I-Cq-lr6"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="vHJ-G4-Qo2"/>
                 <outlet property="subject" destination="DFG-a2-lUh" id="ATZ-jA-k6F"/>

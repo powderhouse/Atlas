@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AtlasCore
 
 class CommitViewItem: NSCollectionViewItem {
 
@@ -16,12 +17,57 @@ class CommitViewItem: NSCollectionViewItem {
     
     @IBOutlet var files: NSTextView!
     
+    @IBOutlet weak var deleteCommitButton: NSButton!
+    
+    var commit: Commit? {
+        didSet {
+            if let commit = self.commit {
+                let projectNames: Array<String> = Array(Set(commit.projects.map { $0.name }))
+                project.stringValue = projectNames.joined(separator: ", ")
+                subject.stringValue = commit.message
+                
+                if let filesField = files {
+                    filesField.isEditable = true
+                    filesField.selectAll(self)
+                    let range = filesField.selectedRange()
+                    filesField.insertText("", replacementRange: range)
+                    
+                    for file in commit.files {
+                        var range = filesField.selectedRange()
+                        
+                        let link = NSAttributedString(
+                            string: file.name,
+                            attributes: [NSAttributedStringKey.link: file.url]
+                        )
+                        
+                        filesField.insertText("\n", replacementRange: range)
+                        range.location = range.location + 2
+                        filesField.insertText(link, replacementRange: range)
+                    }
+                    
+                    filesField.isEditable = false
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+    }
+    
+    @IBAction func deleteCommit(_ sender: NSButton) {
+//        let commitFolders: [String] = []
+        if let commit = self.commit {
+            for file in commit.files {
+                print(file.url)
+            }
+        } else {
+            print("NO COMMIT")
+        }
     }
     
     func highlight(_ terms: [String]) {
