@@ -201,8 +201,8 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
             "sync",
             "project-added",
             "project-deleted",
-            "remove-staged-file",
-            "staged-file-updated",
+            "remove-file",
+            "file-updated",
             "staged-file-committed"] {
             NotificationCenter.default.addObserver(
                 forName: NSNotification.Name(rawValue: notification),
@@ -210,7 +210,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                 queue: nil
             ) {
                 (notification) in
-                self.syncing(notification.userInfo?["name"] as? String)
+                self.syncing(notification.userInfo?["processName"] as? String)
             }
         }
         
@@ -222,7 +222,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
                     queue: nil
                 ) {
                     (notification) in
-                    if let processName = notification.userInfo?["name"] as? String {
+                    if let processName = notification.userInfo?["processName"] as? String {
                         self.syncProcesses.removeValue(forKey: processName)
                     }
                 }

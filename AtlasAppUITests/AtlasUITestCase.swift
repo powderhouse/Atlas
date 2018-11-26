@@ -87,6 +87,14 @@ class AtlasUITestCase: XCTestCase {
         waitForExpectations(timeout: 30, handler: nil)
     }
     
+    func waitForSyncToComplete() {
+        let button = app.buttons["Sync"]
+        let exists = NSPredicate(format: "exists == 1")
+        
+        expectation(for: exists, evaluatedWith: button, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
+    }
+    
     func clickAlertButton(_ text: String) {
         let buttons = app.buttons.matching(identifier: text)
         let touchbarButton = app.touchBars.buttons.matching(identifier: text).firstMatch

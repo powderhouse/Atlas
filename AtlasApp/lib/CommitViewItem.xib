@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CommitViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
+                <outlet property="commitController" destination="ju8-r7-uTU" id="QtA-vS-ICI"/>
+                <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="lel-zo-gD5"/>
                 <outlet property="files" destination="tt2-IK-V5w" id="dHK-Js-tDk"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="TE8-ua-BKl"/>
                 <outlet property="subject" destination="DFG-a2-lUh" id="LFR-Gb-OJ7"/>
@@ -63,8 +65,8 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1pF-fm-W2x">
-                    <rect key="frame" x="431" y="207" width="49" height="32"/>
-                    <buttonCell key="cell" type="push" title="X" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yEQ-Gm-vPm">
+                    <rect key="frame" x="433" y="207" width="47" height="32"/>
+                    <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yEQ-Gm-vPm">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -87,10 +89,11 @@
                 <constraint firstItem="Sel-hL-m6s" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="12" id="xWy-W4-ojK"/>
                 <constraint firstItem="Sel-hL-m6s" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="zsg-o7-CWa"/>
             </constraints>
-            <point key="canvasLocation" x="118" y="-162.5"/>
+            <point key="canvasLocation" x="173" y="-308"/>
         </customView>
         <customObject id="y1E-2e-kiF" customClass="CommitViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
+                <outlet property="commitController" destination="ju8-r7-uTU" id="Yts-FK-vY8"/>
                 <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="BHB-Jl-W21"/>
                 <outlet property="files" destination="tt2-IK-V5w" id="33I-Cq-lr6"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="vHJ-G4-Qo2"/>
@@ -98,5 +101,6 @@
                 <outlet property="view" destination="Hz6-mo-xeY" id="dsb-7u-mMG"/>
             </connections>
         </customObject>
+        <objectController id="ju8-r7-uTU"/>
     </objects>
 </document>

@@ -99,7 +99,7 @@ class Terminal: NSObject, NSTextViewDelegate, NSTextDelegate, NSTextFieldDelegat
                         Terminal.log(result.allMessages)
                         if result.success {
                             NotificationCenter.default.post(
-                                name: NSNotification.Name(rawValue: "staged-file-updated"),
+                                name: NSNotification.Name(rawValue: "file-updated"),
                                 object: nil,
                                 userInfo: ["projectName": project.name!]
                             )

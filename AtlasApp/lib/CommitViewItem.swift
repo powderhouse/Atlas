@@ -19,6 +19,8 @@ class CommitViewItem: NSCollectionViewItem {
     
     @IBOutlet weak var deleteCommitButton: NSButton!
     
+    @IBOutlet var commitController: NSObjectController!
+
     var commit: Commit? {
         didSet {
             if let commit = self.commit {
@@ -47,6 +49,8 @@ class CommitViewItem: NSCollectionViewItem {
                     
                     filesField.isEditable = false
                 }
+                
+                commitController.addObject(commit)
             }
         }
     }
@@ -60,14 +64,51 @@ class CommitViewItem: NSCollectionViewItem {
     }
     
     @IBAction func deleteCommit(_ sender: NSButton) {
-//        let commitFolders: [String] = []
-        if let commit = self.commit {
-            for file in commit.files {
-                print(file.url)
+        let a = NSAlert()
+        a.messageText = "Remove this commit?"
+        a.informativeText = "Are you sure you would like to remove this whole commit?"
+        a.addButton(withTitle: "Remove")
+        a.addButton(withTitle: "Cancel")
+        
+        a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                var commitFolders: [String: [String]] = [:]
+                if let commit = self.commitController.content as? Commit {
+                    for name in commit.projects.map({ $0.name }) {
+                        if let projectName = name {
+                            if commitFolders[projectName] == nil {
+                                commitFolders[projectName] = []
+                            }
+                            
+                            for file in commit.files {
+                                let filePath = file.url.replacingOccurrences(
+                                    of: ".*/\(projectName)/",
+                                    with: "\(projectName)/",
+                                    options: [.regularExpression]
+                                )
+                                let fileComponents = filePath.components(separatedBy: "/")
+                                commitFolders[projectName]!.append(fileComponents.dropLast().joined(separator: "/"))
+                            }
+                        }
+                    }
+                }
+                
+                for projectName in commitFolders.keys {
+                    if let folders = commitFolders[projectName] {
+                        for commitFolder in Array(Set(folders)) {
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "remove-file"),
+                                object: nil,
+                                userInfo: [
+                                    "file": commitFolder,
+                                    "projectName": projectName
+                                ]
+                            )
+                        }
+                    }
+                }
             }
-        } else {
-            print("NO COMMIT")
-        }
+        })
     }
     
     func highlight(_ terms: [String]) {

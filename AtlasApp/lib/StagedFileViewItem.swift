@@ -41,7 +41,7 @@ class StagedFileViewItem: NSCollectionViewItem {
             Terminal.log(result.allMessages)
             if result.success {
                 NotificationCenter.default.post(
-                    name: NSNotification.Name(rawValue: "staged-file-updated"),
+                    name: NSNotification.Name(rawValue: "file-updated"),
                     object: nil,
                     userInfo: [
                         "projectName": project.name!
@@ -69,13 +69,14 @@ class StagedFileViewItem: NSCollectionViewItem {
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
             if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 if let project = self.projectViewItem.project {
+                    let state = self.isSelected ? "staged" : "unstaged"
+                    let file = "\(project.name!)/\(state)/\(self.label.stringValue)"
                     NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "remove-staged-file"),
+                        name: NSNotification.Name(rawValue: "remove-file"),
                         object: nil,
                         userInfo: [
-                            "projectName": project.name!,
-                            "state": self.isSelected ? "staged" : "unstaged",
-                            "fileName": self.label.stringValue
+                            "file": file,
+                            "projectName": project.name
                         ]
                     )
                 } else {

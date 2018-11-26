@@ -137,7 +137,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     func initNotifications() {
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-updated"),
+            forName: NSNotification.Name(rawValue: "file-updated"),
             object: nil,
             queue: nil
         ) {
