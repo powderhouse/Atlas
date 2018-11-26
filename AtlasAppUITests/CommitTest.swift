@@ -50,7 +50,6 @@ class CommitTest: AtlasUITestCase {
         _ = waitForElementToAppear(log.staticTexts["\(commitMessage)\n"])
         XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
-        XCTAssert(log.links["\(filename1)\n"].exists, "Unable to find \(filename1) link")
         XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
         
         log.buttons["x"].click()
@@ -59,7 +58,6 @@ class CommitTest: AtlasUITestCase {
         
         XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still finding \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still finding \(projectName)")
-        XCTAssertFalse(log.links[filename1].exists, "Still finding \(filename1) link")
         XCTAssertFalse(log.links[filename2].exists, "Still finding \(filename2) link")
     }
     
