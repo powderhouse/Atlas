@@ -43,18 +43,26 @@ class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
                             attributes: [
                                 .link: purgeUrl,
                                 .strokeColor: NSColor.red,
-                                .strokeWidth: 10]
+                                .strokeWidth: 10,
+                                .underlineColor: NSColor.clear
+                            ]
                         )
                         
                         let bufferString = "   "
                         let buffer = NSAttributedString(
                             string: bufferString,
-                            attributes: [.strokeColor: NSColor.linkColor, .strokeWidth: 0]
+                            attributes: [
+                                .strokeColor: NSColor.linkColor,
+                                .strokeWidth: 0
+                            ]
                         )
 
                         let link = NSAttributedString(
                             string: file.name,
-                            attributes: [.link: file.url]
+                            attributes: [
+                                .link: file.url,
+                                .underlineColor: NSColor.linkColor
+                            ]
                         )
                         
                         filesField.insertText("\n", replacementRange: range)
