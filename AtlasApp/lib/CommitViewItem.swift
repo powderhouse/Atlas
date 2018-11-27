@@ -36,7 +36,10 @@ class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
                     
                     for file in commit.files {
                         var range = filesField.selectedRange()
-                        
+                    
+                        let paragraphStyle = NSMutableParagraphStyle()
+                        paragraphStyle.paragraphSpacing = 5
+
                         let purgeUrl = "purge:\(file.url)"
                         let purgeLink = NSAttributedString(
                             string: "x",
@@ -44,7 +47,8 @@ class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
                                 .link: purgeUrl,
                                 .strokeColor: NSColor.red,
                                 .strokeWidth: 10,
-                                .underlineColor: NSColor.clear
+                                .underlineColor: NSColor.clear,
+                                .paragraphStyle: paragraphStyle
                             ]
                         )
                         
@@ -52,8 +56,8 @@ class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
                         let buffer = NSAttributedString(
                             string: bufferString,
                             attributes: [
-                                .strokeColor: NSColor.linkColor,
-                                .strokeWidth: 0
+                                .link: purgeUrl,
+                                .underlineColor: NSColor.clear
                             ]
                         )
 
@@ -61,6 +65,8 @@ class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
                             string: file.name,
                             attributes: [
                                 .link: file.url,
+                                .strokeWidth: 0,
+                                .strokeColor: NSColor.linkColor,
                                 .underlineColor: NSColor.linkColor
                             ]
                         )
