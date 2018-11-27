@@ -9,7 +9,7 @@
 import Cocoa
 import AtlasCore
 
-class CommitViewItem: NSCollectionViewItem {
+class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
 
     @IBOutlet weak var project: NSTextField!
     
@@ -37,13 +37,32 @@ class CommitViewItem: NSCollectionViewItem {
                     for file in commit.files {
                         var range = filesField.selectedRange()
                         
+                        let purgeUrl = "purge:\(file.url)"
+                        let purgeLink = NSAttributedString(
+                            string: "x",
+                            attributes: [
+                                .link: purgeUrl,
+                                .strokeColor: NSColor.red,
+                                .strokeWidth: 10]
+                        )
+                        
+                        let bufferString = "   "
+                        let buffer = NSAttributedString(
+                            string: bufferString,
+                            attributes: [.strokeColor: NSColor.linkColor, .strokeWidth: 0]
+                        )
+
                         let link = NSAttributedString(
                             string: file.name,
-                            attributes: [NSAttributedStringKey.link: file.url]
+                            attributes: [.link: file.url]
                         )
                         
                         filesField.insertText("\n", replacementRange: range)
                         range.location = range.location + 2
+                        filesField.insertText(purgeLink, replacementRange: range)
+                        
+                        filesField.insertText(buffer, replacementRange: range)
+                        range.location = range.location + purgeUrl.count + bufferString.count
                         filesField.insertText(link, replacementRange: range)
                     }
                     
@@ -61,6 +80,57 @@ class CommitViewItem: NSCollectionViewItem {
         
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        
+        files.delegate = self
+    }
+    
+    func textView(_ textView: NSTextView, clickedOnLink link: Any, at charIndex: Int) -> Bool {
+        if let purgeUrl = link as? String {
+            guard purgeUrl.starts(with: "purge:") else {
+                return false
+            }
+            
+            let url = purgeUrl.replacingOccurrences(of: "purge:", with: "")
+            
+            if let commit = self.commitController.content as? Commit {
+                for name in commit.projects.map({ $0.name }) {
+                    if let projectName = name {
+                        if url.contains(substring: projectName) {
+                            let a = NSAlert()
+                            a.messageText = "Remove this file?"
+                            let fileName = url.components(separatedBy: "/").last
+                            a.informativeText = "Are you sure you would like to remove the file, \(fileName ?? ""), from this commit?"
+                            a.addButton(withTitle: "Remove")
+                            a.addButton(withTitle: "Cancel")
+                            
+                            a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+                                if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                                    NotificationCenter.default.post(
+                                        name: NSNotification.Name(rawValue: "remove-file"),
+                                        object: nil,
+                                        userInfo: [
+                                            "file": self.filePath(url, projectName: projectName),
+                                            "projectName": projectName
+                                        ]
+                                    )
+                                }
+                            })
+                            
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    func filePath(_ url: String, projectName: String) -> String {
+        return url.replacingOccurrences(
+            of: ".*/\(projectName)/",
+            with: "\(projectName)/",
+            options: [.regularExpression]
+        )
     }
     
     @IBAction func deleteCommit(_ sender: NSButton) {
@@ -80,13 +150,9 @@ class CommitViewItem: NSCollectionViewItem {
                                 commitFolders[projectName] = []
                             }
                             
-                            for file in commit.files {
-                                let filePath = file.url.replacingOccurrences(
-                                    of: ".*/\(projectName)/",
-                                    with: "\(projectName)/",
-                                    options: [.regularExpression]
-                                )
-                                let fileComponents = filePath.components(separatedBy: "/")
+                            for file in commit.files where file.url.contains("\(projectName)/") {
+                                let path = self.filePath(file.url, projectName: projectName)
+                                let fileComponents = path.components(separatedBy: "/")
                                 commitFolders[projectName]!.append(fileComponents.dropLast().joined(separator: "/"))
                             }
                         }

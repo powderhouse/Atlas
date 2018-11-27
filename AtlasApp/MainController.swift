@@ -146,7 +146,7 @@ class MainController: NSViewController {
 
                         if result.success {
                             DispatchQueue.main.async(execute: {
-                                Terminal.log("Successfully purged file from Atlas.")
+                                Terminal.log("Successfully purged \(filePath) from Atlas.")
                                 
                                 NotificationCenter.default.post(
                                     name: NSNotification.Name(rawValue: "file-updated"),
