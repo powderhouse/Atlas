@@ -50,7 +50,7 @@ class DropView: NSView {
                 DispatchQueue.main.async(execute: {
                     Terminal.log("Imported files into \(self.project!.name!)")
                     NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "staged-file-updated"),
+                        name: NSNotification.Name(rawValue: "file-updated"),
                         object: nil,
                         userInfo: ["projectName": self.project!.name!]
                     )

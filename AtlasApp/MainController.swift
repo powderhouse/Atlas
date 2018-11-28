@@ -63,7 +63,7 @@ class MainController: NSViewController {
     
     func initNotifications() {
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "staged-file-updated"),
+            forName: NSNotification.Name(rawValue: "file-updated"),
             object: nil,
             queue: nil
         ) {
@@ -120,37 +120,46 @@ class MainController: NSViewController {
         }
         
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "remove-staged-file"),
+            forName: NSNotification.Name(rawValue: "remove-file"),
             object: nil,
             queue: nil
         ) {
             (notification) in
+            
             if let projectName = notification.userInfo?["projectName"] as? String {
                 let project = self.atlasCore.project(projectName)
-                if let state = notification.userInfo?["state"] as? String {
-                    if let fileName = notification.userInfo?["fileName"] as? String {
-                        let filePath = "\(projectName)/\(state)/\(fileName)"
-                        DispatchQueue.global(qos: .background).async {
-                            let result = self.atlasCore.purge([filePath])
-                            if result.success {
-                                DispatchQueue.main.async(execute: {
-                                    Terminal.log("Successfully purged file from Atlas.")
-                                    
-                                    NotificationCenter.default.post(
-                                        name: NSNotification.Name(rawValue: "staged-file-updated"),
-                                        object: nil,
-                                        userInfo: ["projectName": project!.name!]
-                                    )
-                                })
-                            } else {
-                                Terminal.log("File purge failed.")
-                            }
+                if let filePath = notification.userInfo?["file"] as? String {
+                    DispatchQueue.global(qos: .background).async {
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "sync"),
+                            object: nil,
+                            userInfo: ["processName": "purgeFile"]
+                        )
+
+                        let result = self.atlasCore.purge([filePath])
+                        
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "sync-completed"),
+                            object: nil,
+                            userInfo: ["processName": "purgeFile"]
+                        )
+
+                        if result.success {
+                            DispatchQueue.main.async(execute: {
+                                Terminal.log("Successfully purged \(filePath) from Atlas.")
+                                
+                                NotificationCenter.default.post(
+                                    name: NSNotification.Name(rawValue: "file-updated"),
+                                    object: nil,
+                                    userInfo: ["projectName": project!.name!]
+                                )
+                            })
+                        } else {
+                            Terminal.log("File purge failed.")
                         }
-                    } else {
-                        Terminal.log("No filename specified.")
                     }
                 } else {
-                    Terminal.log("No file state specified.")
+                    Terminal.log("File path not specified.")
                 }
             } else {
                 Terminal.log("Project name not specified.")
@@ -173,7 +182,7 @@ class MainController: NSViewController {
         NotificationCenter.default.post(
             name: NSNotification.Name(rawValue: "sync"),
             object: nil,
-            userInfo: ["name": "initialization"]
+            userInfo: ["processName": "initialization"]
         )
 
         if let core = atlasCore {
@@ -205,7 +214,7 @@ class MainController: NSViewController {
                         NotificationCenter.default.post(
                             name: NSNotification.Name(rawValue: "sync-completed"),
                             object: nil,
-                            userInfo: ["name": "initialization"]
+                            userInfo: ["processName": "initialization"]
                         )
                         
                         self.refresh()
@@ -214,7 +223,7 @@ class MainController: NSViewController {
                             NotificationCenter.default.post(
                                 name: NSNotification.Name(rawValue: "sync-completed"),
                                 object: nil,
-                                userInfo: ["name": "initialization"]
+                                userInfo: ["processName": "initialization"]
                             )
 
                             Terminal.log("Sync Complete")
@@ -230,7 +239,7 @@ class MainController: NSViewController {
                             NotificationCenter.default.post(
                                 name: NSNotification.Name(rawValue: "sync-completed"),
                                 object: nil,
-                                userInfo: ["name": "initialization"]
+                                userInfo: ["processName": "initialization"]
                             )
 
                             Timer.scheduledTimer(

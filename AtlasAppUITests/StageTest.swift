@@ -39,7 +39,7 @@ class StageTest: AtlasUITestCase {
         
         clickAlertButton("Remove")
         
-        waitForTerminalToContain("Successfully purged file from Atlas.")
+        waitForTerminalToContain("Successfully purged")
 
         sleep(1)
         let commitButton = app.groups["General-staged"].buttons["Commit"]
@@ -60,7 +60,7 @@ class StageTest: AtlasUITestCase {
         
         clickAlertButton("Remove")
         
-        waitForTerminalToContain("Successfully purged file from Atlas.")
+        waitForTerminalToContain("Successfully purged")
         
         XCTAssertFalse(commitButton.isEnabled)
     }

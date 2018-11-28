@@ -82,32 +82,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         }
 
         let commit = commits.reversed()[indexPath.item]
-
-        let projectNames: Array<String> = Array(Set(commit.projects.map { $0.name }))
-        commitViewItem.project.stringValue = projectNames.joined(separator: ", ")
-        commitViewItem.subject.stringValue = commit.message
-        
-        if let filesField = commitViewItem.files {
-            filesField.isEditable = true
-            filesField.selectAll(self)
-            let range = filesField.selectedRange()
-            filesField.insertText("", replacementRange: range)
-            
-            for file in commit.files {
-                var range = filesField.selectedRange()
-                
-                let link = NSAttributedString(
-                    string: file.name,
-                    attributes: [NSAttributedStringKey.link: file.url]
-                )
-
-                filesField.insertText("\n", replacementRange: range)
-                range.location = range.location + 2
-                filesField.insertText(link, replacementRange: range)
-            }
-            
-            filesField.isEditable = false
-        }
+        commitViewItem.commit = commit
         
         let fileNames = self.searchResults?.compactMap({ $0.lastPathComponent })
         commitViewItem.highlightFiles(fileNames ?? [])
@@ -121,6 +96,7 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
             "staged-file-committed",
             "staged-file-commit-complete",
             "project-deleted",
+            "file-updated",
             "refresh"] {
                 NotificationCenter.default.addObserver(
                     forName: NSNotification.Name(rawValue: notification),
