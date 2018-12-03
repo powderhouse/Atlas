@@ -185,17 +185,7 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
         ) {
             (notification) in
             self.resize()
-        }
-        
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: "refresh"),
-            object: nil,
-            queue: nil
-        ) {
-            (notification) in
-            self.resize()
-        }
-        
+        }        
 
         for notification in [
             "sync",

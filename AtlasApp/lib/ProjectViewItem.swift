@@ -70,6 +70,9 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
             }
         }
     }
+    
+    var refreshTimer: Timer? = nil
+    var refreshAttempt = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,24 +98,45 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     }
     
     func refresh() {
-        stagedFilesView.reloadData()
-        checkCommitButton()
+        guard refreshTimer == nil else {
+            refreshAttempt = 0
+            return
+        }
+        
+        refreshTimer = Timer.scheduledTimer(
+            withTimeInterval: 1,
+            repeats: true,
+            block: { (timer) in
+                if self.refreshAttempt < 10 {
+                    self.stagedFilesView.reloadData()
+                    self.checkCommitButton()
+                    self.refreshAttempt += 1
+                } else {
+                    self.refreshTimer?.invalidate()
+                    self.refreshTimer = nil
+                    self.refreshAttempt = 0
+                }
+        })
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         guard project != nil else { return 0 }
         
-        files.removeAll()
-        
+        var newFiles: [ProjectFile] = []
         for fileName in project!.files("staged") {
-            files.append(ProjectFile(name: fileName, staged: true))
+            newFiles.append(ProjectFile(name: fileName, staged: true))
         }
         
         for fileName in project!.files("unstaged") {
-            files.append(ProjectFile(name: fileName, staged: false))
+            newFiles.append(ProjectFile(name: fileName, staged: false))
         }
-
-        files.sort { $0.name < $1.name }
+        
+        newFiles.sort { $0.name < $1.name }
+        
+        if newFiles.map({ $0.name }) != files.map({ $0.name }) {
+            files.removeAll()
+            files += newFiles
+        }
         
         return files.count
     }
