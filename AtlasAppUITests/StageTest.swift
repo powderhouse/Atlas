@@ -25,7 +25,7 @@ class StageTest: AtlasUITestCase {
     
     func testUnstagingFile() {
         let projectStagingArea = app.collectionViews["General-staged-files"]
-        let file = projectStagingArea.groups["StagedFileViewItem"].children(matching: .checkBox).element
+        let file = projectStagingArea.groups[filename].children(matching: .checkBox).element
         file.click()
         
         waitForTerminalToContain("Successfully unstaged file.")
@@ -48,7 +48,7 @@ class StageTest: AtlasUITestCase {
 
     func testRemovingUnstagedFile() {
         let projectStagingArea = app.collectionViews["General-staged-files"]
-        let file = projectStagingArea.groups["StagedFileViewItem"].children(matching: .checkBox).element
+        let file = projectStagingArea.groups[filename].children(matching: .checkBox).element
         file.click()
         
         waitForTerminalToContain("Successfully unstaged file.")
