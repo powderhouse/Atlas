@@ -133,9 +133,8 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         
         newFiles.sort { $0.name < $1.name }
         
-        if newFiles.map({ $0.name }) != files.map({ $0.name }) {
-            files.removeAll()
-            files += newFiles
+        if newFiles.map({ "\($0.staged)-\($0.name)" }) != files.map({ "\($0.staged)-\($0.name)" }) {
+            files = newFiles
         }
         
         return files.count
@@ -155,6 +154,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         let file = files[indexPath.item]
         stagedFileViewItem.label.stringValue = file.name
         stagedFileViewItem.isSelected = file.staged
+        stagedFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
         
         return stagedFileViewItem
     }

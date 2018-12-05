@@ -14,7 +14,7 @@ class StressTest: AtlasUITestCase {
     let commitMessage1 = "This is a stress test commit"
     let commitMessage2 = "This is another stress test commit"
     var path: String?
-
+    
     override func setUp() {
         super.setUp()
         
@@ -41,8 +41,6 @@ class StressTest: AtlasUITestCase {
         commitMessageArea.click()
         commitMessageArea.typeText(commitMessage)
         commitDialog.buttons["Commit"].click()
-        
-//        waitForTerminalToContain("Files successfully committed.")
     }
     
     func addProjectNoWait(_ projectName: String) {
@@ -75,15 +73,20 @@ class StressTest: AtlasUITestCase {
         return "index\(index)\(projectName).html"
     }
     
+    func stagedFile(_ project: String, name: String) -> XCUIElement {
+        let stagingArea = app.collectionViews["\(project)-staged-files"]
+        return stagingArea.groups[name]
+    }
+    
     func testInAStressfulManner() {
         let log = app.collectionViews["LogView"]
-
+        
         for i in 0..<5 {
             stageNoWait(filename(project, index: i), in: project)
         }
-        
-        let stagingArea = app.collectionViews["\(project)-staged-files"]
-        stagingArea.buttons["-"].firstMatch.click()
+
+        let generalFile0 = stagedFile(project, name: filename(project, index: 0))
+        generalFile0.buttons["-"].firstMatch.click()
         clickAlertButton("Remove")
         
         addProjectNoWait(project1)
@@ -92,45 +95,48 @@ class StressTest: AtlasUITestCase {
             stageNoWait(filename(project1, index: i), in: project1)
         }
         
-        let stagingArea1 = app.collectionViews["\(project1)-staged-files"]
-        stagingArea1.groups["StagedFileViewItem"].children(matching: .checkBox).firstMatch.click()
-        stagingArea1.buttons["-"].firstMatch.click()
+        let stagedFile0 = stagedFile(project1, name: filename(project1, index: 0))
+        stagedFile0.children(matching: .checkBox).firstMatch.click()
+        stagedFile0.buttons["-"].firstMatch.click()
         clickAlertButton("Remove")
         
-        stagingArea1.groups["StagedFileViewItem"].children(matching: .checkBox).element(boundBy: 4).click()
+        let stagedFile1 = stagedFile(project1, name: filename(project1, index: 1))
+        stagedFile1.children(matching: .checkBox).firstMatch.click()
         
         commitNoWait(project1, commitMessage: commitMessage1)
-
+        
         addProjectNoWait(project2)
-
+        
         for i in 0..<5 {
             stageNoWait(filename(project2, index: i), in: project2)
         }
         commitNoWait(project2, commitMessage: commitMessage2)
-
+        
         for i in 5..<10 {
             stageNoWait(filename(project2, index: i), in: project2)
         }
-
+        
         app.groups["\(project2)-staged"].buttons["x"].click()
         clickAlertButton("Delete")
         
         XCTAssert(waitForElementToDisappear(app.collectionViews["\(project2)-staged-files"]))
-
+        
         let generalStagingArea = app.collectionViews["\(project)-staged-files"]
         XCTAssert(!generalStagingArea.staticTexts[filename(project, index: 0)].exists)
         XCTAssert(generalStagingArea.staticTexts[filename(project, index: 1)].exists)
-
+        
         let testStagingArea = app.collectionViews["\(project1)-staged-files"]
-        XCTAssert(testStagingArea.staticTexts[filename(project1, index: 4)].exists)
-        for i in 1..<3 {
-            XCTAssert(!testStagingArea.staticTexts[filename(project1, index: i)].exists)
+        XCTAssert(!testStagingArea.staticTexts[filename(project1, index: 0)].exists)
+        XCTAssert(testStagingArea.staticTexts[filename(project1, index: 1)].exists)
+        
+        for i in 2..<4 {
+            XCTAssert(!testStagingArea.staticTexts[filename(project1, index: 2)].exists, "Found \(i)")
         }
         
         XCTAssert(log.staticTexts["\(commitMessage1)\n"].exists, "Unable to find \(commitMessage1)")
         XCTAssert(log.staticTexts[project1].exists)
-        for i in 1..<4 {
-            XCTAssert(log.links[filename(project1, index: i)].exists)
+        for i in 2..<4 {
+            XCTAssert(log.links[filename(project1, index: i)].exists, "Can't find \(i)")
         }
         
         XCTAssert(!log.staticTexts["\(commitMessage2)\n"].exists, "Still found \(commitMessage2)")
