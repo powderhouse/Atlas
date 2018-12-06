@@ -38,8 +38,12 @@ class StagingController: NSViewController, NSCollectionViewDelegate, NSCollectio
     }
     
     @IBAction func sync(_ sender: NSButton) {
-        let completed = {
-            Terminal.log("Sync Complete")
+        let completed = { (_ result: Result) -> Void in
+            if result.success {
+                Terminal.log("Sync Complete")
+            } else {
+                Terminal.log("Sync Failed")
+            }
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: "refresh"),
                 object: nil

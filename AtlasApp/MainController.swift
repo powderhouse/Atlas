@@ -219,14 +219,18 @@ class MainController: NSViewController {
                         
                         self.refresh()
                     } else {
-                        self.atlasCore.sync(completed: {
+                        self.atlasCore.sync(completed: {(_ result: Result) -> Void in
                             NotificationCenter.default.post(
                                 name: NSNotification.Name(rawValue: "sync-completed"),
                                 object: nil,
                                 userInfo: ["processName": "initialization"]
                             )
-
-                            Terminal.log("Sync Complete")
+                        
+                            if result.success {
+                                Terminal.log("Sync Complete")
+                            } else {
+                                Terminal.log("Sync Failed")
+                            }
                             self.refresh()
                         })
                     }
