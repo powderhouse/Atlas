@@ -44,7 +44,10 @@ class StressTest: AtlasUITestCase {
     }
     
     func addProjectNoWait(_ projectName: String) {
-        app.buttons["+"].click()
+        let splitGroupsQuery = app.splitGroups
+        splitGroupsQuery.children(matching: .scrollView).element(boundBy: 0).children(matching: .collectionView).element.click()
+        splitGroupsQuery.children(matching: .button)["+"].click()
+
         let projectTextField = app.popovers.textFields["Project Name"]
         XCTAssert(waitForElementToAppear(projectTextField))
         projectTextField.typeText(projectName)

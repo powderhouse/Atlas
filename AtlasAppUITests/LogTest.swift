@@ -15,10 +15,7 @@ class LogTest: AtlasUITestCase {
         waitForTerminalToContain("Added project: General")
         
         let projectName = "Project"
-        app.buttons["+"].click()
-        let projectTextField = app.popovers.textFields["Project Name"]
-        projectTextField.typeText(projectName)
-        app.popovers.buttons["Save"].click()
+        addProject(app, name: projectName)
 
         let filename = "indexfile.html"
         let commitMessage = "I am committing these files because I want to."
