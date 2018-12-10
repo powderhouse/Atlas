@@ -65,4 +65,33 @@ class ProjectTest: AtlasUITestCase {
         XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Can still find commit message")
     }
     
+    func testAddNote() {
+        let note = "This is my note."
+        login(app)
+        
+        let projectName = "Project"
+        addProject(app, name: projectName)
+        
+        let projectStagingArea = app.groups["\(projectName)-staged"]
+        projectStagingArea.buttons["+"].click()
+        
+        let noteDialog = projectStagingArea.popovers.firstMatch
+        let noteMessageArea = noteDialog.textFields["Your note goes here"]
+        noteMessageArea.click()
+        noteMessageArea.typeText(note)
+        noteDialog.buttons["Save"].click()
+        
+        waitForTerminalToContain("added to \(projectName)")
+        
+        if let output = app.textViews["TerminalView"].value as? String {
+            let lines = output.components(separatedBy: "\n").filter { $0.contains("Note") }
+            if let filename = lines.last?.replacingOccurrences(of: "Note, ", with: "")
+                .replacingOccurrences(of: ", added to \(projectName)", with: "") {
+                XCTAssert(projectStagingArea.staticTexts[filename].exists, "Unable to find \(filename)")
+            } else {
+                XCTAssert(false, "Unable to find filename")
+            }
+        }
+    }
+    
 }

@@ -18,6 +18,7 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
     
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var commitButton: NSButton!
+    @IBOutlet weak var noteButton: NSButton!
     @IBOutlet weak var filterProject: NSButton!
     @IBOutlet weak var deleteButton: NSButton!
     
@@ -239,7 +240,28 @@ class ProjectViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollect
         vc.toCommit = toCommit
         vc.project = dropView.project
    }
-
+    
+    @IBAction func addNote(_ sender: NSButton) {
+        performSegue(
+            withIdentifier: NSStoryboardSegue.Identifier(rawValue: "note-project-segue"),
+            sender: self
+        )
+        
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        let vc = storyboard.instantiateController(
+            withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "NoteController")
+        ) as! NoteController
+        
+        self.presentViewController(vc,
+                                   asPopoverRelativeTo: noteButton.frame,
+                                   of: self.view,
+                                   preferredEdge: NSRectEdge.minY,
+                                   behavior: NSPopover.Behavior.transient
+        )
+        
+        vc.project = dropView.project
+    }
+    
     @IBAction func click(_ sender: Any) {
         if let projectName = dropView.project?.name {
             NotificationCenter.default.post(

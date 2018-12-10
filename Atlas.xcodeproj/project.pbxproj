@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3A62882B21BEBE2F00D09F03 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62882A21BEBE2F00D09F03 /* NoteController.swift */; };
 		3AA07CDC2183841200F12279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07CDB2183841200F12279 /* AppDelegate.swift */; };
 		3AA07CE02183841500F12279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA07CDF2183841500F12279 /* Assets.xcassets */; };
 		3AA07CE32183841500F12279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA07CE12183841500F12279 /* Main.storyboard */; };
@@ -1646,6 +1647,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A62882A21BEBE2F00D09F03 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		3AA07CD92183841200F12279 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA07CDB2183841200F12279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AA07CDF2183841500F12279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2875,6 +2877,7 @@
 				3AA07CDB2183841200F12279 /* AppDelegate.swift */,
 				3AA07CF72183848200F12279 /* AccountController.swift */,
 				3AA07CFE2183848F00F12279 /* CommitController.swift */,
+				3A62882A21BEBE2F00D09F03 /* NoteController.swift */,
 				3AA07D0E218384A000F12279 /* LogController.swift */,
 				3AA07D10218384AC00F12279 /* MainController.swift */,
 				3AA07D12218384B100F12279 /* NewProjectController.swift */,
@@ -5236,6 +5239,7 @@
 				3AA07D19218384BC00F12279 /* WindowController.swift in Sources */,
 				3AA07D582183870300F12279 /* ActivityLog.swift in Sources */,
 				3AA07CF82183848200F12279 /* AccountController.swift in Sources */,
+				3A62882B21BEBE2F00D09F03 /* NoteController.swift in Sources */,
 				3AA07D0F218384A000F12279 /* LogController.swift in Sources */,
 				3AA07D15218384B400F12279 /* PanelController.swift in Sources */,
 				3AA07D592183870300F12279 /* DropView.swift in Sources */,

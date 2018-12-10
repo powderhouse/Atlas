@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +13,7 @@
                 <outlet property="dropView" destination="46y-ZN-GYi" id="APu-q9-Ec7"/>
                 <outlet property="filterProject" destination="1bl-ti-vF9" id="Uek-kc-fwd"/>
                 <outlet property="label" destination="APv-lO-Rut" id="znK-Z1-MiB"/>
+                <outlet property="noteButton" destination="wcm-rZ-7pH" id="gkc-98-RMY"/>
                 <outlet property="stagedFilesClipView" destination="KhU-fe-JT6" id="kBp-8E-E8S"/>
                 <outlet property="stagedFilesScrollView" destination="UjS-H1-JOy" id="BwW-OX-45k"/>
                 <outlet property="stagedFilesView" destination="dj3-SC-bcY" id="rMD-hK-70g"/>
@@ -71,7 +72,7 @@
                         </button>
                         <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-H1-JOy" userLabel="Staged Files View">
                             <rect key="frame" x="95" y="0.0" width="240" height="275"/>
-                            <clipView key="contentView" drawsBackground="NO" id="KhU-fe-JT6">
+                            <clipView key="contentView" id="KhU-fe-JT6">
                                 <rect key="frame" x="1" y="1" width="238" height="273"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -112,6 +113,16 @@
                                 <action selector="delete:" target="-2" id="f5E-dK-uMo"/>
                             </connections>
                         </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wcm-rZ-7pH">
+                            <rect key="frame" x="-1" y="320" width="49" height="32"/>
+                            <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yzk-ez-I3W">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="addNote:" target="-2" id="MJk-wO-KCH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="1bl-ti-vF9" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" id="00a-uq-qya"/>
@@ -123,6 +134,8 @@
                         <constraint firstAttribute="bottom" secondItem="UjS-H1-JOy" secondAttribute="bottom" id="KyQ-wu-x5m"/>
                         <constraint firstItem="1bl-ti-vF9" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="TI9-gy-x7o"/>
                         <constraint firstItem="APv-lO-Rut" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" id="cu2-R6-cSH"/>
+                        <constraint firstItem="wcm-rZ-7pH" firstAttribute="top" secondItem="46y-ZN-GYi" secondAttribute="top" constant="5" id="dDy-Q6-R8a"/>
+                        <constraint firstItem="wcm-rZ-7pH" firstAttribute="leading" secondItem="46y-ZN-GYi" secondAttribute="leading" constant="5" id="dS5-Wj-bD6"/>
                         <constraint firstItem="APv-lO-Rut" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="erD-IC-0UV"/>
                         <constraint firstItem="hWM-6w-aJM" firstAttribute="top" secondItem="APv-lO-Rut" secondAttribute="bottom" constant="12" id="flB-wh-tw9"/>
                         <constraint firstItem="UjS-H1-JOy" firstAttribute="centerX" secondItem="46y-ZN-GYi" secondAttribute="centerX" id="j3N-zD-yxj"/>

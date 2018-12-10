@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.3.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -846,7 +846,7 @@
                                 </buttonCell>
                             </button>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a6b-XH-eVO" userLabel="Error">
-                                <rect key="frame" x="1" y="288" width="450" height="17"/>
+                                <rect key="frame" x="0.0" y="289" width="450" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" drawsBackground="YES" id="Y5v-m0-q5K">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -951,7 +951,7 @@
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsI-jg-KeW" userLabel="Project List Scroll View">
                                 <rect key="frame" x="0.0" y="33" width="450" height="267"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Fyz-w4-yfN">
+                                <clipView key="contentView" copiesOnScroll="NO" id="Fyz-w4-yfN">
                                     <rect key="frame" x="1" y="1" width="448" height="265"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1071,12 +1071,12 @@
                             <stackView orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8V-tl-JJS">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="457"/>
                                 <beginningViews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Cp6-yX-lW7" userLabel="Log Group">
+                                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cp6-yX-lW7" userLabel="Log Group">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="457"/>
                                         <subviews>
                                             <scrollView wantsLayer="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KS0-ia-N3f" userLabel="Log Scroll View">
                                                 <rect key="frame" x="0.0" y="22" width="450" height="435"/>
-                                                <clipView key="contentView" drawsBackground="NO" id="d2o-VN-CUU">
+                                                <clipView key="contentView" id="d2o-VN-CUU">
                                                     <rect key="frame" x="1" y="1" width="448" height="433"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -1101,7 +1101,7 @@
                                                 </scroller>
                                             </scrollView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Seh-Eg-P9D">
-                                                <rect key="frame" x="401" y="15" width="49" height="32"/>
+                                                <rect key="frame" x="401" y="-1" width="49" height="32"/>
                                                 <buttonCell key="cell" type="push" title="∧" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oA9-Iz-sYC">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="systemBold" size="15"/>
@@ -1111,7 +1111,7 @@
                                                 </buttonCell>
                                             </button>
                                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-J4-9et" userLabel="NoSearch">
-                                                <rect key="frame" x="48" y="327" width="354" height="85"/>
+                                                <rect key="frame" x="48" y="197" width="354" height="85"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="6Ps-oQ-ybc">
                                                     <font key="font" metaFont="system"/>
                                                     <string key="title">No Search Results
@@ -1143,17 +1143,17 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="0.0"/>
                                         <subviews>
                                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
-                                                <rect key="frame" x="0.0" y="-285" width="450" height="285"/>
+                                                <rect key="frame" x="0.0" y="30" width="450" height="100"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="nxK-Ai-kuu">
-                                                    <rect key="frame" x="1" y="1" width="448" height="283"/>
+                                                    <rect key="frame" x="1" y="1" width="433" height="98"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="616" height="283"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="601" height="98"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <size key="minSize" width="448" height="283"/>
+                                                            <size key="minSize" width="433" height="98"/>
                                                             <size key="maxSize" width="618" height="10000000"/>
                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         </textView>
@@ -1167,12 +1167,12 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                                    <rect key="frame" x="433" y="1" width="16" height="283"/>
+                                                    <rect key="frame" x="434" y="1" width="15" height="98"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
                                             <textField identifier="TerminalInput" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-gm-fo4" userLabel="Terminal Input">
-                                                <rect key="frame" x="0.0" y="-315" width="450" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="450" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="kN2-qZ-0T6"/>
                                                 </constraints>
@@ -1183,7 +1183,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ks6-hq-YOn">
-                                                <rect key="frame" x="401" y="-34" width="49" height="32"/>
+                                                <rect key="frame" x="401" y="96" width="49" height="32"/>
                                                 <buttonCell key="cell" type="push" title="∨" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fNs-Mz-q3Q">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="systemBold" size="15"/>
@@ -1392,6 +1392,67 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                 <customObject id="yPq-gl-dHa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-155" y="2605"/>
+        </scene>
+        <!--Note Controller-->
+        <scene sceneID="qhG-60-EFY">
+            <objects>
+                <customObject id="zQA-sD-6mw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController title="Note Controller" storyboardIdentifier="NoteController" id="FlJ-gO-sFo" customClass="NoteController" customModule="AtlasApp" sceneMemberID="viewController">
+                    <view key="view" id="Jwd-k6-pif">
+                        <rect key="frame" x="0.0" y="0.0" width="333" height="338"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lWr-Cw-okF">
+                                <rect key="frame" x="17" y="41" width="300" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="MgA-bs-wae"/>
+                                    <constraint firstAttribute="height" constant="240" id="RXA-fs-DXq"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Your note goes here" drawsBackground="YES" id="lrD-3J-ye4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="awu-sf-a6Q">
+                                <rect key="frame" x="132" y="3" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3jE-zw-12e">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="save:" target="FlJ-gO-sFo" id="c7u-g4-yql"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bP0-lo-0t4">
+                                <rect key="frame" x="-2" y="301" width="337" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Please provide a note:" id="TPt-TZ-78X">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lWr-Cw-okF" firstAttribute="centerX" secondItem="Jwd-k6-pif" secondAttribute="centerX" id="7GW-X1-C7E"/>
+                            <constraint firstItem="lWr-Cw-okF" firstAttribute="top" secondItem="bP0-lo-0t4" secondAttribute="bottom" constant="20" id="F3n-WA-XN4"/>
+                            <constraint firstItem="awu-sf-a6Q" firstAttribute="top" secondItem="lWr-Cw-okF" secondAttribute="bottom" constant="20" id="UVb-X2-nR5"/>
+                            <constraint firstItem="awu-sf-a6Q" firstAttribute="centerX" secondItem="Jwd-k6-pif" secondAttribute="centerX" id="VsY-JF-leS"/>
+                            <constraint firstItem="awu-sf-a6Q" firstAttribute="top" secondItem="lWr-Cw-okF" secondAttribute="bottom" constant="10" id="Vxh-dw-IzO"/>
+                            <constraint firstItem="bP0-lo-0t4" firstAttribute="width" secondItem="Jwd-k6-pif" secondAttribute="width" id="ac5-cD-x6A"/>
+                            <constraint firstItem="bP0-lo-0t4" firstAttribute="top" secondItem="Jwd-k6-pif" secondAttribute="top" constant="20" id="aeL-1H-arf"/>
+                            <constraint firstItem="lWr-Cw-okF" firstAttribute="width" secondItem="Jwd-k6-pif" secondAttribute="width" multiplier="0.9" id="daO-ru-hrm"/>
+                            <constraint firstAttribute="bottom" secondItem="awu-sf-a6Q" secondAttribute="bottom" constant="10" id="nmS-Gw-KS5"/>
+                            <constraint firstItem="bP0-lo-0t4" firstAttribute="centerX" secondItem="Jwd-k6-pif" secondAttribute="centerX" id="tTL-W1-Wxa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="note" destination="lWr-Cw-okF" id="ugy-by-oTc"/>
+                        <outlet property="saveButton" destination="awu-sf-a6Q" id="CyA-pd-Jyp"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="815.5" y="2528.5"/>
         </scene>
     </scenes>
 </document>
