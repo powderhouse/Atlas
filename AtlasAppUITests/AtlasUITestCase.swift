@@ -87,6 +87,13 @@ class AtlasUITestCase: XCTestCase {
         waitForExpectations(timeout: 30, handler: nil)
     }
     
+    func waitForNoStaticText(_ element: XCUIElement, text: String) {
+        let exists = NSPredicate(format: "exists == 0")
+        
+        expectation(for: exists, evaluatedWith: element.staticTexts[text], handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
+    }
+    
     func waitForSyncToComplete() {
         let button = app.buttons["Sync"]
         let exists = NSPredicate(format: "exists == 1")

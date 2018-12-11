@@ -28,7 +28,7 @@ class LoginTest: AtlasUITestCase {
         let emailField = accountModal.textFields["GitHub Email"]
         emailField.click()
         emailField.typeText("BADEMAIL@TEST.COM")
-        
+
         let passwordSecureTextField = accountModal.secureTextFields["GitHub Password"]
         passwordSecureTextField.click()
         passwordSecureTextField.typeText("BAD PASSWORD")
@@ -59,8 +59,6 @@ class LoginTest: AtlasUITestCase {
 
         accountModal2.buttons["Save"].click()
         
-//        app/*@START_MENU_TOKEN@*/.buttons["∧"]/*[[".splitGroups.buttons[\"∧\"]",".buttons[\"∧\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
-
         waitForTerminalToContain("https://github.com/atlasapptests/Atlas")
     }
     

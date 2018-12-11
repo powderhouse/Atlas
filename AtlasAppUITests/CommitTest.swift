@@ -70,6 +70,7 @@ class CommitTest: AtlasUITestCase {
         waitForSyncToComplete()
         waitForTerminalToContain("Successfully purged \(projectName)/committed/commit from Atlas.")
         
+        waitForNoStaticText(log, text: "\(commitMessage)\n")
         XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still finding \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still finding \(projectName)")
         XCTAssertFalse(log.links[filename2].exists, "Still finding \(filename2) link")
