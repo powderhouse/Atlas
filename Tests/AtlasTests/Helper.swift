@@ -52,7 +52,7 @@ class Helper {
 //            }
 //        }
 
-        while FileSystem.fileExists(testDirectory, isDirectory: true) {
+        while FileSystem.fileExists(testDirectory) {
             _ = Glue.runProcess(
                 "chmod",
                 arguments: ["-R", "u+w", testDirectory.path],
