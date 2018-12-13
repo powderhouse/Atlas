@@ -25,6 +25,7 @@ class CommitTest: AtlasUITestCase {
         XCTAssertFalse(projectStagingArea.staticTexts[filename].exists, "\(filename) still exists in staging area")
         
         let log = app.collectionViews["LogView"]
+        _ = waitForElementToAppear(log.staticTexts["\(commitMessage)\n"])
         XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
