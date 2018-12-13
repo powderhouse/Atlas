@@ -66,18 +66,18 @@ class AtlasUITestCase: XCTestCase {
         XCTAssertNil(terminalText.range(of: text), "The terminal contains the text: \(text)")
     }
     
-    func waitForTerminalToContain(_ text: String) {
+    func waitForTerminalToContain(_ text: String, timeout: Int?=nil) {
         let terminalView = app.textViews["TerminalView"]
-        waitForElementValueToContain(terminalView, text: text)
+        waitForElementValueToContain(terminalView, text: text, timeout: timeout)
     }
     
-    func waitForElementValueToContain(_ element: XCUIElement, text: String) {
+    func waitForElementValueToContain(_ element: XCUIElement, text: String, timeout: Int?) {
         let contains = NSPredicate(format: "value contains[c] %@", text)
         
         let subsitutedContains = contains.withSubstitutionVariables(["text": text])
         
         expectation(for: subsitutedContains, evaluatedWith: element, handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
+        waitForExpectations(timeout: (TimeInterval(timeout ?? 30)), handler: nil)
     }
     
     func waitForStaticText(_ element: XCUIElement, text: String) {
@@ -113,7 +113,7 @@ class AtlasUITestCase: XCTestCase {
         }
     }
     
-    func login(_ app: XCUIApplication) {
+    func login(_ app: XCUIApplication, s3AccessKey: String?=nil, s3SecretAccessKey: String?=nil) {
         let accountModal = app.dialogs["Account Controller"]
         XCTAssert(accountModal.staticTexts["Welcome!"].exists)
         
@@ -129,11 +129,23 @@ class AtlasUITestCase: XCTestCase {
 //        passwordSecureTextField.click()
 //        passwordSecureTextField.typeText(password)
         
+        if let s3AccessKey = s3AccessKey {
+            let s3AccessKeyField = accountModal.textFields["S3 Access Key"]
+            s3AccessKeyField.click()
+            s3AccessKeyField.typeText(s3AccessKey)
+        }
+
+        if let s3SecretAccessKey = s3SecretAccessKey {
+            let s3SecretAccessKeyField = accountModal.secureTextFields["S3 Secret Access Key"]
+            s3SecretAccessKeyField.click()
+            s3SecretAccessKeyField.typeText(s3SecretAccessKey)
+        }
+
         accountModal.buttons["Save"].click()
         
 //        app/*@START_MENU_TOKEN@*/.buttons["∧"]/*[[".splitGroups.buttons[\"∧\"]",".buttons[\"∧\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
         
-        waitForTerminalToContain("Added project: General")
+        waitForTerminalToContain("Added project: General", timeout: 60)
     }
     
     func addProject(_ app: XCUIApplication, name: String) {

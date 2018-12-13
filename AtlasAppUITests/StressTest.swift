@@ -147,8 +147,6 @@ class StressTest: AtlasUITestCase {
         for i in 0..<5 {
             XCTAssert(!log.links[filename(project2, index: i)].exists)
         }
-        
-        XCTAssert(terminalOutput("s3").contains("Files synced with S3: true"))
     }
 }
 
