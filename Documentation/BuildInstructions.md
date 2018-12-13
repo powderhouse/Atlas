@@ -9,7 +9,7 @@ GENERATE: swift package generate-xcodeproj --xcconfig-overrides settings.xcconfi
 BUILD: swift build -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
 RUN: swift run -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13" Atlas
 BUILD FOR DISTRIBUTION: swift build -c release -Xswiftc -static-stdlib -Xswiftc "-target" -Xswiftc "x86_64-apple-macosx10.13"
-S3 LOCALSTACK: SERVICES=s3 /Users/administrator/Library/Python/2.7/bin/localstack start >> /dev/null 2>&1
+S3 LOCALSTACK: sudo SERVICES=s3 localstack start >> /dev/null 2>&1
 
 
 Rebuilding
