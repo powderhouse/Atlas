@@ -19,6 +19,8 @@ class AtlasUITestCase: XCTestCase {
     
     var app: XCUIApplication!
     var testDirectory: URL!
+    
+    let defaultTimeout = 60
 
     override func setUp() {
         app = XCUIApplication()
@@ -42,7 +44,7 @@ class AtlasUITestCase: XCTestCase {
         let predicate = NSPredicate(format: "exists == true")
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
         
-        let result = XCTWaiter().wait(for: [expectation], timeout: 10)
+        let result = XCTWaiter().wait(for: [expectation], timeout: TimeInterval(defaultTimeout))
         return result == .completed
     }
 
@@ -50,7 +52,7 @@ class AtlasUITestCase: XCTestCase {
         let predicate = NSPredicate(format: "exists == false")
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
         
-        let result = XCTWaiter().wait(for: [expectation], timeout: 10)
+        let result = XCTWaiter().wait(for: [expectation], timeout: TimeInterval(defaultTimeout))
         return result == .completed
     }
 
@@ -77,21 +79,21 @@ class AtlasUITestCase: XCTestCase {
         let subsitutedContains = contains.withSubstitutionVariables(["text": text])
         
         expectation(for: subsitutedContains, evaluatedWith: element, handler: nil)
-        waitForExpectations(timeout: (TimeInterval(timeout ?? 30)), handler: nil)
+        waitForExpectations(timeout: (TimeInterval(timeout ?? defaultTimeout)), handler: nil)
     }
     
     func waitForStaticText(_ element: XCUIElement, text: String) {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: element.staticTexts[text], handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
+        waitForExpectations(timeout: TimeInterval(defaultTimeout), handler: nil)
     }
     
     func waitForNoStaticText(_ element: XCUIElement, text: String) {
         let exists = NSPredicate(format: "exists == 0")
         
         expectation(for: exists, evaluatedWith: element.staticTexts[text], handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
+        waitForExpectations(timeout: TimeInterval(defaultTimeout), handler: nil)
     }
     
     func waitForSyncToComplete() {
@@ -99,7 +101,7 @@ class AtlasUITestCase: XCTestCase {
         let exists = NSPredicate(format: "exists == 1")
         
         expectation(for: exists, evaluatedWith: button, handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
+        waitForExpectations(timeout: TimeInterval(defaultTimeout), handler: nil)
     }
     
     func clickAlertButton(_ text: String) {
@@ -145,7 +147,7 @@ class AtlasUITestCase: XCTestCase {
         
 //        app/*@START_MENU_TOKEN@*/.buttons["∧"]/*[[".splitGroups.buttons[\"∧\"]",".buttons[\"∧\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
         
-        waitForTerminalToContain("Added project: General", timeout: 60)
+        waitForTerminalToContain("Added project: General", timeout: defaultTimeout)
     }
     
     func addProject(_ app: XCUIApplication, name: String) {
