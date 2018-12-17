@@ -53,7 +53,7 @@ class ProjectTest: AtlasUITestCase {
         waitForTerminalToContain("Files synced to S3.")
         
         let log = app.collectionViews["LogView"]
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
 
         let projectStagingArea = app.groups["\(projectName)-staged"]
         projectStagingArea.buttons["x"].click()
@@ -62,7 +62,7 @@ class ProjectTest: AtlasUITestCase {
         
         XCTAssert(waitForElementToDisappear(projectStagingArea))
         XCTAssertFalse(projectStagingArea.exists, "Can still find project staging area")
-        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Can still find commit message")
+        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Can still find commit message")
     }
     
     func testAddNote() {

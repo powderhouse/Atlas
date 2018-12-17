@@ -36,31 +36,31 @@ class LogTest: AtlasUITestCase {
         
         let log = app.collectionViews["LogView"]
         
-        waitForStaticText(log, text: "\(commitMessage)\n")
+        waitForStaticText(log, text: commitMessage)
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
      
         app.buttons["General"].click()
         waitForTerminalToContain("Filtering for General")
-        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still found \(commitMessage)")
+        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still found \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still found \(projectName)")
         XCTAssertFalse(log.links[filename].exists, "Still found \(filename) link")
 
         app.buttons[projectName].click()
         waitForTerminalToContain("Filtering for \(projectName)")
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
         
         app.buttons["General"].click()
         waitForTerminalToContain("Filtering for General")
-        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still found \(commitMessage)")
+        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still found \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still found \(projectName)")
         XCTAssertFalse(log.links[filename].exists, "Still found \(filename) link")
 
         app.buttons["General"].click()
         waitForTerminalToContain("Removing filter for General")
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
 
@@ -68,25 +68,25 @@ class LogTest: AtlasUITestCase {
         
         app.groups["General-staged"].staticTexts["General"].click()
         waitForTerminalToContain("Filtering for General")
-        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still found \(commitMessage)")
+        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still found \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still found \(projectName)")
         XCTAssertFalse(log.links[filename].exists, "Still found \(filename) link")
         
         app.groups["\(projectName)-staged"].staticTexts[projectName].click()
         waitForTerminalToContain("Filtering for \(projectName)")
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
         
         app.groups["General-staged"].staticTexts["General"].click()
         waitForTerminalToContain("Filtering for General")
-        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still found \(commitMessage)")
+        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still found \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still found \(projectName)")
         XCTAssertFalse(log.links[filename].exists, "Still found \(filename) link")
         
         app.groups["General-staged"].staticTexts["General"].click()
         waitForTerminalToContain("Removing filter for General")
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
     }

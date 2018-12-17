@@ -25,8 +25,8 @@ class CommitTest: AtlasUITestCase {
         XCTAssertFalse(projectStagingArea.staticTexts[filename].exists, "\(filename) still exists in staging area")
         
         let log = app.collectionViews["LogView"]
-        _ = waitForElementToAppear(log.staticTexts["\(commitMessage)\n"])
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        _ = waitForElementToAppear(log.staticTexts[commitMessage])
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
     }
@@ -52,8 +52,8 @@ class CommitTest: AtlasUITestCase {
         XCTAssertFalse(projectStagingArea.staticTexts[filename1].exists, "\(filename1) still exists in staging area")
         
         let log = app.collectionViews["LogView"]
-        _ = waitForElementToAppear(log.staticTexts["\(commitMessage)\n"])
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        _ = waitForElementToAppear(log.staticTexts[commitMessage])
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssert(log.links[filename3].exists, "Unable to find \(filename3) link")
         
@@ -62,7 +62,7 @@ class CommitTest: AtlasUITestCase {
         waitForTerminalToContain("Successfully purged \(projectName)/committed/commit/\(filename3) from Atlas.")
         waitForSyncToComplete()
 
-        XCTAssert(log.staticTexts["\(commitMessage)\n"].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssertFalse(log.links[filename3].exists, "Still finding \(filename3) link")
 
@@ -71,8 +71,8 @@ class CommitTest: AtlasUITestCase {
         waitForSyncToComplete()
         waitForTerminalToContain("Successfully purged \(projectName)/committed/commit from Atlas.")
         
-        waitForNoStaticText(log, text: "\(commitMessage)\n")
-        XCTAssertFalse(log.staticTexts["\(commitMessage)\n"].exists, "Still finding \(commitMessage)")
+        waitForNoStaticText(log, text: commitMessage)
+        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still finding \(commitMessage)")
         XCTAssertFalse(log.staticTexts[projectName].exists, "Still finding \(projectName)")
         XCTAssertFalse(log.links[filename2].exists, "Still finding \(filename2) link")
     }

@@ -788,7 +788,7 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-xT-FA2" userLabel="S3 Form">
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-xT-FA2" userLabel="S3 Form">
                                 <rect key="frame" x="23" y="58" width="405" height="77"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V0C-Ms-mfU">
@@ -835,7 +835,7 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-2M-A3a">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-2M-A3a">
                                 <rect key="frame" x="204" y="19" width="42" height="19"/>
                                 <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JNQ-e6-FAs">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -862,9 +862,11 @@
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="9ke-Jz-xSQ"/>
                             <constraint firstItem="a6b-XH-eVO" firstAttribute="centerX" secondItem="Y2K-Jd-TDr" secondAttribute="centerX" id="ABd-Ov-sLd"/>
                             <constraint firstAttribute="bottom" secondItem="ITH-2M-A3a" secondAttribute="bottom" constant="20" id="La8-Xz-pKO"/>
+                            <constraint firstItem="ITH-2M-A3a" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="Nry-JA-TWu"/>
                             <constraint firstItem="ITH-2M-A3a" firstAttribute="top" secondItem="CQE-xT-FA2" secondAttribute="bottom" constant="20" id="RDf-2m-m4k"/>
                             <constraint firstItem="CQE-xT-FA2" firstAttribute="top" secondItem="lES-EU-1CX" secondAttribute="bottom" constant="20" id="RNp-sf-hvm"/>
                             <constraint firstItem="lES-EU-1CX" firstAttribute="width" secondItem="5W2-1i-BXL" secondAttribute="width" multiplier="0.9" id="cyq-WT-hC6"/>
+                            <constraint firstItem="CQE-xT-FA2" firstAttribute="centerX" secondItem="5W2-1i-BXL" secondAttribute="centerX" id="iHO-Hq-VVu"/>
                             <constraint firstItem="a6b-XH-eVO" firstAttribute="centerY" secondItem="Y2K-Jd-TDr" secondAttribute="centerY" id="qFv-Co-ORk"/>
                             <constraint firstItem="Y2K-Jd-TDr" firstAttribute="top" secondItem="5W2-1i-BXL" secondAttribute="top" constant="20" id="y6I-d8-35x"/>
                         </constraints>
@@ -970,11 +972,11 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XCZ-oN-Ohk">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="XCZ-oN-Ohk">
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yuD-yb-ef6">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yuD-yb-ef6">
                                     <rect key="frame" x="433" y="1" width="16" height="265"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1091,11 +1093,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </clipView>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xea-er-Hmb">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="xea-er-Hmb">
                                                     <rect key="frame" x="-100" y="-100" width="317" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ffR-Nz-4Cj">
+                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="ffR-Nz-4Cj">
                                                     <rect key="frame" x="433" y="1" width="16" height="433"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
@@ -1145,15 +1147,15 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="100" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-V2-0gc" userLabel="Terminal">
                                                 <rect key="frame" x="0.0" y="30" width="450" height="100"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="nxK-Ai-kuu">
-                                                    <rect key="frame" x="1" y="1" width="433" height="98"/>
+                                                    <rect key="frame" x="1" y="1" width="448" height="98"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView identifier="TerminalView" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gHe-ED-165" userLabel="Terminal View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="601" height="98"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="616" height="98"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <size key="minSize" width="433" height="98"/>
+                                                            <size key="minSize" width="448" height="98"/>
                                                             <size key="maxSize" width="618" height="10000000"/>
                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         </textView>
@@ -1162,12 +1164,12 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="1jk-i2-3Z0"/>
                                                 </constraints>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="8f9-fy-OFk">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="8f9-fy-OFk">
                                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
-                                                    <rect key="frame" x="434" y="1" width="15" height="98"/>
+                                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
+                                                    <rect key="frame" x="433" y="1" width="16" height="98"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -1436,9 +1438,8 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                         <constraints>
                             <constraint firstItem="lWr-Cw-okF" firstAttribute="centerX" secondItem="Jwd-k6-pif" secondAttribute="centerX" id="7GW-X1-C7E"/>
                             <constraint firstItem="lWr-Cw-okF" firstAttribute="top" secondItem="bP0-lo-0t4" secondAttribute="bottom" constant="20" id="F3n-WA-XN4"/>
-                            <constraint firstItem="awu-sf-a6Q" firstAttribute="top" secondItem="lWr-Cw-okF" secondAttribute="bottom" constant="20" id="UVb-X2-nR5"/>
+                            <constraint firstItem="awu-sf-a6Q" firstAttribute="top" secondItem="lWr-Cw-okF" secondAttribute="bottom" constant="10" id="UVb-X2-nR5"/>
                             <constraint firstItem="awu-sf-a6Q" firstAttribute="centerX" secondItem="Jwd-k6-pif" secondAttribute="centerX" id="VsY-JF-leS"/>
-                            <constraint firstItem="awu-sf-a6Q" firstAttribute="top" secondItem="lWr-Cw-okF" secondAttribute="bottom" constant="10" id="Vxh-dw-IzO"/>
                             <constraint firstItem="bP0-lo-0t4" firstAttribute="width" secondItem="Jwd-k6-pif" secondAttribute="width" id="ac5-cD-x6A"/>
                             <constraint firstItem="bP0-lo-0t4" firstAttribute="top" secondItem="Jwd-k6-pif" secondAttribute="top" constant="20" id="aeL-1H-arf"/>
                             <constraint firstItem="lWr-Cw-okF" firstAttribute="width" secondItem="Jwd-k6-pif" secondAttribute="width" multiplier="0.9" id="daO-ru-hrm"/>

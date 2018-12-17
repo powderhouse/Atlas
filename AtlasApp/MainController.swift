@@ -189,6 +189,7 @@ class MainController: NSViewController {
             DispatchQueue.global(qos: .background).async {
                 let result = core.initGitAndGitHub(credentials)
                 if result.success {
+                    core.syncJson()
                     self.refresh()
                     Terminal.log("Logged in to Atlas.")
                     Terminal.log("Account: \(credentials.username)")
@@ -219,7 +220,7 @@ class MainController: NSViewController {
                         
                         self.refresh()
                     } else {
-                        self.atlasCore.sync(completed: {(_ result: Result) -> Void in
+                        core.sync(completed: {(_ result: Result) -> Void in
                             NotificationCenter.default.post(
                                 name: NSNotification.Name(rawValue: "sync-completed"),
                                 object: nil,
