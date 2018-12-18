@@ -2,7 +2,7 @@ import SwiftCLI
 import AtlasCore
 import AtlasCommands
 
-let cli = CLI(name: "Atlas", version: "0.5.3", description: "Powderhouse Studios Atlas")
+let cli = CLI(name: "Atlas", version: "0.5.4", description: "Powderhouse Studios Atlas")
 
 let atlasCore: AtlasCore = AtlasCore()
 _ = atlasCore.initialize()
