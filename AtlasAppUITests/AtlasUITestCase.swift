@@ -178,7 +178,7 @@ class AtlasUITestCase: XCTestCase {
         
         waitForTerminalToContain("Successfully staged files in \(projectName)")
         
-        terminal.typeText("rm \(filename)\n")
+//        terminal.typeText("rm \(filename)\n")
     }
     
     func commit(_ app: XCUIApplication, projectName: String, commitMessage: String) {

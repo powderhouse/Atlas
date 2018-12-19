@@ -38,13 +38,22 @@ class CommitTest: AtlasUITestCase {
         let filename1 = "indexfile1.html"
         let filename2 = "indexfile2.html"
         let filename3 = "indexfile3.html"
-        let commitMessage = "Commit"
+        let filename4 = "indexfile4.html"
+        let commitMessage1 = "Commit1"
+        let commitMessage2 = "Commit2"
+
         stage(app, projectName: projectName, filename: filename1)
         stage(app, projectName: projectName, filename: filename2)
+        waitForSyncToComplete()
+
+        commit(app, projectName: projectName, commitMessage: commitMessage1)
+        waitForSyncToComplete()
+
         stage(app, projectName: projectName, filename: filename3)
+        stage(app, projectName: projectName, filename: filename4)
         waitForSyncToComplete()
         
-        commit(app, projectName: projectName, commitMessage: commitMessage)
+        commit(app, projectName: projectName, commitMessage: commitMessage2)
         waitForSyncToComplete()
         
         let projectStagingArea = app.collectionViews["General-staged-files"]
@@ -52,29 +61,30 @@ class CommitTest: AtlasUITestCase {
         XCTAssertFalse(projectStagingArea.staticTexts[filename1].exists, "\(filename1) still exists in staging area")
         
         let log = app.collectionViews["LogView"]
-        _ = waitForElementToAppear(log.staticTexts[commitMessage])
-        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
+        _ = waitForElementToAppear(log.staticTexts[commitMessage2])
+        XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
-        XCTAssert(log.links[filename3].exists, "Unable to find \(filename3) link")
+        XCTAssert(log.links[filename1].exists, "Unable to find \(filename1) link")
         
         log.textViews.children(matching: .link).matching(identifier: "x   ").element(boundBy: 2).click()
         clickAlertButton("Remove")
-        waitForTerminalToContain("Successfully purged \(projectName)/committed/commit/\(filename3) from Atlas.")
+        waitForTerminalToContain("Successfully purged \(projectName)/committed/commit1/\(filename1) from Atlas.")
         waitForSyncToComplete()
 
-        XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
+        XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
-        XCTAssertFalse(log.links[filename3].exists, "Still finding \(filename3) link")
+        XCTAssertFalse(log.links[filename1].exists, "Still finding \(filename1) link")
 
-        log.buttons["delete-commit"].click()
+        log.groups.matching(identifier: "CommitViewItem").element(boundBy: 0).buttons["delete-commit"].click()
         clickAlertButton("Remove")
         waitForSyncToComplete()
-        waitForTerminalToContain("Successfully purged \(projectName)/committed/commit/ from Atlas.")
+        waitForTerminalToContain("Successfully purged \(projectName)/committed/commit2/ from Atlas.")
         
-        waitForNoStaticText(log, text: commitMessage)
-        XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still finding \(commitMessage)")
-        XCTAssertFalse(log.staticTexts[projectName].exists, "Still finding \(projectName)")
-        XCTAssertFalse(log.links[filename2].exists, "Still finding \(filename2) link")
+        waitForNoStaticText(log, text: commitMessage2)
+        XCTAssertFalse(log.staticTexts[commitMessage2].exists, "Still finding \(commitMessage2)")
+        XCTAssert(log.staticTexts[commitMessage1].exists, "Unable to find \(commitMessage1)")
+        XCTAssertFalse(log.links[filename4].exists, "Still finding \(filename4) link")
+        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
     }
     
 }
