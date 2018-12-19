@@ -180,7 +180,7 @@ class CommitViewItem: NSCollectionViewItem, NSTextViewDelegate {
                                 name: NSNotification.Name(rawValue: "remove-file"),
                                 object: nil,
                                 userInfo: [
-                                    "file": commitFolder,
+                                    "file": "\(commitFolder)/",
                                     "projectName": projectName
                                 ]
                             )

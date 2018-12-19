@@ -66,10 +66,10 @@ class CommitTest: AtlasUITestCase {
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
         XCTAssertFalse(log.links[filename3].exists, "Still finding \(filename3) link")
 
-        log.buttons["x"].click()
+        log.buttons["delete-commit"].click()
         clickAlertButton("Remove")
         waitForSyncToComplete()
-        waitForTerminalToContain("Successfully purged \(projectName)/committed/commit from Atlas.")
+        waitForTerminalToContain("Successfully purged \(projectName)/committed/commit/ from Atlas.")
         
         waitForNoStaticText(log, text: commitMessage)
         XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still finding \(commitMessage)")
