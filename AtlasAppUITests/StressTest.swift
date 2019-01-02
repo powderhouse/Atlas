@@ -119,7 +119,10 @@ class StressTest: AtlasUITestCase {
             stageNoWait(filename(project2, index: i), in: project2)
         }
         
+        XCTAssert(waitForElementToAppear(app.groups["\(project2)-staged"].buttons["x"]))
         app.groups["\(project2)-staged"].buttons["x"].click()
+        
+        XCTAssert(waitForElementToAppear(app.buttons.matching(identifier: "Delete").firstMatch))
         clickAlertButton("Delete")
         
         XCTAssert(waitForElementToDisappear(app.collectionViews["\(project2)-staged-files"]))
