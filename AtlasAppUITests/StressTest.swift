@@ -100,11 +100,12 @@ class StressTest: AtlasUITestCase {
         
         let stagedFile0 = stagedFile(project1, name: filename(project1, index: 0))
         stagedFile0.children(matching: .checkBox).firstMatch.click()
-        stagedFile0.buttons["-"].firstMatch.click()
-        clickAlertButton("Remove")
-        
+
         let stagedFile1 = stagedFile(project1, name: filename(project1, index: 1))
         stagedFile1.children(matching: .checkBox).firstMatch.click()
+        
+        stagedFile0.buttons["-"].firstMatch.click()
+        clickAlertButton("Remove")
         
         commitNoWait(project1, commitMessage: commitMessage1)
         
@@ -136,7 +137,7 @@ class StressTest: AtlasUITestCase {
         XCTAssert(testStagingArea.staticTexts[filename(project1, index: 1)].exists)
         
         for i in 2..<4 {
-            XCTAssert(!testStagingArea.staticTexts[filename(project1, index: 2)].exists, "Found \(i)")
+            XCTAssert(!testStagingArea.staticTexts[filename(project1, index: i)].exists, "Found \(i)")
         }
         
         XCTAssert(log.staticTexts[commitMessage1].exists, "Unable to find \(commitMessage1)")
