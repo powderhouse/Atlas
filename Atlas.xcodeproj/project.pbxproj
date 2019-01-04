@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3A02874021DE58ED00632F3D /* CommitFileViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02873F21DE58ED00632F3D /* CommitFileViewItem.swift */; };
+		3A02874221DE5B0300632F3D /* CommitFileViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A02874121DE5B0300632F3D /* CommitFileViewItem.xib */; };
 		3A62882B21BEBE2F00D09F03 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62882A21BEBE2F00D09F03 /* NoteController.swift */; };
 		3AA07CDC2183841200F12279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07CDB2183841200F12279 /* AppDelegate.swift */; };
 		3AA07CE02183841500F12279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA07CDF2183841500F12279 /* Assets.xcassets */; };
@@ -1647,6 +1649,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A02873F21DE58ED00632F3D /* CommitFileViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitFileViewItem.swift; sourceTree = "<group>"; };
+		3A02874121DE5B0300632F3D /* CommitFileViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitFileViewItem.xib; sourceTree = "<group>"; };
 		3A62882A21BEBE2F00D09F03 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		3AA07CD92183841200F12279 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA07CDB2183841200F12279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2920,18 +2924,20 @@
 		3AA07D012183849C00F12279 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				3AA07D022183849C00F12279 /* CommitViewItem.swift */,
-				3AA07D032183849C00F12279 /* ProjectViewItem.swift */,
 				3AA07D042183849C00F12279 /* AtlasNotificationCenter.swift */,
-				3AA07D052183849C00F12279 /* CommitViewItem.xib */,
-				3AA07D062183849C00F12279 /* ProjectButton.xib */,
-				3AA07D072183849C00F12279 /* Terminal.swift */,
-				3AA07D082183849C00F12279 /* StagedFileViewItem.swift */,
-				3AA07D092183849D00F12279 /* StagedFileViewItem.xib */,
 				3AA07D0A2183849D00F12279 /* ActivityLog.swift */,
+				3A02873F21DE58ED00632F3D /* CommitFileViewItem.swift */,
+				3A02874121DE5B0300632F3D /* CommitFileViewItem.xib */,
+				3AA07D022183849C00F12279 /* CommitViewItem.swift */,
+				3AA07D052183849C00F12279 /* CommitViewItem.xib */,
 				3AA07D0B2183849D00F12279 /* DropView.swift */,
 				3AA07D0C2183849D00F12279 /* ProjectButton.swift */,
+				3AA07D062183849C00F12279 /* ProjectButton.xib */,
+				3AA07D032183849C00F12279 /* ProjectViewItem.swift */,
 				3AA07D0D2183849D00F12279 /* ProjectViewItem.xib */,
+				3AA07D082183849C00F12279 /* StagedFileViewItem.swift */,
+				3AA07D092183849D00F12279 /* StagedFileViewItem.xib */,
+				3AA07D072183849C00F12279 /* Terminal.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -5203,6 +5209,7 @@
 			files = (
 				3AA07D572183870300F12279 /* StagedFileViewItem.xib in Resources */,
 				3AA07CE02183841500F12279 /* Assets.xcassets in Resources */,
+				3A02874221DE5B0300632F3D /* CommitFileViewItem.xib in Resources */,
 				3AA07D542183870300F12279 /* ProjectButton.xib in Resources */,
 				3AA07D5B2183870300F12279 /* ProjectViewItem.xib in Resources */,
 				3AA07CE32183841500F12279 /* Main.storyboard in Resources */,
@@ -5249,6 +5256,7 @@
 				3AA07D512183870300F12279 /* ProjectViewItem.swift in Sources */,
 				3AA07D5A2183870300F12279 /* ProjectButton.swift in Sources */,
 				3AA07D17218384B700F12279 /* StagingController.swift in Sources */,
+				3A02874021DE58ED00632F3D /* CommitFileViewItem.swift in Sources */,
 				3AA07CDC2183841200F12279 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

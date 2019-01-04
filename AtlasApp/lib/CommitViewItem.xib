@@ -10,7 +10,9 @@
             <connections>
                 <outlet property="commitController" destination="ju8-r7-uTU" id="QtA-vS-ICI"/>
                 <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="lel-zo-gD5"/>
-                <outlet property="files" destination="tt2-IK-V5w" id="dHK-Js-tDk"/>
+                <outlet property="files" destination="Lpj-SY-gAD" id="qTK-4z-BUy"/>
+                <outlet property="filesClipView" destination="YFW-9i-DnH" id="hog-rq-u2F"/>
+                <outlet property="filesScrollView" destination="fSq-10-CQY" id="Ug2-fk-cdY"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="TE8-ua-BKl"/>
                 <outlet property="subject" destination="DFG-a2-lUh" id="LFR-Gb-OJ7"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -30,32 +32,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sel-hL-m6s" userLabel="Files">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="183"/>
-                    <clipView key="contentView" drawsBackground="NO" id="in8-9Q-a9T">
-                        <rect key="frame" x="1" y="1" width="463" height="181"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="tt2-IK-V5w" userLabel="Files">
-                                <rect key="frame" x="0.0" y="0.0" width="463" height="181"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="463" height="181"/>
-                                <size key="maxSize" width="488" height="10000000"/>
-                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            </textView>
-                        </subviews>
-                    </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="bbP-bg-NgT">
-                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="BCc-MM-hDo">
-                        <rect key="frame" x="464" y="1" width="15" height="181"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                </scrollView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DFG-a2-lUh" userLabel="Subject">
                     <rect key="frame" x="12" y="195" width="456" height="17"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Label" allowsEditingTextAttributes="YES" id="4j9-Cb-YTB">
@@ -74,28 +50,55 @@
                         <action selector="deleteCommit:" target="-2" id="u1K-O0-lxf"/>
                     </connections>
                 </button>
+                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-10-CQY">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="183"/>
+                    <clipView key="contentView" id="YFW-9i-DnH">
+                        <rect key="frame" x="1" y="1" width="478" height="181"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView id="Lpj-SY-gAD">
+                                <rect key="frame" x="0.0" y="0.0" width="478" height="158"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="qT6-CA-9B7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </collectionView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="nf8-P9-rKd">
+                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="WSQ-M3-H6C">
+                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
             <constraints>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.94" id="3VI-3B-hhy"/>
+                <constraint firstItem="fSq-10-CQY" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="12" id="3cu-co-Jak"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="4vd-Pk-B0X"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="top" secondItem="qW9-Er-zMW" secondAttribute="bottom" constant="12" id="KYK-ub-5tf"/>
+                <constraint firstItem="fSq-10-CQY" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="M8I-xH-qjQ"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Mee-DC-baK"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PWt-qn-TJD"/>
+                <constraint firstAttribute="bottom" secondItem="fSq-10-CQY" secondAttribute="bottom" id="Pdy-Hd-KD9"/>
                 <constraint firstItem="1pF-fm-W2x" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="6" id="Vba-5e-Dvl"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="dIJ-9w-uTL"/>
-                <constraint firstItem="Sel-hL-m6s" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="fs3-mX-7mV"/>
-                <constraint firstAttribute="bottom" secondItem="Sel-hL-m6s" secondAttribute="bottom" id="grX-sV-OuZ"/>
+                <constraint firstAttribute="trailing" secondItem="fSq-10-CQY" secondAttribute="trailing" id="eZf-Fa-Axs"/>
                 <constraint firstAttribute="trailing" secondItem="1pF-fm-W2x" secondAttribute="trailing" constant="6" id="hrg-YN-ITL"/>
-                <constraint firstItem="Sel-hL-m6s" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="12" id="xWy-W4-ojK"/>
-                <constraint firstItem="Sel-hL-m6s" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="zsg-o7-CWa"/>
             </constraints>
-            <point key="canvasLocation" x="173" y="-308"/>
+            <point key="canvasLocation" x="173" y="-308.5"/>
         </customView>
         <customObject id="y1E-2e-kiF" customClass="CommitViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="commitController" destination="ju8-r7-uTU" id="Yts-FK-vY8"/>
                 <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="BHB-Jl-W21"/>
-                <outlet property="files" destination="tt2-IK-V5w" id="33I-Cq-lr6"/>
+                <outlet property="files" destination="Lpj-SY-gAD" id="An1-q9-MX5"/>
+                <outlet property="filesClipView" destination="YFW-9i-DnH" id="joC-aU-xmz"/>
+                <outlet property="filesScrollView" destination="fSq-10-CQY" id="uk2-fL-bGc"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="vHJ-G4-Qo2"/>
                 <outlet property="subject" destination="DFG-a2-lUh" id="ATZ-jA-k6F"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="dsb-7u-mMG"/>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
+            <connections>
+                <outlet property="fileLink" destination="cXV-mC-zjr" id="Hgl-uh-7lM"/>
+                <outlet property="image" destination="RUg-8c-qxy" id="mTf-KJ-XGt"/>
+                <outlet property="removeButton" destination="chA-uP-cuh" id="YuF-Ot-kjQ"/>
+                <outlet property="view" destination="c22-O7-iKe" id="vbG-6g-20V"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="cXV-mC-zjr">
+                    <rect key="frame" x="40" y="0.0" width="406" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" placeholderString="File Link" id="lmO-rG-x7T">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="chA-uP-cuh">
+                    <rect key="frame" x="444" y="-10" width="36" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="7qc-Yg-xU2"/>
+                        <constraint firstAttribute="width" constant="24" id="jrf-kn-1IP"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EHA-Nk-Mq1">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RUg-8c-qxy">
+                    <rect key="frame" x="0.0" y="-9" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="Tiy-nM-Vo2"/>
+                        <constraint firstAttribute="height" constant="36" id="cbI-6B-6Wv"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="KxF-Jt-xQb"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="chA-uP-cuh" firstAttribute="leading" secondItem="cXV-mC-zjr" secondAttribute="trailing" constant="6" id="8Yk-Hx-vTk"/>
+                <constraint firstItem="cXV-mC-zjr" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="ABf-bF-zpB"/>
+                <constraint firstAttribute="bottom" secondItem="cXV-mC-zjr" secondAttribute="bottom" id="CJN-xO-kdE"/>
+                <constraint firstItem="cXV-mC-zjr" firstAttribute="leading" secondItem="RUg-8c-qxy" secondAttribute="trailing" constant="6" id="FR2-Db-oin"/>
+                <constraint firstAttribute="trailing" secondItem="chA-uP-cuh" secondAttribute="trailing" constant="6" id="LOB-BX-V4I"/>
+                <constraint firstItem="RUg-8c-qxy" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="MWc-hw-PCR"/>
+                <constraint firstItem="RUg-8c-qxy" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="mxB-SQ-g5S"/>
+                <constraint firstItem="chA-uP-cuh" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="xxX-lb-Rde"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="37.5"/>
+        </customView>
+        <customObject id="4WR-qA-xDX" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
+            <connections>
+                <outlet property="fileLink" destination="cXV-mC-zjr" id="het-CD-7YK"/>
+                <outlet property="image" destination="RUg-8c-qxy" id="wqg-Gt-Hff"/>
+                <outlet property="removeButton" destination="chA-uP-cuh" id="pCA-gM-Nxb"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>
