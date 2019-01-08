@@ -8,6 +8,7 @@
 
 import Cocoa
 import AtlasCore
+import QuickLook
 
 class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollectionViewDataSource {
     
@@ -58,7 +59,6 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         flowLayout.sectionInset = NSEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
-        print(files.frame.width)
         files.collectionViewLayout = flowLayout
         
         view.wantsLayer = true
@@ -86,16 +86,21 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         let file = countedFiles[indexPath.item]
         commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
         commitFileViewItem.project = commit?.projects.first
-        commitFileViewItem.fileLink.stringValue = file.name
+        commitFileViewItem.fileLink.title = file.name
+        commitFileViewItem.url = URL(string: file.url)
+//        commitFileViewItem.url = URL(string: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg")
+        
 
-        var image: NSImage? = nil
-        let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
-        if let url = URL(string: imageUrl) {
-            if let data = try? Data(contentsOf: url) {
-                image = NSImage(data: data)
-            }
-        }
-        image?.size = NSSize(width: 30, height: 30)
+//        var image: NSImage? = nil
+//        let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
+//        if let url = URL(string: imageUrl) {
+//            if let data = try? Data(contentsOf: url) {
+//                image = NSImage(data: data)
+//            }
+//        }
+//        image?.size = NSSize(width: 30, height: 30)
+        
+        let image = NSWorkspace.shared.icon(forFile: "/Users/jcosulich/⁨workspace/⁨personal/⁨movies/The.Post.2017.DVDScr.XVID.AC3.HQ.Hive-CM8.mp4")
         commitFileViewItem.image.image = image
         
         return commitFileViewItem

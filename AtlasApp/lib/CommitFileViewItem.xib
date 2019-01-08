@@ -8,7 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
-                <outlet property="fileLink" destination="cXV-mC-zjr" id="Hgl-uh-7lM"/>
+                <outlet property="fileLink" destination="24k-lI-4IL" id="cKo-6u-uDq"/>
                 <outlet property="image" destination="RUg-8c-qxy" id="mTf-KJ-XGt"/>
                 <outlet property="removeButton" destination="chA-uP-cuh" id="YuF-Ot-kjQ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vbG-6g-20V"/>
@@ -20,14 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="17"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="cXV-mC-zjr">
-                    <rect key="frame" x="40" y="0.0" width="406" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" placeholderString="File Link" id="lmO-rG-x7T">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="chA-uP-cuh">
                     <rect key="frame" x="444" y="-10" width="36" height="35"/>
                     <constraints>
@@ -47,14 +39,24 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="KxF-Jt-xQb"/>
                 </imageView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24k-lI-4IL">
+                    <rect key="frame" x="42" y="0.0" width="402" height="17"/>
+                    <buttonCell key="cell" type="bevel" title="File" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="DIs-ZX-cGB">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickFile:" target="-2" id="BeG-JU-JHH"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="chA-uP-cuh" firstAttribute="leading" secondItem="cXV-mC-zjr" secondAttribute="trailing" constant="6" id="8Yk-Hx-vTk"/>
-                <constraint firstItem="cXV-mC-zjr" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="ABf-bF-zpB"/>
-                <constraint firstAttribute="bottom" secondItem="cXV-mC-zjr" secondAttribute="bottom" id="CJN-xO-kdE"/>
-                <constraint firstItem="cXV-mC-zjr" firstAttribute="leading" secondItem="RUg-8c-qxy" secondAttribute="trailing" constant="6" id="FR2-Db-oin"/>
+                <constraint firstAttribute="bottom" secondItem="24k-lI-4IL" secondAttribute="bottom" id="F2V-nr-wNp"/>
+                <constraint firstItem="24k-lI-4IL" firstAttribute="leading" secondItem="RUg-8c-qxy" secondAttribute="trailing" constant="6" id="Hd3-EH-Tsm"/>
                 <constraint firstAttribute="trailing" secondItem="chA-uP-cuh" secondAttribute="trailing" constant="6" id="LOB-BX-V4I"/>
                 <constraint firstItem="RUg-8c-qxy" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="MWc-hw-PCR"/>
+                <constraint firstItem="24k-lI-4IL" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="P8s-HK-i1Z"/>
+                <constraint firstItem="chA-uP-cuh" firstAttribute="leading" secondItem="24k-lI-4IL" secondAttribute="trailing" constant="6" id="aTE-Le-BZ4"/>
                 <constraint firstItem="RUg-8c-qxy" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="mxB-SQ-g5S"/>
                 <constraint firstItem="chA-uP-cuh" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="xxX-lb-Rde"/>
             </constraints>
@@ -62,7 +64,6 @@
         </customView>
         <customObject id="4WR-qA-xDX" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
-                <outlet property="fileLink" destination="cXV-mC-zjr" id="het-CD-7YK"/>
                 <outlet property="image" destination="RUg-8c-qxy" id="wqg-Gt-Hff"/>
                 <outlet property="removeButton" destination="chA-uP-cuh" id="pCA-gM-Nxb"/>
             </connections>

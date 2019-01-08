@@ -24,6 +24,9 @@
 		3A02874021DE58ED00632F3D /* CommitFileViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A02873F21DE58ED00632F3D /* CommitFileViewItem.swift */; };
 		3A02874221DE5B0300632F3D /* CommitFileViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A02874121DE5B0300632F3D /* CommitFileViewItem.xib */; };
 		3A62882B21BEBE2F00D09F03 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62882A21BEBE2F00D09F03 /* NoteController.swift */; };
+		3A6C324621E3C0170027ACF4 /* Prorsum.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A6C324721E3C0290027ACF4 /* CHTTPParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A84D30E21DFE18700158D09 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A84D30D21DFE18700158D09 /* PreviewController.swift */; };
 		3AA07CDC2183841200F12279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07CDB2183841200F12279 /* AppDelegate.swift */; };
 		3AA07CE02183841500F12279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA07CDF2183841500F12279 /* Assets.xcassets */; };
 		3AA07CE32183841500F12279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA07CE12183841500F12279 /* Main.storyboard */; };
@@ -51,11 +54,9 @@
 		3AA07D372183865700F12279 /* CLibreSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CLibreSSL::CLibreSSL::Product" /* CLibreSSL.framework */; };
 		3AA07D382183865700F12279 /* CLibreSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "CLibreSSL::CLibreSSL::Product" /* CLibreSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AA07D3B2183865700F12279 /* Prorsum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; };
-		3AA07D3C2183865700F12279 /* Prorsum.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Prorsum::Prorsum::Product" /* Prorsum.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AA07D3F2183865700F12279 /* AtlasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; };
 		3AA07D402183865700F12279 /* AtlasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "AtlasCore::AtlasCore::Product" /* AtlasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AA07D432183865700F12279 /* CHTTPParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */; };
-		3AA07D442183865700F12279 /* CHTTPParser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "CHTTPParser::CHTTPParser::Product" /* CHTTPParser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AA07D472183865700F12279 /* SwiftAWSIam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftAWSIam::SwiftAWSIam::Product" /* SwiftAWSIam.framework */; };
 		3AA07D482183865700F12279 /* SwiftAWSIam.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftAWSIam::SwiftAWSIam::Product" /* SwiftAWSIam.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3AA07D4B2183865700F12279 /* ProrsumNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProrsumNet::ProrsumNet::Product" /* ProrsumNet.framework */; };
@@ -1633,12 +1634,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3A6C324721E3C0290027ACF4 /* CHTTPParser.framework in Embed Frameworks */,
+				3A6C324621E3C0170027ACF4 /* Prorsum.framework in Embed Frameworks */,
 				3AA07D482183865700F12279 /* SwiftAWSIam.framework in Embed Frameworks */,
 				3AA07D302183865700F12279 /* SwiftAWSS3.framework in Embed Frameworks */,
 				3AA07D402183865700F12279 /* AtlasCore.framework in Embed Frameworks */,
 				3AA07D4C2183865700F12279 /* ProrsumNet.framework in Embed Frameworks */,
-				3AA07D3C2183865700F12279 /* Prorsum.framework in Embed Frameworks */,
-				3AA07D442183865700F12279 /* CHTTPParser.framework in Embed Frameworks */,
 				3AA07D2C2183865700F12279 /* HypertextApplicationLanguage.framework in Embed Frameworks */,
 				3AA07D382183865700F12279 /* CLibreSSL.framework in Embed Frameworks */,
 				3AA07D342183865700F12279 /* AWSSDKSwiftCore.framework in Embed Frameworks */,
@@ -1652,6 +1653,7 @@
 		3A02873F21DE58ED00632F3D /* CommitFileViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitFileViewItem.swift; sourceTree = "<group>"; };
 		3A02874121DE5B0300632F3D /* CommitFileViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitFileViewItem.xib; sourceTree = "<group>"; };
 		3A62882A21BEBE2F00D09F03 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
+		3A84D30D21DFE18700158D09 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		3AA07CD92183841200F12279 /* AtlasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA07CDB2183841200F12279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AA07CDF2183841500F12279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2671,14 +2673,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA07D432183865700F12279 /* CHTTPParser.framework in Frameworks */,
+				3AA07D372183865700F12279 /* CLibreSSL.framework in Frameworks */,
 				3AA07D472183865700F12279 /* SwiftAWSIam.framework in Frameworks */,
 				3AA07D2F2183865700F12279 /* SwiftAWSS3.framework in Frameworks */,
 				3AA07D3F2183865700F12279 /* AtlasCore.framework in Frameworks */,
 				3AA07D4B2183865700F12279 /* ProrsumNet.framework in Frameworks */,
 				3AA07D3B2183865700F12279 /* Prorsum.framework in Frameworks */,
-				3AA07D432183865700F12279 /* CHTTPParser.framework in Frameworks */,
 				3AA07D2B2183865700F12279 /* HypertextApplicationLanguage.framework in Frameworks */,
-				3AA07D372183865700F12279 /* CLibreSSL.framework in Frameworks */,
 				3AA07D332183865700F12279 /* AWSSDKSwiftCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2886,6 +2888,7 @@
 				3AA07D10218384AC00F12279 /* MainController.swift */,
 				3AA07D12218384B100F12279 /* NewProjectController.swift */,
 				3AA07D14218384B400F12279 /* PanelController.swift */,
+				3A84D30D21DFE18700158D09 /* PreviewController.swift */,
 				3AA07D16218384B700F12279 /* StagingController.swift */,
 				3AA07D18218384BC00F12279 /* WindowController.swift */,
 				3AA07CDF2183841500F12279 /* Assets.xcassets */,
@@ -4569,9 +4572,9 @@
 				3AA07D322183865700F12279 /* PBXTargetDependency */,
 				3AA07D362183865700F12279 /* PBXTargetDependency */,
 				3AA07D3A2183865700F12279 /* PBXTargetDependency */,
+				3AA07D462183865700F12279 /* PBXTargetDependency */,
 				3AA07D3E2183865700F12279 /* PBXTargetDependency */,
 				3AA07D422183865700F12279 /* PBXTargetDependency */,
-				3AA07D462183865700F12279 /* PBXTargetDependency */,
 				3AA07D4A2183865700F12279 /* PBXTargetDependency */,
 				3AA07D4E2183865700F12279 /* PBXTargetDependency */,
 			);
@@ -5115,7 +5118,7 @@
 				TargetAttributes = {
 					3AA07CD82183841200F12279 = {
 						CreatedOnToolsVersion = 10.0;
-						DevelopmentTeam = 4B7L43K59M;
+						DevelopmentTeam = 3U5ER42G84;
 						ProvisioningStyle = Automatic;
 					};
 					3AA07CE92183841500F12279 = {
@@ -5247,6 +5250,7 @@
 				3AA07D582183870300F12279 /* ActivityLog.swift in Sources */,
 				3AA07CF82183848200F12279 /* AccountController.swift in Sources */,
 				3A62882B21BEBE2F00D09F03 /* NoteController.swift in Sources */,
+				3A84D30E21DFE18700158D09 /* PreviewController.swift in Sources */,
 				3AA07D0F218384A000F12279 /* LogController.swift in Sources */,
 				3AA07D15218384B400F12279 /* PanelController.swift in Sources */,
 				3AA07D592183870300F12279 /* DropView.swift in Sources */,
@@ -6798,7 +6802,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4B7L43K59M;
+				DEVELOPMENT_TEAM = 3U5ER42G84;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -6861,7 +6865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 4B7L43K59M;
+				DEVELOPMENT_TEAM = 3U5ER42G84;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

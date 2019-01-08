@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -972,11 +973,11 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XCZ-oN-Ohk">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="XCZ-oN-Ohk">
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yuD-yb-ef6">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yuD-yb-ef6">
                                     <rect key="frame" x="433" y="1" width="16" height="265"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1093,11 +1094,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </clipView>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xea-er-Hmb">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="xea-er-Hmb">
                                                     <rect key="frame" x="-100" y="-100" width="317" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ffR-Nz-4Cj">
+                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="ffR-Nz-4Cj">
                                                     <rect key="frame" x="433" y="1" width="16" height="433"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
@@ -1164,11 +1165,11 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="1jk-i2-3Z0"/>
                                                 </constraints>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="8f9-fy-OFk">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="8f9-fy-OFk">
                                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
+                                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="DOo-uM-ALo">
                                                     <rect key="frame" x="433" y="1" width="16" height="98"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
@@ -1454,6 +1455,71 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                 </viewController>
             </objects>
             <point key="canvasLocation" x="815.5" y="2528.5"/>
+        </scene>
+        <!--Preview Controller-->
+        <scene sceneID="VwD-g6-e3W">
+            <objects>
+                <viewController title="Preview Controller" storyboardIdentifier="PreviewController" id="XYh-Si-keh" customClass="PreviewController" customModule="AtlasApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="iue-Yu-32a">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nTa-48-X7k">
+                                <rect key="frame" x="4" y="275" width="442" height="19"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" title="Label" id="dI4-9u-QcK">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="backgroundColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7cE-DP-BO2">
+                                <rect key="frame" x="403" y="267" width="47" height="32"/>
+                                <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MFQ-YK-R9a">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="close:" target="XYh-Si-keh" id="rOG-74-wbe"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-Je-I1b">
+                                <rect key="frame" x="355" y="267" width="54" height="32"/>
+                                <buttonCell key="cell" type="push" title="⇩" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aZM-Va-37R">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="download:" target="XYh-Si-keh" id="ghc-mD-m7M"/>
+                                </connections>
+                            </button>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adw-57-2DA">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="269"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7cE-DP-BO2" secondAttribute="trailing" constant="6" id="7Ac-Uo-Ayy"/>
+                            <constraint firstAttribute="trailing" secondItem="adw-57-2DA" secondAttribute="trailing" id="8Ms-xa-1Vd"/>
+                            <constraint firstItem="7cE-DP-BO2" firstAttribute="leading" secondItem="BSg-Je-I1b" secondAttribute="trailing" constant="6" id="CKM-rA-xfU"/>
+                            <constraint firstItem="nTa-48-X7k" firstAttribute="leading" secondItem="iue-Yu-32a" secondAttribute="leading" constant="6" id="F5l-mn-NSC"/>
+                            <constraint firstAttribute="bottom" secondItem="adw-57-2DA" secondAttribute="bottom" id="FuL-gk-zDO"/>
+                            <constraint firstItem="7cE-DP-BO2" firstAttribute="centerY" secondItem="nTa-48-X7k" secondAttribute="centerY" id="HI0-Ge-b20"/>
+                            <constraint firstAttribute="trailing" secondItem="nTa-48-X7k" secondAttribute="trailing" constant="6" id="MA0-qU-6nO"/>
+                            <constraint firstItem="adw-57-2DA" firstAttribute="leading" secondItem="iue-Yu-32a" secondAttribute="leading" id="S1l-rp-hrk"/>
+                            <constraint firstItem="nTa-48-X7k" firstAttribute="top" secondItem="iue-Yu-32a" secondAttribute="top" constant="6" id="U9V-tx-Z1k"/>
+                            <constraint firstItem="BSg-Je-I1b" firstAttribute="centerY" secondItem="nTa-48-X7k" secondAttribute="centerY" id="coT-gc-4wL"/>
+                            <constraint firstItem="adw-57-2DA" firstAttribute="top" secondItem="nTa-48-X7k" secondAttribute="bottom" constant="6" id="ph8-FR-MxG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="adw-57-2DA" id="Odv-Rv-yP8"/>
+                    </connections>
+                </viewController>
+                <customObject id="lOR-XZ-L5B" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="2960"/>
         </scene>
     </scenes>
 </document>

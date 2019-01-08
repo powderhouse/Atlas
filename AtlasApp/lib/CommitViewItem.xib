@@ -80,12 +80,14 @@
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.94" id="3VI-3B-hhy"/>
                 <constraint firstItem="fSq-10-CQY" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="12" id="3cu-co-Jak"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="4vd-Pk-B0X"/>
+                <constraint firstItem="fSq-10-CQY" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="Fp6-9g-MAb"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="top" secondItem="qW9-Er-zMW" secondAttribute="bottom" constant="12" id="KYK-ub-5tf"/>
                 <constraint firstItem="fSq-10-CQY" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="M8I-xH-qjQ"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Mee-DC-baK"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PWt-qn-TJD"/>
                 <constraint firstAttribute="bottom" secondItem="fSq-10-CQY" secondAttribute="bottom" id="Pdy-Hd-KD9"/>
                 <constraint firstItem="1pF-fm-W2x" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="6" id="Vba-5e-Dvl"/>
+                <constraint firstItem="fSq-10-CQY" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="czm-TX-a6q"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="dIJ-9w-uTL"/>
                 <constraint firstAttribute="trailing" secondItem="fSq-10-CQY" secondAttribute="trailing" id="eZf-Fa-Axs"/>
                 <constraint firstAttribute="trailing" secondItem="1pF-fm-W2x" secondAttribute="trailing" constant="6" id="hrg-YN-ITL"/>
