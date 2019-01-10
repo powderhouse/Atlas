@@ -8,10 +8,13 @@
 import Cocoa
 import AtlasCore
 import WebKit
+import Quartz
 
 class PreviewController: NSViewController {
     
     @IBOutlet var webView: WKWebView!
+    
+    var previewView: QLPreviewView!
     
     var url: URL?
     
@@ -19,12 +22,17 @@ class PreviewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-//        let frame = self.view.frame
-//        let view = NSView(frame: frame)
-        
         self.view.wantsLayer = true
         
         self.view.layer?.backgroundColor = NSColor.black.cgColor
+        
+        self.previewView = QLPreviewView(frame: webView.frame, style: .compact)
+        self.view.addSubview(previewView)
+
+        for constraint in webView.constraints {
+            self.previewView.addConstraint(constraint)
+        }
+        previewView.isHidden = true
     }
     
     @IBAction func close(_ sender: NSButton) {
