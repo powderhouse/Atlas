@@ -8,6 +8,16 @@
 import Cocoa
 import AtlasCore
 import WebKit
+import Quartz
+
+class AtlasQLPreviewItem: NSObject, QLPreviewItem {
+    var previewItemURL: URL!
+    var previewItemTitle: String
+    init(url: URL, title: String) {
+        self.previewItemURL = url
+        self.previewItemTitle = title
+    }
+}
 
 class CommitFileViewItem: NSCollectionViewItem {
     
@@ -38,16 +48,22 @@ class CommitFileViewItem: NSCollectionViewItem {
         if let size = NSScreen.screens.first?.frame.size {
             vc.preferredContentSize = size.applying(CGAffineTransform(scaleX: 0.8, y: 0.8))
         }
-        
+
         self.presentViewController(vc,
                                    asPopoverRelativeTo: fileLink.frame,
                                    of: self.view,
                                    preferredEdge: NSRectEdge.minY,
                                    behavior: NSPopover.Behavior.transient
         )
-        
+        vc.previewView.frame = vc.webView.frame
+
         vc.url = url
         vc.webView.load(URLRequest(url: url!))
+
+        vc.previewView.previewItem = AtlasQLPreviewItem(
+            url: URL(fileURLWithPath: "/Users/jcosulich/Library/Containers/powderhs.AtlasApp/Data/Library/Application Support/Atlas/atlastestaccount2/Atlas/tiny-schools-4pt0-v4.pdf"),
+            title: fileLink.title
+        )
     }
     
     
