@@ -12,6 +12,9 @@ import QuickLook
 
 class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollectionViewDataSource {
     
+    let bufferDim = CGFloat(10)
+    let fileHeight = CGFloat(36)
+    
     @IBOutlet weak var project: NSTextField!
     
     @IBOutlet weak var subject: NSTextField!
@@ -51,18 +54,31 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         configureFiles()
     }
     
-    fileprivate func configureFiles() {
-        files.isSelectable = true
+    func configureFiles() {
+        files.isSelectable = false
         let flowLayout = NSCollectionViewFlowLayout()
         
-        flowLayout.itemSize = NSSize(width: 300, height: 36)
-        flowLayout.sectionInset = NSEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.minimumLineSpacing = 10
+        flowLayout.itemSize = NSSize(width:  CGFloat(view.frame.width - 100), height: fileHeight)
+        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
+        flowLayout.minimumInteritemSpacing = bufferDim
+        flowLayout.minimumLineSpacing = bufferDim
         files.collectionViewLayout = flowLayout
         
-        view.wantsLayer = true
+        files.wantsLayer = true
+        setFrameSize()
     }
+    
+    func setFrameSize() {
+        DispatchQueue.main.async(execute: {
+            self.files.setFrameSize(
+                NSSize(
+                    width: self.view.frame.width,
+                    height: CGFloat(self.countedFiles.count) * (self.fileHeight + (self.bufferDim * CGFloat(2)))
+                )
+            )
+        })
+    }
+    
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         if let commit = self.commit {
