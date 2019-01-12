@@ -10,9 +10,9 @@
             <connections>
                 <outlet property="commitController" destination="ju8-r7-uTU" id="QtA-vS-ICI"/>
                 <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="lel-zo-gD5"/>
-                <outlet property="files" destination="Lpj-SY-gAD" id="qTK-4z-BUy"/>
-                <outlet property="filesClipView" destination="YFW-9i-DnH" id="hog-rq-u2F"/>
-                <outlet property="filesScrollView" destination="fSq-10-CQY" id="Ug2-fk-cdY"/>
+                <outlet property="files" destination="WJE-Dk-Kfh" id="yLo-HX-2p8"/>
+                <outlet property="filesClipView" destination="siu-ca-vSc" id="qCC-DW-Qpp"/>
+                <outlet property="filesScrollView" destination="7mj-3I-OmO" id="BRL-a3-Bwa"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="TE8-ua-BKl"/>
                 <outlet property="subject" destination="DFG-a2-lUh" id="LFR-Gb-OJ7"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -50,27 +50,25 @@
                         <action selector="deleteCommit:" target="-2" id="u1K-O0-lxf"/>
                     </connections>
                 </button>
-                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-10-CQY">
-                    <rect key="frame" x="0.0" y="0.0" width="364" height="183"/>
-                    <clipView key="contentView" id="YFW-9i-DnH">
-                        <rect key="frame" x="1" y="1" width="362" height="181"/>
+                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mj-3I-OmO">
+                    <rect key="frame" x="15" y="0.0" width="334" height="189"/>
+                    <clipView key="contentView" copiesOnScroll="NO" id="siu-ca-vSc">
+                        <rect key="frame" x="1" y="1" width="332" height="187"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView id="Lpj-SY-gAD">
-                                <rect key="frame" x="0.0" y="0.0" width="362" height="181"/>
+                            <collectionView id="WJE-Dk-Kfh">
+                                <rect key="frame" x="0.0" y="0.0" width="332" height="158"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="qT6-CA-9B7">
-                                    <size key="itemSize" width="50" height="50"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewGridLayout key="collectionViewLayout" id="uoG-39-gNs"/>
                                 <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </collectionView>
                         </subviews>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="nf8-P9-rKd">
-                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="k8S-Bq-W02">
+                        <rect key="frame" x="1" y="172" width="332" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="WSQ-M3-H6C">
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="bPZ-CN-rM3">
                         <rect key="frame" x="234" y="1" width="15" height="143"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
@@ -78,19 +76,17 @@
             </subviews>
             <constraints>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.94" id="3VI-3B-hhy"/>
-                <constraint firstItem="fSq-10-CQY" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="12" id="3cu-co-Jak"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="4vd-Pk-B0X"/>
-                <constraint firstItem="fSq-10-CQY" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="Fp6-9g-MAb"/>
+                <constraint firstAttribute="bottom" secondItem="7mj-3I-OmO" secondAttribute="bottom" id="F1D-eM-PUI"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="top" secondItem="qW9-Er-zMW" secondAttribute="bottom" constant="12" id="KYK-ub-5tf"/>
-                <constraint firstItem="fSq-10-CQY" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="M8I-xH-qjQ"/>
                 <constraint firstItem="DFG-a2-lUh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Mee-DC-baK"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PWt-qn-TJD"/>
-                <constraint firstAttribute="bottom" secondItem="fSq-10-CQY" secondAttribute="bottom" id="Pdy-Hd-KD9"/>
                 <constraint firstItem="1pF-fm-W2x" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="6" id="Vba-5e-Dvl"/>
-                <constraint firstItem="fSq-10-CQY" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="czm-TX-a6q"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="dIJ-9w-uTL"/>
-                <constraint firstAttribute="trailing" secondItem="fSq-10-CQY" secondAttribute="trailing" id="eZf-Fa-Axs"/>
                 <constraint firstAttribute="trailing" secondItem="1pF-fm-W2x" secondAttribute="trailing" constant="6" id="hrg-YN-ITL"/>
+                <constraint firstItem="7mj-3I-OmO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="ijY-Pb-7qD"/>
+                <constraint firstAttribute="trailing" secondItem="7mj-3I-OmO" secondAttribute="trailing" constant="15" id="p4y-3X-cp1"/>
+                <constraint firstItem="7mj-3I-OmO" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="6" id="tew-Lr-O5d"/>
             </constraints>
             <point key="canvasLocation" x="231" y="-308.5"/>
         </customView>
@@ -98,9 +94,9 @@
             <connections>
                 <outlet property="commitController" destination="ju8-r7-uTU" id="Yts-FK-vY8"/>
                 <outlet property="deleteCommitButton" destination="1pF-fm-W2x" id="BHB-Jl-W21"/>
-                <outlet property="files" destination="Lpj-SY-gAD" id="An1-q9-MX5"/>
-                <outlet property="filesClipView" destination="YFW-9i-DnH" id="joC-aU-xmz"/>
-                <outlet property="filesScrollView" destination="fSq-10-CQY" id="uk2-fL-bGc"/>
+                <outlet property="files" destination="WJE-Dk-Kfh" id="viR-eq-P75"/>
+                <outlet property="filesClipView" destination="siu-ca-vSc" id="1S3-Wh-ATn"/>
+                <outlet property="filesScrollView" destination="7mj-3I-OmO" id="709-eh-oYd"/>
                 <outlet property="project" destination="qW9-Er-zMW" id="vHJ-G4-Qo2"/>
                 <outlet property="subject" destination="DFG-a2-lUh" id="ATZ-jA-k6F"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="dsb-7u-mMG"/>

@@ -25,13 +25,13 @@ class CommitFileViewItem: NSCollectionViewItem {
     @IBOutlet weak var fileLink: NSButton!
     @IBOutlet weak var removeButton: NSButton!
     
-    var project: Project?
-    var url: URL?
+    var project: Project!
+    var url: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        view.layer?.backgroundColor = NSColor.white.cgColor
     }
     
     @IBAction func clickFile(_ sender: NSButton) {
@@ -57,8 +57,8 @@ class CommitFileViewItem: NSCollectionViewItem {
         )
         vc.previewView.frame = vc.webView.frame
 
-        vc.url = url
-        vc.webView.load(URLRequest(url: url!))
+        vc.url = self.url
+        vc.webView.load(URLRequest(url: self.url))
 
         vc.previewView.previewItem = AtlasQLPreviewItem(
             url: URL(fileURLWithPath: "/Users/jcosulich/Library/Containers/powderhs.AtlasApp/Data/Library/Application Support/Atlas/atlastestaccount2/Atlas/tiny-schools-4pt0-v4.pdf"),

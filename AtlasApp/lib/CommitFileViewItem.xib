@@ -30,6 +30,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="remove:" target="Jvq-Bf-bDD" id="8nW-j0-oOl"/>
+                    </connections>
                 </button>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RUg-8c-qxy">
                     <rect key="frame" x="0.0" y="-9" width="36" height="36"/>
@@ -46,7 +49,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="clickFile:" target="-2" id="BeG-JU-JHH"/>
+                        <action selector="clickFile:" target="Jvq-Bf-bDD" id="Vk2-2t-22F"/>
                     </connections>
                 </button>
             </subviews>
@@ -62,11 +65,13 @@
             </constraints>
             <point key="canvasLocation" x="252.5" y="47.5"/>
         </customView>
-        <customObject id="4WR-qA-xDX" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
+        <collectionViewItem title="CommitFileViewItem" nibName="CommitFileViewItem" id="Jvq-Bf-bDD" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
-                <outlet property="image" destination="RUg-8c-qxy" id="wqg-Gt-Hff"/>
-                <outlet property="removeButton" destination="chA-uP-cuh" id="pCA-gM-Nxb"/>
+                <outlet property="fileLink" destination="24k-lI-4IL" id="iKO-rb-tvP"/>
+                <outlet property="image" destination="RUg-8c-qxy" id="pwh-K7-0XE"/>
+                <outlet property="removeButton" destination="chA-uP-cuh" id="Fe8-Xq-snn"/>
+                <outlet property="view" destination="c22-O7-iKe" id="OXs-pq-wEn"/>
             </connections>
-        </customObject>
+        </collectionViewItem>
     </objects>
 </document>

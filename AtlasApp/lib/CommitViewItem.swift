@@ -13,7 +13,7 @@ import QuickLook
 class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollectionViewDataSource {
     
     let bufferDim = CGFloat(10)
-    let fileHeight = CGFloat(36)
+    let fileHeight = CGFloat(30)
     
     @IBOutlet weak var project: NSTextField!
     
@@ -47,6 +47,8 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        filesScrollView.backgroundColor = NSColor.lightGray
+        filesClipView.backgroundColor = NSColor.lightGray
         
         files.delegate = self
         files.dataSource = self
@@ -56,14 +58,16 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     
     func configureFiles() {
         files.isSelectable = false
-        let flowLayout = NSCollectionViewFlowLayout()
+        // Can't figure out why NSCollectionViewFlowLayout is causing errors so using GridLayout
+        let flowLayout = NSCollectionViewGridLayout()
         
-        flowLayout.itemSize = NSSize(width:  CGFloat(view.frame.width - 100), height: fileHeight)
-        flowLayout.sectionInset = NSEdgeInsets(top: bufferDim, left: bufferDim, bottom: bufferDim, right: bufferDim)
-        flowLayout.minimumInteritemSpacing = bufferDim
-        flowLayout.minimumLineSpacing = bufferDim
+        flowLayout.minimumItemSize = NSSize(width: CGFloat(files.frame.width - 20), height: fileHeight)
+        flowLayout.maximumItemSize = NSSize(width: CGFloat(files.frame.width - 20), height: fileHeight)
+        flowLayout.maximumNumberOfColumns = 1
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 10
         files.collectionViewLayout = flowLayout
-        
+
         files.wantsLayer = true
         setFrameSize()
     }
@@ -90,6 +94,7 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+
         let item = collectionView.makeItem(
             withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CommitFileViewItem"),
             for: indexPath
@@ -103,20 +108,20 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
         commitFileViewItem.project = commit?.projects.first
         commitFileViewItem.fileLink.title = file.name
-        commitFileViewItem.url = URL(string: file.url)
-//        commitFileViewItem.url = URL(string: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg")
+//        commitFileViewItem.url = URL(string: file.url)
+        commitFileViewItem.url = URL(string: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg")
         
 
-//        var image: NSImage? = nil
-//        let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
-//        if let url = URL(string: imageUrl) {
-//            if let data = try? Data(contentsOf: url) {
-//                image = NSImage(data: data)
-//            }
-//        }
-//        image?.size = NSSize(width: 30, height: 30)
+        var image: NSImage? = nil
+        let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
+        if let url = URL(string: imageUrl) {
+            if let data = try? Data(contentsOf: url) {
+                image = NSImage(data: data)
+            }
+        }
+        image?.size = NSSize(width: 30, height: 30)
         
-        let image = NSWorkspace.shared.icon(forFile: "/Users/jcosulich/⁨workspace/⁨personal/⁨movies/The.Post.2017.DVDScr.XVID.AC3.HQ.Hive-CM8.mp4")
+//        let image = NSWorkspace.shared.icon(forFile: "/Users/jcosulich/⁨workspace/⁨personal/⁨movies/The.Post.2017.DVDScr.XVID.AC3.HQ.Hive-CM8.mp4")
         commitFileViewItem.image.image = image
         
         return commitFileViewItem
