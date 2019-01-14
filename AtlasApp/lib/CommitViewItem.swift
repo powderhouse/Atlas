@@ -12,8 +12,7 @@ import QuickLook
 
 class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollectionViewDataSource {
     
-    let bufferDim = CGFloat(10)
-    let fileHeight = CGFloat(30)
+    let fileHeight = CGFloat(60)
     
     @IBOutlet weak var project: NSTextField!
     
@@ -47,8 +46,6 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
-        filesScrollView.backgroundColor = NSColor.lightGray
-        filesClipView.backgroundColor = NSColor.lightGray
         
         files.delegate = self
         files.dataSource = self
@@ -61,12 +58,13 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         // Can't figure out why NSCollectionViewFlowLayout is causing errors so using GridLayout
         let flowLayout = NSCollectionViewGridLayout()
         
-        flowLayout.minimumItemSize = NSSize(width: CGFloat(files.frame.width - 20), height: fileHeight)
-        flowLayout.maximumItemSize = NSSize(width: CGFloat(files.frame.width - 20), height: fileHeight)
+        flowLayout.minimumItemSize = NSSize(width: CGFloat(files.frame.width), height: fileHeight)
+        flowLayout.maximumItemSize = NSSize(width: CGFloat(files.frame.width), height: fileHeight)
         flowLayout.maximumNumberOfColumns = 1
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 10
         files.collectionViewLayout = flowLayout
+        files.contentHuggingPriority(for: .vertical)
 
         files.wantsLayer = true
         setFrameSize()
@@ -77,7 +75,7 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
             self.files.setFrameSize(
                 NSSize(
                     width: self.view.frame.width,
-                    height: CGFloat(self.countedFiles.count) * (self.fileHeight + (self.bufferDim * CGFloat(2)))
+                    height: CGFloat(self.countedFiles.count) * (self.fileHeight)
                 )
             )
         })
