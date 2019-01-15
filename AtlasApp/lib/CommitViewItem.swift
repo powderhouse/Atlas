@@ -58,13 +58,9 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     
     func configureFiles() {
         files.isSelectable = false
-        // Can't figure out why NSCollectionViewFlowLayout is causing errors so using GridLayout
-        let flowLayout = NSCollectionViewGridLayout()
+        let flowLayout = NSCollectionViewFlowLayout()
         
-        flowLayout.minimumItemSize = NSSize(width: CGFloat(files.frame.width - 20), height: fileHeight)
-        flowLayout.maximumItemSize = NSSize(width: CGFloat(files.frame.width - 20), height: fileHeight)
-        flowLayout.maximumNumberOfColumns = 1
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.itemSize = NSSize(width: CGFloat(files.frame.width - 100), height: fileHeight)
         flowLayout.minimumLineSpacing = 10
         files.collectionViewLayout = flowLayout
 

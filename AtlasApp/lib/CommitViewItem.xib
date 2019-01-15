@@ -50,22 +50,27 @@
                         <action selector="deleteCommit:" target="-2" id="u1K-O0-lxf"/>
                     </connections>
                 </button>
-                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mj-3I-OmO">
-                    <rect key="frame" x="15" y="0.0" width="334" height="189"/>
-                    <clipView key="contentView" copiesOnScroll="NO" id="siu-ca-vSc">
-                        <rect key="frame" x="1" y="1" width="332" height="187"/>
+                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mj-3I-OmO">
+                    <rect key="frame" x="32" y="0.0" width="300" height="189"/>
+                    <clipView key="contentView" id="siu-ca-vSc">
+                        <rect key="frame" x="1" y="1" width="298" height="187"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView id="WJE-Dk-Kfh">
-                                <rect key="frame" x="0.0" y="0.0" width="332" height="158"/>
+                                <rect key="frame" x="0.0" y="0.0" width="298" height="187"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewGridLayout key="collectionViewLayout" id="uoG-39-gNs"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" id="bVn-Je-1dX">
+                                    <size key="itemSize" width="10" height="10"/>
+                                </collectionViewFlowLayout>
                                 <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </collectionView>
                         </subviews>
                     </clipView>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="UrJ-Kp-HRU"/>
+                    </constraints>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="k8S-Bq-W02">
-                        <rect key="frame" x="1" y="172" width="332" height="16"/>
+                        <rect key="frame" x="-100" y="-100" width="332" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="bPZ-CN-rM3">
@@ -84,8 +89,7 @@
                 <constraint firstItem="1pF-fm-W2x" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="6" id="Vba-5e-Dvl"/>
                 <constraint firstItem="qW9-Er-zMW" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="dIJ-9w-uTL"/>
                 <constraint firstAttribute="trailing" secondItem="1pF-fm-W2x" secondAttribute="trailing" constant="6" id="hrg-YN-ITL"/>
-                <constraint firstItem="7mj-3I-OmO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="ijY-Pb-7qD"/>
-                <constraint firstAttribute="trailing" secondItem="7mj-3I-OmO" secondAttribute="trailing" constant="15" id="p4y-3X-cp1"/>
+                <constraint firstItem="7mj-3I-OmO" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="sdh-9m-RsR"/>
                 <constraint firstItem="7mj-3I-OmO" firstAttribute="top" secondItem="DFG-a2-lUh" secondAttribute="bottom" constant="6" id="tew-Lr-O5d"/>
             </constraints>
             <point key="canvasLocation" x="231" y="-308.5"/>

@@ -89,7 +89,6 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                             </clipView>
                             <constraints>
                                 <constraint firstAttribute="width" constant="240" id="gUW-ks-Ii0"/>
