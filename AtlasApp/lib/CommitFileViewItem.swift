@@ -31,7 +31,7 @@ class CommitFileViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.white.cgColor
+        view.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
     
     @IBAction func clickFile(_ sender: NSButton) {

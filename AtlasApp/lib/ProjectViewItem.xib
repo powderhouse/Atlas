@@ -93,11 +93,11 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="240" id="gUW-ks-Ii0"/>
                             </constraints>
-                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="yHS-i3-Mlg">
+                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="yHS-i3-Mlg">
                                 <rect key="frame" x="-100" y="-100" width="224" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
-                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="mpJ-cc-ziV">
+                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="mpJ-cc-ziV">
                                 <rect key="frame" x="223" y="1" width="16" height="273"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>

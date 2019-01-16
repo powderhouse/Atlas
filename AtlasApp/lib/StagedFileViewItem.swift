@@ -11,7 +11,7 @@ import AtlasCore
 
 class StagedFileViewItem: NSCollectionViewItem {
 
-    var projectViewItem: ProjectViewItem!
+    var projectViewItem: ProjectViewItem?
     
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var selectCheck: NSButton!
@@ -23,7 +23,7 @@ class StagedFileViewItem: NSCollectionViewItem {
         }
         set(newValue) {
             selectCheck.state = (newValue ? NSControl.StateValue.on : NSControl.StateValue.off)
-            projectViewItem.checkCommitButton()
+            projectViewItem?.checkCommitButton()
         }
     }
 
@@ -36,7 +36,7 @@ class StagedFileViewItem: NSCollectionViewItem {
     @IBAction func select(_ sender: NSButton) {
         let newState = isSelected ? "staged" : "unstaged"
         
-        if let project = projectViewItem.project {
+        if let project = projectViewItem?.project {
             let result = project.changeState([label.stringValue], to: newState)
             Terminal.log(result.allMessages)
             if result.success {
@@ -56,7 +56,7 @@ class StagedFileViewItem: NSCollectionViewItem {
             Terminal.log("Project not found.")
         }
         
-        projectViewItem.checkCommitButton()
+        projectViewItem?.checkCommitButton()
     }
     
     @IBAction func remove(_ sender: NSButton) {
@@ -68,7 +68,7 @@ class StagedFileViewItem: NSCollectionViewItem {
         
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
             if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-                if let project = self.projectViewItem.project {
+                if let project = self.projectViewItem?.project {
                     let state = self.isSelected ? "staged" : "unstaged"
                     let file = "\(project.name!)/\(state)/\(self.label.stringValue)"
                     NotificationCenter.default.post(

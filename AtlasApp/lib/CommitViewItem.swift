@@ -46,9 +46,9 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         // Do view setup here.
         
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.lightGray.cgColor
-        filesScrollView.backgroundColor = NSColor.lightGray
-        filesClipView.backgroundColor = NSColor.lightGray
+        view.layer?.backgroundColor = NSColor.white.cgColor
+        view.layer?.borderColor = NSColor.gray.cgColor
+        view.layer?.borderWidth = 1
         
         files.delegate = self
         files.dataSource = self
@@ -59,13 +59,11 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     func configureFiles() {
         files.isSelectable = false
         let flowLayout = NSCollectionViewFlowLayout()
-        
-        flowLayout.itemSize = NSSize(width: CGFloat(files.frame.width - 100), height: fileHeight)
+        flowLayout.itemSize = NSSize(width: CGFloat(files.frame.width), height: fileHeight)
         flowLayout.minimumLineSpacing = 10
         files.collectionViewLayout = flowLayout
-
-        files.wantsLayer = true
-        setFrameSize()
+        
+        view.wantsLayer = true
     }
     
     func setFrameSize() {
@@ -95,18 +93,18 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
             withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CommitFileViewItem"),
             for: indexPath
         )
-        
+
         guard let commitFileViewItem = item as? CommitFileViewItem else {
             return item
         }
-        
+
         let file = countedFiles[indexPath.item]
         commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
         commitFileViewItem.project = commit?.projects.first
         commitFileViewItem.fileLink.title = file.name
 //        commitFileViewItem.url = URL(string: file.url)
         commitFileViewItem.url = URL(string: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg")
-        
+
 
         var image: NSImage? = nil
         let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
@@ -116,10 +114,10 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
             }
         }
         image?.size = NSSize(width: 30, height: 30)
-        
+
 //        let image = NSWorkspace.shared.icon(forFile: "/Users/jcosulich/⁨workspace/⁨personal/⁨movies/The.Post.2017.DVDScr.XVID.AC3.HQ.Hive-CM8.mp4")
         commitFileViewItem.image.image = image
-        
+
         return commitFileViewItem
     }
     
