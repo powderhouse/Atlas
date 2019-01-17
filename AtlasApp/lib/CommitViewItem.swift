@@ -102,66 +102,25 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
         commitFileViewItem.project = commit?.projects.first
         commitFileViewItem.fileLink.title = file.name
-//        commitFileViewItem.url = URL(string: file.url)
-        commitFileViewItem.url = URL(string: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg")
+        commitFileViewItem.url = URL(string: file.url)
 
-
-        var image: NSImage? = nil
-        let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg"
-        if let url = URL(string: imageUrl) {
-            if let data = try? Data(contentsOf: url) {
-                image = NSImage(data: data)
+        let thumbnailFormats = ["png", "jpg", "jpeg", "pdf", "gif"]
+        if thumbnailFormats.contains(file.url.components(separatedBy: ".").last ?? "xxx") {
+            DispatchQueue.global(qos: .background).async {
+                var image: NSImage? = nil
+                if let data = try? Data(contentsOf: commitFileViewItem.url) {
+                    image = NSImage(data: data)
+                    image?.size = NSSize(width: 30, height: 30)
+                    DispatchQueue.main.sync(execute: {
+                        commitFileViewItem.image.image = image
+                    })
+                }
             }
         }
-        image?.size = NSSize(width: 30, height: 30)
-
-//        let image = NSWorkspace.shared.icon(forFile: "/Users/jcosulich/⁨workspace/⁨personal/⁨movies/The.Post.2017.DVDScr.XVID.AC3.HQ.Hive-CM8.mp4")
-        commitFileViewItem.image.image = image
 
         return commitFileViewItem
     }
-    
-//    func textView(_ textView: NSTextView, clickedOnLink link: Any, at charIndex: Int) -> Bool {
-//        if let purgeUrl = link as? String {
-//            guard purgeUrl.starts(with: "purge:") else {
-//                return false
-//            }
-//
-//            let url = purgeUrl.replacingOccurrences(of: "purge:", with: "")
-//
-//            if let commit = self.commitController.content as? Commit {
-//                for name in commit.projects.map({ $0.name }) {
-//                    if let projectName = name {
-//                        if url.contains(substring: projectName) {
-//                            let a = NSAlert()
-//                            a.messageText = "Remove this file?"
-//                            let fileName = url.components(separatedBy: "/").last
-//                            a.informativeText = "Are you sure you would like to remove the file, \(fileName ?? ""), from this commit?"
-//                            a.addButton(withTitle: "Remove")
-//                            a.addButton(withTitle: "Cancel")
-//
-//                            a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
-//                                if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-//                                    NotificationCenter.default.post(
-//                                        name: NSNotification.Name(rawValue: "remove-file"),
-//                                        object: nil,
-//                                        userInfo: [
-//                                            "file": self.filePath(url, projectName: projectName),
-//                                            "projectName": projectName
-//                                        ]
-//                                    )
-//                                }
-//                            })
-//
-//                            return true
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return false
-//    }
-    
+        
     func filePath(_ url: String, projectName: String) -> String {
         return url.replacingOccurrences(
             of: ".*/\(projectName)/",

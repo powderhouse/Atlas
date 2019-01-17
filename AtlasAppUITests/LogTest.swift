@@ -38,7 +38,7 @@ class LogTest: AtlasUITestCase {
         
         waitForStaticText(log, text: commitMessage)
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
-        XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
+        XCTAssert(log.buttons[filename].exists, "Unable to find \(filename) link")
      
         app.buttons["General"].click()
         waitForTerminalToContain("Filtering for General")

@@ -28,7 +28,7 @@ class CommitTest: AtlasUITestCase {
         _ = waitForElementToAppear(log.staticTexts[commitMessage])
         XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
-        XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
+        XCTAssert(log.buttons[filename].exists, "Unable to find \(filename) link")
     }
     
     func testPurgeCommit() {
@@ -64,9 +64,9 @@ class CommitTest: AtlasUITestCase {
         _ = waitForElementToAppear(log.staticTexts[commitMessage2])
         XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
         XCTAssert(log.staticTexts[projectName].exists, "Unable to find \(projectName)")
-        XCTAssert(log.links[filename1].exists, "Unable to find \(filename1) link")
+        XCTAssert(log.buttons[filename1].exists, "Unable to find \(filename1) link")
         
-        log.textViews.children(matching: .link).matching(identifier: "x   ").element(boundBy: 2).click()
+        log.groups[filename1].buttons["x"].click()
         clickAlertButton("Remove")
         waitForTerminalToContain("Successfully purged \(projectName)/committed/commit1/\(filename1) from Atlas.")
         waitForSyncToComplete()
@@ -84,7 +84,7 @@ class CommitTest: AtlasUITestCase {
         XCTAssertFalse(log.staticTexts[commitMessage2].exists, "Still finding \(commitMessage2)")
         XCTAssert(log.staticTexts[commitMessage1].exists, "Unable to find \(commitMessage1)")
         XCTAssertFalse(log.links[filename4].exists, "Still finding \(filename4) link")
-        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
+        XCTAssert(log.buttons[filename2].exists, "Unable to find \(filename2) link")
     }
     
 }

@@ -143,13 +143,13 @@ class StressTest: AtlasUITestCase {
         XCTAssert(log.staticTexts[commitMessage1].exists, "Unable to find \(commitMessage1)")
         XCTAssert(log.staticTexts[project1].exists)
         for i in 2..<4 {
-            XCTAssert(log.links[filename(project1, index: i)].exists, "Can't find \(i)")
+            XCTAssert(log.buttons[filename(project1, index: i)].exists, "Can't find \(i)")
         }
         
         XCTAssert(!log.staticTexts[commitMessage2].exists, "Still found \(commitMessage2)")
         XCTAssert(!log.staticTexts[project2].exists)
         for i in 0..<5 {
-            XCTAssert(!log.links[filename(project2, index: i)].exists)
+            XCTAssert(!log.buttons[filename(project2, index: i)].exists)
         }
     }
 }

@@ -77,15 +77,17 @@ class CommitFileViewItem: NSCollectionViewItem {
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
             if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 if let project = self.project {
-                    let file = "\(project.name!)/\(Project.committed)/\(self.fileLink.stringValue)"
-                    NotificationCenter.default.post(
-                        name: NSNotification.Name(rawValue: "remove-file"),
-                        object: nil,
-                        userInfo: [
-                            "file": file,
-                            "projectName": project.name
-                        ]
-                    )
+                    if let file = self.url.relativeString.components(separatedBy: "\(project.name!)/\(Project.committed)/").last {
+                        let relativePath = "\(project.name!)/\(Project.committed)/\(file)"
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "remove-file"),
+                            object: nil,
+                            userInfo: [
+                                "file": relativePath,
+                                "projectName": project.name
+                            ]
+                        )
+                    }
                 } else {
                     Terminal.log("Project not found.")
                 }
