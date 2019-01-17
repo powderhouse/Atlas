@@ -31,46 +31,46 @@ class SearchTest: AtlasUITestCase {
         searchText.typeText("another")
         
         XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
-        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
+        XCTAssert(log.buttons[filename2].exists, "Unable to find \(filename2) link")
 
         XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still see \(commitMessage)")
-        XCTAssertFalse(log.links[filename].exists, "Still see \(filename) link")
+        XCTAssertFalse(log.buttons[filename].exists, "Still see \(filename) link")
 
         searchText.click()
         searchText.typeText("another commit")
         
         XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
-        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
+        XCTAssert(log.buttons[filename2].exists, "Unable to find \(filename2) link")
         
         XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
-        XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
+        XCTAssert(log.buttons[filename].exists, "Unable to find \(filename) link")
 
         searchText.click()
         searchText.typeText("\"another commit\"")
         
         XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
-        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
+        XCTAssert(log.buttons[filename2].exists, "Unable to find \(filename2) link")
         
         XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still see \(commitMessage)")
-        XCTAssertFalse(log.links[filename].exists, "Still see \(filename) link")
+        XCTAssertFalse(log.buttons[filename].exists, "Still see \(filename) link")
 
         searchText.click()
         searchText.typeText("index")
         
         XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
-        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
+        XCTAssert(log.buttons[filename2].exists, "Unable to find \(filename2) link")
         
         XCTAssert(log.staticTexts[commitMessage].exists, "Unable to find \(commitMessage)")
-        XCTAssert(log.links[filename].exists, "Unable to find \(filename) link")
+        XCTAssert(log.buttons[filename].exists, "Unable to find \(filename) link")
 
         searchText.click()
         searchText.typeText("indexfile2")
         
         XCTAssert(log.staticTexts[commitMessage2].exists, "Unable to find \(commitMessage2)")
-        XCTAssert(log.links[filename2].exists, "Unable to find \(filename2) link")
+        XCTAssert(log.buttons[filename2].exists, "Unable to find \(filename2) link")
 
         XCTAssertFalse(log.staticTexts[commitMessage].exists, "Still see \(commitMessage)")
-        XCTAssertFalse(log.links[filename].exists, "Still see \(filename) link")
+        XCTAssertFalse(log.buttons[filename].exists, "Still see \(filename) link")
     }
     
 }
