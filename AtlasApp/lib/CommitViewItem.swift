@@ -117,7 +117,7 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         }
 
         let file = countedFiles[indexPath.item]
-        commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.url)
+        commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
         commitFileViewItem.project = commit?.projects.first
         commitFileViewItem.fileLink.title = file.name
         commitFileViewItem.url = URL(string: file.url)
