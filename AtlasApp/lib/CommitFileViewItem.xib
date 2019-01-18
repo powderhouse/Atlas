@@ -9,7 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="fileLink" destination="24k-lI-4IL" id="cKo-6u-uDq"/>
-                <outlet property="image" destination="RUg-8c-qxy" id="mTf-KJ-XGt"/>
+                <outlet property="imageView" destination="RUg-8c-qxy" id="b00-6B-ndk"/>
                 <outlet property="removeButton" destination="chA-uP-cuh" id="YuF-Ot-kjQ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vbG-6g-20V"/>
             </connections>
@@ -68,7 +68,7 @@
         <collectionViewItem title="CommitFileViewItem" nibName="CommitFileViewItem" id="Jvq-Bf-bDD" customClass="CommitFileViewItem" customModule="AtlasApp" customModuleProvider="target">
             <connections>
                 <outlet property="fileLink" destination="24k-lI-4IL" id="iKO-rb-tvP"/>
-                <outlet property="image" destination="RUg-8c-qxy" id="pwh-K7-0XE"/>
+                <outlet property="imageView" destination="RUg-8c-qxy" id="HEA-YB-7yK"/>
                 <outlet property="removeButton" destination="chA-uP-cuh" id="Fe8-Xq-snn"/>
                 <outlet property="view" destination="c22-O7-iKe" id="OXs-pq-wEn"/>
             </connections>

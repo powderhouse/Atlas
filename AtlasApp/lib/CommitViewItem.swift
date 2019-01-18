@@ -27,6 +27,7 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     
     @IBOutlet var commitController: NSObjectController!
 
+    var deleting = false
     var countedFiles: [File] = []
     var commit: Commit? {
         didSet {
@@ -38,6 +39,19 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
                 commitController.addObject(commit)
             }
             files.reloadData()
+        }
+    }
+    var images: [String: NSImage] = [:] {
+        didSet {
+            DispatchQueue.main.async(execute: {
+                for (index, file) in self.countedFiles.enumerated() {
+                    if oldValue[file.url] != self.images[file.url] {
+                        if let commitFileViewItem = self.files.item(at: index) {
+                            commitFileViewItem.imageView?.image = self.images[file.url]
+                        }
+                    }
+                }
+            })
         }
     }
     
@@ -54,6 +68,11 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         files.dataSource = self
 
         configureFiles()
+    }
+    
+    override func prepareForReuse() {
+        commit = nil
+        super.prepareForReuse()
     }
     
     func configureFiles() {
@@ -77,7 +96,6 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         })
     }
     
-    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         if let commit = self.commit {
             countedFiles = commit.files
@@ -99,22 +117,15 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         }
 
         let file = countedFiles[indexPath.item]
-        commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.name)
+        commitFileViewItem.identifier = NSUserInterfaceItemIdentifier(file.url)
         commitFileViewItem.project = commit?.projects.first
         commitFileViewItem.fileLink.title = file.name
         commitFileViewItem.url = URL(string: file.url)
 
         let thumbnailFormats = ["png", "jpg", "jpeg", "pdf", "gif"]
         if thumbnailFormats.contains(file.url.components(separatedBy: ".").last ?? "xxx") {
-            DispatchQueue.global(qos: .background).async {
-                var image: NSImage? = nil
-                if let data = try? Data(contentsOf: commitFileViewItem.url) {
-                    image = NSImage(data: data)
-                    image?.size = NSSize(width: 30, height: 30)
-                    DispatchQueue.main.sync(execute: {
-                        commitFileViewItem.image.image = image
-                    })
-                }
+            if let image = images[file.url] {
+                commitFileViewItem.imageView?.image = image
             }
         }
 

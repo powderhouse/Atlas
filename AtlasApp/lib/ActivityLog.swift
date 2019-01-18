@@ -27,6 +27,8 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
     var searchTerms: [String] = []
     var searchResults: [NSURL]? = nil
     
+    var images: [String: NSImage] = [:]
+    
     init(_ view: NSCollectionView, atlasCore: AtlasCore) {
         super.init()
         
@@ -83,6 +85,24 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
 
         let commit = commits.reversed()[indexPath.item]
         commitViewItem.commit = commit
+        
+        for file in commit.files {
+            if let image = images[file.url] {
+                commitViewItem.images[file.url] = image
+            } else {
+                DispatchQueue.global(qos: .background).async {
+                    var image: NSImage? = nil
+                    if let imageUrl = URL(string: file.url) {
+                        if let data = try? Data(contentsOf: imageUrl) {
+                            image = NSImage(data: data)
+                            image?.size = NSSize(width: 30, height: 30)
+                            self.images[file.url] = image
+                            commitViewItem.images[file.url] = image
+                        }
+                    }
+                }
+            }
+        }
         
         let fileNames = self.searchResults?.compactMap({ $0.lastPathComponent })
         commitViewItem.highlightFiles(fileNames ?? [])

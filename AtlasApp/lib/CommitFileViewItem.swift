@@ -21,7 +21,6 @@ class AtlasQLPreviewItem: NSObject, QLPreviewItem {
 
 class CommitFileViewItem: NSCollectionViewItem {
     
-    @IBOutlet weak var image: NSImageView!
     @IBOutlet weak var fileLink: NSButton!
     @IBOutlet weak var removeButton: NSButton!
     
@@ -32,6 +31,12 @@ class CommitFileViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+    }
+    
+    override func prepareForReuse() {
+        project = nil
+        imageView?.image = nil
+        super.prepareForReuse()
     }
     
     @IBAction func clickFile(_ sender: NSButton) {
