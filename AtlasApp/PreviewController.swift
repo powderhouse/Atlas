@@ -45,7 +45,13 @@ class PreviewController: NSViewController {
 //            NSWorkspace.shared.open(url)
 //        }
 
+        self.dismiss(self)
+        
         if let url = url {
+            let filename = url.lastPathComponent
+            
+            Terminal.log("Downloading \(filename)")
+
             let downloadTask = URLSession.shared.downloadTask(with: url) {
                 urlOrNil, responseOrNil, errorOrNil in
                 guard let fileURL = urlOrNil else { return }
@@ -55,11 +61,11 @@ class PreviewController: NSViewController {
                                                 in: .userDomainMask,
                                                 appropriateFor: nil,
                                                 create: false)
-                    let savedURL = documentsURL.appendingPathComponent(
-                        url.lastPathComponent)
+                    let savedURL = documentsURL.appendingPathComponent(filename)
                     try FileManager.default.moveItem(at: fileURL, to: savedURL)
+                    Terminal.log("File saved to ~/Downloads/\(filename)")
                 } catch {
-                    print ("file error: \(error)")
+                    Terminal.log("Download error: \(error)")
                 }
             }
             downloadTask.resume()
