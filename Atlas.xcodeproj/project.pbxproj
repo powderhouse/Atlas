@@ -5120,6 +5120,11 @@
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = 4B7L43K59M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					3AA07CE92183841500F12279 = {
 						CreatedOnToolsVersion = 10.0;

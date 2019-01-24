@@ -40,8 +40,29 @@ class PreviewController: NSViewController {
     }
 
     @IBAction func download(_ sender: NSButton) {
+       
+//        if let url = url {
+//            NSWorkspace.shared.open(url)
+//        }
+
         if let url = url {
-            NSWorkspace.shared.open(url)
+            let downloadTask = URLSession.shared.downloadTask(with: url) {
+                urlOrNil, responseOrNil, errorOrNil in
+                guard let fileURL = urlOrNil else { return }
+                do {
+                    let documentsURL = try
+                        FileManager.default.url(for: .downloadsDirectory,
+                                                in: .userDomainMask,
+                                                appropriateFor: nil,
+                                                create: false)
+                    let savedURL = documentsURL.appendingPathComponent(
+                        url.lastPathComponent)
+                    try FileManager.default.moveItem(at: fileURL, to: savedURL)
+                } catch {
+                    print ("file error: \(error)")
+                }
+            }
+            downloadTask.resume()
         }
     }
 

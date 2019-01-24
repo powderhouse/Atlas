@@ -78,7 +78,7 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     func configureFiles() {
         files.isSelectable = false
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: CGFloat(files.frame.width), height: fileHeight)
+        flowLayout.itemSize = NSSize(width: CGFloat(files.frame.width - 10), height: fileHeight)
         flowLayout.minimumLineSpacing = 10
         files.collectionViewLayout = flowLayout
         
