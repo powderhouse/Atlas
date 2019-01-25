@@ -39,12 +39,13 @@ class PreviewController: NSViewController {
         self.dismiss(self)
     }
 
+    @IBAction func open(_ sender: NSButton) {
+        if let url = url {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
     @IBAction func download(_ sender: NSButton) {
-       
-//        if let url = url {
-//            NSWorkspace.shared.open(url)
-//        }
-
         self.dismiss(self)
         
         if let url = url {

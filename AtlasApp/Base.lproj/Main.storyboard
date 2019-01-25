@@ -1498,11 +1498,22 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AyO-nj-wwv">
+                                <rect key="frame" x="311" y="267" width="50" height="32"/>
+                                <buttonCell key="cell" type="push" title="⇗" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oFb-TH-X4u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="open:" target="XYh-Si-keh" id="rwp-nX-mUe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7cE-DP-BO2" secondAttribute="trailing" constant="6" id="7Ac-Uo-Ayy"/>
                             <constraint firstAttribute="trailing" secondItem="adw-57-2DA" secondAttribute="trailing" id="8Ms-xa-1Vd"/>
                             <constraint firstItem="7cE-DP-BO2" firstAttribute="leading" secondItem="BSg-Je-I1b" secondAttribute="trailing" constant="6" id="CKM-rA-xfU"/>
+                            <constraint firstItem="AyO-nj-wwv" firstAttribute="centerY" secondItem="nTa-48-X7k" secondAttribute="centerY" id="Ceh-bx-yqw"/>
                             <constraint firstItem="nTa-48-X7k" firstAttribute="leading" secondItem="iue-Yu-32a" secondAttribute="leading" constant="6" id="F5l-mn-NSC"/>
                             <constraint firstAttribute="bottom" secondItem="adw-57-2DA" secondAttribute="bottom" id="FuL-gk-zDO"/>
                             <constraint firstItem="7cE-DP-BO2" firstAttribute="centerY" secondItem="nTa-48-X7k" secondAttribute="centerY" id="HI0-Ge-b20"/>
@@ -1510,6 +1521,7 @@ Note: search only works for full words.  So "a" will not match "atlas app", 
                             <constraint firstItem="adw-57-2DA" firstAttribute="leading" secondItem="iue-Yu-32a" secondAttribute="leading" id="S1l-rp-hrk"/>
                             <constraint firstItem="nTa-48-X7k" firstAttribute="top" secondItem="iue-Yu-32a" secondAttribute="top" constant="6" id="U9V-tx-Z1k"/>
                             <constraint firstItem="BSg-Je-I1b" firstAttribute="centerY" secondItem="nTa-48-X7k" secondAttribute="centerY" id="coT-gc-4wL"/>
+                            <constraint firstItem="BSg-Je-I1b" firstAttribute="leading" secondItem="AyO-nj-wwv" secondAttribute="trailing" constant="6" id="orX-76-dM0"/>
                             <constraint firstItem="adw-57-2DA" firstAttribute="top" secondItem="nTa-48-X7k" secondAttribute="bottom" constant="6" id="ph8-FR-MxG"/>
                         </constraints>
                     </view>
