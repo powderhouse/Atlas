@@ -200,8 +200,29 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
                 attrSubject.setAttributes(attributes, range: NSRange(range, in: subjectText))
                 r = Range(uncheckedBounds: (lower: range.upperBound, upper: subjectText.endIndex))
             }
-        }
+            
+            if let commitFiles = commit?.files {
+                for file in commitFiles {
+                    let attrFile = NSMutableAttributedString(string: file.name)
 
+                    let lowerFileName = file.name.lowercased()
+                    
+                    if lowerFileName.contains(lowerTerm) {
+                        var r2 = Range(uncheckedBounds: (lower: lowerFileName.startIndex, upper: lowerFileName.endIndex))
+                        
+                        while let range = lowerFileName.range(of: lowerTerm, range: r2) {
+                            attrFile.setAttributes(attributes, range: NSRange(range, in: lowerFileName))
+                            r2 = Range(uncheckedBounds: (lower: range.upperBound, upper: lowerFileName.endIndex))
+                        }
+                        
+                        if let item = files.item(at: 0) as? CommitFileViewItem {
+                            item.fileLink.attributedTitle = attrFile
+                        }
+                    }
+                }
+            }
+        }
+        
         subject.attributedStringValue = attrSubject
     }
 
