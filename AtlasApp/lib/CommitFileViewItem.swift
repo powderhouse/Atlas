@@ -99,4 +99,26 @@ class CommitFileViewItem: NSCollectionViewItem {
             }
         })
     }
+    
+    func highlight(_ terms: [String]) {
+        let fileName = fileLink.title
+        let lowerFileName = fileName.lowercased()
+        
+        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.backgroundColor: NSColor.yellow]
+        
+        let attrFileName = NSMutableAttributedString(string: fileName)
+        
+        for term in terms {
+            let lowerTerm = term.lowercased()
+            
+            var r = Range(uncheckedBounds: (lower: fileName.startIndex, upper: fileName.endIndex))
+            while let range = lowerFileName.range(of: lowerTerm, range: r) {
+                attrFileName.setAttributes(attributes, range: NSRange(range, in: fileName))
+                r = Range(uncheckedBounds: (lower: range.upperBound, upper: fileName.endIndex))
+            }
+        }
+        
+        fileLink.attributedTitle = attrFileName
+    }
+
 }

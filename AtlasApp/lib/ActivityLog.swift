@@ -87,6 +87,12 @@ class ActivityLog: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSourc
         commitViewItem.commit = commit
         
         for file in commit.files {
+            if let fileExtension = file.name.components(separatedBy: ".").last {
+                if !["png", "jpg", "jpeg", "gif", "pdf"].contains(fileExtension) {
+                    continue
+                }
+            }
+            
             if let image = images[file.url] {
                 commitViewItem.images[file.url] = image
             } else {
