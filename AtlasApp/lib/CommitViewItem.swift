@@ -122,13 +122,10 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
         commitFileViewItem.fileLink.title = file.name
         commitFileViewItem.url = URL(string: file.url)
 
-        let thumbnailFormats = ["png", "jpg", "jpeg", "pdf", "gif"]
-        if thumbnailFormats.contains(file.url.components(separatedBy: ".").last ?? "xxx") {
-            if let image = images[file.url] {
-                commitFileViewItem.imageView?.image = image
-            }
+        if let image = images[file.url] {
+            commitFileViewItem.imageView?.image = image
         }
-
+    
         return commitFileViewItem
     }
         
@@ -202,21 +199,11 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
             }
             
             if let commitFiles = commit?.files {
-                for file in commitFiles {
-                    let attrFile = NSMutableAttributedString(string: file.name)
-
+                for (index, file) in commitFiles.enumerated() {
                     let lowerFileName = file.name.lowercased()
-                    
                     if lowerFileName.contains(lowerTerm) {
-                        var r2 = Range(uncheckedBounds: (lower: lowerFileName.startIndex, upper: lowerFileName.endIndex))
-                        
-                        while let range = lowerFileName.range(of: lowerTerm, range: r2) {
-                            attrFile.setAttributes(attributes, range: NSRange(range, in: lowerFileName))
-                            r2 = Range(uncheckedBounds: (lower: range.upperBound, upper: lowerFileName.endIndex))
-                        }
-                        
-                        if let item = files.item(at: 0) as? CommitFileViewItem {
-                            item.fileLink.attributedTitle = attrFile
+                        if let item = files.item(at: index) as? CommitFileViewItem {
+                            item.highlight([term])
                         }
                     }
                 }
@@ -227,16 +214,16 @@ class CommitViewItem: NSCollectionViewItem, NSCollectionViewDelegate, NSCollecti
     }
 
     func highlightFiles(_ fileNames: [String]) {
-//        let filesText = files.textStorage!.string
-//        let attributes = [NSAttributedStringKey.backgroundColor: NSColor.green]
-//
-//        for fileName in fileNames {
-//            var r = Range(uncheckedBounds: (lower: filesText.startIndex, upper: filesText.endIndex))
-//            while let range = filesText.range(of: fileName, range: r) {
-//                files.textStorage?.addAttributes(attributes, range: NSRange(range, in: filesText))
-//                r = Range(uncheckedBounds: (lower: range.upperBound, upper: filesText.endIndex))
-//            }
-//        }
+        if let commitFiles = commit?.files {
+            for (index, file) in commitFiles.enumerated() {
+                let fileName = file.name
+                if fileNames.contains(fileName) {
+                    if let item = files.item(at: index) as? CommitFileViewItem {
+                        item.highlight([fileName])
+                    }
+                }
+            }
+        }
     }
     
 }
