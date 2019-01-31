@@ -16,6 +16,7 @@ module.exports = {
     drive.files.get(
       {fileId},
       (err, res) => {
+        console.log(err, res);
         var fileName = res.data.name
         const dest = fs.createWriteStream(fileName + ".docx");
         drive.files.export(
