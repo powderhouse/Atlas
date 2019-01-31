@@ -6,14 +6,18 @@ const opts = require("nomnom")
    })
    .parse()
 
-const googleOAuth2 = require('./google_oauth2_client')
 const googleDrive = require('./google_drive')
+const youtube = require('./youtube')
+
+const googleOAuth2 = require('./google_oauth2_client')
 
 async function main(url) {
 
   if (googleDrive.match(url)) {
     var oAuth2Client = await googleOAuth2.getOAuth2Client()
     googleDrive.process(url, oAuth2Client)
+  } else if (youtube.match(url)) {
+    youtube.process(url)
   }
 
 }

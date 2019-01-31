@@ -1,10 +1,10 @@
+// https://docs.google.com/document/d/132GhTgWTgXgJO7EzvfTEOKS3QyqdBZSfngOeaqFfIuU/edit
+
 const {google} = require('googleapis');
 const fs = require("fs");
 
-
 module.exports = {
 
-  // https://docs.google.com/document/d/132GhTgWTgXgJO7EzvfTEOKS3QyqdBZSfngOeaqFfIuU/edit
   match: function(url) {
     return url.indexOf("docs.google.com/document") > -1
   },

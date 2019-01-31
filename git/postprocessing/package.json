@@ -1,5 +1,5 @@
 {
-    "name": "extension-post-processing",
+    "name": "atlas-remote-file-processing",
     "preferGlobal": true,
     "version": "0.0.1",
     "author": "Jared Cosulich",
@@ -15,6 +15,7 @@
         "googleapis": "latest",
         "opn": "latest",
         "server-destroy": "latest",
-        "nomnom": "latest"
+        "nomnom": "latest",
+        "ytdl-core": "latest"
     }
 }
