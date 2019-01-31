@@ -2,7 +2,6 @@ const scopes = [
   'https://www.googleapis.com/auth/drive'
 ]
 
-const {google} = require('googleapis');
 const {OAuth2Client} = require('google-auth-library');
 const http = require('http');
 const url = require('url');
@@ -10,27 +9,33 @@ const opn = require('opn');
 const fs = require("fs");
 const destroyer = require('server-destroy');
 
-// Download your OAuth2 configuration from the Google
-const keysFile = "oauth2.keys.json"
-const keys = require('./' + keysFile);
+const keys = require('./oauth2.keys.json');
+const tokensFile = "tokens.json"
 
 module.exports = {
 
-  getOAuth2Client: async function() {
+  getOAuth2Client: async function(dataDirectory) {
+    var tokens;
+    try {
+      tokens = require(dataDirectory + "/" + tokensFile)
+    } catch (e) {
+      console.log("Unable to load tokens", e)
+      tokens = {}
+    }
+
     const oAuth2Client = new OAuth2Client(
       keys.web.client_id,
       keys.web.client_secret,
       keys.web.redirect_uris[0]
     );
 
-    var tokens = keys.tokens || {}
     var scopeTokens = tokens[scopes.join("-")]
     if (!scopeTokens) {
       scopeTokens = await getTokens(oAuth2Client);
       tokens[scopes.join("-")] = scopeTokens
-      keys.tokens = tokens
-      fs.writeFile(keysFile, JSON.stringify(keys), 'utf8', function() {
-        console.log("Token saved.")
+
+      fs.writeFile(dataDirectory + "/" + tokensFile, JSON.stringify(tokens), 'utf8', function() {
+        console.log("Token saved")
       });
     }
 

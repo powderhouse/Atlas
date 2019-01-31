@@ -4,22 +4,27 @@ const opts = require("nomnom")
       flag: false,
       help: 'The url for the file to be processed.'
    })
+   .option('dir', {
+     abbr: 'd',
+     flag: false,
+     help: 'The directory where processed files and user authentication information is stored.'
+   })
    .parse()
 
-const googleDrive = require('./google_drive')
-const youtube = require('./youtube')
+const services = [
+  'google_drive',
+  'youtube'
+]
 
-const googleOAuth2 = require('./google_oauth2_client')
+async function main(url, dataDirectory) {
 
-async function main(url) {
-
-  if (googleDrive.match(url)) {
-    var oAuth2Client = await googleOAuth2.getOAuth2Client()
-    googleDrive.process(url, oAuth2Client)
-  } else if (youtube.match(url)) {
-    youtube.process(url)
+  for (var i=0; i<services.length; ++i) {
+    const service = require('./' + services[i])
+    if (service.match(url)) {
+      service.process(url, dataDirectory)
+    }
   }
 
 }
 
-main(opts.url || opts[0])
+main(opts.url || opts[0], opts.dir || opts[1] || ".")

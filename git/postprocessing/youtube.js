@@ -12,11 +12,11 @@ module.exports = {
     return false
   },
 
-  process: function(url) {
+  process: async function(url, dataDirectory) {
     ytdl.getInfo(url, (err, info) => {
       if (err) throw err;
       ytdl.downloadFromInfo(info, { filter: (format) => format.container === 'mp4' })
-        .pipe(fs.createWriteStream(info.title + ".mp4"));
+        .pipe(fs.createWriteStream(dataDirectory + "/" + info.title + ".mp4"));
     });
 
 
