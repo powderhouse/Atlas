@@ -11,7 +11,8 @@ const fs = require("fs");
 const destroyer = require('server-destroy');
 
 // Download your OAuth2 configuration from the Google
-const keys = require('./oauth2.keys.json');
+const keysFile = "oauth2.keys.json"
+const keys = require('./' + keysFile);
 
 module.exports = {
 
@@ -22,14 +23,18 @@ module.exports = {
       keys.web.redirect_uris[0]
     );
 
-    var tokens = keys.tokens//[scopes.join("-")]
-    if (tokens) {
-
-    } else {
-      tokens = await getTokens(oAuth2Client);
+    var tokens = keys.tokens || {}
+    var scopeTokens = tokens[scopes.join("-")]
+    if (!scopeTokens) {
+      scopeTokens = await getTokens(oAuth2Client);
+      tokens[scopes.join("-")] = scopeTokens
+      keys.tokens = tokens
+      fs.writeFile(keysFile, JSON.stringify(keys), 'utf8', function() {
+        console.log("Token saved.")
+      });
     }
 
-    oAuth2Client.setCredentials(tokens);
+    oAuth2Client.setCredentials(scopeTokens);
     return oAuth2Client;
   }
 
@@ -47,7 +52,6 @@ function getTokens(oAuth2Client) {
       .createServer(async (req, res) => {
         try {
           if (req.url.indexOf('www.googleapis.com') > -1) {
-
             const qs = new url.URL(req.url, 'http://localhost:3000')
               .searchParams;
             const code = qs.get('code');

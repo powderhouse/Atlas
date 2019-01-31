@@ -9,7 +9,7 @@ module.exports = {
     return url.indexOf("docs.google.com/document") > -1
   },
 
-  process: function(url, oAuth2Client) {
+  process: function(docUrl, oAuth2Client) {
     const drive = google.drive({version: 'v3', auth: oAuth2Client});
 
     var fileId = docUrl.replace("https://docs.google.com/document/d/", "").replace("/edit", "")
