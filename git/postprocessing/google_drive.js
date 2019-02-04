@@ -17,10 +17,16 @@ module.exports = {
     var fileId = docUrl.replace("https://docs.google.com/document/d/", "").replace("/edit", "")
     drive.files.get(
       {fileId},
-      (err, res) => {
+      async (err, res) => {
+        if (err) {
+          console.log("Error with: ", oAuth2Client)
+          console.error(err);
+          throw err;
+        };
+
         var fileName = res.data.name
         const dest = fs.createWriteStream(dataDirectory + "/" + fileName + ".docx");
-        drive.files.export(
+        await drive.files.export(
           { fileId, mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' },
           { responseType: 'stream' },
           (err, res) => {
@@ -38,7 +44,6 @@ module.exports = {
               })
               .pipe(dest);
           });
-
       }
     )
   }

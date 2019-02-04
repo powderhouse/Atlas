@@ -13,9 +13,9 @@
     },
     "dependencies": {
         "googleapis": "latest",
+        "nomnom": "latest",
         "opn": "latest",
         "server-destroy": "latest",
-        "nomnom": "latest",
         "ytdl-core": "latest"
     }
 }

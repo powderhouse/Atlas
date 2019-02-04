@@ -19,7 +19,6 @@ module.exports = {
     try {
       tokens = require(dataDirectory + "/" + tokensFile)
     } catch (e) {
-      console.log("Unable to load tokens", e)
       tokens = {}
     }
 
