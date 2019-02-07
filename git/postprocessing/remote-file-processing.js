@@ -12,7 +12,8 @@ const opts = require("nomnom")
    .parse()
 
 const services = [
-  'google_drive',
+  'google_doc',
+  // 'google_drive',
   'youtube'
 ]
 

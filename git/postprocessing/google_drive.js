@@ -7,6 +7,7 @@ const fs = require("fs");
 module.exports = {
 
   match: function(url) {
+    return false
     return url.indexOf("docs.google.com/document") > -1
   },
 
