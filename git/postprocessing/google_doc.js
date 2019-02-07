@@ -17,6 +17,7 @@ let scrape = async (url) => {
     const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
 
+    await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
     await page.setViewport({ width: 1200, height: 800 });
 
     const navigationPromise = page.waitForNavigation({ waitUntil: 'networkidle2' })
