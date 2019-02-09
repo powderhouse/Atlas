@@ -12,14 +12,15 @@
         "start": "node ./remote-file-processing.js"
     },
     "dependencies": {
-        "fs": "latest",
-        "nomnom": "latest",
-        "puppeteer": "latest",
-        "ytdl-core": "latest"
+        "server": "latest",
+        "fs": "latest"
     },
     "dependencies2": {
         "googleapis": "latest",
         "opn": "latest",
-        "server-destroy": "latest"
+        "server-destroy": "latest",
+        "nomnom": "latest",
+        "puppeteer": "latest",
+        "ytdl-core": "latest"
     }
 }
