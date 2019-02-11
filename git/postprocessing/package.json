@@ -22,5 +22,9 @@
         "nomnom": "latest",
         "puppeteer": "latest",
         "ytdl-core": "latest"
+    },
+    "devDependencies": {
+        "webpack": "^4.29.3",
+        "webpack-cli": "^3.2.3"
     }
 }
