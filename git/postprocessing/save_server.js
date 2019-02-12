@@ -1,16 +1,9 @@
 const server = require('server');
-const { get, post } = server.router;
+const { post } = server.router;
 
-// Launch server with options and a couple of routes
 server({ port: 1111, security: { csrf: false } }, [
-  // get('/', ctx => {
-  //   console.log("YO")
-  //   return 'Hello world'
-  // }),
-
   post('/save', ctx => {
-    const mhtml = ctx.files.mhtml
-
+    const html = ctx.body.html
     return 200
   })
 ])

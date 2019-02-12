@@ -1,0 +1,18 @@
+{
+  "name": "Atlas Page Saver",
+  "version": "1.0",
+  "description": "Save your current web page to Atlas.",
+  "background": {
+    "scripts": ["main.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "pageCapture",
+    "activeTab",
+    "http://localhost/*"
+  ],
+  "browser_action": {
+    "default_title": "Save this page to Atlas."
+  },
+  "manifest_version": 2
+}
