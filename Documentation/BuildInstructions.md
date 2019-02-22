@@ -34,6 +34,6 @@ Add AtlasCore and all non-testing libraries as Embedded Binary to AtlasApp
 Assign all lib file (within AtlasApp) to AtlasApp
 Assign main.storyboard in Base.lproj
 In AtlasCore target add a "Copy Bundle Resources" item to "Build Phases" and select "git"
-git checkout AtlasApp.xcodeproj/GeneratedModuleMap
+git checkout Atlas.xcodeproj/GeneratedModuleMap/CHTTPParser/module.modulemap
 ensure all AtlasApp.xcodeproj/GeneratedModuleMap are pointing to the right .build/checkouts
 For testing may need to create copies of .build/checkouts to match version numbers (how to fix this?)
