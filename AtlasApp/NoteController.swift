@@ -69,6 +69,12 @@ class NoteController: NSViewController, NSTextFieldDelegate {
                             self.project!.createFile(file, message: html)
             
                             Terminal.log("\(filePattern.type), \(filename), added to \(self.project!.name!)")
+
+                            NotificationCenter.default.post(
+                                name: NSNotification.Name(rawValue: "file-updated"),
+                                object: nil,
+                                userInfo: ["projectName": self.project!.name!]
+                            )
                         }
                     }
                 }
@@ -83,10 +89,10 @@ class NoteController: NSViewController, NSTextFieldDelegate {
 //
 //        Terminal.log("Note, \(filename), added to \(self.project!.name!)")
 //
-        NotificationCenter.default.post(
-            name: NSNotification.Name(rawValue: "file-updated"),
-            object: nil,
-            userInfo: ["projectName": project!.name!]
-        )
+//        NotificationCenter.default.post(
+//            name: NSNotification.Name(rawValue: "file-updated"),
+//            object: nil,
+//            userInfo: ["projectName": project!.name!]
+//        )
     }
 }
