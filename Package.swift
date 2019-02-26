@@ -11,6 +11,7 @@ let package = Package(
         .package(url: "https://github.com/powderhouse/AtlasCore.git", from: "2.0.0"),
         .package(url: "https://github.com/Quick/Quick.git", from: "1.0.0"),
         .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.0-beta.2"),
         ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -20,7 +21,7 @@ let package = Package(
             dependencies: ["SwiftCLI", "AtlasCore"]),
         .target(
             name: "Atlas",
-            dependencies: ["SwiftCLI", "AtlasCore", "AtlasCommands"]),
+            dependencies: ["SwiftCLI", "AtlasCore", "AtlasCommands", "Alamofire"]),
         .testTarget(
             name: "AtlasTests",
             dependencies: ["AtlasCommands", "SwiftCLI", "AtlasCore", "Quick", "Nimble"]),
