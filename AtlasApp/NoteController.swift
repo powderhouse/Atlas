@@ -62,25 +62,32 @@ class NoteController: NSViewController, NSTextFieldDelegate {
                 for url in urls {
                     fileFound = true
                     Terminal.log("Downloading the \(filePattern.type). This could take a while...")
-                    AF.request("https://88in7uss9l.execute-api.us-east-1.amazonaws.com/staging/save?url=\(url)").responseJSON { response in
-                        
-                        if response.error != nil {
-                            Terminal.log("Failed to add the \(filePattern.type). An error occurred.")
-                        } else if let data = response.data, let html = String(data: data, encoding: .utf8) {
-                            let title = response.response?.httpHeaders["title"] ?? "\(filePattern.type)-\(dateString)"
-                            
-                            let filename = "\(title).html"
-                            let file = self.project!.directory(Project.staged).appendingPathComponent(filename)
-                            self.project!.createFile(file, message: html)
-                            
-                            Terminal.log("\(filePattern.type), \(filename), added to \(self.project!.name!)")
-                            
-                            NotificationCenter.default.post(
-                                name: NSNotification.Name(rawValue: "file-updated"),
-                                object: nil,
-                                userInfo: ["projectName": self.project!.name!]
-                            )
-                        }
+                    
+                    let destination: DownloadRequest.Destination = { tempUrl, response in
+                        let filename = response.suggestedFilename ?? "\(filePattern.type)-\(dateString)"
+                        let file = self.project!.directory(Project.staged).appendingPathComponent(filename)
+                        return (file, [.createIntermediateDirectories, .removePreviousFile])
+                    }
+                    
+                    let postParameters: [String: String] = [
+                        "url" : url,
+                        "username": "jack"
+                    ]
+                    AF.download(
+                        "https://88in7uss9l.execute-api.us-east-1.amazonaws.com/staging/save",
+                        method: .post,
+                        parameters: postParameters,
+                        encoding: URLEncoding.queryString,
+                        to: destination
+                    ).downloadProgress(closure: { (progress) in
+                        let percent = (progress.fractionCompleted * 100).rounded()
+                        Terminal.log("Download Progress: \(percent)%")
+                    }).response { response in
+                        NotificationCenter.default.post(
+                            name: NSNotification.Name(rawValue: "file-updated"),
+                            object: nil,
+                            userInfo: ["projectName": self.project!.name!]
+                        )
                     }
                 }
             }

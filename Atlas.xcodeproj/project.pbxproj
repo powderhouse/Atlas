@@ -5265,6 +5265,11 @@
 						DevelopmentTeam = 4B7L43K59M;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					3AE3A7F522246656005E39F6 = {
 						CreatedOnToolsVersion = 10.1;
